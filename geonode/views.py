@@ -203,3 +203,7 @@ def metadata_update_redirect(request):
     url = request.POST['url']
     client_redirect_url = hookset.metadata_update_redirect(url, request=request)
     return HttpResponse(content=client_redirect_url)
+
+def test_page(request):
+    print("Hello")
+    return HttpResponse("Hello, World!")

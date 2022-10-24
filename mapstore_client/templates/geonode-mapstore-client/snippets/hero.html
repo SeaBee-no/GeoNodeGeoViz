@@ -21,12 +21,18 @@
     <div class="jumbotron">
         <div class="gn-hero-description">
             {% if not custom_theme.jumbotron_welcome_hide %}
-                {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"GeoNode"|template_trans %}
-                <h1>{% trans jumbotron_welcome_title %}</h1>
+                {% with jumbotron_welcome_title=custom_theme.jumbotron_welcome_title|default:"SeaBee Geo-Visualization"|template_trans %}
+                <h4>{% trans jumbotron_welcome_title %}</h4>
                 {% endwith %}
-                {% with jumbotron_welcome_content=custom_theme.jumbotron_welcome_content|default:"sharing geospatial data and maps."|template_trans %}
+                {% with jumbotron_welcome_content=custom_theme.jumbotron_welcome_content|default:"Norwegian Infrastructure for Drone-based Research, Mapping and Monitoring in the Coastal Zone"|template_trans %}
                 <p>{% trans jumbotron_welcome_content %}</p>
                 {% endwith %}
+                <div class="d-lg-flex ">
+
+                    <a  target="_blank" href="https://seabee.no/" class="btn btn-primary">Read More &gt;&gt;</a>
+                    
+                </div>
+
             {% endif %}
         </div>
         <p class="gn-hero-tools">
@@ -84,3 +90,4 @@
     </div>
 </div>
 {% endif %}
+
