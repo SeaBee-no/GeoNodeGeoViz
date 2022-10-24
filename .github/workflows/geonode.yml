@@ -1,0 +1,20 @@
+name: Build GeoNode
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/geonode.yml'
+      - 'geonode/**'
+
+jobs:
+  build-push:
+    name: build & push image
+    uses: ./.github/workflows/build-push.yml
+    with:
+      image_name: seabee-geoviz
+      context: .
+    secrets:
+      workload_identity_provider: ${{secrets.WORKLOAD_IDENTITY_PROVIDER}}
+      workload_identity_sa: ${{secrets.WORKLOAD_IDENTITY_SA}}
