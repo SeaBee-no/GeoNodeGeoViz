@@ -77,7 +77,7 @@ RUN pip install --upgrade  -e .
 
 
 # copy map client data back to internal map client folder
-COPY ./mapstore_client/ /usr/src/django-geonode-mapstore-client/geonode_mapstore_client/
+#COPY ./mapstore_client/ /usr/src/django-geonode-mapstore-client/geonode_mapstore_client/
 
 # Cleanup apt update lists
 RUN rm -rf /var/lib/apt/lists/*
