@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - '.github/workflows/geonode.yml'
+      #- '.github/workflows/geonode.yml'
       - 'geonode/**'
       - 'mapstore_client/**'
 
