@@ -4,11 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      #- '.github/workflows/geonode.yml'
-      - 'geonode/**'
-      - 'mapstore_client/**'
-
 jobs:
   build-push:
     name: build & push image
