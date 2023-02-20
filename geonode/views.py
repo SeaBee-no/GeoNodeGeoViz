@@ -206,4 +206,4 @@ def metadata_update_redirect(request):
 
 def test_page(request):
     print("Hello")
-    return HttpResponse("Hello, World!")
+    return HttpResponse("Hello, World from Norway!")
