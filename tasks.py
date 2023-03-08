@@ -240,6 +240,8 @@ def fixtures(ctx):
 --settings={_localsettings()}", pty=True)
     ctx.run(f"python manage.py loaddata geonode/base/fixtures/initial_data.json \
 --settings={_localsettings()}", pty=True)
+    ctx.run(f"python manage.py load_thesaurus --file rdf/inspire-tema.rdf --name inspire-tema \
+--settings={_localsettings()}", pty=True)
 
 
 @task
