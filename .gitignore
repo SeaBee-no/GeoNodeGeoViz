@@ -1,4 +1,5 @@
 # build artifacts
+.venv/**
 *.pyc
 *.egg-info
 build
