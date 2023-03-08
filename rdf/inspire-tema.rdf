@@ -1,0 +1,576 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:dcterms="http://purl.org/dc/terms/" xmlns:adms="http://www.w3.org/ns/adms#"
+    xmlns:dcat="http://www.w3.org/ns/dcat#"
+    xml:base="https://register.geonorge.no/metadata-kodelister/">
+    <skos:ConceptScheme rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema">
+        <skos:prefLabel xml:lang="no">Inspiretema</skos:prefLabel>
+        <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Inspire tema</dc:title>
+        <dcterms:description xml:lang="no">Liste over 34 temaer for geodata som er definert i
+            Inspire-direktivet.</dcterms:description>
+        <dcterms:source rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+    </skos:ConceptScheme>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Oceanographic geographical features">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Oseanografiske geografiske forhold</skos:prefLabel>
+        <skos:Definition>Fysiske forhold i havene (strøm, saltinnhold, bølgehøyder osv.).</skos:Definition>
+        <dcterms:description xml:lang="no">Fysiske forhold i havene (strøm, saltinnhold, bølgehøyder
+            osv.).</dcterms:description>
+        <dcterms:identifier>Oceanographic geographical features</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Oceanographic geographical features" />
+    </skos:Concept>
+    <skos:Concept rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Land use">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Arealbruk</skos:prefLabel>
+        <skos:Definition>Område beskrevet i henhold til nåværende og framtidig planlagt funksjon
+            eller sosioøkonomiske formål (f.eks. boliger, industri, forretning, landbruk, skogbruk
+            og fritid).</skos:Definition>
+        <dcterms:description xml:lang="no">Område beskrevet i henhold til nåværende og framtidig
+            planlagt funksjon eller sosioøkonomiske formål (f.eks. boliger, industri, forretning,
+            landbruk, skogbruk og fritid).</dcterms:description>
+        <dcterms:identifier>Land use</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Land use" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Population distribution — demography">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Befolkningsfordeling</skos:prefLabel>
+        <skos:Definition>Geografisk fordeling av mennesker, herunder befolkningskarakteristika og
+            sysselsettingsnivå, gruppert etter rutenett, region, administrativ enhet eller andre
+            analyseenheter.</skos:Definition>
+        <dcterms:description xml:lang="no">Geografisk fordeling av mennesker, herunder
+            befolkningskarakteristika og sysselsettingsnivå, gruppert etter rutenett, region,
+            administrativ enhet eller andre analyseenheter.</dcterms:description>
+        <dcterms:identifier>Population distribution — demography</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Population distribution — demography" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Geographical names">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Stedsnavn</skos:prefLabel>
+        <skos:Definition>Navn på områder, regioner, steder, byer, forsteder, tettsteder og annen
+            bebyggelse, eller andre geografiske eller topografiske objekter av offentlig eller
+            historisk interesse.</skos:Definition>
+        <dcterms:description xml:lang="no">Navn på områder, regioner, steder, byer, forsteder,
+            tettsteder og annen bebyggelse, eller andre geografiske eller topografiske objekter av
+            offentlig eller historisk interesse.</dcterms:description>
+        <dcterms:identifier>Geographical names</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Geographical names" />
+    </skos:Concept>
+    <skos:Concept rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Buildings">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Bygninger</skos:prefLabel>
+        <skos:Definition>Geografisk stedfesting av bygninger.</skos:Definition>
+        <dcterms:description xml:lang="no">Geografisk stedfesting av bygninger.</dcterms:description>
+        <dcterms:identifier>Buildings</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Buildings" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Atmospheric conditions">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Atmosfæriske forhold</skos:prefLabel>
+        <skos:Definition>Fysiske forhold i atmosfæren. Omfatter geodata basert på målinger, på
+            modeller eller på en kombinasjon av disse samt målested.</skos:Definition>
+        <dcterms:description xml:lang="no">Fysiske forhold i atmosfæren. Omfatter geodata basert på
+            målinger, på modeller eller på en kombinasjon av disse samt målested.</dcterms:description>
+        <dcterms:identifier>Atmospheric conditions</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Atmospheric conditions" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Geographical grid systems">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Geografiske rutenettsystemer</skos:prefLabel>
+        <skos:Definition>Harmonisert rutenett med flere oppløsninger, et felles utgangspunkt og
+            standardisert plassering og størrelse på rutene.</skos:Definition>
+        <dcterms:description xml:lang="no">Harmonisert rutenett med flere oppløsninger, et felles
+            utgangspunkt og standardisert plassering og størrelse på rutene.</dcterms:description>
+        <dcterms:identifier>Geographical grid systems</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Geographical grid systems" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Utility and governmental services">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Allmennyttige og offentlige tjenester</skos:prefLabel>
+        <skos:Definition>Omfatter anlegg for allmennyttige tjenester som kloakksystemer,
+            avfallshåndtering, energi- og vannforsyning, administrative og sosiale offentlige
+            tjenester som offentlig forvaltning, sivilforsvarsanlegg, skoler og sykehus.</skos:Definition>
+        <dcterms:description xml:lang="no">Omfatter anlegg for allmennyttige tjenester som
+            kloakksystemer, avfallshåndtering, energi- og vannforsyning, administrative og sosiale
+            offentlige tjenester som offentlig forvaltning, sivilforsvarsanlegg, skoler og sykehus.</dcterms:description>
+        <dcterms:identifier>Utility and governmental services</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Utility and governmental services" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Statistical units">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Statistiske enheter</skos:prefLabel>
+        <skos:Definition>Enheter for formidling eller bruk av statistiske opplysninger.</skos:Definition>
+        <dcterms:description xml:lang="no">Enheter for formidling eller bruk av statistiske
+            opplysninger.</dcterms:description>
+        <dcterms:identifier>Statistical units</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Statistical units" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Environmental monitoring facilities">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Anlegg for miljøovervåking</skos:prefLabel>
+        <skos:Definition>Plassering og drift av anlegg for miljøovervåking, herunder observasjon og
+            måling av utslipp, av miljøtilstanden og av andre økosystemparametrer (biologisk
+            mangfold, økologiske vilkår for vegetasjon osv.) som gjennomføres av eller på vegne av
+            offentlige myndigheter.</skos:Definition>
+        <dcterms:description xml:lang="no">Plassering og drift av anlegg for miljøovervåking,
+            herunder observasjon og måling av utslipp, av miljøtilstanden og av andre
+            økosystemparametrer (biologisk mangfold, økologiske vilkår for vegetasjon osv.) som
+            gjennomføres av eller på vegne av offentlige myndigheter.</dcterms:description>
+        <dcterms:identifier>Environmental monitoring facilities</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Environmental monitoring facilities" />
+    </skos:Concept>
+    <skos:Concept rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Elevation">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Høyde</skos:prefLabel>
+        <skos:Definition>Digitale høydemodeller for land-, is- og havoverflate. Omfatter
+            høydeforhold på land, batymetri og kystlinje.</skos:Definition>
+        <dcterms:description xml:lang="no">Digitale høydemodeller for land-, is- og havoverflate.
+            Omfatter høydeforhold på land, batymetri og kystlinje.</dcterms:description>
+        <dcterms:identifier>Elevation</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Elevation" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Agricultural and aquaculture facilities">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Anlegg for landbruk og akvakultur</skos:prefLabel>
+        <skos:Definition>Landbruksutstyr og produksjonsanlegg (herunder vanningssystemer, drivhus og
+            staller).</skos:Definition>
+        <dcterms:description xml:lang="no">Landbruksutstyr og produksjonsanlegg (herunder
+            vanningssystemer, drivhus og staller).</dcterms:description>
+        <dcterms:identifier>Agricultural and aquaculture facilities</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Agricultural and aquaculture facilities" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Meteorological geographical features">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Meteorologiske geografiske forhold</skos:prefLabel>
+        <skos:Definition>Værforhold og målinger av dette, nedbør, temperatur, evapotranspirasjon,
+            vindhastighet og -retning. </skos:Definition>
+        <dcterms:description xml:lang="no">Værforhold og målinger av dette, nedbør, temperatur,
+            evapotranspirasjon, vindhastighet og -retning. </dcterms:description>
+        <dcterms:identifier>Meteorological geographical features</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Meteorological geographical features" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Protected sites">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Vernede områder</skos:prefLabel>
+        <skos:Definition>Områder utpekt eller forvaltet innenfor rammen av internasjonal lovgivning,
+            Fellesskapets regelverk og medlemsstatenes lovgivning, for særlige bevaringsformål.</skos:Definition>
+        <dcterms:description xml:lang="no">Områder utpekt eller forvaltet innenfor rammen av
+            internasjonal lovgivning, Fellesskapets regelverk og medlemsstatenes lovgivning, for
+            særlige bevaringsformål.</dcterms:description>
+        <dcterms:identifier>Protected sites</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Protected sites" />
+    </skos:Concept>
+    <skos:Concept rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Addresses">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Adresser</skos:prefLabel>
+        <skos:Definition>Stedfesting av eiendommer på grunnlag av adresseidentifikatorer, vanligvis
+            veinavn, husnummer og postnummer.</skos:Definition>
+        <dcterms:description xml:lang="no">Stedfesting av eiendommer på grunnlag av
+            adresseidentifikatorer, vanligvis veinavn, husnummer og postnummer.</dcterms:description>
+        <dcterms:identifier>Addresses</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Addresses" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Transport networks">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Transportnett</skos:prefLabel>
+        <skos:Definition>Vei-, jernbane-, luft- og sjøtransportnett samt tilhørende infrastruktur.
+            Omfatter forbindelser mellom ulike nett. Omfatter også det transeuropeiske transportnett
+            som definert i europaparlaments- og rådsvedtak nr. 1692/96/EF av 23. juli 1996 om
+            fellesskapsretningslinjer for utviklingen av et transeuropeisk transportnett( ) samt
+            framtidige revisjoner av nevnte vedtak.</skos:Definition>
+        <dcterms:description xml:lang="no">Vei-, jernbane-, luft- og sjøtransportnett samt
+            tilhørende infrastruktur. Omfatter forbindelser mellom ulike nett. Omfatter også det
+            transeuropeiske transportnett som definert i europaparlaments- og rådsvedtak nr.
+            1692/96/EF av 23. juli 1996 om fellesskapsretningslinjer for utviklingen av et
+            transeuropeisk transportnett( ) samt framtidige revisjoner av nevnte vedtak.</dcterms:description>
+        <dcterms:identifier>Transport networks</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Transport networks" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Coordinate reference systems">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Koordinatbasert referansesystem</skos:prefLabel>
+        <skos:Definition>Systemer for entydig stedfesting av geografisk informasjon som et sett av
+            koordinater (x, y, z) og/eller lengde og bredde og høyde, basert på et geodetisk
+            horisontalt og vertikalt datum.</skos:Definition>
+        <dcterms:description xml:lang="no">Systemer for entydig stedfesting av geografisk
+            informasjon som et sett av koordinater (x, y, z) og/eller lengde og bredde og høyde,
+            basert på et geodetisk horisontalt og vertikalt datum.</dcterms:description>
+        <dcterms:identifier>Coordinate reference systems</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Coordinate reference systems" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Cadastral parcels">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Eiendomsteiger</skos:prefLabel>
+        <skos:Definition>Områder definert i eiendomsregistre eller tilsvarende.</skos:Definition>
+        <dcterms:description xml:lang="no">Områder definert i eiendomsregistre eller tilsvarende.</dcterms:description>
+        <dcterms:identifier>Cadastral parcels</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Cadastral parcels" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Administrative units">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Administrative enheter</skos:prefLabel>
+        <skos:Definition>Lokale, regionale og nasjonale forvaltningsenheter som deler opp områder
+            der medlemsstater har og/eller utøver jurisdiksjon, skilt fra hverandre ved
+            administrative grenser.</skos:Definition>
+        <dcterms:description xml:lang="no">Lokale, regionale og nasjonale forvaltningsenheter som
+            deler opp områder der medlemsstater har og/eller utøver jurisdiksjon, skilt fra
+            hverandre ved administrative grenser.</dcterms:description>
+        <dcterms:identifier>Administrative units</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Administrative units" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Area management/restriction/regulation zones and reporting units">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Rapporteringsenheter og områder med særlig forvaltning eller
+            restriksjoner</skos:prefLabel>
+        <skos:Definition>Områder som forvaltes, reguleres eller benyttes for rapportering på
+            internasjonalt, europeisk, nasjonalt, regionalt og lokalt plan. Omfatter fyllplasser,
+            områder med restriksjoner rundt drikkevannskilder, nitratfølsomme områder, regulerte
+            leder til sjøs eller på større innlands vannveier, områder for avfallsdumping, områder
+            med støyrestriksjoner, områder med tillatelse til prospektering og gruvedrift,
+            nedbørfeltdistrikter, relevante rapporteringsenheter og områder med kystsoneforvaltning.</skos:Definition>
+        <dcterms:description xml:lang="no">Områder som forvaltes, reguleres eller benyttes for
+            rapportering på internasjonalt, europeisk, nasjonalt, regionalt og lokalt plan. Omfatter
+            fyllplasser, områder med restriksjoner rundt drikkevannskilder, nitratfølsomme områder,
+            regulerte leder til sjøs eller på større innlands vannveier, områder for avfallsdumping,
+            områder med støyrestriksjoner, områder med tillatelse til prospektering og gruvedrift,
+            nedbørfeltdistrikter, relevante rapporteringsenheter og områder med kystsoneforvaltning.</dcterms:description>
+        <dcterms:identifier>Area management/restriction/regulation zones and reporting units</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Area management/restriction/regulation zones and reporting units" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Hydrography">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Hydrografi</skos:prefLabel>
+        <skos:Definition>Hydrografiske elementer, herunder havområder og alle andre vannforekomster
+            og elementer knyttet til disse, herunder nedbørfelter og delnedbørfelter. Der det er
+            hensiktsmessig i henhold til definisjonene i europaparlaments- og rådsdirektiv
+            2000/60/EF av 23. oktober 2000 om fastsettelse av en ramme for fellesskapstiltak på
+            området vannpolitikk([1]) og i form av nett.</skos:Definition>
+        <dcterms:description xml:lang="no">Hydrografiske elementer, herunder havområder og alle
+            andre vannforekomster og elementer knyttet til disse, herunder nedbørfelter og
+            delnedbørfelter. Der det er hensiktsmessig i henhold til definisjonene i
+            europaparlaments- og rådsdirektiv 2000/60/EF av 23. oktober 2000 om fastsettelse av en
+            ramme for fellesskapstiltak på området vannpolitikk([1]) og i form av nett.</dcterms:description>
+        <dcterms:identifier>Hydrography</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Hydrography" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Sea regions">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Havområder</skos:prefLabel>
+        <skos:Definition>Fysiske forhold i hav og saltholdige sjøer, inndelt i regioner og
+            underregioner med felles kjennetegn.</skos:Definition>
+        <dcterms:description xml:lang="no">Fysiske forhold i hav og saltholdige sjøer, inndelt i
+            regioner og underregioner med felles kjennetegn.</dcterms:description>
+        <dcterms:identifier>Sea regions</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Sea regions" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Natural risk zones">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Områder med naturbetingede farer</skos:prefLabel>
+        <skos:Definition>Sårbare områder beskrevet i henhold til naturbetingede farer (alle
+            atmosfæriske, hydrologiske, seismiske og vulkanske fenomener samt branner som på grunn
+            av stedet der de forekommer, omfang og hyppighet kan få alvorlige følger for samfunnet)
+            f.eks. flom, jordras og setninger, snøskred, skogbranner, jordskjelv, vulkanutbrudd.</skos:Definition>
+        <dcterms:description xml:lang="no">Sårbare områder beskrevet i henhold til naturbetingede
+            farer (alle atmosfæriske, hydrologiske, seismiske og vulkanske fenomener samt branner
+            som på grunn av stedet der de forekommer, omfang og hyppighet kan få alvorlige følger
+            for samfunnet) f.eks. flom, jordras og setninger, snøskred, skogbranner, jordskjelv,
+            vulkanutbrudd.</dcterms:description>
+        <dcterms:identifier>Natural risk zones</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Natural risk zones" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Land cover">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Arealdekke</skos:prefLabel>
+        <skos:Definition>Jordens fysiske og biologiske overflate, herunder kunstige overflater,
+            landbruksarealer, skoger, (delvis) naturlige områder, våtmarksområder, vannmasser.</skos:Definition>
+        <dcterms:description xml:lang="no">Jordens fysiske og biologiske overflate, herunder
+            kunstige overflater, landbruksarealer, skoger, (delvis) naturlige områder,
+            våtmarksområder, vannmasser.</dcterms:description>
+        <dcterms:identifier>Land cover</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Land cover" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Bio-geographical regions">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Biogeografiske områder</skos:prefLabel>
+        <skos:Definition>Områder med relativt homogene økologiske forhold med felles kjennetegn.</skos:Definition>
+        <dcterms:description xml:lang="no">Områder med relativt homogene økologiske forhold med
+            felles kjennetegn.</dcterms:description>
+        <dcterms:identifier>Bio-geographical regions</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Bio-geographical regions" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Mineral resources">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Mineralressurser</skos:prefLabel>
+        <skos:Definition>Mineralressurser, herunder malm, industrimineraler osv., dersom det er
+            relevant med dybde?/høydeopplysninger om utbredelsen av ressursen.</skos:Definition>
+        <dcterms:description xml:lang="no">Mineralressurser, herunder malm, industrimineraler osv.,
+            dersom det er relevant med dybde?/høydeopplysninger om utbredelsen av ressursen.</dcterms:description>
+        <dcterms:identifier>Mineral resources</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Mineral resources" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Production and industrial facilities">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Produksjons- og industrianlegg</skos:prefLabel>
+        <skos:Definition>Anlegg for industriproduksjon, herunder installasjoner som omfattes av
+            rådsdirektiv 96/61/EF av 24. september 1996 om integrert forebygging og begrensning av
+            forurensning([1]) og vannutvinningsanlegg, gruver, opplagsplasser.</skos:Definition>
+        <dcterms:description xml:lang="no">Anlegg for industriproduksjon, herunder installasjoner
+            som omfattes av rådsdirektiv 96/61/EF av 24. september 1996 om integrert forebygging og
+            begrensning av forurensning([1]) og vannutvinningsanlegg, gruver, opplagsplasser.</dcterms:description>
+        <dcterms:identifier>Production and industrial facilities</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Production and industrial facilities" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Species distribution">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Artsfordeling</skos:prefLabel>
+        <skos:Definition>Geografisk fordeling av forekomster av dyre- og plantearter, gruppert etter
+            rutenett, region, administrativ enhet eller andre analyseenheter.</skos:Definition>
+        <dcterms:description xml:lang="no">Geografisk fordeling av forekomster av dyre- og
+            plantearter, gruppert etter rutenett, region, administrativ enhet eller andre
+            analyseenheter.</dcterms:description>
+        <dcterms:identifier>Species distribution</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Species distribution" />
+    </skos:Concept>
+    <skos:Concept rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Soil">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Jordarter</skos:prefLabel>
+        <skos:Definition>Jordsmonn og underliggende jordarter beskrevet i henhold til dybde,
+            tekstur, struktur og innhold av partikler og organisk materiale, steininnhold, erosjon,
+            eventuelt gjennomsnittlig helning og forventet vannlagringskapasitet.</skos:Definition>
+        <dcterms:description xml:lang="no">Jordsmonn og underliggende jordarter beskrevet i henhold
+            til dybde, tekstur, struktur og innhold av partikler og organisk materiale,
+            steininnhold, erosjon, eventuelt gjennomsnittlig helning og forventet
+            vannlagringskapasitet.</dcterms:description>
+        <dcterms:identifier>Soil</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Soil" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Energy resources">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Energiressurser</skos:prefLabel>
+        <skos:Definition>Energiressurser, herunder hydrokarboner, vannkraft, bioenergi, sol, vind
+            osv., dersom det er relevant med dybde?/høydeopplysninger om utbredelsen av ressursen.</skos:Definition>
+        <dcterms:description xml:lang="no">Energiressurser, herunder hydrokarboner, vannkraft,
+            bioenergi, sol, vind osv., dersom det er relevant med dybde?/høydeopplysninger om
+            utbredelsen av ressursen.</dcterms:description>
+        <dcterms:identifier>Energy resources</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Energy resources" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Human health and safety">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Menneskers helse og sikkerhet</skos:prefLabel>
+        <skos:Definition>Geografisk fordeling av dominans av sykdommer (allergier, kreft, sykdom i
+            åndedrettsorganene osv.), opplysninger om virkninger på menneskers helse (biologiske
+            markører, nedsatt fruktbarhet, epidemier) eller velvære (trøtthet, stress osv.) som er
+            direkte (luftforurensning, kjemikalier, nedbryting av ozonlaget, støy osv.) eller
+            indirekte (næringsmidler, genmodifiserte organismer osv.) knyttet til kvaliteten på
+            miljøet.</skos:Definition>
+        <dcterms:description xml:lang="no">Geografisk fordeling av dominans av sykdommer (allergier,
+            kreft, sykdom i åndedrettsorganene osv.), opplysninger om virkninger på menneskers helse
+            (biologiske markører, nedsatt fruktbarhet, epidemier) eller velvære (trøtthet, stress
+            osv.) som er direkte (luftforurensning, kjemikalier, nedbryting av ozonlaget, støy osv.)
+            eller indirekte (næringsmidler, genmodifiserte organismer osv.) knyttet til kvaliteten
+            på miljøet.</dcterms:description>
+        <dcterms:identifier>Human health and safety</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Human health and safety" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Orthoimagery">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Ortofoto</skos:prefLabel>
+        <skos:Definition>Georefererte bildedata av jordens overflate fra satellitt eller flybårne
+            sensorer.</skos:Definition>
+        <dcterms:description xml:lang="no">Georefererte bildedata av jordens overflate fra satellitt
+            eller flybårne sensorer.</dcterms:description>
+        <dcterms:identifier>Orthoimagery</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Orthoimagery" />
+    </skos:Concept>
+    <skos:Concept rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Geology">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Geologi</skos:prefLabel>
+        <skos:Definition>Geologi beskrevet ut fra sammensetning og struktur. Omfatter berggrunn,
+            vannførende sjikt og geomorfologi.</skos:Definition>
+        <dcterms:description xml:lang="no">Geologi beskrevet ut fra sammensetning og struktur.
+            Omfatter berggrunn, vannførende sjikt og geomorfologi.</dcterms:description>
+        <dcterms:identifier>Geology</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Geology" />
+    </skos:Concept>
+    <skos:Concept
+        rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema/Habitats and biotopes">
+        <skos:inScheme rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:topConceptOf
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
+        <skos:prefLabel xml:lang="no">Habitater og biotoper</skos:prefLabel>
+        <skos:Definition>Geografiske områder som kjennetegnes ved særlige økologiske forhold,
+            prosesser, strukturer og (livsnødvendige) funksjoner som er det fysiske grunnlaget for
+            de organismene som lever der. Omfatter områder på land og i vann som kjennetegnes ved
+            geografiske, abiotiske og biotiske særtrekk, uansett om de er helt eller delvis
+            naturlige.</skos:Definition>
+        <dcterms:description xml:lang="no">Geografiske områder som kjennetegnes ved særlige
+            økologiske forhold, prosesser, strukturer og (livsnødvendige) funksjoner som er det
+            fysiske grunnlaget for de organismene som lever der. Omfatter områder på land og i vann
+            som kjennetegnes ved geografiske, abiotiske og biotiske særtrekk, uansett om de er helt
+            eller delvis naturlige.</dcterms:description>
+        <dcterms:identifier>Habitats and biotopes</dcterms:identifier>
+        <adms:status>Gyldig</adms:status>
+        <dcterms:source
+            rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema/Habitats and biotopes" />
+    </skos:Concept>
+</rdf:RDF>
