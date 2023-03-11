@@ -6,7 +6,7 @@
     xml:base="https://register.geonorge.no/metadata-kodelister/">
     <skos:ConceptScheme rdf:about="https://register.geonorge.no/metadata-kodelister/inspiretema">
         <skos:prefLabel xml:lang="no">Inspiretema</skos:prefLabel>
-        <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Inspire tema</dc:title>
+        <dc:title xmlns:dc="http://purl.org/dc/elements/1.1/">Nasjonal tematisk inndeling (DOK-kategori)</dc:title>
         <dcterms:description xml:lang="no">Liste over 34 temaer for geodata som er definert i
             Inspire-direktivet.</dcterms:description>
         <dcterms:source rdf:resource="https://register.geonorge.no/metadata-kodelister/inspiretema" />
