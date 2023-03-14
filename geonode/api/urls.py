@@ -24,10 +24,11 @@ from drf_spectacular.views import (
     SpectacularSwaggerView
 )
 
-from django.urls import path
+from django.urls import path, include
 
 from . import api as resources
 from . import resourcebase_api as resourcebase_resources
+from . seabee.metadata import Metadata
 
 api = Api(api_name='api')
 
@@ -47,6 +48,7 @@ api.register(resourcebase_resources.LayerResource())
 api.register(resourcebase_resources.MapResource())
 api.register(resourcebase_resources.GeoAppResource())
 api.register(resourcebase_resources.ResourceBaseResource())
+api.register(resourcebase_resources.ResourceBaseResource())
 
 router = routers.DynamicRouter()
 
@@ -54,4 +56,5 @@ urlpatterns = [
     path('schema/', SpectacularAPIView.as_view(), name='schema'),
     path('schema/swagger-ui/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('schema/redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
+    path('seabee/', include('geonode.api.seabee.urls')),
 ]
