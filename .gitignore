@@ -1,4 +1,5 @@
 # build artifacts
+mapstore_client
 .venv/**
 *.pyc
 *.egg-info
