@@ -1,0 +1,467 @@
+{% extends "ddc/base_template/footer.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load leaflet_tags %}
+{% block page_css %}
+<!--Refrence from http://techlaboratory.net/jquery-smartwizard-->
+
+
+{% leaflet_css plugins="ALL" %}
+
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-file-upload/4.0.11/uploadfile.min.css" integrity="sha512-MudWpfaBG6v3qaF+T8kMjKJ1Qg8ZMzoPsT5yWujVfvIgYo2xgT1CvZq+r3Ks2kiUKcpo6/EUMyIUhb3ay9lG7A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+<link href="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet"
+      type="text/css"/>
+
+
+<style>
+
+  .pushTheBottom {
+  position: absolute;
+  bottom: 0;
+  left:0;
+
+}
+
+
+.edit-icon {
+    position: absolute;
+    right: 25px;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    /*color: gray;*/
+}
+
+.edit-icon-for-calander {
+    position: absolute;
+    right: 50px;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+     /*color: gray;*/
+}
+
+
+.edit-icon-for-radio {
+    position: absolute;
+    right: 50px;
+    top: 40%;
+    transform: translateY(-50%);
+    cursor: pointer;
+     /*color: gray;*/
+     z-index: 99;
+}
+
+
+
+
+
+
+
+#div_id_sensor_info_dates_last_calibration .input-group-text, #div_id_sensor_info_dates_last_maintenance  .input-group-text {
+
+background-color:transparent;
+border: 0px solid #495057;
+border-radius: 0px;
+} 
+
+
+
+
+.UploadIcone{
+    position: absolute;
+    right: -30px;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    /*color: gray;*/
+}
+
+.DownloadIcone{
+    position: absolute;
+    right: -70px;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    /*color: gray;*/
+}
+
+
+.TrashIcone{
+    position: absolute;
+    right: -100px;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    /*color: gray;*/
+}
+
+
+
+.GeonodeIcone{
+    position: absolute;
+    right: -140px;
+    top: 60%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    /*color: gray;*/
+}
+
+
+.DownloadIcone:hover, .TrashIcone:hover, .UploadIcone:hover, .GeonodeIcone:hover {
+
+    transform: scale(1.2); 
+}
+
+
+
+
+</style>
+
+
+<link href="{% static 'ddc/dmc/css/ddctoolEntryForm.css' %}" rel="stylesheet">
+
+
+
+{% endblock %}
+
+
+{% block mainbody %}
+
+
+<div class="row">
+    <div class="col-md-9 mx-auto ">
+        <h3 class="text center text-center" data-html2canvas-ignore>Seabee Drone Data Upload Module </h3>
+
+
+        <div class="" id="smartwizard">
+            <ul class="nav">
+                <li>
+                    <a class="nav-link" href="#step-1">
+                        <h5>Select Project</h5>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="nav-link" href="#step-2">
+                        <h5>Mission Info</h5>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="nav-link" href="#step-3">
+                        <h5>Instrument Info</h5>
+                    </a>
+                </li>
+
+
+                <li>
+                    <a class="nav-link" href="#step-4">
+                        <h5>Enviromental</h5>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="nav-link" href="#step-5">
+                        <h5>Data Upload</h5>
+                    </a>
+                </li>
+
+                <li>
+                    <a class="nav-link" href="#step-6">
+                        <h5>Data Summary</h5>
+                    </a>
+                </li>
+
+            </ul>
+      
+
+            <form class="" enctype="multipart/form-data" id="containerForm" method="POST">
+
+
+                {% csrf_token %}
+                <div class="tab-content alert" id="tab_content_Main">
+
+
+                    <div class="tab-pane alert alert-primary" id="step-1" role="tabpanel">
+                       
+                        <div class="form-row">
+                    <div class="form-group col-md-6 mb-0">
+             
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.mision_name_list | as_crispy_field }}
+                            </div>
+
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.drone_type | as_crispy_field }}
+                                <i class="fas fa-edit  text-secondary edit-icon-for-radio"></i>
+                            </div>
+
+                            <div class="form-group col-md-12 mb-0">
+                                {{ form.project_location_name | as_crispy_field }}
+                            </div>
+                 
+
+                        </div>
+                   
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.project_location_coordinates | as_crispy_field }}
+                        </div>
+                        </div>
+                     
+                    </div>
+
+
+                    <div class="tab-pane alert alert-primary" id="step-2" role="tabpanel">
+                        <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.mision_name | as_crispy_field   }}
+                        </div>
+                        <div class="form-group col-md-3 mb-0">
+                            {{ form.flight_duration | as_crispy_field   }}
+                        </div>
+           
+                        <div class="form-group col-md-3 mb-0">
+                            {{ form.image_overlap | as_crispy_field   }}
+                            <i class="fas fa-edit edit-icon text-secondary"></i>
+                        </div>
+                        
+
+                    </div>
+                        <div class="form-row">
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.flight_datetime | as_crispy_field   }}
+                        </div>
+                        
+                        <div class="form-group col-md-6 mb-0">
+                            {{ form.flight_altitude | as_crispy_field   }}
+                        </div>
+                        </div>
+                        <div class="form-row">
+                        <div class="form-group col-md-12 mb-0">
+                            {{ form.project_area_coordinates | as_crispy_field   }}
+                        </div>
+                    </div>
+                    </div>
+                    
+                    <div class="tab-pane alert alert-primary" id="step-3" role="tabpanel">
+                        <div class="form-row">
+                           
+                            <div class="form-group col-md-6 mb-0">
+                                <h5>Drone Info</h5>
+                            <ul class="list-group list-group-flush" id="droneInfoList">
+                                
+                              </ul>
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                               
+                               
+                                <h5>Sensor Info</h5>
+                                <ul class="list-group list-group-flush" id="sensorInfoList">
+                              </ul>
+                                                     
+                                </div>
+                        </div>
+                        <hr class="p-0 m-0" />
+                        <h5 class="pt-2">Sensor Date</h5>
+                        <div class="form-row">
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.sensor_info_dates_last_calibration | as_crispy_field   }}
+                                <i class="fas fa-edit edit-icon-for-calander text-secondary"></i>
+                            </div>
+
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.sensor_info_dates_last_maintenance | as_crispy_field   }}
+                                <i class="fas fa-edit edit-icon-for-calander text-secondary"></i>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    
+                    <div class="tab-pane alert alert-primary " id="step-4" role="tabpanel">
+                        <h5>Weather Info</h5>
+                        <div class="form-row pt-3">
+                           
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.cloud_cover | as_crispy_field   }}
+                            </div>
+
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.humidity | as_crispy_field   }}
+                            </div>
+
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.air_temperature | as_crispy_field   }}
+                            </div>
+
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.wind_speed | as_crispy_field   }}
+                            </div>
+
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.wind_direction | as_crispy_field   }}
+                            </div>
+
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.sun_time | as_crispy_field   }}
+                            </div>
+
+                        </div>
+                        <h5 class="pt-3">Enviromental Info</h5>
+                        <div class="form-row pt-3">
+                           
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.secchi_depth | as_crispy_field   }}
+                                <i class="fas fa-edit edit-icon text-secondary"></i>
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.turbidity | as_crispy_field   }}
+                                <i class="fas fa-edit edit-icon text-secondary"></i>
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.salinity | as_crispy_field   }}
+                                <i class="fas fa-edit edit-icon text-secondary"></i>
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.water_temperature | as_crispy_field   }}
+                                <i class="fas fa-edit edit-icon text-secondary"></i>
+                            </div>
+                            <div class="form-group col-md-6 mb-0">
+                                {{ form.cdom | as_crispy_field   }}
+                                <i class="fas fa-edit edit-icon text-secondary"></i>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="tab-pane alert alert-primary" id="step-5" role="tabpanel">
+
+                       
+                        <div class="form-row">
+                            
+                         
+
+                            <div class="form-group col-md-8 mb-0">
+                                {{ form.mosaiced_image | as_crispy_field   }}
+                                <span>
+                                    <i class="fa fa-cloud-upload fa-xl UploadIcone text-info"></i>
+                                    <i class="fa fa-cloud-download fa-xl DownloadIcone text-success" data-url="" ></i>
+                                    <i class="fa fa-trash fa-xl TrashIcone text-danger" model_field=""></i>
+                                    <i class="fa fa-map  fa-xl GeonodeIcone text-info"></i>
+                                </span>
+                           
+                            </div>
+
+
+                            <div class="form-group col-md-8 mb-0">
+                                {{ form.row_image | as_crispy_field   }}
+                                <span>
+                                    <i class="fa fa-cloud-upload fa-xl UploadIcone text-info"></i>
+                                    <i class="fa fa-cloud-download fa-xl DownloadIcone text-success" data-url="" ></i>
+                                    <i class="fa fa-trash fa-xl TrashIcone text-danger" model_field=""></i>
+                                </span>
+                            </div>
+
+
+                            <div class="form-group col-md-8 mb-0">
+                                {{ form.ground_control_point | as_crispy_field   }}
+                            <span>
+                                <i class="fa fa-cloud-upload fa-xl UploadIcone text-info"></i>
+                                <i class="fa fa-cloud-download fa-xl DownloadIcone text-success" data-url=""  ></i>
+                                <i class="fa fa-trash fa-xl TrashIcone text-danger" model_field=""></i>
+                            </span>
+                              
+                            </div>
+
+
+                            <div class="form-group col-md-8 mb-0">
+                                {{ form.ground_truth_point | as_crispy_field   }}
+                                <span>
+                                    <i class="fa fa-cloud-upload fa-xl UploadIcone text-info"></i>
+                                    <i class="fa fa-cloud-download fa-xl DownloadIcone text-success" data-url=""></i>
+                                    <i class="fa fa-trash fa-xl TrashIcone text-danger" model_field=""></i>
+                                </span>
+                            </div>
+
+
+
+                            <div class="form-group col-md-8 mb-0">
+                                {{ form.dronePath | as_crispy_field   }}
+                                <span>
+                                    <i class="fa fa-cloud-upload fa-xl UploadIcone text-info"></i>
+                                    <i class="fa fa-cloud-download fa-xl DownloadIcone text-success" data-url="" ></i>
+                                    <i class="fa fa-trash fa-xl TrashIcone text-danger" model_field=""></i>
+                                </span>
+                            </div>
+
+                            <div class="form-group col-md-8 mb-0">
+                                {{ form.other | as_crispy_field   }}
+                                <span>
+                                    <i class="fa fa-cloud-upload fa-xl UploadIcone text-info"></i>
+                                    <i class="fa fa-cloud-download fa-xl DownloadIcone text-success" data-url="" ></i>
+                                    <i class="fa fa-trash fa-xl TrashIcone text-danger" model_field=""></i>
+                                </span>
+                            </div>
+
+
+
+                            <div class="form-group col-md-12 mb-0 mx-auto text-center pt-5">
+                               
+                                <div class="progress m-5">
+                                    <div class="progress-bar progress-bar-striped bg-success progress-bar-animated" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                
+                                </div>
+
+                                  <button id="id_upload_data" type="button" class="btn btn-success rounded-pill"> Upload</button>
+
+                            </div>
+               
+
+                     
+                        </div>
+
+
+
+                    </div>
+
+                    <div class="tab-pane alert alert-primary" id="step-6" role="tabpanel">
+
+                        
+                    </div>
+
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}
+
+{% block page_js %}
+<script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" type="text/javascript"></script>
+{% leaflet_js plugins="ALL" %}
+
+
+<script src="https://cdn.jsdelivr.net/npm/smartwizard@5/dist/js/jquery.smartWizard.min.js"
+        type="text/javascript"></script>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-file-upload/4.0.11/jquery.uploadfile.min.js" integrity="sha512-uwNlWrX8+f31dKuSezJIHdwlROJWNkP6URRf+FSWkxSgrGRuiAreWzJLA2IpyRH9lN2H67IP5H4CxBcAshYGNw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<script src="{% static 'ddc/dmc/js/ddcEntryForm.js' %}"></script>
+
+
+
+{% endblock %}

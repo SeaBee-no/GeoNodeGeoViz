@@ -1,0 +1,30 @@
+/* zoom effect */
+.zoom {
+
+    transition: transform .6s; /* Animation */
+}
+
+.zoom:hover {
+    transform: scale(1.105); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+
+}
+
+
+.gradientTeam{
+background:linear-gradient(to bottom, #575757 0%, #FFFFFF 100%);
+height:350px;
+
+}
+
+
+.profileCard{
+
+width:270px;
+background: transparent;
+border: 0;
+
+}
+
+
+
+/* zoom effect end*/

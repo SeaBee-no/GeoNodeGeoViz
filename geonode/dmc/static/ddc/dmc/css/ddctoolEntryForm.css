@@ -1,0 +1,139 @@
+body
+{
+    background-color: #424242;
+
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0rem rgba(0, 123, 255, .25)
+}
+
+.btn-secondary:focus {
+    box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+}
+
+.close:focus {
+    box-shadow: 0 0 0 0rem rgba(108, 117, 125, .5)
+}
+
+.mt-200 {
+    margin-top: 200px
+}
+
+
+
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: 13px;
+    font-weight: 600;
+    color:#295C6F;
+}
+
+.form-control , textarea {
+    color: #295C6F;
+    padding: 1px;
+    font-size: 14px;
+}
+
+option{
+color: #295C6F;
+}
+
+
+
+
+
+
+.form_label{
+font-size: 18px;
+font-weight: 900;
+}
+
+
+
+.daterangepicker {
+
+color: #295C6F;
+
+}
+
+
+    .leaflet-container {  /* all maps */
+        width:  100%;
+        height: 600px;
+    }
+
+    #specialbigmap {
+        height: 800px;
+    }
+
+    /* Resize the "display_raw" textbox */
+    .django-leaflet-raw-textarea {
+        width: 100%;
+    }
+    .form-check{
+    padding-top:20px;
+    }
+
+    .form-check > label
+    {
+            color: #295C6F;
+    font-weight: normal;
+    font-size: 14px
+    }
+
+    label{
+    font-size:15px;
+    }
+
+
+
+
+.sw-theme-dots>.nav .nav-link.active::after {
+    background-color: #5bc0de!important;
+    animation: 0.75s linear infinite spinner-grow;
+    animation-delay: 0s;
+    animation-direction: alternate;
+}
+
+.blinking {
+    animation: blink 1s ease-in infinite;
+    z-index:999;
+  }
+
+@keyframes blink {
+  from, to { opacity: 1 }
+  50% { opacity: 0 }
+}
+
+
+
+/* psudo classs for save btn*/
+.btn_saveData_extraClass{
+
+}
+
+.form-check-label{
+cursor: pointer;
+}
+
+
+#id_mision_name_list > option{
+
+    font-size: 14px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/* adjust size and posotion */
+#smartwizard{
+
+    z-index: 999;
+    width: 100%;
+    height:900px;
+}

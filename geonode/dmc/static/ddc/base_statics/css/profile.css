@@ -1,0 +1,17 @@
+label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: 13px;
+    font-weight: 600;
+    color:#295C6F;
+}
+
+.form-control , textarea {
+    color: #295C6F;
+    padding: 1px;
+    font-size: 14px;
+}
+
+option{
+color: #295C6F;
+}

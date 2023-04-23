@@ -1,0 +1,75 @@
+{% extends "ddc/base_template/footer.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block page_css %}
+<!--Refrence from http://techlaboratory.net/jquery-smartwizard-->
+<link href="{% static 'ddc/dmc/css/ddcEntryFormList.css' %}" rel="stylesheet">
+{% endblock %}
+
+
+{% block mainbody %}
+<div class="row">
+    <div class="col-md-9 mx-auto tab-pane alert alert-primary">
+        <h3 class="text center text-center">List of all Metadata</h3>
+
+
+<p class="float-right">
+        <a class="btn btn-info" href="{% url 'ddc' %}"><i class="fas fa-plus-circle"></i> Add MetaData </a>
+    </p>
+         <table  class="table table-striped table-bordered table-hover mt-3">
+
+
+      <thead>
+            <tr class="bg-info text-white">
+                 <th>No.</th>
+                <th >Title</th>
+                <th>Edit</th>
+         
+            </tr>
+        </thead>
+  <tbody>
+    {% for obj in objList %}
+
+
+            <tr>
+
+                 <td class=""><strong>{{ forloop.counter }}</strong></td>
+
+
+                <td class=""><a class="text-primary" href="{% url 'ddc' %}?guid={{ obj.flight_mission_guid }}"><b>{{ obj.flight_mission_name }}</b></a></td>
+
+
+                <td> <a class="text-info" href="{% url 'ddc' %}?guid={{ obj.flight_mission_guid }}"><i class="fas fa-edit"></i></a></td>
+  
+
+            
+
+            </tr>
+
+
+    {% empty %}
+    <div class="alert alert-warning">
+        <strong>Warning!</strong> No DMC data registered yet!
+    </div>
+    {% endfor %}
+
+     </tbody>
+        </table>
+<p class="float-right">
+        <a class="btn btn-info" href="{% url 'ddc' %}"><i class="fas fa-plus-circle"></i> Add MetaData </a>
+    </p>
+
+
+
+    </div>
+
+</div>
+{% endblock %}
+
+{% block page_js %}
+<script src="{% static 'ddc/dmc/js/ddcEntryFormList.js' %}"></script>
+{% endblock %}
+
+
+

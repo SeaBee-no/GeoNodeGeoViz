@@ -1,0 +1,19 @@
+body
+{
+    background-color: #424242;
+     position: relative; /* required */
+
+}
+
+.tree-comp{
+    position: sticky; /* Supported in latest version of Chrome, Firefox, Safari, Opera and Edge browsers */
+    top: 150px;
+}
+
+
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #00371A;
+    border-color: #00371A;
+}

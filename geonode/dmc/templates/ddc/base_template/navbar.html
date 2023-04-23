@@ -1,0 +1,106 @@
+{% extends "ddc/base_template/base.html" %}
+{% load static %}
+
+{% block navbar %}
+<div class="tm-row pt-4">
+    <div class="tm-col-left">
+        <div class="tm-site-header media">
+            <!--<i class="fas fa-radiation-alt fa-4x mt-1 tm-logo"></i>-->
+
+            <div class="media-body">
+
+                <figure>
+                    <img src="{% static 'ddc/base_statics/img/seabeeLogo.png' %}" height="120px" class="rounded" alt="NA" />
+                    <figcaption>
+                        <h3 class="tm-sitename text-uppercase pl-3" style="font-weight: 900;"></h3>
+                    </figcaption>
+                </figure>
+
+                <!-- <p class="tm-slogon">First steps towards an Assessment of plastic Risk to the Norwegian Environment</p>-->
+            </div>
+        </div>
+    </div>
+    <div class="tm-col-right">
+        <nav class="navbar navbar-expand-lg" id="tm-main-nav">
+            <button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" data-toggle="collapse"
+                data-target="#navbar-nav" aria-controls="navbar-nav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span><i class="fas fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link tm-nav-link" href="{% url 'home' %}"><i class="fa fa-home text-info" aria-hidden="true"></i>Home<span
+                                class="sr-only">(current)</span></a>
+                    </li>
+
+                  {% comment %}
+                  <!--   <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="{% url '' %}">Pilot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="{% url 'toolbox' %}">DMC</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="{% url 'geoviz' %}">GeoViz</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tm-nav-link" href="{% url 'contact' %}">Contact</a>
+                    </li>
+ -->
+ {% endcomment %}
+
+ {% comment %}
+                    {% if user.is_authenticated %}
+
+                    {% if user.user_profile.pk %}
+
+                    <li class="nav-item ml-auto">
+
+                        <a class="p-0 m-0 d-inline text-white"
+                            href="{% url 'profileUpdate' user.user_profile.pk %}"><small> <i class="fas fa-user-circle fa-sm text-white"></i> {{ user.get_username }}</small></a>|<a class="p-0 m-0 d-inline text-white"
+                            href="{% url 'auth_logout'  %}"><small><i class="fas fa-sign-out-alt fa-sm text-white p-0 m-0"></i>Sign-Out</small></a>
+
+                    </li>
+
+                    {% else %}
+
+
+                  <li class="nav-item ml-auto">
+
+                        <a class="p-0  m-0 d-inline text-white" href="{% url 'profileAdd'  %}"><small><i
+                                class="fas fa-user-circle fa-sm text-white"></i> {{ user.get_username }}</small></a>|<a
+                            class="p-0 m-0 d-inline text-white" href="{% url 'auth_logout'  %}"><small><i
+                            class="fas fa-sign-out-alt fa-sm text-white p-0 m-0"></i> Sign-Out</small></a>
+
+                    </li>
+
+
+                    {% endif %}
+
+
+                    {% else %}
+
+                    <li class="nav-item ml-auto">
+
+                        <a class="p-0  m-0 d-inline text-white" href="{% url 'auth_login' %}"><small><i
+                                    class="fas fa-sign-in-alt fa-sm text-white"></i>Log-In</small></a>|<a
+                            class="p-0 m-0 d-inline text-white" href="{% url 'registration_register' %}"><small> <i
+                                    class="fas fa-user-plus text-white fa-sm p-0 m-0"></i> Sign-Up</small></a>
+
+                    </li>
+
+                    {% endif %}
+
+ {% endcomment %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</div>
+{% endblock %}
+{% block mainbody %} {% endblock %}
+{% block footer %} {% endblock %}

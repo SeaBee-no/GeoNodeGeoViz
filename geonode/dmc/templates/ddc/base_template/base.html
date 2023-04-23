@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+ <title>Geo SeaBee</title>
+
+
+    <meta name="description"
+          content="The data management platform that includes design, establishment and implementation of cloud-based data storage solutions and cutting-edge web-based data sharing applications running on GIS-based visualizations tools.">
+    <meta content="seabee, GIS, Drone"
+          name="keywords">
+    <link rel="canonical" href="https://geoviz.seabee.no/"/>
+    <meta name=”robots” content=”index, follow”>
+
+    {% block socialshare %}
+
+    <!-- Twitter Card data -->
+    <meta name="twitter:title" content="SeaBee Geovisualization">
+    <meta name="twitter:description"
+          content="The data management platform that includes design, establishment and implementation of cloud-based data storage solutions and cutting-edge web-based data sharing applications running on GIS-based visualizations tools.">
+    <meta name="twitter:image"
+          content="https://seabee.no/wp-content/uploads/2021/09/seabeeteam-768x576.jpg">
+    <meta name="twitter:creator" content="@SeaBeeNorway"/>
+    <meta name="twitter:site" content="@SeaBeeNorway"/>
+    <meta name="twitter:card" content="summary"/>
+
+
+    <!-- Open Graph data facebook -->
+    <meta property="og:type" content="SeaBee Geovisualization"/>
+    <meta property="og:title" content="SeaBee Geovisualization"/>
+    <meta property="og:description"
+          content="The data management platform that includes design, establishment and implementation of cloud-based data storage solutions and cutting-edge web-based data sharing applications running on GIS-based visualizations tools."/>
+    <meta property="og:image"
+          content="https://seabee.no/wp-content/uploads/2021/09/seabeeteam-768x576.jpg" />
+    <meta property="og:url" content="https://geoviz.seabee.no/" />
+    <meta property="og:site_name" content="SeaBee Geovisualization" />
+
+    {% endblock %}
+
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" /> <!-- https://fonts.google.com/ -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.css">
+
+
+
+    <!--    <link  href="{% static 'home/css/bootstrap.min.css' %}" rel="stylesheet"> &lt;!&ndash; https://getbootstrap.com/ &ndash;&gt;-->
+    <link  href="{% static 'ddc/base_statics/fontawesome/css/all.min.css' %}" rel="stylesheet"> <!-- https://fontawesome.com/ -->
+
+
+
+    {% block core_css %}
+    <link  href="{% static 'ddc/base_statics/css/templatemo-diagoona.css' %}" rel="stylesheet">
+     
+    
+    
+    
+    {% endblock %}
+
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-X5PV8FGYRP"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X5PV8FGYRP');
+</script>-->
+  {% block meta %}  {% endblock meta %}
+    {% block page_css %} {% endblock %}
+</head>
+
+<body>
+
+{% block tmcontainer %} <div class="tm-container"> {% endblock tmcontainer %}
+
+    <div>
+{% block navbar %} {% endblock %}
+
+{% block mainbody %} {% endblock %}
+
+{% block titleTop %}
+
+<h3 class="pt-5 pb-4 text-center text-info">
+{% block title %}  {% endblock title %}
+</h3>
+{% endblock titleTop %}
+
+
+{% block content %}{% endblock content %}
+
+</div>
+{% block footer %} {% endblock %}
+
+
+{% block div %} </div> {% endblock div %}
+
+<script  src="{% static 'ddc/base_statics/js/jquery-3.4.1.min.js' %}"></script>
+<!--<script  src="{% static 'home/js/bootstrap.min.js' %}"></script>-->
+<!--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+{{ form.media }}
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.4/jquery-confirm.min.js"></script>
+<script  src="{% static 'ddc/base_statics/js/jquery.backstretch.min.js' %}"></script>
+
+{% block core_js %}
+
+<script  src="{% static 'ddc/base_statics/js/templatemo-script.js' %}"></script>
+
+
+{% endblock %}
+{% block page_js %} {% endblock %}
+
+</body>
+
+</html>
