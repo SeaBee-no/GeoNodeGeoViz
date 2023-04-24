@@ -1418,7 +1418,8 @@ if CREATE_LAYER:
         INSTALLED_APPS += ('geonode.geoserver.createlayer',)
 
 # Settings for RECAPTCHA plugin
-RECAPTCHA_ENABLED = ast.literal_eval(os.environ.get('RECAPTCHA_ENABLED', 'False'))
+RECAPTCHA_ENABLED = True
+#RECAPTCHA_ENABLED = ast.literal_eval(os.environ.get('RECAPTCHA_ENABLED', 'False'))
 
 if RECAPTCHA_ENABLED:
     if 'captcha' not in INSTALLED_APPS:
@@ -1945,7 +1946,11 @@ MAP_CLIENT_USE_CROSS_ORIGIN_CREDENTIALS = ast.literal_eval(os.getenv(
     'False'
 ))
 
-ACCOUNT_OPEN_SIGNUP = ast.literal_eval(os.environ.get('ACCOUNT_OPEN_SIGNUP', 'True'))
+#ACCOUNT_OPEN_SIGNUP = ast.literal_eval(os.environ.get('ACCOUNT_OPEN_SIGNUP', 'True'))
+
+## to be remove
+ACCOUNT_OPEN_SIGNUP = True
+
 ACCOUNT_APPROVAL_REQUIRED = ast.literal_eval(
     os.getenv('ACCOUNT_APPROVAL_REQUIRED', 'False')
 )
