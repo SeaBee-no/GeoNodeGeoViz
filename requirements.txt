@@ -87,7 +87,7 @@ pinax-notifications==6.0.0
 pinax-ratings==4.0.0
 
 # GeoNode org maintained apps
--e git+https://github.com/SeaBee-no/GeoNodeGeoVizMapClient.git@820baae5eb1e0edb7940c3f00a230de91671bd26#egg=django_geonode_mapstore_client
+-e git+https://github.com/SeaBee-no/GeoNodeGeoVizMapClient.git@main#egg=django_geonode_mapstore_client
 geonode-avatar==5.0.8
 geonode-oauth-toolkit==2.2.2
 geonode-user-messages==2.0.2
@@ -170,3 +170,15 @@ mistune==2.0.4
 wandb==0.13.4
 protobuf==3.20.3
 mako==1.2.3
+
+
+#ddc
+django-crispy-forms==1.14.0
+django-bootstrap-datepicker-plus==5.0.3
+django-import-export==2.7.1
+django-leaflet
+django-minio-backend==3.4.0
+django-simple-history==3.0.0
+minio==7.1.13
+APScheduler==3.10.1
+django-recaptcha==3.0.0

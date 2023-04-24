@@ -257,5 +257,5 @@ urlpatterns += [
 
 
 urlpatterns += [
-    path("testpage", views.test_page, name="test_page"),
+     path(r'', include('geonode.dmc.urls')),
 ]

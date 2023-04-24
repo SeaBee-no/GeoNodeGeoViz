@@ -28,7 +28,7 @@ from schema import Optional
 from datetime import timedelta
 from distutils.util import strtobool  # noqa
 from urllib.parse import urlparse, urljoin
-
+from pathlib import Path
 #
 # General Django development settings
 #
@@ -38,6 +38,14 @@ from kombu import Queue, Exchange
 from kombu.serialization import register
 
 from . import serializer
+
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+
+
 
 SILENCED_SYSTEM_CHECKS = [
     '1_8.W001',
@@ -421,6 +429,9 @@ GEONODE_APPS_NAV_MENU_ENABLE = ast.literal_eval(os.getenv("GEONODE_APPS_NAV_MENU
 
 GEONODE_INTERNAL_APPS = (
     # GeoNode internal apps
+
+
+
     'geonode.people',
     'geonode.client',
     'geonode.themes',
@@ -434,6 +445,11 @@ GEONODE_INTERNAL_APPS = (
     'geonode.resource.processing',
     'geonode.storage',
 
+    ##Extra app
+    'geonode.dmc',
+    
+   
+
     # GeoServer Apps
     # Geoserver needs to come last because
     # it's signals may rely on other apps' signals.
@@ -444,6 +460,9 @@ GEONODE_INTERNAL_APPS = (
     'geonode.messaging',
     'geonode.favorite',
     'geonode.monitoring'
+
+   
+
 )
 
 GEONODE_CONTRIB_APPS = (
@@ -522,6 +541,18 @@ INSTALLED_APPS = (
 
     # GeoNode
     'geonode',
+
+    #ddc
+    'leaflet',
+    'crispy_forms',
+    'simple_history',
+    'import_export',
+    "bootstrap_datepicker_plus",
+    'django_minio_backend',
+    'captcha',
+
+
+
 )
 
 markdown_white_listed_tags = [
@@ -2217,3 +2248,113 @@ SUPPORTED_DATASET_FILE_TYPES = [
         "needsFiles": ["shp", "prj", "dbf", "shx", "csv", "tiff", "zip", "xml"]
     }
 ]
+
+
+#set the CRISPY_form value
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+#CRISPY_TEMPLATE_PACK = 'uni_form'
+
+## leaflet config
+LEAFLET_CONFIG = {
+    'DEFAULT_CENTER': (60.90, 8.88),
+    'DEFAULT_ZOOM': 5,
+    'MIN_ZOOM': 3,
+    'MAX_ZOOM': 30,
+'MINIMAP': True,
+'TILES': [('Satellite', 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {'attribution': '&copy; google','maxZoom': 30}),
+('Streets', 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {'attribution': '&copy; OSM', 'maxZoom': 30})],
+'PLUGINS': {
+    'addLocation': {
+        'css': ['https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css', 'https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.70.0/dist/L.Control.Locate.min.css',],
+        'js': ['https://cdn.jsdelivr.net/npm/leaflet.locatecontrol@0.70.0/dist/L.Control.Locate.min.js',],
+        'auto-include': True,
+    },
+    'addGeolocater': {
+        'css': ['https://unpkg.com/esri-leaflet-geocoder@2.3.4/dist/esri-leaflet-geocoder.css',],
+        'js': ['https://unpkg.com/esri-leaflet@3.0.7/dist/esri-leaflet.js','https://unpkg.com/esri-leaflet-geocoder@2.3.4/dist/esri-leaflet-geocoder.js',],
+        'auto-include': True,
+    },'fullscreen': {
+        'css': ['https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.2.0/Control.FullScreen.css',],
+        'js': ['https://cdn.jsdelivr.net/npm/leaflet.fullscreen@2.2.0/Control.FullScreen.js',],
+        'auto-include': True,
+    },
+
+}
+
+
+}
+
+# mino setings
+
+from datetime import timedelta
+from typing import List, Tuple
+
+MINIO_ENDPOINT = 'storage.seabee.sigma2.no'
+MINIO_EXTERNAL_ENDPOINT = "minio.seabee.sigma2.no"  # Default is same as MINIO_ENDPOINT
+MINIO_EXTERNAL_ENDPOINT_USE_HTTPS = True  # Default is same as MINIO_USE_HTTPS
+MINIO_ACCESS_KEY = os.getenv('MINIO_ACCESS_KEY')
+MINIO_SECRET_KEY = os.getenv('MINIO_SECRET_KEY')
+MINIO_USE_HTTPS = True
+MINIO_URL_EXPIRY_HOURS = timedelta(days=5)  # Default is 7 days (longest) if not defined
+MINIO_CONSISTENCY_CHECK_ON_START = False
+MINIO_PRIVATE_BUCKETS = [
+
+     'geoviz-upload-data',
+ ]
+# MINIO_PUBLIC_BUCKETS = [
+#     'dmc',
+# ]
+
+
+# dummy_policy = {"Version": "2012-10-17",
+#                 "Statement": [
+#                     {
+#                         "Sid": "",
+#                         "Effect": "Allow",
+#                         "Principal": {"AWS": "*"},
+#                         "Action": "s3:GetBucketLocation",
+#                         "Resource": f"arn:aws:s3:::dmc"
+#                     },
+#                     {
+#                         "Sid": "",
+#                         "Effect": "Allow",
+#                         "Principal": {"AWS": "*"},
+#                         "Action": "s3:ListBucket",
+#                         "Resource": f"arn:aws:s3:::dmc"
+#                     },
+#                     {
+#                         "Sid": "",
+#                         "Effect": "Allow",
+#                         "Principal": {"AWS": "*"},
+#                         "Action": "s3:GetObject",
+#                         "Resource": f"arn:aws:s3:::dmc/*"
+#                     }
+#                 ]}
+
+
+MINIO_POLICY_HOOKS: List[Tuple[str, dict]] = [
+
+#('dmc', dummy_policy),
+
+]
+# MINIO_MEDIA_FILES_BUCKET = 'my-media-files-bucket'  # replacement for MEDIA_ROOT
+# MINIO_STATIC_FILES_BUCKET = 'my-static-files-bucket'  # replacement for STATIC_ROOT
+#MINIO_BUCKET_CHECK_ON_SAVE = True  # Default: True // Creates bucket if missing, then save
+
+# REST_FRAMEWORK config
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.TokenAuthentication',  # <-- And here
+#     ],
+# }
+
+
+
+#base local url devlopments
+#GEONODE_DJANGO_URL = "http://localhost:8000"
+#base local url production
+GEONODE_DJANGO_URL = "http://localhost:8001"
+
+# django-recaptcha,
+#in production it shoud be disable
+#SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
