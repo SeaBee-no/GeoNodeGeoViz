@@ -47,6 +47,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
+
+
 SILENCED_SYSTEM_CHECKS = [
     '1_8.W001',
     'fields.W340',
@@ -547,7 +549,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'simple_history',
     'import_export',
-    "bootstrap_datepicker_plus",
+    'bootstrap_datepicker_plus',
     'django_minio_backend',
     'captcha',
 
@@ -2255,7 +2257,7 @@ SUPPORTED_DATASET_FILE_TYPES = [
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 #CRISPY_TEMPLATE_PACK = 'uni_form'
 
-## leaflet config
+# leaflet config
 LEAFLET_CONFIG = {
     'DEFAULT_CENTER': (60.90, 8.88),
     'DEFAULT_ZOOM': 5,
@@ -2352,10 +2354,10 @@ MINIO_POLICY_HOOKS: List[Tuple[str, dict]] = [
 
 
 #base local url devlopments
-#GEONODE_DJANGO_URL = "http://localhost:8000"
+GEONODE_DJANGO_URL = "http://localhost:8000"
 #base local url production
-GEONODE_DJANGO_URL = "http://localhost:8001"
+#GEONODE_DJANGO_URL = "http://localhost:8001"
 
 # django-recaptcha,
 #in production it shoud be disable
-#SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']
+SILENCED_SYSTEM_CHECKS = ['captcha.recaptcha_test_key_error']

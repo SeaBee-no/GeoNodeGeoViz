@@ -1,8 +1,8 @@
 from django.forms import ModelForm
-# from django import forms
+
 from django.contrib.gis import forms
 
-#from bootstrap_daterangepicker import widgets, fields
+
 from bootstrap_datepicker_plus.widgets import DatePickerInput
 
 from .models import *
@@ -27,7 +27,13 @@ from django.contrib.sites.models import Site
 
 from django.conf import settings
 
-geonode_url = settings.GEONODE_DJANGO_URL
+import time
+
+
+
+""""
+
+#geonode_url = settings.GEONODE_DJANGO_URL
 
 # class dmcForm(ModelForm):
 #     datetime_range = fields.DateTimeRangeField(
@@ -56,6 +62,23 @@ geonode_url = settings.GEONODE_DJANGO_URL
     #     self.fields["dron_info"].queryset = drone_info_list.objects.all()
     #     self.fields["sensor_info"].widget = CheckboxSelectMultiple()
     #     self.fields["sensor_info"].queryset = sensor_info_list.objects.all()
+"""
+
+
+from django.conf import settings as conf_settings
+from pathlib import Path   
+jsonPath=""
+#inside geonode enviroment 
+jsonPath_test=Path.joinpath(conf_settings.BASE_DIR, 'geonode' ,'dmc','tempfolder')
+if jsonPath_test.exists():
+    jsonPath=Path.joinpath(conf_settings.BASE_DIR,'geonode','dmc','tempfolder')
+
+#outside geonode enviroment 
+jsonPath_test=Path.joinpath(conf_settings.BASE_DIR, 'dmc','tempfolder')
+if jsonPath_test.exists():
+    jsonPath=Path.joinpath(conf_settings.BASE_DIR,'dmc','tempfolder')
+
+
 
 
 class ddcForm(forms.Form):
@@ -177,13 +200,19 @@ class ddcForm(forms.Form):
     other = forms.FileField(required=False, label='Upload any supporting data such pdf, report, photo in a zip format etc')
         
 
+   
+
     
     def __init__(self, *args, **kwargs):
         super(ddcForm, self).__init__(*args, **kwargs)
 
         
-        obj = requests.get(f'{geonode_url}/api/dronproject/').json()
-
+        #obj = requests.get(f'{geonode_url}/api/dronproject/').json()
+        obj = None
+        with open(jsonPath / 'flightList.json','r') as f:
+            obj = json.load(f)
+        
+    
 
         self.fields['mision_name_list'].choices = [
             
