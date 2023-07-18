@@ -449,6 +449,7 @@ GEONODE_INTERNAL_APPS = (
 
     ##Extra app
     'geonode.dmc',
+    'geonode.geoviz',
     
    
 

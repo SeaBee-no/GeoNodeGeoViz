@@ -255,7 +255,8 @@ urlpatterns += [
     url(r'^metadata_update_redirect$', views.metadata_update_redirect, name='metadata_update_redirect'),
 ]
 
-
+# extra app url
 urlpatterns += [
      path(r'', include('geonode.dmc.urls')),
+      path(r'', include('geonode.geoviz.urls')),
 ]
