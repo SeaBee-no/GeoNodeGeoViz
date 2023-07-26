@@ -2,7 +2,15 @@
 {% load static %}
 
 {% block page_css %}
+<!-- Load d3.js -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" integrity="sha512-mQ77VzAakzdpWdgfL/lM1ksNy89uFgibRQANsNneSTMD/bj0Y/8+94XMwYhnbzx8eki2hrbPpDm0vD0CiT2lcg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css" integrity="sha512-6ZCLMiYwTeli2rVh3XAPxy3YoR5fVxGdH/pz+KMCzRY2M65Emgkw00Yqmhh8qLGeYQ3LbVZGdmOX9KUjSKr0TA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+
 <link href="{% static 'mapMyDrone/css/mapMyPlace.css' %}" rel="stylesheet" />
+
 {% endblock page_css %}
 
 
@@ -13,7 +21,7 @@
 
     <div class="row flex-nowrap">
 
-   <!-- This left pannel is manage under col property with same panel content -->
+        <!-- This left pannel is manage under col property with same panel content -->
         <div class="col-auto px-0 d-none d-md-block  vh-100 bg-body-tertiary  shadow-lg   bg-body-tertiary m-0 p-0">
 
             <div id="sidebar" class="collapse  show collapse-horizontal ">
@@ -28,21 +36,28 @@
 
         </div>
 
-        <main class="col ps-md-2 pt-2  position-relative " id="mapArea">
+        <div class="col p-0 m-0 position-relative " id="mapArea">
 
             {% include 'mapMyDrone/geoviz_mapInfo.html' %}
 
-        </main>
-</div>
-
-
+        </div>
     </div>
 
 
-    {% endblock content %}
+</div>
 
 
-    {% block page_js %}
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js" integrity="sha512-UXumZrZNiOwnTcZSHLOfcTs0aos2MzBWHXOHOuB0J/R44QB0dwY5JgfbvljXcklVf65Gc4El6RjZ+lnwd2az2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="{% static 'mapMyDrone/js/mapMyPlace.js' %}"></script>
-    {% endblock %}
+{% endblock content %}
+
+
+{% block page_js %}
+
+
+
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js" integrity="sha512-OFs3W4DIZ5ZkrDhBFtsCP6JXtMEDGmhl0QPlmWYBJay40TT1n3gt2Xuw8Pf/iezgW9CdabjkNChRqozl/YADmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script src="{% static 'mapMyDrone/js/mapMyPlace.js' %}"></script>
+{% endblock %}
