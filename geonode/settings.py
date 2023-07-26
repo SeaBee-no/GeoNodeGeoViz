@@ -423,17 +423,28 @@ GEONODE_APPS_NAV_MENU_ENABLE = ast.literal_eval(os.getenv("GEONODE_APPS_NAV_MENU
 
 GEONODE_INTERNAL_APPS = (
     # GeoNode internal apps
-    "geonode.people",
-    "geonode.client",
-    "geonode.themes",
-    "geonode.proxy",
-    "geonode.social",
-    "geonode.groups",
-    "geonode.services",
-    "geonode.management_commands_http",
-    "geonode.resource",
-    "geonode.resource.processing",
-    "geonode.storage",
+
+
+
+    'geonode.people',
+    'geonode.client',
+    'geonode.themes',
+    'geonode.proxy',
+    'geonode.social',
+    'geonode.groups',
+    'geonode.services',
+    'geonode.management_commands_http',
+
+    'geonode.resource',
+    'geonode.resource.processing',
+    'geonode.storage',
+
+    ##Extra app
+    'geonode.dmc',
+    'geonode.geoviz',
+    
+   
+
     # GeoServer Apps
     # Geoserver needs to come last because
     # it's signals may rely on other apps' signals.

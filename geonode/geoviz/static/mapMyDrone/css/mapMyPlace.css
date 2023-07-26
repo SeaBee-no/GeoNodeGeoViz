@@ -1,0 +1,40 @@
+
+
+body{
+
+background-color: white;
+
+
+}
+
+/* #sidebar-nav {
+    width: 250px;
+}  
+
+#offcanvasBottom{
+
+   height: 60vh;
+    
+}*/
+
+#mapD{
+    height: 100vh;
+}
+
+
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 0px;
+    height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 0px;
+    background-color: rgba(215, 208, 208, 0);
+    box-shadow: 0 0 1px rgba(215, 208, 208, 0);
+}
+
+
+
+#mapid { height: 100vh; }
