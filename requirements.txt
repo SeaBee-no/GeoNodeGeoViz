@@ -175,3 +175,15 @@ protobuf==3.20.3
 mako==1.2.4
 certifi>=2022.12.7 # not directly required, pinned by Snyk to avoid a vulnerability
 jwcrypto>=1.4 # not directly required, pinned by Snyk to avoid a vulnerability
+
+#ddc
+django-crispy-forms==1.14.0
+django-bootstrap-datepicker-plus==5.0.4
+django-import-export==2.7.1
+django-leaflet==0.29.0
+django-minio-backend==3.5.0
+django-simple-history==3.0.0
+minio==7.1.13
+APScheduler==3.10.1
+django-recaptcha==3.0.0
+python-dotenv

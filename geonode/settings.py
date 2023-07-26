@@ -2335,3 +2335,21 @@ FACET_PROVIDERS = (
     "geonode.facets.providers.thesaurus.ThesaurusFacetProvider",
     "geonode.facets.providers.region.RegionFacetProvider",
 )
+
+# mino setings
+
+from datetime import timedelta
+from typing import List, Tuple
+
+MINIO_ENDPOINT = 'storage.seabee.sigma2.no'
+MINIO_EXTERNAL_ENDPOINT = "minio.seabee.sigma2.no"  # Default is same as MINIO_ENDPOINT
+MINIO_EXTERNAL_ENDPOINT_USE_HTTPS = True  # Default is same as MINIO_USE_HTTPS
+MINIO_ACCESS_KEY = os.getenv('MINIO_ACCESS_KEY')
+MINIO_SECRET_KEY = os.getenv('MINIO_SECRET_KEY')
+MINIO_USE_HTTPS = True
+MINIO_URL_EXPIRY_HOURS = timedelta(days=5)  # Default is 7 days (longest) if not defined
+MINIO_CONSISTENCY_CHECK_ON_START = False
+MINIO_PRIVATE_BUCKETS = [
+     'geoviz-upload-data',
+ ]
+GEONODE_DJANGO_URL = "http://localhost:8000"
