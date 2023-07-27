@@ -22,27 +22,36 @@ from django.conf import settings
 from user_messages.models import Message
 from user_messages.signals import message_sent
 
-from geonode.notifications_helper import send_notification
+from geonode.notifications_helper import send_notification, notifications
 
 logger = logging.getLogger(__name__)
 
 
 def message_received_notification(**kwargs):
-    """ Send a notification when a request to a layer, map or document has
+    """Send a notification when a request to a layer, map or document has
     been submitted
     """
-    notice_type_label = 'message_received'
-    message = kwargs.get('message')
+    notice_type_label = "message_received"
+    message = kwargs.get("message")
     thread = message.thread
 
     recipients = _get_user_to_notify(message)
 
+    # Enable email notifications for reciepients
+    for user in recipients:
+        notifications.models.NoticeSetting.objects.get_or_create(
+            notice_type=notifications.models.NoticeType.objects.get(label=notice_type_label),
+            send=True,
+            user=user,
+            medium=0,
+        )
+
     ctx = {
-        'message': message.content,
-        'thread_subject': thread.subject,
-        'sender': message.sender,
-        'thread_url': settings.SITEURL + thread.get_absolute_url()[1:],
-        'site_url': settings.SITEURL
+        "message": message.content,
+        "thread_subject": thread.subject,
+        "sender": message.sender,
+        "thread_url": settings.SITEURL + thread.get_absolute_url()[1:],
+        "site_url": settings.SITEURL,
     }
     logger.debug(f"message_received_notification to: {recipients}")
     send_notification(recipients, notice_type_label, ctx)
@@ -55,7 +64,4 @@ def _get_user_to_notify(message):
 
 
 def initialize_notification_signal():
-    message_sent.connect(
-        message_received_notification,
-        sender=Message
-    )
+    message_sent.connect(message_received_notification, sender=Message)

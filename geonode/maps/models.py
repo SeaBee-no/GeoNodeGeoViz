@@ -40,6 +40,7 @@ class Map(ResourceBase):
     A Map aggregates several layers together and annotates them with a viewport
     configuration.
     """
+
     last_modified = models.DateTimeField(auto_now_add=True)
     # The last time the map was modified.
 
@@ -57,6 +58,14 @@ class Map(ResourceBase):
     def datasets(self):
         dataset_names = MapLayer.objects.filter(map__id=self.id).values("name")
         return Dataset.objects.filter(alternate__in=dataset_names) | Dataset.objects.filter(name__in=dataset_names)
+
+    @property
+    def linked_resources(self):
+        from geonode.documents.models import DocumentResourceLink
+
+        _dataset_id = list(self.datasets.values_list("pk", flat=True))
+        _doc_ids = list(DocumentResourceLink.objects.filter(object_id=self.pk).values_list("document__pk", flat=True))
+        return ResourceBase.objects.filter(id__in=list(set(_dataset_id + _doc_ids)))
 
     def json(self, dataset_filter):
         """
@@ -256,7 +265,7 @@ class MapLayer(models.Model):
     @property
     def dataset_title(self):
         """
-            Used by geonode/maps/templates/maps/map_download.html
+        Used by geonode/maps/templates/maps/map_download.html
         """
         if self.dataset:
             title = self.dataset.title
@@ -267,7 +276,7 @@ class MapLayer(models.Model):
     @property
     def local_link(self):
         """
-            Used by geonode/maps/templates/maps/map_download.html
+        Used by geonode/maps/templates/maps/map_download.html
         """
         layer = self.dataset if self.local else None
         if layer:
