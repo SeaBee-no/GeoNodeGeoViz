@@ -385,7 +385,7 @@ class publish_to_geonode(APIView):
 
             
             
-            # credentials = f"{os.getenv('geondoe_user')}:{os.getenv('geonode_pass')}".encode('utf-8')
+            # credentials = f"{os.getenv('geondoe_user')}:{os.getenv('GEONODE_PASSWORD')}".encode('utf-8')
 
             # encoded_credentials = base64.b64encode(credentials).decode('utf-8')
 
@@ -422,7 +422,7 @@ class publish_to_geonode(APIView):
                         files=files_obj,
                        )
                 
-            print(os.getenv('geonode_pass'),flush=True)
+            #print(os.getenv('GEONODE_PASSWORD'),flush=True)
 
             ##delete the temp file once uploded
             file_path_with_name.unlink()
@@ -439,7 +439,7 @@ class check_active_geonode_job(APIView):
         def get(self, request, format=None, jobid=None ):
             try:
                 
-                credentials = f"{os.getenv('geondoe_user')}:{os.getenv('geonode_pass')}".encode('utf-8')
+                credentials = f"{os.getenv('GEONODE_USER_ID')}:{os.getenv('GEONODE_PASSWORD')}".encode('utf-8')
 
                 encoded_credentials = base64.b64encode(credentials).decode('utf-8')
 
