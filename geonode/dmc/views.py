@@ -80,38 +80,6 @@ class get_dronelogbook_flight_data_coustom_form (APIView):
         
 
 
-class get_dronelogbook_flight_project_info (APIView):
-    def get(self, request, format=None):
-        try:
-            
-            #print("path to json >>>>>"+ str(jsonPath) ,flush=True)
-            obj = None
-            with open(jsonPath / 'flightList.json','r') as f:
-                obj = json.load(f)
-            
-            flightInfo = [
-                {
-                    "Name": record["name"],
-                    "flights": [
-                        {
-                            "centroid_lat": val.get("centroid_lat"),
-                            "centroid_lon": val.get("centroid_lon")
-                        }
-                        for val in (record.get("data_plan_area"))
-                    ]
-                }
-                for record in obj
-                if any(val.get("centroid_lat") and val.get("centroid_lon") for val in (record.get("data_plan_area") or []))
-            ]
-
-            
-          
-            #return Response(obj.json()['data'])
-            return Response(flightInfo)
-
-        except Exception as e:
-            return Response('NA')
-
 
 
 class get_flight_mission (APIView):

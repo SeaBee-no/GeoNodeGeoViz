@@ -9,5 +9,5 @@ def start():
 
 def start_GN_layers():
 	scheduler = BackgroundScheduler({'apscheduler.timezone': get_localzone()})
-	scheduler.add_job(schedule_geonodeLayers_api, 'interval', seconds = 120,max_instances=1)
+	scheduler.add_job(schedule_geonodeLayers_api, 'interval', seconds = 21600,max_instances=1)
 	scheduler.start()

@@ -205,7 +205,25 @@
             "T": "3 C",
             "W": "4.53 m/s (94\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -386,7 +404,25 @@
             "T": "6 C",
             "W": "11 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -567,7 +603,25 @@
             "T": "6 C",
             "W": "9 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -748,7 +802,25 @@
             "T": "6 C",
             "W": "8 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -929,7 +1001,25 @@
             "T": "7 C",
             "W": "6 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -1137,7 +1227,25 @@
             "T": "3 C",
             "W": "4.53 m/s (94\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -1318,7 +1426,25 @@
             "T": "7 C",
             "W": "7 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -1532,7 +1658,25 @@
             "T": "5",
             "W": "18.08 (49\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -1740,7 +1884,25 @@
             "T": "5",
             "W": "17.28 (50\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -1932,7 +2094,25 @@
             "T": "7 C",
             "W": "6 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -2140,7 +2320,25 @@
             "T": "5 C",
             "W": "17 km/h (50\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -2348,7 +2546,25 @@
             "T": "5",
             "W": "17.28 (50\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -2529,7 +2745,25 @@
             "T": "7 C",
             "W": "11 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -2710,7 +2944,25 @@
             "T": "7 C",
             "W": "10 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -2891,7 +3143,25 @@
             "T": "7 C",
             "W": "10 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -3072,7 +3342,25 @@
             "T": "8 C",
             "W": "9 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -3253,7 +3541,25 @@
             "T": "8 C",
             "W": "6 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -3434,7 +3740,25 @@
             "T": "8 C",
             "W": "5 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -3615,7 +3939,25 @@
             "T": "8 C",
             "W": "4 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -3796,7 +4138,25 @@
             "T": "9 C",
             "W": "3 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -3977,7 +4337,25 @@
             "T": "9 C",
             "W": "2 km/h"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -4185,7 +4563,25 @@
             "T": "5",
             "W": "18.08 (49\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -4393,7 +4789,25 @@
             "T": "18",
             "W": "4.52 (205\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -4545,7 +4959,8 @@
             "T": "",
             "W": ""
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": null
     },
     {
         "approval_status": "APPROVED",
@@ -4698,7 +5113,25 @@
             "T": "7 C",
             "W": "3.83 m\\/s (345\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -4851,7 +5284,25 @@
             "T": "8 C",
             "W": "3.6 m\\/s (340\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -5004,7 +5455,25 @@
             "T": "9 C",
             "W": "1.97 m\\/s (295\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -5148,7 +5617,25 @@
             "T": "9 C",
             "W": "1.98 m\\/s (288\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -5291,7 +5778,8 @@
             "T": "-11 C",
             "W": "3.11 m\\/s (354\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": null
     },
     {
         "approval_status": "APPROVED",
@@ -5435,7 +5923,25 @@
             "T": "-5 C",
             "W": "3.11 m\\/s (351\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -5579,7 +6085,25 @@
             "T": "-4 C",
             "W": "3 m\\/s (352\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -5722,7 +6246,8 @@
             "T": "1 C",
             "W": "1.42 m\\/s (161\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": null
     },
     {
         "approval_status": "APPROVED",
@@ -5857,7 +6382,25 @@
             "T": "5 C",
             "W": "2.97 m\\/s (180\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -6001,7 +6544,25 @@
             "T": "6 C",
             "W": "3.14 m\\/s (180\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -6145,7 +6706,25 @@
             "T": "6 C",
             "W": "3.16 m\\/s (180\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -6289,7 +6868,25 @@
             "T": "8 C",
             "W": "4.34 m\\/s (183\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -6433,7 +7030,25 @@
             "T": "7 C",
             "W": "4.16 m\\/s (183\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -6577,7 +7192,25 @@
             "T": "7 C",
             "W": "3.93 m\\/s (182\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -6712,7 +7345,25 @@
             "T": "7 C",
             "W": "3.87 m\\/s (181\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Nesetveien",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Larkollen",
+                "country": "NO",
+                "guid": "FCC05028-BA5B-8767-951C-1F2C2A1CCEAB",
+                "latitude": "59.306227973185",
+                "longitude": "10.684776313939",
+                "name": "Nesetveien, Signes",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1560"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -6821,7 +7472,25 @@
             "T": "23 C",
             "W": "2.48 m\\/s (203\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Lysakerlokket",
+                "altitude": "120",
+                "archived": "0",
+                "city": "Lysaker",
+                "country": "NO",
+                "guid": "45C3A2A3-C36D-CF58-8F7E-3814BFD6A79B",
+                "latitude": "59.9127",
+                "longitude": "10.6373",
+                "name": "Lysaker ",
+                "notes": "Demo of equipment for NFR, RGB imagery and a short close line of sight mission over the water to show the pre-programmed automated mapping settings.",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1366"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -6979,7 +7648,25 @@
             "T": "4 C",
             "W": "3.48 m\\/s (38\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -7119,7 +7806,25 @@
             "T": "-4 C",
             "W": "1.66 m\\\\/s (43\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -7270,7 +7975,25 @@
             "T": "5 C",
             "W": "3.86 m/s (52\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -7414,7 +8137,25 @@
             "T": "-8 C",
             "W": "0.78 m\\/s (342\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -7554,7 +8295,25 @@
             "T": "2 C",
             "W": "4.31 m\\/s (212\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -7705,7 +8464,25 @@
             "T": "5 C",
             "W": "3.69 m/s (57\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -7775,7 +8552,25 @@
             "T": "15 C",
             "W": "4.46 m\\\\/s (185\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Hellvikalleen 60, ",
+                "altitude": "120",
+                "archived": "0",
+                "city": "Nesoddtangen",
+                "country": "NO",
+                "guid": "49B74AC8-CC9D-5443-D6BA-1F13E8702EFC",
+                "latitude": "59.85188",
+                "longitude": "10.686752",
+                "name": "Hellviktangen",
+                "notes": "Demo for participants of the Seabee Workshop at Hellviktangen kunstkafe\\r\\nHellvikalleen 60, 1450 Nesoddtangen",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1450 "
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -7845,7 +8640,25 @@
             "T": "20 C",
             "W": "1.56 m\\\\/s (158\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -7924,7 +8737,25 @@
             "T": "12 C",
             "W": "4.93 m\\\\\\\\/s (63\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Remoy",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Remoy",
+                "country": "NO",
+                "guid": "5A6EE4F1-C862-31D9-387A-86A304238E30",
+                "latitude": "62.364210754941",
+                "longitude": "5.669124304006",
+                "name": "Remoy, Fosnavaag",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6094"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8003,7 +8834,25 @@
             "T": "12 C",
             "W": "4.8 m\\\\\\\\/s (63\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Remoy",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Remoy",
+                "country": "NO",
+                "guid": "5A6EE4F1-C862-31D9-387A-86A304238E30",
+                "latitude": "62.364210754941",
+                "longitude": "5.669124304006",
+                "name": "Remoy, Fosnavaag",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6094"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8073,7 +8922,25 @@
             "T": "14 C",
             "W": "4.58 m\\\\\\\\/s (53\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Remoy",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Remoy",
+                "country": "NO",
+                "guid": "5A6EE4F1-C862-31D9-387A-86A304238E30",
+                "latitude": "62.364210754941",
+                "longitude": "5.669124304006",
+                "name": "Remoy, Fosnavaag",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6094"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8152,7 +9019,25 @@
             "T": "15 C",
             "W": "4.61 m\\\\\\\\\\\\\\\\/s (51\\\\\\\\\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Remoy",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Remoy",
+                "country": "NO",
+                "guid": "5A6EE4F1-C862-31D9-387A-86A304238E30",
+                "latitude": "62.364210754941",
+                "longitude": "5.669124304006",
+                "name": "Remoy, Fosnavaag",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6094"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8222,7 +9107,25 @@
             "T": "16 C",
             "W": "4.75 m\\\\\\\\\\\\\\\\/s (42\\\\\\\\\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Remoy",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Remoy",
+                "country": "NO",
+                "guid": "5A6EE4F1-C862-31D9-387A-86A304238E30",
+                "latitude": "62.364210754941",
+                "longitude": "5.669124304006",
+                "name": "Remoy, Fosnavaag",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6094"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8292,7 +9195,25 @@
             "T": "16 C",
             "W": "4.65 m\\\\\\\\/s (41\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Remoy",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Remoy",
+                "country": "NO",
+                "guid": "5A6EE4F1-C862-31D9-387A-86A304238E30",
+                "latitude": "62.364210754941",
+                "longitude": "5.669124304006",
+                "name": "Remoy, Fosnavaag",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6094"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8371,7 +9292,25 @@
             "T": "16 C",
             "W": "4.49 m\\\\\\\\\\\\\\\\/s (38\\\\\\\\\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Remoy",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Remoy",
+                "country": "NO",
+                "guid": "5A6EE4F1-C862-31D9-387A-86A304238E30",
+                "latitude": "62.364210754941",
+                "longitude": "5.669124304006",
+                "name": "Remoy, Fosnavaag",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6094"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8450,7 +9389,25 @@
             "T": "17 C",
             "W": "4.31 m\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/s (35\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Remoy",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Remoy",
+                "country": "NO",
+                "guid": "5A6EE4F1-C862-31D9-387A-86A304238E30",
+                "latitude": "62.364210754941",
+                "longitude": "5.669124304006",
+                "name": "Remoy, Fosnavaag",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6094"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8529,7 +9486,25 @@
             "T": "13 C",
             "W": "1.85 m\\\\\\\\/s (106\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8660,7 +9635,25 @@
             "T": "14 C",
             "W": "1.65 m\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\/s (106\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8730,7 +9723,25 @@
             "T": "15 C",
             "W": "1.25 m\\\\/s (106\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8800,7 +9811,25 @@
             "T": "-1 C",
             "W": "2.69 m/s (276\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Markstien",
+                "altitude": "1",
+                "archived": "0",
+                "city": "Tokkerup",
+                "country": "DK",
+                "guid": "674CB287-8B37-6D82-C665-AF946BF35D58",
+                "latitude": "55.28760453",
+                "longitude": "12.14095653",
+                "name": "Markstien, Tokkerup",
+                "notes": "",
+                "state": "Region Zealand",
+                "tags": "",
+                "type": "",
+                "zip_code": "4640"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8870,7 +9899,25 @@
             "T": "-1 C",
             "W": "1.55 m/s (201\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -8940,7 +9987,25 @@
             "T": "-1 C",
             "W": "1.49 m/s (196\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -9010,7 +10075,25 @@
             "T": "-1 C",
             "W": "1.4 m/s (199\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -9080,7 +10163,25 @@
             "T": "-1 C",
             "W": "1.26 m/s (205\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -9150,7 +10251,25 @@
             "T": "-1 C",
             "W": "1.16 m/s (210\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -9220,7 +10339,25 @@
             "T": "-1 C",
             "W": "1.07 m/s (217\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -9290,7 +10427,25 @@
             "T": "-0 C",
             "W": "1.13 m/s (216\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -9360,7 +10515,25 @@
             "T": "0 C",
             "W": "1.16 m/s (214\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -9493,7 +10666,25 @@
             "T": "4 C",
             "W": "5.19 m\\\\/s (334\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -9618,7 +10809,25 @@
             "T": "",
             "W": ""
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Orkenveien 94",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Oslo",
+                "country": "NO",
+                "guid": "2217EE9A-F8F9-AFC7-1038-5CD1C538443F",
+                "latitude": "59.924762",
+                "longitude": "10.792709",
+                "name": "NIVA OSLO",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "0579"
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -9783,7 +10992,25 @@
             "T": "-2 C",
             "W": "2.84 m/s (223\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -9923,7 +11150,25 @@
             "T": "",
             "W": ""
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -10064,7 +11309,25 @@
             "T": "6 C",
             "W": "3.71 m\\/s (15\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -10205,7 +11468,25 @@
             "T": "7 C",
             "W": "3.46 m\\/s (16\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -10346,7 +11627,25 @@
             "T": "7 C",
             "W": "3.45 m\\/s (16\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -10487,7 +11786,25 @@
             "T": "7 C",
             "W": "3.4 m\\/s (16\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -10628,7 +11945,25 @@
             "T": "8 C",
             "W": "2.91 m\\/s (15\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -10769,7 +12104,25 @@
             "T": "8 C",
             "W": "2.91 m\\/s (15\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -11393,7 +12746,25 @@
             "T": "19 C",
             "W": "5.47 m\\/s (241\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -12017,7 +13388,25 @@
             "T": "14 C",
             "W": "5.04 m\\/s (233\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -12632,7 +14021,25 @@
             "T": "20 C",
             "W": "5.44 m\\/s (196\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -13256,7 +14663,25 @@
             "T": "15 C",
             "W": "8.27 m\\/s (220\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -13880,7 +15305,25 @@
             "T": "17 C",
             "W": "3.98 m\\/s (155\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -14495,7 +15938,25 @@
             "T": "17 C",
             "W": "4.06 m\\/s (156\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -15119,7 +16580,25 @@
             "T": "14 C",
             "W": "4.78 m\\/s (239\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -15743,7 +17222,25 @@
             "T": "14 C",
             "W": "4.8 m\\/s (239\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -16358,7 +17855,25 @@
             "T": "15 C",
             "W": "7.88 m\\/s (216\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -16973,7 +18488,25 @@
             "T": "19 C",
             "W": "5.27 m\\/s (252\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -17597,7 +19130,25 @@
             "T": "20 C",
             "W": "5.42 m\\/s (199\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -18221,7 +19772,25 @@
             "T": "18 C",
             "W": "5.42 m\\/s (254\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -18836,7 +20405,25 @@
             "T": "15 C",
             "W": "9.42 m\\/s (208\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -19460,7 +21047,25 @@
             "T": "14 C",
             "W": "5.04 m\\/s (234\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -20075,7 +21680,25 @@
             "T": "20 C",
             "W": "5.45 m\\/s (200\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -20690,7 +22313,25 @@
             "T": "20 C",
             "W": "5.45 m\\/s (196\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -21314,7 +22955,25 @@
             "T": "16 C",
             "W": "4.18 m\\/s (163\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -21938,7 +23597,25 @@
             "T": "17 C",
             "W": "4.48 m\\/s (160\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -22553,7 +24230,25 @@
             "T": "15 C",
             "W": "9.42 m\\/s (208\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -23168,7 +24863,25 @@
             "T": "20 C",
             "W": "5.44 m\\/s (220\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -23792,7 +25505,25 @@
             "T": "19 C",
             "W": "5.25 m\\/s (247\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -24416,7 +26147,25 @@
             "T": "14 C",
             "W": "5.02 m\\/s (234\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -25040,7 +26789,25 @@
             "T": "15 C",
             "W": "7.27 m\\/s (215\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -25655,7 +27422,25 @@
             "T": "15 C",
             "W": "9.4 m\\/s (207\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -26279,7 +28064,25 @@
             "T": "17 C",
             "W": "3.93 m\\/s (156\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -26894,7 +28697,25 @@
             "T": "15 C",
             "W": "7.89 m\\/s (216\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -27518,7 +29339,25 @@
             "T": "20 C",
             "W": "5.4 m\\/s (204\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -28142,7 +29981,25 @@
             "T": "19 C",
             "W": "5.34 m\\/s (223\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -28766,7 +30623,25 @@
             "T": "19 C",
             "W": "5.45 m\\/s (243\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -29381,7 +31256,25 @@
             "T": "15 C",
             "W": "9.4 m\\/s (208\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -29996,7 +31889,25 @@
             "T": "15 C",
             "W": "9.4 m\\/s (208\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -30620,7 +32531,25 @@
             "T": "19 C",
             "W": "5.33 m\\/s (228\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -31244,7 +33173,25 @@
             "T": "18 C",
             "W": "5.87 m\\/s (258\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -31868,7 +33815,25 @@
             "T": "17 C",
             "W": "4.42 m\\/s (162\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -32483,7 +34448,25 @@
             "T": "17 C",
             "W": "4.14 m\\/s (156\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -33098,7 +35081,25 @@
             "T": "15 C",
             "W": "9.4 m\\/s (208\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -33713,7 +35714,25 @@
             "T": "15 C",
             "W": "9.4 m\\/s (208\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -34328,7 +36347,25 @@
             "T": "15 C",
             "W": "9.39 m\\/s (207\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "R\u00f8nningen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "R\u00f8nningen",
+                "country": "NO",
+                "guid": "8B099E90-E026-17E2-EEC1-B2A5B708384C",
+                "latitude": "59.007790045725216",
+                "longitude": "10.131545508441292",
+                "name": "Olbergholmen, LARVIK",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3281"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -34952,7 +36989,25 @@
             "T": "19 C",
             "W": "5.17 m\\/s (250\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -35567,7 +37622,25 @@
             "T": "20 C",
             "W": "5.45 m\\/s (213\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "D5565881-BBF7-35AA-1529-4952C33561B6",
+                "latitude": "58.995282619796",
+                "longitude": "10.052802672291",
+                "name": "Torkilds\\u00f8y, Stavern",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "3290"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -36192,7 +38265,25 @@
             "T": "17 C",
             "W": "10.59 m\\/s (214\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Larvik",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "",
+                "guid": "978B675E-922A-6536-6C0C-BF911BCD0C17",
+                "latitude": "59.012422",
+                "longitude": "10.094315",
+                "name": "Larvik",
+                "notes": "Project number 200065\\r\\nLarvik, three main areas of interest around; Malm\\u00f8ya, Staven and Nevlunghavn",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -36327,7 +38418,25 @@
             "T": "4 C",
             "W": "2.53 m\\/s (197\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -36461,7 +38570,25 @@
             "T": "8 C",
             "W": "1.56 m\\/s (170\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -36595,7 +38722,25 @@
             "T": "8 C",
             "W": "1.58 m\\/s (170\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -36729,7 +38874,25 @@
             "T": "1 C",
             "W": "0.79 m\\/s (342\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -36863,7 +39026,25 @@
             "T": "6 C",
             "W": "1.02 m\\/s (152\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -36998,7 +39179,25 @@
             "T": "2 C",
             "W": "0.97 m\\/s (258\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -37123,7 +39322,25 @@
             "T": "5 C",
             "W": "0.95 m\\/s (140\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -37257,7 +39474,25 @@
             "T": "8 C",
             "W": "1.43 m\\/s (170\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -37391,7 +39626,25 @@
             "T": "2 C",
             "W": "0.74 m\\/s (339\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -37525,7 +39778,25 @@
             "T": "3 C",
             "W": "0.72 m\\/s (330\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -37659,7 +39930,25 @@
             "T": "8 C",
             "W": "1.57 m\\/s (170\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -37784,7 +40073,25 @@
             "T": "9 C",
             "W": "1.7 m\\/s (170\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "120",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "882CC540-0648-D858-0169-AEF2F6C7FF52",
+                "latitude": "59.81638",
+                "longitude": "10.61005",
+                "name": "STEILENE-PERSTELEN",
+                "notes": "Plastic and shallow habitat mapping",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "",
@@ -38046,7 +40353,25 @@
             "T": "",
             "W": ""
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "STOKKA",
+                "altitude": "120",
+                "archived": "0",
+                "city": "STAVANGER",
+                "country": "NO",
+                "guid": "F3E0A0B9-AEFE-9B86-2938-EE174C14FC39",
+                "latitude": "58.967289",
+                "longitude": "5.670539",
+                "name": "Stokkavatnet, Stavenger",
+                "notes": "RGB mapping of Stokkavatnet, and M\\u00f8llerbekken",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -38181,7 +40506,25 @@
             "T": "-8 C",
             "W": "2.16 m\\/s (358\\u00b0)"
         },
-        "weather_note": "-5-8\\u00b0C, Cold will be taken into account, batteries will be pre-warmed and kept in an insulated container with warm packs.\\r\\nMission will be short, small and collection of test data only.\\r\\n"
+        "weather_note": "-5-8\\u00b0C, Cold will be taken into account, batteries will be pre-warmed and kept in an insulated container with warm packs.\\r\\nMission will be short, small and collection of test data only.\\r\\n",
+        "placInfo": [
+            {
+                "address": "Halden Brygge, Snar\\u00f8ya,",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Viken",
+                "country": "NO",
+                "guid": "1BAE0560-0DE5-B32B-073A-18F6CF5D994D",
+                "latitude": "59.8878105",
+                "longitude": "10.633287",
+                "name": "Fornebu",
+                "notes": "Test location for coastal sensors easy parking close to NIVA Oslo.",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1367"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -38308,7 +40651,25 @@
             "T": "-8 C",
             "W": "1.98 m\\/s (355\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Halden Brygge, Snar\\u00f8ya,",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Viken",
+                "country": "NO",
+                "guid": "1BAE0560-0DE5-B32B-073A-18F6CF5D994D",
+                "latitude": "59.8878105",
+                "longitude": "10.633287",
+                "name": "Fornebu",
+                "notes": "Test location for coastal sensors easy parking close to NIVA Oslo.",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1367"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -38435,7 +40796,25 @@
             "T": "-8 C",
             "W": "1.99 m\\/s (356\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Halden Brygge, Snar\\u00f8ya,",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Viken",
+                "country": "NO",
+                "guid": "1BAE0560-0DE5-B32B-073A-18F6CF5D994D",
+                "latitude": "59.8878105",
+                "longitude": "10.633287",
+                "name": "Fornebu",
+                "notes": "Test location for coastal sensors easy parking close to NIVA Oslo.",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1367"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -38562,7 +40941,25 @@
             "T": "-8 C",
             "W": "2.01 m\\/s (356\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Halden Brygge, Snar\\u00f8ya,",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Viken",
+                "country": "NO",
+                "guid": "1BAE0560-0DE5-B32B-073A-18F6CF5D994D",
+                "latitude": "59.8878105",
+                "longitude": "10.633287",
+                "name": "Fornebu",
+                "notes": "Test location for coastal sensors easy parking close to NIVA Oslo.",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1367"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -38728,7 +41125,25 @@
             "T": "5 C",
             "W": "2.58 m\\/s (29\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -38894,7 +41309,25 @@
             "T": "13 C",
             "W": "3.16 m\\/s (24\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -39051,7 +41484,25 @@
             "T": "13 C",
             "W": "3.12 m\\/s (25\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -39198,7 +41649,25 @@
             "T": "14 C",
             "W": "3.89 m\\/s (192\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Hellvikalleen 60, ",
+                "altitude": "120",
+                "archived": "0",
+                "city": "Nesoddtangen",
+                "country": "NO",
+                "guid": "49B74AC8-CC9D-5443-D6BA-1F13E8702EFC",
+                "latitude": "59.85188",
+                "longitude": "10.686752",
+                "name": "Hellviktangen",
+                "notes": "Demo for participants of the Seabee Workshop at Hellviktangen kunstkafe\\r\\nHellvikalleen 60, 1450 Nesoddtangen",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1450 "
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -39336,7 +41805,25 @@
             "T": "15 C",
             "W": "4.45 m\\/s (185\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Hellvikalleen 60, ",
+                "altitude": "120",
+                "archived": "0",
+                "city": "Nesoddtangen",
+                "country": "NO",
+                "guid": "49B74AC8-CC9D-5443-D6BA-1F13E8702EFC",
+                "latitude": "59.85188",
+                "longitude": "10.686752",
+                "name": "Hellviktangen",
+                "notes": "Demo for participants of the Seabee Workshop at Hellviktangen kunstkafe\\r\\nHellvikalleen 60, 1450 Nesoddtangen",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1450 "
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -40055,7 +42542,25 @@
             "T": "",
             "W": ""
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Naut\\\\u00f8ya",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Raftenes",
+                "country": "NO",
+                "guid": "DBE3F0D9-125D-BCA0-57DF-E94C18F100D3",
+                "latitude": "62.3106418",
+                "longitude": "5.6908193",
+                "name": "Moore og Romsdal",
+                "notes": "Smaller areas to be mapped in the M\\\\u00f8re og Romsdal area encompassed here:https:\\\\/\\\\/www.google.com\\\\/maps\\\\/place\\\\/M%C3%B8re+og+Romsdal\\\\/@62.3280144,6.5196218,8.75z\\\\/data=!4m5!3m4!1s0x4611541dd7c6c259:0x9e44539d45c7635a!8m2!3d62.8406833!4d7.007143",
+                "state": "",
+                "tags": "Coastfrag, seabee, rgb , multispec",
+                "type": "",
+                "zip_code": "6095"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -40775,7 +43280,25 @@
             "T": "14 C",
             "W": "2.41 m\\/s (352\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Royravegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "FA9D40E7-D11D-47EA-3EE3-C4309B73A647",
+                "latitude": "62.318487726162",
+                "longitude": "5.7297265910402",
+                "name": "Royravegen, Heroy",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6095"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -41495,7 +44018,25 @@
             "T": "14 C",
             "W": "2.42 m\\/s (348\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Royravegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "FA9D40E7-D11D-47EA-3EE3-C4309B73A647",
+                "latitude": "62.318487726162",
+                "longitude": "5.7297265910402",
+                "name": "Royravegen, Heroy",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6095"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -42215,7 +44756,25 @@
             "T": "14 C",
             "W": "2.45 m\\/s (344\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Royravegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "FA9D40E7-D11D-47EA-3EE3-C4309B73A647",
+                "latitude": "62.318487726162",
+                "longitude": "5.7297265910402",
+                "name": "Royravegen, Heroy",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6095"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -42935,7 +45494,25 @@
             "T": "14 C",
             "W": "3.15 m\\/s (336\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Royravegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "FA9D40E7-D11D-47EA-3EE3-C4309B73A647",
+                "latitude": "62.318487726162",
+                "longitude": "5.7297265910402",
+                "name": "Royravegen, Heroy",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6095"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -43655,7 +46232,25 @@
             "T": "13 C",
             "W": "4.38 m\\/s (36\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Hansvika",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Dimna",
+                "country": "NO",
+                "guid": "144A6009-933E-3E18-BBF9-86DAD54BFDEA",
+                "latitude": "62.333232314237",
+                "longitude": "5.8033029313985",
+                "name": "Hansvika, Dimna",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -44375,7 +46970,25 @@
             "T": "14 C",
             "W": "4.89 m\\/s (33\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Royravegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "FA9D40E7-D11D-47EA-3EE3-C4309B73A647",
+                "latitude": "62.318487726162",
+                "longitude": "5.7297265910402",
+                "name": "Royravegen, Heroy",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6095"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -45086,7 +47699,25 @@
             "T": "14 C",
             "W": "4.99 m\\/s (33\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Royravegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "FA9D40E7-D11D-47EA-3EE3-C4309B73A647",
+                "latitude": "62.318487726162",
+                "longitude": "5.7297265910402",
+                "name": "Royravegen, Heroy",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6095"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -45806,7 +48437,25 @@
             "T": "12 C",
             "W": "5.16 m\\/s (31\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "C1C7A308-E2C3-6A75-FC0F-BDB26B051734",
+                "latitude": "62.335258548527",
+                "longitude": "5.7669299737048",
+                "name": "Ulstein, More og Romsdal",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -46526,7 +49175,25 @@
             "T": "12 C",
             "W": "5 m\\/s (33\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Raftenes",
+                "country": "NO",
+                "guid": "B336C547-D498-C1CB-9A64-CF32B1227EE1",
+                "latitude": "62.332272636926",
+                "longitude": "5.7419072318273",
+                "name": "Raftenes, Heroy",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6070"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -47246,7 +49913,25 @@
             "T": "12 C",
             "W": "4.95 m\\/s (33\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Raftenes",
+                "country": "NO",
+                "guid": "B336C547-D498-C1CB-9A64-CF32B1227EE1",
+                "latitude": "62.332272636926",
+                "longitude": "5.7419072318273",
+                "name": "Raftenes, Heroy",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6070"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -47966,7 +50651,25 @@
             "T": "12 C",
             "W": "4.92 m\\/s (34\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Raftenes",
+                "country": "NO",
+                "guid": "B336C547-D498-C1CB-9A64-CF32B1227EE1",
+                "latitude": "62.332272636926",
+                "longitude": "5.7419072318273",
+                "name": "Raftenes, Heroy",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6070"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -48345,7 +51048,25 @@
             "T": "12 C",
             "W": "6.89 m\\/s (44\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Leinebakkane",
+                "altitude": "120",
+                "archived": "0",
+                "city": "Leine",
+                "country": "NO",
+                "guid": "21EEB60C-EEDE-A3EF-5D9C-8B1495A45559",
+                "latitude": "62.347394",
+                "longitude": "5.68876",
+                "name": "Lein\u00f8ya / Bergsoya- More og Romsdal",
+                "notes": "Mapping various coastal locations in RGB and Multispectral for the ongoing Seabee project.\\\\\\\\r\\\\\\\\n\\\\\\\\r\\\\\\\\nWe are aware of the protected habitat areas around and will not be flying in any of these zones. In the are of interest Bergsoya has only a small reserve that is not of any interest.",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6094"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -48725,7 +51446,25 @@
             "T": "16 C",
             "W": "2 m\\\\/s (337\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -49105,7 +51844,25 @@
             "T": "16 C",
             "W": "1.95 m\\\\/s (339\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -49485,7 +52242,25 @@
             "T": "15 C",
             "W": "1.34 m\\\\/s (112\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -49865,7 +52640,25 @@
             "T": "15 C",
             "W": "2.04 m\\\\/s (319\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -50245,7 +53038,25 @@
             "T": "14 C",
             "W": "1.78 m\\\\/s (39\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -50625,7 +53436,25 @@
             "T": "14 C",
             "W": "1.79 m\\\\\\\\/s (27\\\\\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -51003,7 +53832,25 @@
             "T": "15 C",
             "W": "2.03 m\\\\/s (327\\\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Rundavegen",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Runde",
+                "country": "NO",
+                "guid": "B1C3D9CB-7885-B01B-61E6-F3B587E4DCCE",
+                "latitude": "62.3955276346",
+                "longitude": "5.6541987968715",
+                "name": "Rundavegen, Runde",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "6096"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -51113,7 +53960,25 @@
             "T": "19 C",
             "W": "0.83 m\\/s (119\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Storoykilen, Fornebu",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Oslo",
+                "country": "NO",
+                "guid": "92A920DA-CB36-4AE4-F6CE-C9E64FB7C547",
+                "latitude": "59.892974",
+                "longitude": "10.59937",
+                "name": "Storoykilen",
+                "notes": "Mapping for eel grass beds at a the shallow water location of Stor\\\\u00f8ykilen",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -51222,7 +54087,25 @@
             "T": "23 C",
             "W": "2.08 m\\/s (190\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Storoykilen, Fornebu",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Oslo",
+                "country": "NO",
+                "guid": "92A920DA-CB36-4AE4-F6CE-C9E64FB7C547",
+                "latitude": "59.892974",
+                "longitude": "10.59937",
+                "name": "Storoykilen",
+                "notes": "Mapping for eel grass beds at a the shallow water location of Stor\\\\u00f8ykilen",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -51331,7 +54214,25 @@
             "T": "23 C",
             "W": "2.49 m\\/s (193\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Storoykilen, Fornebu",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Oslo",
+                "country": "NO",
+                "guid": "92A920DA-CB36-4AE4-F6CE-C9E64FB7C547",
+                "latitude": "59.892974",
+                "longitude": "10.59937",
+                "name": "Storoykilen",
+                "notes": "Mapping for eel grass beds at a the shallow water location of Stor\\\\u00f8ykilen",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -51440,7 +54341,25 @@
             "T": "23 C",
             "W": "2.51 m\\/s (193\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Storoykilen, Fornebu",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Oslo",
+                "country": "NO",
+                "guid": "92A920DA-CB36-4AE4-F6CE-C9E64FB7C547",
+                "latitude": "59.892974",
+                "longitude": "10.59937",
+                "name": "Storoykilen",
+                "notes": "Mapping for eel grass beds at a the shallow water location of Stor\\\\u00f8ykilen",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -51549,7 +54468,25 @@
             "T": "24 C",
             "W": "2.45 m\\/s (197\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Storoykilen, Fornebu",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Oslo",
+                "country": "NO",
+                "guid": "92A920DA-CB36-4AE4-F6CE-C9E64FB7C547",
+                "latitude": "59.892974",
+                "longitude": "10.59937",
+                "name": "Storoykilen",
+                "notes": "Mapping for eel grass beds at a the shallow water location of Stor\\\\u00f8ykilen",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -51674,7 +54611,25 @@
             "T": "0 C",
             "W": "2.45 m\\/s (48\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Halden Brygge, Snar\\u00f8ya,",
+                "altitude": "0",
+                "archived": "0",
+                "city": "Viken",
+                "country": "NO",
+                "guid": "1BAE0560-0DE5-B32B-073A-18F6CF5D994D",
+                "latitude": "59.8878105",
+                "longitude": "10.633287",
+                "name": "Fornebu",
+                "notes": "Test location for coastal sensors easy parking close to NIVA Oslo.",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "1367"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -51806,7 +54761,25 @@
             "T": "1 C",
             "W": "1.51 m\\/s (11\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -51939,7 +54912,25 @@
             "T": "3 C",
             "W": "1.03 m\\/s (28\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -52072,7 +55063,25 @@
             "T": "4 C",
             "W": "1.08 m\\/s (32\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -52205,7 +55214,25 @@
             "T": "4 C",
             "W": "1.1 m\\/s (34\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -52338,7 +55365,25 @@
             "T": "5 C",
             "W": "1.15 m\\/s (39\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -52462,7 +55507,25 @@
             "T": "8 C",
             "W": "0.89 m\\/s (47\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "Heisshageveien 30A",
+                "altitude": "100",
+                "archived": "0",
+                "city": "Leirsund",
+                "country": "NO",
+                "guid": "5F338F4C-E44E-70EE-DFCF-B0E54279CD53",
+                "latitude": "59.99558",
+                "longitude": "11.097618",
+                "name": "Heisshageveien",
+                "notes": "Test of GnSS system\\r\\nRGB only",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "2015"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -52671,7 +55734,25 @@
             "T": "13 C",
             "W": "4.96 m\\/s (321\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "5D970E88-E589-FBB0-1E13-93A4977D962F",
+                "latitude": "65.663729",
+                "longitude": "11.954449",
+                "name": "VEGA NORLAND",
+                "notes": "MS and RGB mapping of kelp beds in VEGA Norland",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "8982"
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -52862,7 +55943,25 @@
             "T": "15 C",
             "W": "6.57 m\\/s (66\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "0050D93D-0954-77F0-C240-18DFD486F850",
+                "latitude": "65.67294637",
+                "longitude": "11.71084031",
+                "name": "Sola, Vega",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -53053,7 +56152,25 @@
             "T": "16 C",
             "W": "6.83 m\\/s (69\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "0050D93D-0954-77F0-C240-18DFD486F850",
+                "latitude": "65.67294637",
+                "longitude": "11.71084031",
+                "name": "Sola, Vega",
+                "notes": "",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": ""
+            }
+        ]
     },
     {
         "approval_status": "APPROVED",
@@ -53254,6 +56371,24 @@
             "T": "17 C",
             "W": "3.88 m\\/s (96\\u00b0)"
         },
-        "weather_note": ""
+        "weather_note": "",
+        "placInfo": [
+            {
+                "address": "",
+                "altitude": "0",
+                "archived": "0",
+                "city": "",
+                "country": "NO",
+                "guid": "5D970E88-E589-FBB0-1E13-93A4977D962F",
+                "latitude": "65.663729",
+                "longitude": "11.954449",
+                "name": "VEGA NORLAND",
+                "notes": "MS and RGB mapping of kelp beds in VEGA Norland",
+                "state": "",
+                "tags": "",
+                "type": "",
+                "zip_code": "8982"
+            }
+        ]
     }
 ]

@@ -60,14 +60,18 @@ $(document).ready(function () {
   }
 
 // initialize marker
-let markers = new L.markerClusterGroup();
+let markersDroelogBook = new L.markerClusterGroup();
+
+
+// initialize marker
+let markersGeoNodeLayer = new L.markerClusterGroup();
 
 const map = L
   .map('mapD',{
 
     center: [63.19,11.62],
     zoom: 6,
-   layers: [baseMaps['ESRI Imagery']]
+   layers: [baseMaps['Google Satellite']]
   });   // center position + zoom
 
   // add the layer contro
@@ -86,8 +90,10 @@ const mapResetView = (sp) =>{
 
 
 // fetch the requre data
-let name = null;
-let marker = null;
+let nameDLB = null;
+let markerDLB = null;
+let loptValDLB = null;
+
 fetch("/api/dronproject/projectinfo")
   .then(response => response.json())
   .then(data => {
@@ -96,22 +102,19 @@ fetch("/api/dronproject/projectinfo")
     // Process the received JSON data
     data.forEach(el1 => {
       
-       name = el1["Name"];
-      
-       el1["flights"].forEach( el2 => {
-        
-        optVal = swapCoordinatesIfNeeded(el2["centroid_lat"], el2["centroid_lon"])
-        marker = L.marker(new L.LatLng(optVal.lat, optVal.lng), { title: name });
-			  marker.bindPopup(name);
-			  markers.addLayer(marker);
+       nameDLB = el1["name"];
+        //loptValDLB = swapCoordinatesIfNeeded(el2["centroid_lat"], el2["centroid_lon"])
+        markerDLB = L.marker(new L.LatLng(el1.lat, el1.lng), { title: nameDLB });
+			  markerDLB.bindPopup(nameDLB);
+			  markersDroelogBook.addLayer(markerDLB);
 
-       })
+    
 
 		
 
     });
 
-    map.addLayer(markers);
+    map.addLayer(markersDroelogBook);
     
   })
   .catch(error => {
@@ -122,7 +125,46 @@ fetch("/api/dronproject/projectinfo")
 
 
 
-  // Check if the point is outside Norway
+  // fetch the requre data
+let nameGN = null;
+let markerGN = null;
+let loptValGN = null;
+fetch("/api/droneViz/layerlist")
+  .then(response => response.json())
+  .then(data => {
+
+
+    // Process the received JSON data
+    data.forEach(el1 => {
+      
+      nameGN = el1["Name"];
+      loptValGN = el1["flightsxy"]
+      markerGN = L.marker(new L.LatLng(loptValGN.lat, loptValGN.log), { title: nameGN });
+      markerGN.bindPopup(nameGN);
+      markersGeoNodeLayer.addLayer(markerGN);
+
+    
+
+		
+
+    });
+
+    map.addLayer(markersGeoNodeLayer);
+    
+  })
+  .catch(error => {
+    // Handle errors
+    console.error("Error fetching data:", error);
+  });
+
+
+
+
+
+
+
+  // its a error in the dronelogbook data and must be Check if the point is outside Norway
+  // if its outside perhaps need to swap the xy cordinate
 function swapCoordinatesIfNeeded(lat, lng) {
 
 // NO BBx from https://gist.github.com/graydon/11198540
