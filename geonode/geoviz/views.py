@@ -28,7 +28,7 @@ def droneViz(request):
 
 
 
-
+# drone logbook fetch from json
 class get_dronelogbook_flight_project_info (APIView):
     def get(self, request, format=None):
         try:
@@ -41,6 +41,13 @@ class get_dronelogbook_flight_project_info (APIView):
             flightInfo = [
                 {
                     "name": record["name"],
+                    "place_name": record["place_name"],
+                    "complete_status": record["complete_status"],
+                    "creation_date": record["creation_date"],
+                    "flight_date": record["flight_date"],
+                    "max_altitude": record["max_altitude"],
+                    "personnel": record["personnel"],
+                    "payload_description": record["payload_description"],
                     "location": record["placInfo"][0]["name"],
                     "lat": record["placInfo"][0]["latitude"],
                     "lng": record["placInfo"][0]["longitude"]
@@ -66,7 +73,7 @@ class get_dronelogbook_flight_project_info (APIView):
 
 
 
-
+# drone geonode layer bb fetch from json
 class get_droneFlight_geonode_info (APIView):
     def get(self, request, format=None):
         try:

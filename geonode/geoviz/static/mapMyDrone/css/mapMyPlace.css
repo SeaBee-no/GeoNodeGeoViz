@@ -36,5 +36,16 @@ background-color: white;
 }
 
 
+/*popup styleing*/
+.leaflet-popup-content-wrapper {
+    
+    background-color: rgba(0, 213, 255, 0.438);
+  
+}
 
-#mapid { height: 100vh; }
+.leaflet-container a.leaflet-popup-close-button {
+   
+     font: unset; 
+    color: #fff;
+    
+}
