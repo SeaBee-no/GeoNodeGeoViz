@@ -87,7 +87,8 @@ $(document).ready(function () {
   });
 
 
-
+//drone data table array
+const droneDataTable= []
 
   const map = L
     .map('mapD', {
@@ -126,11 +127,16 @@ $(document).ready(function () {
       const [dataDLB, dataGN] = data;
       markerFunctionForDLB(dataDLB);
       markerFunctionForGN(dataGN);
+
+      // call the datatable
+      updateDataTable(droneDataTable);
+
     })
     .catch(error => {
       // Handle errors from fetch operations or parsing JSON
       console.error(error);
     });
+
 
 
 
@@ -142,32 +148,71 @@ $(document).ready(function () {
 
     dataDLB.forEach(el => {
 
-      markerDLB = L.marker(new L.LatLng(el.lat, el.lng),
+    // buils marker
+    markerDLB = L.marker(new L.LatLng(el.lat, el.lng),
         {
           title: el.name,
           icon: DroneIcon,
         });
-      markerDLB.bindPopup(`
+      markerDLB.bindPopup(
+    `
    <h6 class="text-white">${el.name}</h6>   
-  <table class="table table-info table-striped-columns" style="font-size:12px">
+  <table class="table table-info table-striped-columns" style="font-size:14px">
       <thead>
-    <tr>
+    <tr class="table-dark">
+      <th scope="col">Name</th>
       <th scope="col">Info</th>
-      <th scope="col">Val</th>
+     
     </tr>
   </thead>
   <tbody>
+
     <tr>
-      <td>Mark</td>
-      <td>Otto</td>
+    <th scope="row">Place</th>
+      <td>${el.place_name}</td>
     </tr>
+
+    <tr>
+    <th scope="Status">Status</th>
+    <td>${el.complete_status}</td> 
+    </tr>
+
+    <tr>
+    <th scope="row">Flight date</th> 
+    <td>${el.flight_date}</td>
+    </tr>
+
+ 
+    <tr>
+    <th scope="row">Altitude</th>
+    <td>${el.max_altitude} m</td>
+    </tr>
+
+    <tr>
+    <th scope="row">Poilet</th>
+    <td>${el.personnel}</td>
+    </tr>
+
+    <tr>
+    <th scope="row">Remark</th>
+    <td>${el.payload_description}</td>
+    </tr>
+
     </tbody>
   </table>
       
- `);
+ `
+ ,{
+  maxWidth : 500,
+  maxHeight:500
+}
 
+ );
+      // add marker to map
       markersAll.addLayer(markerDLB);
-
+     
+// droneDataTable add data
+droneDataTable.push([el.name,'00']);
 
     });
   }
@@ -184,8 +229,47 @@ $(document).ready(function () {
           title: el.Name,
           icon: DroneIcon,
         });
-      markerGN.bindPopup(el.Name);
+      markerGN.bindPopup(
+
+        `
+        <h6 class="text-white">${el.Name}</h6>   
+       <table class="table table-info table-striped-columns" style="font-size:14px">
+           <thead>
+         <tr class="table-dark">
+           <th scope="col">Name</th>
+           <th scope="col">Info</th>
+          
+         </tr>
+       </thead>
+       <tbody>
+     
+         <tr>
+         <th scope="row">Place</th>
+           <td>${el.Name}</td>
+         </tr>
+     
+         <tr>
+      
+         <td colspan="2" >${el.abstract_table}</td> 
+         </tr>
+     
+       
+     
+         </tbody>
+       </table>
+           
+      `,{
+         maxWidth : 500,
+         maxHeight:500
+      }
+     
+
+
+      );
       markersAll.addLayer(markerGN);
+
+      // droneDataTable add data
+    droneDataTable.push([el.Name,el.dataset_id]);
 
 
     });
@@ -194,34 +278,6 @@ $(document).ready(function () {
 
   // ad marker layers
   map.addLayer(markersAll);
-
-
-
-
-
-
-  // its a error in the dronelogbook data and must be Check if the point is outside Norway
-  // if its outside perhaps need to swap the xy cordinate
-  function swapCoordinatesIfNeeded(lat, lng) {
-
-    // NO BBx from https://gist.github.com/graydon/11198540
-    // Bounding box coordinates for Norway
-    const minLat = 58.0788841824;
-    const maxLat = 80.6571442736;
-    const minLng = 4.99207807783;
-    const maxLng = 31.29341841;
-
-    // Check if the point is outside the bounding box
-    const isOutside = lat < minLat || lat > maxLat || lng < minLng || lng > maxLng;
-
-    // it get true
-    if (isOutside) {
-      // Swap the coordinates
-      [lat, lng] = [lng, lat];
-    }
-
-    return { lat, lng };
-  }
 
 
 
@@ -240,6 +296,32 @@ $(document).ready(function () {
   // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
   // .openPopup();
 
+// data table funvtion
+
+const updateDataTable = (dataSet) =>{
+
+let dataTB =  new DataTable('#droneList',{
+
+  columns: [
+    { title: 'Name' },
+    { title: 'key' }
+
+],
+data: dataSet,
+pageLength: 18,
+columnDefs: [
+  {
+      target: 1,
+      visible: false,
+   //   searchable: false
+  },
+ 
+],
+//info: false // Hide the information about entries
+
+});
+
+}
 
 
 

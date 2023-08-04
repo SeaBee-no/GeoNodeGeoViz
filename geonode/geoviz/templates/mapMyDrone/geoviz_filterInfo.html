@@ -1,10 +1,8 @@
 {% load static %}
 
-
-
+<div style="height: 5vh;">
 <div class="card rounded-0 p-0 m-0 ">
   <div class="card-body p-0 m-0 " id="titleCard">
-    
     <div class="row">
       <div class="col ">
         <img width="200px" src="{% static 'mapstore/img/geonode-logo.svg' %}" class="img-fluid p-0 m-0 float-start"
@@ -15,12 +13,13 @@
           data-bs-toggle="collapse"><i class="bi bi-x-circle bi-lg"></i></a>
       </div>
     </div>
-
-
   </div>
-
-
-
-
-
 </div>
+</div>
+
+
+<div class=" overflow-y-scroll overflow-x-hidden pt-3 ps-1" style="height: 95vh;">
+
+<table id="droneList" class="table table-striped dataTableStyle table-hover"></table>
+</div>
+
