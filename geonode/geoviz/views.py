@@ -83,6 +83,8 @@ class get_droneFlight_geonode_info (APIView):
                     "abstract_table": record["abstract"],
                     "flightsxy": record["bbx_xy"],
                     "dataset_id": record["pk"],
+                    "detail_url":record["detail_url"],
+                     "thumbnail_url":record["links"][4].get('url'),
                     "json_org":"GN",
                    
                 }

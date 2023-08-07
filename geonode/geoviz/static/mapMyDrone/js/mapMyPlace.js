@@ -59,6 +59,20 @@ $(document).ready(function () {
 
   }
 
+  let overlayMaps = {
+    "GeoNode layer": L.tileLayer.wms("https://geonode.seabee.sigma2.no/geoserver/ows?service=WMS", {
+      layers: 'geonode:Team1Dag10_floskjaeret_202305241111',
+      format: 'image/png',
+      transparent: true,
+      attribution: "seabee",
+     // access_token:'',
+      maxZoom: 22,
+  })
+};
+
+
+
+
   // initialize marker
   //https://github.com/Leaflet/Leaflet.markercluster
   let markersAll = new L.markerClusterGroup(
@@ -99,7 +113,7 @@ const droneDataTable= []
     });   // center position + zoom
 
   // add the layer contro
-  var layerControl = L.control.layers(baseMaps).addTo(map);
+  var layerControl = L.control.layers(baseMaps,overlayMaps).addTo(map);
 
 
   // reset map if window smap window size chnge
@@ -110,6 +124,12 @@ const droneDataTable= []
       map.invalidateSize();
     });
   }
+
+
+
+
+
+
 
 
 
@@ -212,7 +232,7 @@ const droneDataTable= []
       markersAll.addLayer(markerDLB);
      
 // droneDataTable add data
-droneDataTable.push([el.name,'00']);
+droneDataTable.push([el.name,`<i type="GLB"  class="bi bi-info-circle-fill biStyle"></i>`,el.lat, el.lng]);
 
     });
   }
@@ -269,7 +289,7 @@ droneDataTable.push([el.name,'00']);
       markersAll.addLayer(markerGN);
 
       // droneDataTable add data
-    droneDataTable.push([el.Name,el.dataset_id]);
+    droneDataTable.push([el.Name,`<i type="GN" onclick="showLayerModel(this)" class="bi bi-info-circle-fill biStyle"></i>`,elxy.lat, elxy.log,el.thumbnail_url,el.detail_url]);
 
 
     });
@@ -297,32 +317,72 @@ droneDataTable.push([el.name,'00']);
   // .openPopup();
 
 // data table funvtion
-
+let dataTB = null;
 const updateDataTable = (dataSet) =>{
 
-let dataTB =  new DataTable('#droneList',{
+dataTB =  new DataTable('#droneList',{
 
   columns: [
     { title: 'Name' },
-    { title: 'key' }
+    { title: 'Info' }
 
 ],
 data: dataSet,
 pageLength: 18,
 columnDefs: [
   {
-      target: 1,
-      visible: false,
+      target: [0],
+      //visible: false,
+      className: "uppertext"
    //   searchable: false
   },
  
 ],
-//info: false // Hide the information about entries
+info: true, // Hide the information about entries
+lengthMenu: [
+  [18, 25, 50, -1],
+  [18, 25, 50, 'All']
+],
+stripeClasses: ['stripe1','stripe2']
+
 
 });
+
+
+
+
+// dataTB.on('click', 'tbody tr', function () {
+//   let data = dataTB.row(this).data();
+
+//   //alert('You clicked on ' + data[0] + "'s row");
+//   map.flyTo([data[2], data[3]], 19);
+
+// });
+
+dataTB.on('click', 'tbody td:first-child', function () {
+  let data = dataTB.row($(this).closest('tr')).data();
+
+  //alert('You clicked on ' + data[0] + "'s row");
+  map.flyTo([data[2], data[3]], 19);
+});
+
+
 
 }
 
 
 
+
+
+
 });
+
+
+
+
+
+const showLayerModel = () =>{
+
+alert("ok");
+
+}

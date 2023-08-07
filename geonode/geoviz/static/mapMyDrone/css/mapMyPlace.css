@@ -55,8 +55,36 @@ background-color: white;
     font-size: 14px; /* Change this value to your preferred font size */
 }
 
-.dataTableStyle td:hover {
+
+
+/*apply hover to first col only*/
+.dataTableStyle td:first-child:hover {
     cursor: pointer;
 }
 
 
+.biStyle:hover {
+    cursor: pointer;
+}
+
+
+
+
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.85em;
+    font-size: 0.75em;
+}
+
+.uppertext{
+    text-transform: uppercase;
+}
+
+.stripe1 td {
+    background-color: #d2f2ff98;
+}
+.stripe2 td {
+    background-color: #ebebebd8;
+
+    
+}
