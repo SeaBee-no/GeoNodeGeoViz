@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 import json, requests, os, base64
+import uuid
 
 # Create your views here.
 
@@ -50,6 +51,7 @@ class get_dronelogbook_flight_project_info (APIView):
                     "payload_description": record["payload_description"],
                     "lat": record["placInfo"][0]["latitude"],
                     "lng": record["placInfo"][0]["longitude"],
+                    "uuid": str(uuid.uuid4()),
                     "json_org":"DLB",
                         
                 }
@@ -84,7 +86,12 @@ class get_droneFlight_geonode_info (APIView):
                     "flightsxy": record["bbx_xy"],
                     "dataset_id": record["pk"],
                     "detail_url":record["detail_url"],
-                     "thumbnail_url":record["links"][4].get('url'),
+                     "thumbnail_url": [
+                         item.get('url')
+                         for item in record["links"]
+                         if item.get('name') == 'PNG'
+                     ],
+                    "uuid": str(uuid.uuid4()),
                     "json_org":"GN",
                    
                 }

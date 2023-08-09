@@ -88,3 +88,25 @@ div.dataTables_wrapper div.dataTables_info {
 
     
 }
+
+
+
+/* .modal-header:hover {
+    cursor: move !important;
+  } */
+
+  .modal-backdrop
+  {
+      opacity:0 !important;
+  }
+
+
+
+  @keyframes fade { 
+    from { opacity: 0.5; } 
+  }
+  
+  .blinking {
+    animation: fade 1s infinite alternate;
+    margin-top: 100px;
+  }

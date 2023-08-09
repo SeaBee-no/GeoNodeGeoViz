@@ -3,7 +3,16 @@ const sleep = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+
+
+// global variable 
+var   layerControl = null;
+var    map = null;
+var markersAll = null;
+var   circleMarker =null;
+
 $(document).ready(function () {
+
 
   //change the left panel btn icone
   $('#panelBtn').click(() => {
@@ -23,6 +32,21 @@ $(document).ready(function () {
     mapResetView(200);
   });
 
+
+
+  // initialize marker
+  //https://github.com/Leaflet/Leaflet.markercluster
+   markersAll = new L.markerClusterGroup(
+    {
+
+      showCoverageOnHover: false,
+      spiderLegPolylineOptions: { weight: 1.5, color: '#00FFFF', opacity: 1 },
+      spiderfyDistanceMultiplier: 2,
+      animate: 'split',
+      maxClusterRadius: 35,
+
+
+    });
 
   let baseMaps = {
 
@@ -65,35 +89,23 @@ $(document).ready(function () {
       format: 'image/png',
       transparent: true,
       attribution: "seabee",
-     // access_token:'',
+      // access_token:'',
       maxZoom: 22,
-  })
-};
+    }),
+    "Drone flight": markersAll,
+  };
 
 
 
 
-  // initialize marker
-  //https://github.com/Leaflet/Leaflet.markercluster
-  let markersAll = new L.markerClusterGroup(
-    {
 
-      showCoverageOnHover: false,
-      spiderLegPolylineOptions: { weight: 1.5, color: '#00FFFF', opacity: 1 },
-      spiderfyDistanceMultiplier: 2,
-      animate: 'split',
-      maxClusterRadius: 40,
-
-
-    }
-  );
 
 
   // caustom icone
-  var DroneIcon = L.icon({
+  let DroneIcon = L.icon({
     iconUrl: '/static/mapMyDrone/img/seabeeLogo.png',
     iconSize: [50, 37],
-    iconAnchor: [28, 30],
+    iconAnchor: [25, 22],
     popupAnchor: [0, -20],
     // shadowUrl: 'my-icon-shadow.png',
     //shadowSize: [68, 95],
@@ -101,19 +113,19 @@ $(document).ready(function () {
   });
 
 
-//drone data table array
-const droneDataTable= []
+  //drone data table array
+  const droneDataTable = []
 
-  const map = L
+   map = L
     .map('mapD', {
 
       center: [63.19, 11.62],
       zoom: 6,
-      layers: [baseMaps['Google Satellite']]
+      layers: [baseMaps['OSM']]
     });   // center position + zoom
 
   // add the layer contro
-  var layerControl = L.control.layers(baseMaps,overlayMaps).addTo(map);
+  layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 
   // reset map if window smap window size chnge
@@ -168,14 +180,15 @@ const droneDataTable= []
 
     dataDLB.forEach(el => {
 
-    // buils marker
-    markerDLB = L.marker(new L.LatLng(el.lat, el.lng),
+      // buils marker
+      markerDLB = L.marker(new L.LatLng(el.lat, el.lng),
         {
           title: el.name,
           icon: DroneIcon,
+          uuid: el.uuid,
         });
       markerDLB.bindPopup(
-    `
+        `
    <h6 class="text-white">${el.name}</h6>   
   <table class="table table-info table-striped-columns" style="font-size:14px">
       <thead>
@@ -222,17 +235,17 @@ const droneDataTable= []
   </table>
       
  `
- ,{
-  maxWidth : 500,
-  maxHeight:500
-}
+        , {
+          maxWidth: 500,
+          maxHeight: 500
+        }
 
- );
+      );
       // add marker to map
       markersAll.addLayer(markerDLB);
-     
-// droneDataTable add data
-droneDataTable.push([el.name,`<i type="GLB"  class="bi bi-info-circle-fill biStyle"></i>`,el.lat, el.lng]);
+
+      // droneDataTable add data
+      droneDataTable.push([el.name, `<i type="GLB"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`, el.lat, el.lng,"#","#",el.uuid]);
 
     });
   }
@@ -248,6 +261,7 @@ droneDataTable.push([el.name,`<i type="GLB"  class="bi bi-info-circle-fill biSty
         {
           title: el.Name,
           icon: DroneIcon,
+          uuid: el.uuid,
         });
       markerGN.bindPopup(
 
@@ -278,18 +292,18 @@ droneDataTable.push([el.name,`<i type="GLB"  class="bi bi-info-circle-fill biSty
          </tbody>
        </table>
            
-      `,{
-         maxWidth : 500,
-         maxHeight:500
+      `, {
+        maxWidth: 500,
+        maxHeight: 500
       }
-     
+
 
 
       );
       markersAll.addLayer(markerGN);
 
       // droneDataTable add data
-    droneDataTable.push([el.Name,`<i type="GN" onclick="showLayerModel(this)" class="bi bi-info-circle-fill biStyle"></i>`,elxy.lat, elxy.log,el.thumbnail_url,el.detail_url]);
+      droneDataTable.push([el.Name, `<i type="GN"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`, elxy.lat, elxy.log, el.thumbnail_url, el.detail_url,el.uuid]);
 
 
     });
@@ -300,11 +314,10 @@ droneDataTable.push([el.name,`<i type="GLB"  class="bi bi-info-circle-fill biSty
   map.addLayer(markersAll);
 
 
-
-
   //test ground
-
   //marker location optimize
+//#########################################################
+
   // L.marker([51.5, -0.09]).addTo(map)
   //     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
   //     .openPopup();
@@ -316,55 +329,186 @@ droneDataTable.push([el.name,`<i type="GLB"  class="bi bi-info-circle-fill biSty
   // .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
   // .openPopup();
 
-// data table funvtion
-let dataTB = null;
-const updateDataTable = (dataSet) =>{
 
-dataTB =  new DataTable('#droneList',{
 
-  columns: [
-    { title: 'Name' },
-    { title: 'Info' }
+  // circleMarker = L.circleMarker([51.5, -0.09], {
+  //   radius: 40,            // Radius of the circle marker
+  //   color: 'blue',         // Border color
+  //   fillColor: 'lightblue', // Fill color
+  //   fillOpacity: 0.7,// Fill opacity
+  //   className: 'blinking',     
+  // }).addTo(map);
 
-],
-data: dataSet,
-pageLength: 18,
-columnDefs: [
-  {
-      target: [0],
-      //visible: false,
-      className: "uppertext"
-   //   searchable: false
-  },
+//#########################################################
+
+
+  // data table funvtion
+  let dataTB = null;
+  const updateDataTable = (dataSet) => {
+
+    dataTB = new DataTable('#droneList', {
+
+      columns: [
+        { title: 'Name' },
+        { title: 'Info' }
+
+      ],
+      data: dataSet,
+      pageLength: 18,
+      columnDefs: [
+        {
+          target: [0],
+          //visible: false,
+          className: "uppertext"
+          //   searchable: false
+        },
+
+      ],
+      info: true, // Hide the information about entries
+      lengthMenu: [
+        [18, 25, 50, -1],
+        [18, 25, 50, 'All']
+      ],
+      stripeClasses: ['stripe1', 'stripe2']
+
+
+    });
+
+
+
+
+
+// cick on table first row col only
+    dataTB.on('click', 'tbody td:first-child', function () {
+      let data = dataTB.row($(this).closest('tr')).data();
+
+      //alert('You clicked on ' + data[0] + "'s row");
+      locateDroneonMap(([data[2], data[3]]).toString(),data[6]);
+
+    });
+
+
+
+// cick on table second row col only
+    dataTB.on('click', 'tbody td:nth-child(2)', function () {
+      let data = dataTB.row($(this).closest('tr')).data();
+      
+      // call the model
+      modelparaSetting(data);
+  
+    });
+
+
+  
+   
+
+  }
+
+
+
+
+// model parameter 
+const modelparaSetting = (data) =>{
+  $("#mapModelopt .modal-title").text(data[0]);
+  $("#mapModelopt .img-fluid").attr("src", data[4].length > 0 ? data[4][0] : '#');
+
+  // store info at valaue
+  //store latlon
+  $("#btn_locate").attr("valuexy",[data[2], data[3]]);
+  $("#btn_locate").attr("uuid",data[6]);
+
+   // store layer name 
+   $("#btn_overlay").val(data[0]);
+   
+   // geonode url
+   $("#btn_detail").val(data[5]);
+
+   // store layer name to be serach ar minio
+   $("#btn_download").val(data[0]);
+
+
+
+  mapModel_Obj.show();
+
+}
+
+
+
+
+// dragable property
+const mapModel_Obj = new bootstrap.Modal('#mapModelopt', {
+  backdrop: false,
+  keyboard: false,
+  focus: false,
  
-],
-info: true, // Hide the information about entries
-lengthMenu: [
-  [18, 25, 50, -1],
-  [18, 25, 50, 'All']
-],
-stripeClasses: ['stripe1','stripe2']
-
 
 });
 
 
-
-
-// dataTB.on('click', 'tbody tr', function () {
-//   let data = dataTB.row(this).data();
-
-//   //alert('You clicked on ' + data[0] + "'s row");
-//   map.flyTo([data[2], data[3]], 19);
-
+// script to make model draggable, as bs5 does not have it this feature
+// const container = document.getElementById("mapModelopt");
+// function onMouseDrag({ movementX, movementY }) {
+// 	let getContainerStyle = window.getComputedStyle(container);
+// 	let leftValue = parseInt(getContainerStyle.left);
+// 	let topValue = parseInt(getContainerStyle.top);
+// 	container.style.left = `${leftValue + movementX}px`;
+// 	container.style.top = `${topValue + movementY}px`;
+// }
+// container.addEventListener("mousedown", () => {
+// 	container.addEventListener("mousemove", onMouseDrag);
+// });
+// document.addEventListener("mouseup", () => {
+// 	container.removeEventListener("mousemove", onMouseDrag);
 // });
 
-dataTB.on('click', 'tbody td:first-child', function () {
-  let data = dataTB.row($(this).closest('tr')).data();
 
-  //alert('You clicked on ' + data[0] + "'s row");
-  map.flyTo([data[2], data[3]], 19);
+
+
+
+
+
+// locate the drone on click
+
+
+
+$("#btn_locate").on("click", function() {
+
+  locateDroneonMap($(this).attr("valuexy"),$(this).attr("uuid"));
 });
+
+
+
+
+const locateDroneonMap = (data,uuid) => {
+
+  let xy = data.split(",");
+  map.flyTo([xy[0], xy[1]], 19);
+
+if(circleMarker){
+ map.removeLayer(circleMarker);
+
+}
+ 
+
+sleep(4000).then(() => {
+
+  circleMarker = L.circleMarker([xy[0] , xy[1]], {
+    radius: 40,            // Radius of the circle marker
+    color: '#2288AA',         // Border color
+    fillColor: '#00FFFF', // Fill color
+    fillOpacity: 0.2,// Fill opacity
+    className: 'blinking',     
+  }).addTo(map);
+
+});
+//   markersAll.eachLayer(function(layer) {
+//     if(layer instanceof L.Marker) {
+//        if(layer.options.uuid == uuid){
+//         layer.getIcon().options.className = "blinking";
+//        }
+//     }
+// });
+
 
 
 
@@ -374,15 +518,9 @@ dataTB.on('click', 'tbody td:first-child', function () {
 
 
 
-
 });
 
 
 
 
 
-const showLayerModel = () =>{
-
-alert("ok");
-
-}
