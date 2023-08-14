@@ -6,10 +6,11 @@ const sleep = (ms) => {
 
 
 // global variable 
-var   layerControl = null;
+var    layerControl = null;
 var    map = null;
-var markersAll = null;
+var    markersAll = null;
 var   circleMarker =null;
+var   GN_Overlay_layer =null;
 
 $(document).ready(function () {
 
@@ -83,21 +84,20 @@ $(document).ready(function () {
 
   }
 
-  let overlayMaps = {
-    "GeoNode layer": L.tileLayer.wms("https://geonode.seabee.sigma2.no/geoserver/ows?service=WMS", {
-      layers: 'geonode:Team1Dag10_floskjaeret_202305241111',
-      format: 'image/png',
-      transparent: true,
-      attribution: "seabee",
-      // access_token:'',
-      maxZoom: 22,
-    }),
+  overlayMaps = {
     "Drone flight": markersAll,
   };
 
 
 
-
+  GN_Overlay_layer = L.tileLayer.wms("https://geonode.seabee.sigma2.no/geoserver/ows?service=WMS", {
+    layers: '',
+    format: 'image/png',
+    transparent: true,
+    attribution: "seabee",
+    access_token:'',
+    maxZoom: 30,
+  });
 
 
 
@@ -245,7 +245,15 @@ $(document).ready(function () {
       markersAll.addLayer(markerDLB);
 
       // droneDataTable add data
-      droneDataTable.push([el.name, `<i type="GLB"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`, el.lat, el.lng,"#","#",el.uuid]);
+      droneDataTable.push([el.name, 
+        `<i type="GLB"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`, 
+        el.lat, 
+        el.lng,
+        "#",
+        "#",
+        el.uuid,
+        "#",
+       "DLB_layer"]);
 
     });
   }
@@ -303,7 +311,14 @@ $(document).ready(function () {
       markersAll.addLayer(markerGN);
 
       // droneDataTable add data
-      droneDataTable.push([el.Name, `<i type="GN"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`, elxy.lat, elxy.log, el.thumbnail_url, el.detail_url,el.uuid]);
+      droneDataTable.push([el.Name, `<i type="GN"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`, 
+      elxy.lat, 
+      elxy.log, 
+      el.thumbnail_url, 
+      el.detail_url,
+      el.uuid,
+      el.abstract_table,
+      "GN_layer"]);
 
 
     });
@@ -369,7 +384,12 @@ $(document).ready(function () {
         [18, 25, 50, -1],
         [18, 25, 50, 'All']
       ],
-      stripeClasses: ['stripe1', 'stripe2']
+      stripeClasses: ['stripe1', 'stripe2'],
+      select: {
+        style: 'os',
+        className: 'focusedRow',
+        selector: 'td:last-child a'
+    }
 
 
     });
@@ -383,7 +403,7 @@ $(document).ready(function () {
       let data = dataTB.row($(this).closest('tr')).data();
 
       //alert('You clicked on ' + data[0] + "'s row");
-      locateDroneonMap(([data[2], data[3]]).toString(),data[6]);
+      locateDroneonMap(([data[2], data[3]]).toString());
 
     });
 
@@ -414,21 +434,24 @@ const modelparaSetting = (data) =>{
 
   // store info at valaue
   //store latlon
-  $("#btn_locate").attr("valuexy",[data[2], data[3]]);
-  $("#btn_locate").attr("uuid",data[6]);
-
-   // store layer name 
    $("#btn_overlay").val(data[0]);
-   
+  $("#btn_locate").attr("valuexy",[data[2], data[3]]);
+
    // geonode url
    $("#btn_detail").val(data[5]);
 
-   // store layer name to be serach ar minio
-   $("#btn_download").val(data[0]);
 
+  $("#btn_locate").attr("uuid",data[6]);
+
+   // store layer downlaod details
+   $("#btn_download").val(data[7]);
+
+    // store layer source GN DLB
+    $("#btn_wms").val(data[8]);
 
 
   mapModel_Obj.show();
+ 
 
 }
 
@@ -470,16 +493,25 @@ const mapModel_Obj = new bootstrap.Modal('#mapModelopt', {
 // locate the drone on click
 
 
-
 $("#btn_locate").on("click", function() {
 
-  locateDroneonMap($(this).attr("valuexy"),$(this).attr("uuid"));
+  locateDroneonMap($(this).attr("valuexy"));
+});
+
+$("#btn_overlay").on("click", function() {
+
+  addOverLay_to_map(this.value);
 });
 
 
+$("#btn_detail").on("click", function() {
+
+window.location.href=this.value;
 
 
-const locateDroneonMap = (data,uuid) => {
+});
+
+const locateDroneonMap = (data) => {
 
   let xy = data.split(",");
   map.flyTo([xy[0], xy[1]], 19);
@@ -489,7 +521,6 @@ if(circleMarker){
 
 }
  
-
 sleep(4000).then(() => {
 
   circleMarker = L.circleMarker([xy[0] , xy[1]], {
@@ -509,13 +540,30 @@ sleep(4000).then(() => {
 //     }
 // });
 
+}
 
 
+
+const addOverLay_to_map = (val) =>{
+
+  if(map.hasLayer(GN_Overlay_layer)){
+    map.removeLayer(GN_Overlay_layer);
+  }
+
+  GN_Overlay_layer.wmsParams.layers=`geonode:${val}`;
+  map.addLayer(GN_Overlay_layer);
+  GN_Overlay_layer.redraw();
 
 }
 
 
 
+map.on("baselayerchange",()=>{
+
+  if(map.hasLayer(GN_Overlay_layer)){
+    GN_Overlay_layer.bringToFront();
+  }
+})
 
 
 });
@@ -523,4 +571,106 @@ sleep(4000).then(() => {
 
 
 
+$("#btn_download").on("click", function() {
 
+  let container = document.createElement("div");
+   container.innerHTML =this.value;
+   container =container.querySelectorAll("td");
+
+   if(container.length > 0){
+    container = container[0].innerText;
+    let bucket=container.split("/")[0]
+
+    let flipath=container.split("/").slice(1).join("/");
+    flipath = flipath +"/orthophoto/"+container.split("/").pop()+".tif"
+
+     console.log(flipath);
+
+
+let url = `/api/droneViz/minio/${bucket}/${flipath}`;
+
+// Make a GET request using the fetch API
+fetch(url)
+  .then(response => {
+    // Check if the response status is OK (200)
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    // Parse the response as JSON
+    return response.json();
+  })
+  .then(data => {
+    // Process the fetched data
+    
+
+
+  // Create a download link
+  let link = document.createElement('a');
+  link.href = data; // Create a temporary URL for the Blob
+  link.download = container.split("/").pop()+".tif";
+  document.body.appendChild(link);
+
+  // Trigger a click on the link to start the download
+  link.click();
+
+  // Remove the link from the DOM
+  document.body.removeChild(link);
+
+
+
+
+  })
+  .catch(error => {
+    // Handle errors
+    console.error('Fetch error:', error);
+  });
+
+  
+  
+  
+  
+  }
+   else{
+
+    $.confirm({
+      title: '<i class="bi bi-exclamation-triangle"></i> Not Available!',
+      content: "The data you're searching for is currently unavailable.",
+      type: 'orance',
+      typeAnimated: true,
+      buttons: {
+          tryAgain: {
+              text: 'Close',
+              btnClass: 'btn-red',
+              action: function(){
+              }
+          },
+         
+      }
+  });
+
+   }
+
+   
+
+
+
+
+
+
+
+  });
+
+//tool tip of the disable btn
+   const tooltip = new bootstrap.Tooltip('#btn_download_disable', {
+    boundary: document.body // or document.querySelector('#boundary')
+  });
+
+
+
+  $("#btn_wms").on("click", function() {
+
+    console.log(this.value);
+        
+        
+        });
+    

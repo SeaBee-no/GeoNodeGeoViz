@@ -3,13 +3,21 @@
 
 {% block page_css %}
 <!-- Load d3.js -->
-   <link href="https://cdn.datatables.net/v/bs5/dt-1.13.6/af-2.6.0/cr-1.7.0/date-1.5.1/fc-4.3.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rg-1.4.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/sr-1.3.0/datatables.min.css" rel="stylesheet">
- 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css" integrity="sha512-mQ77VzAakzdpWdgfL/lM1ksNy89uFgibRQANsNneSTMD/bj0Y/8+94XMwYhnbzx8eki2hrbPpDm0vD0CiT2lcg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css" integrity="sha512-6ZCLMiYwTeli2rVh3XAPxy3YoR5fVxGdH/pz+KMCzRY2M65Emgkw00Yqmhh8qLGeYQ3LbVZGdmOX9KUjSKr0TA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-   
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
+<link
+  href="https://cdn.datatables.net/v/bs5/dt-1.13.6/af-2.6.0/cr-1.7.0/date-1.5.1/fc-4.3.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rg-1.4.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/sr-1.3.0/datatables.min.css"
+  rel="stylesheet">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css"
+  integrity="sha512-mQ77VzAakzdpWdgfL/lM1ksNy89uFgibRQANsNneSTMD/bj0Y/8+94XMwYhnbzx8eki2hrbPpDm0vD0CiT2lcg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css"
+  integrity="sha512-6ZCLMiYwTeli2rVh3XAPxy3YoR5fVxGdH/pz+KMCzRY2M65Emgkw00Yqmhh8qLGeYQ3LbVZGdmOX9KUjSKr0TA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 <link href="{% static 'mapMyDrone/css/mapMyPlace.css' %}" rel="stylesheet" />
 
@@ -21,29 +29,29 @@
 
 <div class="container-fluid">
 
-    <div class="row flex-nowrap">
+  <div class="row flex-nowrap">
 
-        <!-- This left pannel is manage under col property with same panel content -->
-        <div class="col-auto px-0 d-none d-md-block  vh-100 bg-body-tertiary  shadow-lg   bg-body-tertiary m-0 p-0">
+    <!-- This left pannel is manage under col property with same panel content -->
+    <div class="col-auto px-0 d-none d-md-block  vh-100 bg-body-tertiary  shadow-lg   bg-body-tertiary m-0 p-0">
 
-            <div id="sidebar" class="collapse  show collapse-horizontal ">
-                <div  id="sidebar-nav " style="width: 30vw;">
-               
+      <div id="sidebar" class="collapse  show collapse-horizontal ">
+        <div id="sidebar-nav " style="width: 30vw;">
 
-                        {% include 'mapMyDrone/geoviz_filterInfo.html' %}
 
-                
-                </div>
-            </div>
+          {% include 'mapMyDrone/geoviz_filterInfo.html' %}
+
 
         </div>
+      </div>
 
-        <div class="col p-0 m-0 position-relative " id="mapArea">
-
-            {% include 'mapMyDrone/geoviz_mapInfo.html' %}
-
-        </div>
     </div>
+
+    <div class="col p-0 m-0 position-relative " id="mapArea">
+
+      {% include 'mapMyDrone/geoviz_mapInfo.html' %}
+
+    </div>
+  </div>
 
 
 </div>
@@ -52,30 +60,60 @@
 
 
 <div class="modal fade" tabindex="-1" id="mapModelopt">
-    <div class="modal-dialog ">
-      <div class="modal-content ">
-        <div class="modal-header p-2 mx-auto text-center" >
-         
-          <button style="font-size: 8px;" type="button" class="btn-close border border-secondary position-absolute top-0 end-0 mt-1 me-1 rounded-circle p-1" data-bs-dismiss="modal" aria-label="Close"></button>
-          <h6 class="modal-title  ">title</h6>
+  <div class="modal-dialog ">
+    <div class="modal-content ">
+      <div class="modal-header p-2 mx-auto text-center">
+
+        <button style="font-size: 8px;" type="button"
+          class="btn-close border border-secondary position-absolute top-0 end-0 mt-1 me-1 rounded-circle p-1"
+          data-bs-dismiss="modal" aria-label="Close"></button>
+        <h6 class="modal-title  mt-3">title</h6>
+      </div>
+      <div class="modal-body p-1">
+        <img src="#" class="rounded mx-auto d-block img-fluid" alt="Image preview not available.">
+      </div>
+
+      <div class="modal-footer border border-dark-subtle border-top">
+        <div class="hstack gap-1 mx-auto">
+          <div class=""> <button id="btn_locate" valuexy="" valueuiid="" class="btn btn-secondary btn-sm rounded"
+              style="font-size: 13px;"><span class="bi bi-geo-alt text-info"></span> Locate</button></div>
+          <div class=""> <button id="btn_overlay" value="" class="btn btn-secondary btn-sm rounded"
+              style="font-size: 13px;"><span class="bi bi-map text-info"></span> Overlay</button></div>
+          <div class=" "> <button id="btn_detail" value="" class="btn btn-secondary btn-sm rounded" style="font-size: 13px;"
+              ;><span class="bi bi-info-square text-info"></span> Detail</button></div>
+
+
+          {% if user.is_authenticated %}
+          <div class=""> <button id="btn_download" value="" class="btn btn-secondary btn-sm rounded"
+              style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info"></span> Download</button></div>
+
+
+          {% else %}
+      <div id="btn_download_disable" class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading.">
+          <button   class="btn btn-secondary btn-sm disabled rounded"
+           
+              style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info"></span> Download</button>
+      </div>
+              
+              
+              
+
+
+          {% endif %}
+
+
+          <div class=" "> <button id="btn_wms" value="" class="btn btn-secondary btn-sm rounded" style="font-size: 13px;"
+            ;><i class="bi bi-database text-info"></i> WMS</button></div>
+
+
+          <div class=""> <button id="btn_clear" value="" class="btn btn-secondary btn-sm"
+              style="font-size: 13px;"><span class="bi bi-trash3 text-info"></span> Clear</button></div>
         </div>
-        <div class="modal-body p-1">
-            <img src="#" class="rounded mx-auto d-block img-fluid" alt="NA">
-        </div>
-  
-        <div class="modal-footer border border-dark-subtle border-top">
-          <div class="hstack gap-3 mx-auto">
-            <div class=""> <button id="btn_locate" valuexy="" valueuiid="" class="btn btn-secondary btn-sm " style="font-size: small;"><span class="bi bi-geo-alt"></span> Locate</button></div>
-            <div class=""> <button id="btn_overlay" value=""  class="btn btn-secondary btn-sm" style="font-size: small;"><span class="bi bi-map"></span> Overlay</button></div>
-            <div class=" "> <button id="btn_detail" value=""  class="btn btn-secondary btn-sm" style="font-size: small";><span class="bi bi-info-square"></span> Detail</button></div>
-            <div class=""> <button id="btn_download" value=""  class="btn btn-secondary btn-sm" style="font-size: small;"><span class="bi bi-cloud-arrow-down"></span> Download</button></div>
-            <div class=""> <button id="btn_clear" value=""  class="btn btn-secondary btn-sm" style="font-size: small;"><span class="bi bi-trash3"></span> Clear</button></div>
-          </div>
-          
-        </div>
+
       </div>
     </div>
   </div>
+</div>
 
 
 
@@ -85,11 +123,14 @@
 {% block page_js %}
 
 
-
-<script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/af-2.6.0/cr-1.7.0/date-1.5.1/fc-4.3.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rg-1.4.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/sr-1.3.0/datatables.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<script
+  src="https://cdn.datatables.net/v/bs5/dt-1.13.6/af-2.6.0/cr-1.7.0/date-1.5.1/fc-4.3.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rg-1.4.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/sr-1.3.0/datatables.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js" integrity="sha512-OFs3W4DIZ5ZkrDhBFtsCP6JXtMEDGmhl0QPlmWYBJay40TT1n3gt2Xuw8Pf/iezgW9CdabjkNChRqozl/YADmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"
+  integrity="sha512-OFs3W4DIZ5ZkrDhBFtsCP6JXtMEDGmhl0QPlmWYBJay40TT1n3gt2Xuw8Pf/iezgW9CdabjkNChRqozl/YADmg=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src="{% static 'mapMyDrone/js/mapMyPlace.js' %}"></script>
 {% endblock %}

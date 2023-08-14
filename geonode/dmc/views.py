@@ -316,7 +316,7 @@ class get_download_url(generics.GenericAPIView):
                 
             except Exception as e:
                 print(e, flush=True)
-                return Response('something wrong')
+                return Response('something went wrong')
 
 
 

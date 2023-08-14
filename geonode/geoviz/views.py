@@ -6,9 +6,11 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 import json, requests, os, base64
 import uuid
-
+from minio import Minio
 # Create your views here.
-
+from pathlib import Path
+from datetime import  timedelta
+from .models import *
 
 jsonPath=""
 #inside geonode enviroment 
@@ -132,3 +134,75 @@ class get_droneFlight_geonodeLayer_info_byid (APIView):
 
         except Exception as e:
             return Response('NA')
+        
+
+
+
+
+# class get_download_url_by_text(APIView):
+        
+#         def get(self, request,format=None, serchtext=None ):
+#             try:
+#                 minioClient = Minio(
+#                            "storage.seabee.sigma2.no",
+#                         access_key=os.getenv('MINIO_ACCESS_KEY'),
+#                         secret_key=os.getenv('MINIO_SECRET_KEY'),
+#                         )
+#                 # File name to search for
+#                 file_name = "Team1Dag10_floskjaeret_202305241111"
+                
+#                # List of buckets to search in
+#                #niva bucket excluded
+#                 buckets_to_check = ['seabirds' , 'niva-tidy','niva','geoviz-upload-data','dmc']
+    
+                
+#                 # empty the table
+#                 minioObjectList.objects.all().delete()
+
+#                 # Iterate over each bucket
+#                 for bucket_name in buckets_to_check:
+#                     objects = minioClient.list_objects(
+#                         bucket_name, 
+#                         recursive=True,
+#                         )
+#                     print(objects)
+#                 # Search for the file by name in the current bucket
+#                     # for obj in objects:
+#                     #     len(objects.gi_frame.f_locals.get('objects'))
+#                         # minioObjectList.objects.create(object_name=obj.object_name,
+#                         #                                bucket_name=obj.bucket_name,
+#                         #                                file_name=Path(obj.object_name).stem,
+#                         #                                size=obj.size)
+#                         #file_url = minioClient.presigned_get_object("geoviz-upload-data",  Path(obj.object_name), expires=timedelta(hours=1))
+#                         # if Path(obj.object_name).stem == file_name:
+#                         #     print(f"File '{file_name}' found in bucket '{bucket_name}'.")
+#                         #     break
+#                 else:
+#                     print(f"File '{file_name}' not found in bucket '{bucket_name}'.")
+
+#                 return Response("NA")
+                
+#             except Exception as e:
+#                 print(e, flush=True)
+#                 return Response('something went wrong')
+
+
+
+class get_download_url_by_bucket(APIView):
+        
+        def get(self, request, bucket=None,fileWithPath=None ):
+            try:
+                minioClient = Minio(
+                           "storage.seabee.sigma2.no",
+                        access_key=os.getenv('MINIO_ACCESS_KEY'),
+                        secret_key=os.getenv('MINIO_SECRET_KEY'),
+                        )
+                #found = minioClient.bucket_exists("dmc")
+                
+                file_url = minioClient.presigned_get_object(bucket.lower(), fileWithPath, expires=timedelta(hours=1))
+
+                return Response(file_url)
+                
+            except Exception as e:
+                print(e, flush=True)
+                return Response('something went wrong')
