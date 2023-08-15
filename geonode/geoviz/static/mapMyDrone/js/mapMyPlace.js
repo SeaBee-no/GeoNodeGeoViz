@@ -448,6 +448,9 @@ const modelparaSetting = (data) =>{
 
     // store layer source GN DLB
     $("#btn_wms").val(data[8]);
+     // store layer name
+     $("#btn_wms").attr("value2",data[0]);
+
 
 
   mapModel_Obj.show();
@@ -521,7 +524,7 @@ if(circleMarker){
 
 }
  
-sleep(4000).then(() => {
+sleep(2000).then(() => {
 
   circleMarker = L.circleMarker([xy[0] , xy[1]], {
     radius: 40,            // Radius of the circle marker
@@ -565,6 +568,9 @@ map.on("baselayerchange",()=>{
   }
 })
 
+if(map.hasLayer(GN_Overlay_layer)){
+  GN_Overlay_layer.bringToFront();
+}
 
 });
 
@@ -635,12 +641,12 @@ fetch(url)
     $.confirm({
       title: '<i class="bi bi-exclamation-triangle"></i> Not Available!',
       content: "The data you're searching for is currently unavailable.",
-      type: 'orance',
+      type: 'orange',
       typeAnimated: true,
       buttons: {
           tryAgain: {
               text: 'Close',
-              btnClass: 'btn-red',
+              btnClass: 'btn-info',
               action: function(){
               }
           },
@@ -669,8 +675,70 @@ fetch(url)
 
   $("#btn_wms").on("click", function() {
 
-    console.log(this.value);
+
+if(this.value == 'GN_layer')
+{
+  
+    $.confirm({
+      title: '<i class="bi bi-info-square"></i> WMS details',
+      content: `<div class="overflow-hidden">
+      <p>The parameters for connecting to the map server via WMS are as follows:  </p>
+      <ul>
+      <li style="word-wrap: break-word;"><b>Host Url</b>:<br/><span class="text-primary small text-decoration-underline">https://geonode.seabee.sigma2.no/geoserver/ows?SERVICE=WMS</spam></li> 
+      <li style="word-wrap: break-word;"><b>Layer name</b>:<br/><span class="text-primary small text-decoration-underline"> geonode:${$(this).attr("value2")}</spam></li>    
+      </ul>
+    
+      </div>`,
+      type: 'orange',
+      typeAnimated: true,
+      buttons: {
+          tryAgain: {
+              text: 'Close',
+              btnClass: 'btn-info',
+              action: function(){
+              }
+          },
+         
+      }
+  });
+
+}
+if(this.value == 'DLB_layer')
+{
+
+  $.confirm({
+    title: '<i class="bi bi-exclamation-diamond"></i> Not found',
+    content: 'Presently, there are no available WNS instructions for the chosen selection at the moment.',
+    type: 'orange',
+    typeAnimated: true,
+    buttons: {
+        tryAgain: {
+            text: 'Close',
+            btnClass: 'btn-warning',
+            action: function(){
+            }
+        },
+       
+    }
+});
+
+}
+
+
         
         
         });
-    
+
+
+        $("#btn_clear").on("click", function() {
+
+          if(map.hasLayer(GN_Overlay_layer)){
+            map.removeLayer(GN_Overlay_layer);
+          }
+
+          if(circleMarker){
+            map.removeLayer(circleMarker);
+           
+           }
+
+        });

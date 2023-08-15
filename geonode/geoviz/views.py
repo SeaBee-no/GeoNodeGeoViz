@@ -10,7 +10,7 @@ from minio import Minio
 # Create your views here.
 from pathlib import Path
 from datetime import  timedelta
-from .models import *
+
 
 jsonPath=""
 #inside geonode enviroment 
