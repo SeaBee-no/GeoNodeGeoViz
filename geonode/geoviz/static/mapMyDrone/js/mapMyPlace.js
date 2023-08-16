@@ -222,7 +222,7 @@ $(document).ready(function () {
     </tr>
 
     <tr>
-    <th scope="row">Poilet</th>
+    <th scope="row">Pilot</th>
     <td>${el.personnel}</td>
     </tr>
 
