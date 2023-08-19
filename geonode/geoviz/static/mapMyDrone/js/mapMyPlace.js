@@ -6,11 +6,12 @@ const sleep = (ms) => {
 
 
 // global variable 
-var    layerControl = null;
-var    map = null;
-var    markersAll = null;
-var   circleMarker =null;
-var   GN_Overlay_layer =null;
+var layerControl = null;
+var map = null;
+var markersAll = null;
+var circleMarker = null;
+var GN_Overlay_layer = null;
+var droneDataTable = null;
 
 $(document).ready(function () {
 
@@ -37,7 +38,7 @@ $(document).ready(function () {
 
   // initialize marker
   //https://github.com/Leaflet/Leaflet.markercluster
-   markersAll = new L.markerClusterGroup(
+  markersAll = new L.markerClusterGroup(
     {
 
       showCoverageOnHover: false,
@@ -85,7 +86,7 @@ $(document).ready(function () {
   }
 
   overlayMaps = {
-    "Drone flight": markersAll,
+    "<img class='pb-1' width='20px' src='../static/mapMyDrone/img/seabeeLogo.png' alt='...'> Drone flight": markersAll,
   };
 
 
@@ -95,7 +96,7 @@ $(document).ready(function () {
     format: 'image/png',
     transparent: true,
     attribution: "seabee",
-    access_token:'',
+    access_token: '',
     maxZoom: 30,
   });
 
@@ -114,15 +115,20 @@ $(document).ready(function () {
 
 
   //drone data table array
-  const droneDataTable = []
+  droneDataTable = []
 
-   map = L
+  map = L
     .map('mapD', {
 
       center: [63.19, 11.62],
       zoom: 6,
       layers: [baseMaps['OSM']]
     });   // center position + zoom
+
+
+  // chnage the attibution
+  map.attributionControl.setPrefix('©SeaBee')
+
 
   // add the layer contro
   layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
@@ -245,15 +251,15 @@ $(document).ready(function () {
       markersAll.addLayer(markerDLB);
 
       // droneDataTable add data
-      droneDataTable.push([el.name, 
-        `<i type="GLB"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`, 
-        el.lat, 
-        el.lng,
+      droneDataTable.push([el.name,
+        `<i type="GLB"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`,
+      el.lat,
+      el.lng,
         "#",
         "#",
-        el.uuid,
+      el.uuid,
         "#",
-       "DLB_layer"]);
+        "DLB_layer"]);
 
     });
   }
@@ -311,14 +317,14 @@ $(document).ready(function () {
       markersAll.addLayer(markerGN);
 
       // droneDataTable add data
-      droneDataTable.push([el.Name, `<i type="GN"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`, 
-      elxy.lat, 
-      elxy.log, 
-      el.thumbnail_url, 
+      droneDataTable.push([el.Name, `<i type="GN"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`,
+      elxy.lat,
+      elxy.log,
+      el.thumbnail_url,
       el.detail_url,
       el.uuid,
       el.abstract_table,
-      "GN_layer"]);
+        "GN_layer"]);
 
 
     });
@@ -331,7 +337,7 @@ $(document).ready(function () {
 
   //test ground
   //marker location optimize
-//#########################################################
+  //#########################################################
 
   // L.marker([51.5, -0.09]).addTo(map)
   //     .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
@@ -354,12 +360,19 @@ $(document).ready(function () {
   //   className: 'blinking',     
   // }).addTo(map);
 
-//#########################################################
+  //#########################################################
 
 
   // data table funvtion
   let dataTB = null;
   const updateDataTable = (dataSet) => {
+
+    if (dataTB != null) {
+
+
+      $("#droneList").dataTable().fnDestroy();
+    }
+
 
     dataTB = new DataTable('#droneList', {
 
@@ -369,6 +382,7 @@ $(document).ready(function () {
 
       ],
       data: dataSet,
+      bDestroy: true,
       pageLength: 18,
       columnDefs: [
         {
@@ -389,7 +403,7 @@ $(document).ready(function () {
         style: 'os',
         className: 'focusedRow',
         selector: 'td:last-child a'
-    }
+      }
 
 
     });
@@ -398,7 +412,7 @@ $(document).ready(function () {
 
 
 
-// cick on table first row col only
+    // cick on table first row col only
     dataTB.on('click', 'tbody td:first-child', function () {
       let data = dataTB.row($(this).closest('tr')).data();
 
@@ -409,234 +423,294 @@ $(document).ready(function () {
 
 
 
-// cick on table second row col only
+    // cick on table second row col only
     dataTB.on('click', 'tbody td:nth-child(2)', function () {
       let data = dataTB.row($(this).closest('tr')).data();
-      
+
       // call the model
       modelparaSetting(data);
-  
+
     });
 
 
-  
-   
+
+
 
   }
 
 
 
 
-// model parameter 
-const modelparaSetting = (data) =>{
-  $("#mapModelopt .modal-title").text(data[0]);
-  $("#mapModelopt .img-fluid").attr("src", data[4].length > 0 ? data[4][0] : '#');
+  // model parameter 
+  const modelparaSetting = (data) => {
+    $("#mapModelopt .modal-title").text(data[0]);
+    $("#mapModelopt .img-fluid").attr("src", data[4].length > 0 ? data[4][0] : '#');
 
-  // store info at valaue
-  //store latlon
-   $("#btn_overlay").val(data[0]);
-  $("#btn_locate").attr("valuexy",[data[2], data[3]]);
+    // store info at valaue
 
-   // geonode url
-   $("#btn_detail").val(data[5]);
+    // overlap image
+    $("#btn_overlay").val(data[0]);
+
+        //store latlon
+    $("#btn_locate").attr("valuexy", [data[2], data[3]]);
+
+    // geonode url
+    $("#btn_detail").val(data[5]);
 
 
-  $("#btn_locate").attr("uuid",data[6]);
+    $("#btn_locate").attr("uuid", data[6]);
 
-   // store layer downlaod details
-   $("#btn_download").val(data[7]);
+    // store layer downlaod details
+    $("#btn_download").val(data[7]);
 
     // store layer source GN DLB
     $("#btn_wms").val(data[8]);
-     // store layer name
-     $("#btn_wms").attr("value2",data[0]);
+    // store layer name
+    $("#btn_wms").attr("value2", data[0]);
 
-
-
-  mapModel_Obj.show();
- 
-
+// disable DLG  btn and active GN btn
+if(data[8] == "GN_layer")
+{
+  $('#btn_overlay').prop('disabled', false);
+  $('#btn_detail').prop('disabled', false);
+  $('#btn_wms').prop('disabled', false);
+}
+if(data[8] == "DLB_layer")
+{
+  $('#btn_overlay').prop('disabled', true);
+  $('#btn_detail').prop('disabled', true);
+  $('#btn_wms').prop('disabled', true);
 }
 
 
 
-
-// dragable property
-const mapModel_Obj = new bootstrap.Modal('#mapModelopt', {
-  backdrop: false,
-  keyboard: false,
-  focus: false,
- 
-
-});
+    // show the data point model
+     mapModel_Obj.show();
 
 
-// script to make model draggable, as bs5 does not have it this feature
-// const container = document.getElementById("mapModelopt");
-// function onMouseDrag({ movementX, movementY }) {
-// 	let getContainerStyle = window.getComputedStyle(container);
-// 	let leftValue = parseInt(getContainerStyle.left);
-// 	let topValue = parseInt(getContainerStyle.top);
-// 	container.style.left = `${leftValue + movementX}px`;
-// 	container.style.top = `${topValue + movementY}px`;
-// }
-// container.addEventListener("mousedown", () => {
-// 	container.addEventListener("mousemove", onMouseDrag);
-// });
-// document.addEventListener("mouseup", () => {
-// 	container.removeEventListener("mousemove", onMouseDrag);
-// });
-
-
-
-
-
-
-
-// locate the drone on click
-
-
-$("#btn_locate").on("click", function() {
-
-  locateDroneonMap($(this).attr("valuexy"));
-});
-
-$("#btn_overlay").on("click", function() {
-
-  addOverLay_to_map(this.value);
-});
-
-
-$("#btn_detail").on("click", function() {
-
-window.location.href=this.value;
-
-
-});
-
-const locateDroneonMap = (data) => {
-
-  let xy = data.split(",");
-  map.flyTo([xy[0], xy[1]], 19);
-
-if(circleMarker){
- map.removeLayer(circleMarker);
-
-}
- 
-sleep(2000).then(() => {
-
-  circleMarker = L.circleMarker([xy[0] , xy[1]], {
-    radius: 40,            // Radius of the circle marker
-    color: '#2288AA',         // Border color
-    fillColor: '#00FFFF', // Fill color
-    fillOpacity: 0.2,// Fill opacity
-    className: 'blinking',     
-  }).addTo(map);
-
-});
-//   markersAll.eachLayer(function(layer) {
-//     if(layer instanceof L.Marker) {
-//        if(layer.options.uuid == uuid){
-//         layer.getIcon().options.className = "blinking";
-//        }
-//     }
-// });
-
-}
-
-
-
-const addOverLay_to_map = (val) =>{
-
-  if(map.hasLayer(GN_Overlay_layer)){
-    map.removeLayer(GN_Overlay_layer);
   }
 
-  GN_Overlay_layer.wmsParams.layers=`geonode:${val}`;
-  map.addLayer(GN_Overlay_layer);
-  GN_Overlay_layer.redraw();
-
-}
 
 
 
-map.on("baselayerchange",()=>{
-
-  if(map.hasLayer(GN_Overlay_layer)){
-    GN_Overlay_layer.bringToFront();
-  }
-})
-
-if(map.hasLayer(GN_Overlay_layer)){
-  GN_Overlay_layer.bringToFront();
-}
-
-});
+  // dragable property
+  const mapModel_Obj = new bootstrap.Modal('#mapModelopt', {
+    backdrop: false,
+    keyboard: false,
+    focus: false,
 
 
-
-
-$("#btn_download").on("click", function() {
-
-  let container = document.createElement("div");
-   container.innerHTML =this.value;
-   container =container.querySelectorAll("td");
-
-   if(container.length > 0){
-    container = container[0].innerText;
-    let bucket=container.split("/")[0]
-
-    let flipath=container.split("/").slice(1).join("/");
-    flipath = flipath +"/orthophoto/"+container.split("/").pop()+".tif"
-
-     console.log(flipath);
-
-
-let url = `/api/droneViz/minio/${bucket}/${flipath}`;
-
-// Make a GET request using the fetch API
-fetch(url)
-  .then(response => {
-    // Check if the response status is OK (200)
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    // Parse the response as JSON
-    return response.json();
-  })
-  .then(data => {
-    // Process the fetched data
-    
-
-
-  // Create a download link
-  let link = document.createElement('a');
-  link.href = data; // Create a temporary URL for the Blob
-  link.download = container.split("/").pop()+".tif";
-  document.body.appendChild(link);
-
-  // Trigger a click on the link to start the download
-  link.click();
-
-  // Remove the link from the DOM
-  document.body.removeChild(link);
-
-
-
-
-  })
-  .catch(error => {
-    // Handle errors
-    console.error('Fetch error:', error);
   });
 
-  
-  
-  
-  
+
+  // script to make model draggable, as bs5 does not have it this feature
+  // const container = document.getElementById("mapModelopt");
+  // function onMouseDrag({ movementX, movementY }) {
+  // 	let getContainerStyle = window.getComputedStyle(container);
+  // 	let leftValue = parseInt(getContainerStyle.left);
+  // 	let topValue = parseInt(getContainerStyle.top);
+  // 	container.style.left = `${leftValue + movementX}px`;
+  // 	container.style.top = `${topValue + movementY}px`;
+  // }
+  // container.addEventListener("mousedown", () => {
+  // 	container.addEventListener("mousemove", onMouseDrag);
+  // });
+  // document.addEventListener("mouseup", () => {
+  // 	container.removeEventListener("mousemove", onMouseDrag);
+  // });
+
+
+
+
+
+
+
+  // locate the drone on click
+
+
+  $("#btn_locate").on("click", function () {
+
+    locateDroneonMap($(this).attr("valuexy"));
+  });
+
+  $("#btn_overlay").on("click", function () {
+
+    addOverLay_to_map(this.value);
+
+
+  });
+
+
+  $("#btn_detail").on("click", function () {
+
+    //window.location.href = this.value;
+    window.open(this.value, '_blank');
+
+
+  });
+
+  const locateDroneonMap = (data) => {
+
+    let xy = data.split(",");
+    map.flyTo([xy[0], xy[1]], 19);
+
+    if (circleMarker) {
+      map.removeLayer(circleMarker);
+
+    }
+
+    sleep(2000).then(() => {
+
+      circleMarker = L.circleMarker([xy[0], xy[1]], {
+        radius: 40,            // Radius of the circle marker
+        color: '#2288AA',         // Border color
+        fillColor: '#00FFFF', // Fill color
+        fillOpacity: 0.2,// Fill opacity
+        className: 'blinking',
+      }).addTo(map);
+
+    });
+    //   markersAll.eachLayer(function(layer) {
+    //     if(layer instanceof L.Marker) {
+    //        if(layer.options.uuid == uuid){
+    //         layer.getIcon().options.className = "blinking";
+    //        }
+    //     }
+    // });
+
   }
-   else{
+
+
+
+  const addOverLay_to_map = (val) => {
+
+    if (map.hasLayer(GN_Overlay_layer)) {
+      map.removeLayer(GN_Overlay_layer);
+    }
+
+    GN_Overlay_layer.wmsParams.layers = `geonode:${val}`;
+    map.addLayer(GN_Overlay_layer);
+    GN_Overlay_layer.redraw();
+    GN_Overlay_layer.bringToFront();
+
+  }
+
+
+
+  map.on("baselayerchange", () => {
+
+    if (map.hasLayer(GN_Overlay_layer)) {
+      GN_Overlay_layer.bringToFront();
+    }
+  })
+
+  if (map.hasLayer(GN_Overlay_layer)) {
+    GN_Overlay_layer.bringToFront();
+  }
+
+
+
+
+  map.on('zoomend', function () {
+
+    // update the list basd on map extent
+    let visibleBounds = map.getBounds();
+    let markerInMap=[];
+    let droneDataTableUpdated =null;
+
+    markersAll.eachLayer(
+      function (ma) {
+        if (visibleBounds.contains(ma.getLatLng())) {
+          
+          markerInMap.push(ma.options.uuid);
+        
+        }
+      });
+
+
+      droneDataTableUpdated = droneDataTable.filter(val =>  {
+
+        return markerInMap.includes(val[6]);
+      });
+
+
+      //console.log(droneDataTableUpdated);
+
+      updateDataTable(droneDataTableUpdated);
+
+  });
+
+
+
+
+
+
+
+});
+
+
+
+
+$("#btn_download").on("click", function () {
+
+  let container = document.createElement("div");
+  container.innerHTML = this.value;
+  container = container.querySelectorAll("td");
+
+  if (container.length > 0) {
+    container = container[0].innerText;
+    let bucket = container.split("/")[0]
+
+    let flipath = container.split("/").slice(1).join("/");
+    flipath = flipath + "/orthophoto/" + container.split("/").pop() + ".tif"
+
+    console.log(flipath);
+
+
+    let url = `/api/droneViz/minio/${bucket}/${flipath}`;
+
+    // Make a GET request using the fetch API
+    fetch(url)
+      .then(response => {
+        // Check if the response status is OK (200)
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        // Parse the response as JSON
+        return response.json();
+      })
+      .then(data => {
+        // Process the fetched data
+
+
+
+        // Create a download link
+        let link = document.createElement('a');
+        link.href = data; // Create a temporary URL for the Blob
+        link.download = container.split("/").pop() + ".tif";
+        document.body.appendChild(link);
+
+        // Trigger a click on the link to start the download
+        link.click();
+
+        // Remove the link from the DOM
+        document.body.removeChild(link);
+
+
+
+
+      })
+      .catch(error => {
+        // Handle errors
+        console.error('Fetch error:', error);
+      });
+
+
+
+
+
+  }
+  else {
 
     $.confirm({
       title: '<i class="bi bi-exclamation-triangle"></i> Not Available!',
@@ -644,19 +718,17 @@ fetch(url)
       type: 'orange',
       typeAnimated: true,
       buttons: {
-          tryAgain: {
-              text: 'Close',
-              btnClass: 'btn-info',
-              action: function(){
-              }
-          },
-         
+        tryAgain: {
+          text: 'Close',
+          btnClass: 'btn-info',
+          action: function () {
+          }
+        },
+
       }
-  });
+    });
 
-   }
-
-   
+  }
 
 
 
@@ -664,21 +736,22 @@ fetch(url)
 
 
 
-  });
+
+
+});
 
 //tool tip of the disable btn
-   const tooltip = new bootstrap.Tooltip('#btn_download_disable', {
-    boundary: document.body // or document.querySelector('#boundary')
-  });
+const tooltip = new bootstrap.Tooltip('#btn_download_disable', {
+  boundary: document.body // or document.querySelector('#boundary')
+});
 
 
 
-  $("#btn_wms").on("click", function() {
+$("#btn_wms").on("click", function () {
 
 
-if(this.value == 'GN_layer')
-{
-  
+  if (this.value == 'GN_layer') {
+
     $.confirm({
       title: '<i class="bi bi-info-square"></i> WMS details',
       content: `<div class="overflow-hidden">
@@ -692,53 +765,36 @@ if(this.value == 'GN_layer')
       type: 'orange',
       typeAnimated: true,
       buttons: {
-          tryAgain: {
-              text: 'Close',
-              btnClass: 'btn-info',
-              action: function(){
-              }
-          },
-         
-      }
-  });
-
-}
-if(this.value == 'DLB_layer')
-{
-
-  $.confirm({
-    title: '<i class="bi bi-exclamation-diamond"></i> Not found',
-    content: 'Presently, there are no available WNS instructions for the chosen selection at the moment.',
-    type: 'orange',
-    typeAnimated: true,
-    buttons: {
         tryAgain: {
-            text: 'Close',
-            btnClass: 'btn-warning',
-            action: function(){
-            }
+          text: 'Close',
+          btnClass: 'btn-info',
+          action: function () {
+          }
         },
-       
-    }
+
+      }
+    });
+
+  }
+
+
+
+
+
 });
 
-}
+
+$("#btn_clear").on("click", function () {
+
+  if (map.hasLayer(GN_Overlay_layer)) {
+    map.removeLayer(GN_Overlay_layer);
+  }
+
+  if (circleMarker) {
+    map.removeLayer(circleMarker);
+
+  }
+
+});
 
 
-        
-        
-        });
-
-
-        $("#btn_clear").on("click", function() {
-
-          if(map.hasLayer(GN_Overlay_layer)){
-            map.removeLayer(GN_Overlay_layer);
-          }
-
-          if(circleMarker){
-            map.removeLayer(circleMarker);
-           
-           }
-
-        });

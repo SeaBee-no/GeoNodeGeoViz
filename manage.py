@@ -20,8 +20,15 @@
 
 import os
 import sys
+from django.conf import settings
 
 if __name__ == "__main__":
+    
+    # installed_apps = settings.INSTALLED_APPS
+    # print("List of app labels:>>>")
+    # for label in installed_apps:
+    #     print(label, flush=True)
+    
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "geonode.settings")
 
     from django.core.management import execute_from_command_line

@@ -447,7 +447,9 @@ GEONODE_INTERNAL_APPS = (
     'geonode.resource.processing',
     'geonode.storage',
 
-    ##Extra app
+
+
+   ##Extra app
     'geonode.dmc',
     'geonode.geoviz',
     
@@ -462,9 +464,9 @@ GEONODE_INTERNAL_APPS = (
     'geonode.tasks',
     'geonode.messaging',
     'geonode.favorite',
-    'geonode.monitoring'
+    'geonode.monitoring',
 
-   
+    
 
 )
 
@@ -542,9 +544,6 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
 
-    # GeoNode
-    'geonode',
-
     #ddc
     'leaflet',
     'crispy_forms',
@@ -554,6 +553,8 @@ INSTALLED_APPS = (
     'django_minio_backend',
     'captcha',
 
+    # GeoNode
+    'geonode',
 
 
 )

@@ -2,10 +2,8 @@ from django.apps import AppConfig
 import os
 
 class GeovizConfig(AppConfig):
-    default_auto_field = 'django.db.models.BigAutoField'
     name = 'geonode.geoviz'
-    label= 'geonode_geoviz'
-
+    label = "geonode_geoviz"
 
     # # enbable this code in prodcution
     def ready(self):
