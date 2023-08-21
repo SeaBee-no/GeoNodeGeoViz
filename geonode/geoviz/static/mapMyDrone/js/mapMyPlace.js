@@ -13,6 +13,7 @@ var circleMarker = null;
 var GN_Overlay_layer = null;
 var droneDataTable = null;
 
+
 $(document).ready(function () {
 
 
