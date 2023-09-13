@@ -452,7 +452,7 @@ $(document).ready(function () {
     // overlap image
     $("#btn_overlay").val(data[0]);
 
-        //store latlon
+    //store latlon
     $("#btn_locate").attr("valuexy", [data[2], data[3]]);
 
     // geonode url
@@ -469,24 +469,32 @@ $(document).ready(function () {
     // store layer name
     $("#btn_wms").attr("value2", data[0]);
 
-// disable DLG  btn and active GN btn
-if(data[8] == "GN_layer")
-{
-  $('#btn_overlay').prop('disabled', false);
-  $('#btn_detail').prop('disabled', false);
-  $('#btn_wms').prop('disabled', false);
-}
-if(data[8] == "DLB_layer")
-{
-  $('#btn_overlay').prop('disabled', true);
-  $('#btn_detail').prop('disabled', true);
-  $('#btn_wms').prop('disabled', true);
-}
+
+    // store layer source GN DLB
+    $("#btn_share").val(data[8]);
+    // store layer name
+    $("#btn_share").attr("value2", data[0]);
+
+
+
+    // disable DLG  btn and active GN btn
+    if (data[8] == "GN_layer") {
+      $('#btn_overlay').prop('disabled', false);
+      $('#btn_detail').prop('disabled', false);
+      $('#btn_wms').prop('disabled', false);
+      $('#btn_share').prop('disabled', false);
+    }
+    if (data[8] == "DLB_layer") {
+      $('#btn_overlay').prop('disabled', true);
+      $('#btn_detail').prop('disabled', true);
+      $('#btn_wms').prop('disabled', true);
+      $('#btn_share').prop('disabled', true);
+    }
 
 
 
     // show the data point model
-     mapModel_Obj.show();
+    mapModel_Obj.show();
 
 
   }
@@ -616,28 +624,28 @@ if(data[8] == "DLB_layer")
 
     // update the list basd on map extent
     let visibleBounds = map.getBounds();
-    let markerInMap=[];
-    let droneDataTableUpdated =null;
+    let markerInMap = [];
+    let droneDataTableUpdated = null;
 
     markersAll.eachLayer(
       function (ma) {
         if (visibleBounds.contains(ma.getLatLng())) {
-          
+
           markerInMap.push(ma.options.uuid);
-        
+
         }
       });
 
 
-      droneDataTableUpdated = droneDataTable.filter(val =>  {
+    droneDataTableUpdated = droneDataTable.filter(val => {
 
-        return markerInMap.includes(val[6]);
-      });
+      return markerInMap.includes(val[6]);
+    });
 
 
-      //console.log(droneDataTableUpdated);
+    //console.log(droneDataTableUpdated);
 
-      updateDataTable(droneDataTableUpdated);
+    updateDataTable(droneDataTableUpdated);
 
   });
 
@@ -647,115 +655,120 @@ if(data[8] == "DLB_layer")
 
 
 
-});
 
 
 
 
-$("#btn_download").on("click", function () {
 
-  let container = document.createElement("div");
-  container.innerHTML = this.value;
-  container = container.querySelectorAll("td");
+  $("#btn_download").on("click", function () {
 
-  if (container.length > 0) {
-    container = container[0].innerText;
-    let bucket = container.split("/")[0]
+    let container = document.createElement("div");
+    container.innerHTML = this.value;
+    container = container.querySelectorAll("td");
 
-    let flipath = container.split("/").slice(1).join("/");
-    flipath = flipath + "/orthophoto/" + container.split("/").pop() + ".tif"
+    if (container.length > 0) {
+      container = container[0].innerText;
+      let bucket = container.split("/")[0]
 
-    console.log(flipath);
+      let flipath = container.split("/").slice(1).join("/");
+      flipath = flipath + "/orthophoto/" + container.split("/").pop() + ".tif"
+
+      console.log(flipath);
 
 
-    let url = `/api/droneViz/minio/${bucket}/${flipath}`;
+      let url = `/api/droneViz/minio/${bucket}/${flipath}`;
 
-    // Make a GET request using the fetch API
-    fetch(url)
-      .then(response => {
-        // Check if the response status is OK (200)
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
+      // Make a GET request using the fetch API
+      fetch(url)
+        .then(response => {
+          // Check if the response status is OK (200)
+          if (!response.ok) {
+            throw new Error('Network response was not ok');
+          }
+          // Parse the response as JSON
+          return response.json();
+        })
+        .then(data => {
+          // Process the fetched data
+
+
+
+          // Create a download link
+          let link = document.createElement('a');
+          link.href = data; // Create a temporary URL for the Blob
+          link.download = container.split("/").pop() + ".tif";
+          document.body.appendChild(link);
+
+          // Trigger a click on the link to start the download
+          link.click();
+
+          // Remove the link from the DOM
+          document.body.removeChild(link);
+
+
+
+
+        })
+        .catch(error => {
+          // Handle errors
+          console.error('Fetch error:', error);
+        });
+
+
+
+
+
+    }
+    else {
+
+      $.confirm({
+        title: '<i class="bi bi-exclamation-triangle"></i> Not Available!',
+        content: "The data you're searching for is currently unavailable.",
+        type: 'orange',
+        typeAnimated: true,
+        buttons: {
+          tryAgain: {
+            text: 'Close',
+            btnClass: 'btn-info',
+            action: function () {
+            }
+          },
+
         }
-        // Parse the response as JSON
-        return response.json();
-      })
-      .then(data => {
-        // Process the fetched data
-
-
-
-        // Create a download link
-        let link = document.createElement('a');
-        link.href = data; // Create a temporary URL for the Blob
-        link.download = container.split("/").pop() + ".tif";
-        document.body.appendChild(link);
-
-        // Trigger a click on the link to start the download
-        link.click();
-
-        // Remove the link from the DOM
-        document.body.removeChild(link);
-
-
-
-
-      })
-      .catch(error => {
-        // Handle errors
-        console.error('Fetch error:', error);
       });
 
+    }
 
 
 
 
-  }
-  else {
 
-    $.confirm({
-      title: '<i class="bi bi-exclamation-triangle"></i> Not Available!',
-      content: "The data you're searching for is currently unavailable.",
-      type: 'orange',
-      typeAnimated: true,
-      buttons: {
-        tryAgain: {
-          text: 'Close',
-          btnClass: 'btn-info',
-          action: function () {
-          }
-        },
 
-      }
+
+
+
+  });
+
+
+
+  //tool tip of the disable btn
+  if (!isAuthenticated) {
+
+
+    const tooltip = new bootstrap.Tooltip('#btn_download_disable', {
+      boundary: document.body // or document.querySelector('#boundary')
     });
 
   }
 
 
+  $("#btn_wms").on("click", function () {
 
+    if (this.value == 'GN_layer') {
 
-
-
-
-
-
-});
-
-//tool tip of the disable btn
-const tooltip = new bootstrap.Tooltip('#btn_download_disable', {
-  boundary: document.body // or document.querySelector('#boundary')
-});
-
-
-
-$("#btn_wms").on("click", function () {
-
-
-  if (this.value == 'GN_layer') {
-
-    $.confirm({
-      title: '<i class="bi bi-info-square"></i> WMS details',
-      content: `<div class="overflow-hidden">
+      $.confirm({
+        title: '<i class="bi bi-info-square"></i> WMS details',
+        content: `<div class="overflow-hidden">
       <p>The parameters for connecting to the map server via WMS are as follows:  </p>
       <ul>
       <li style="word-wrap: break-word;"><b>Host Url</b>:<br/><span class="text-primary small text-decoration-underline">https://geonode.seabee.sigma2.no/geoserver/ows?SERVICE=WMS</spam></li> 
@@ -763,38 +776,102 @@ $("#btn_wms").on("click", function () {
       </ul>
     
       </div>`,
-      type: 'orange',
-      typeAnimated: true,
-      buttons: {
-        tryAgain: {
-          text: 'Close',
-          btnClass: 'btn-info',
-          action: function () {
-          }
-        },
+        type: 'orange',
+        typeAnimated: true,
+        buttons: {
+          tryAgain: {
+            text: 'Close',
+            btnClass: 'btn-info',
+            action: function () {
+            }
+          },
 
-      }
-    });
+        }
+      });
 
-  }
-
-
+    }
 
 
 
-});
 
 
-$("#btn_clear").on("click", function () {
+  });
 
-  if (map.hasLayer(GN_Overlay_layer)) {
-    map.removeLayer(GN_Overlay_layer);
-  }
 
-  if (circleMarker) {
-    map.removeLayer(circleMarker);
+  $("#btn_share").on("click", function () {
 
-  }
+    if (this.value == 'GN_layer') {
+
+      $.confirm({
+        title: '<i class="bi bi-share-fill"></i> Share URL',
+        content: `<p>Please copy the shared link:  
+      
+      
+      </p>
+      <div style="word-wrap: break-word;">
+      <span id="btn_sharedURL" style="font-size:12px" class="text-primary  text-decoration-underline">https://geonode.seabee.sigma2.no/datasets/geonode:${$(this).attr("value2")}/embed</span>
+      <button 
+      id="btn_copy_sharedLink"
+     type="button" class="btn btn-light btn-sm border rounded-circle">
+      <i class="bi bi-clipboard" ></i>
+    </button>
+      </div>    
+     
+    `,
+        type: 'orange',
+        typeAnimated: true,
+        buttons: {
+          tryAgain: {
+            text: 'Close',
+            btnClass: 'btn-info',
+            action: function () {
+            }
+          },
+
+        }
+      });
+
+
+
+ }
+
+
+
+
+
+  });
+
+
+  $("#btn_clear").on("click", function () {
+
+    if (map.hasLayer(GN_Overlay_layer)) {
+      map.removeLayer(GN_Overlay_layer);
+    }
+
+    if (circleMarker) {
+      map.removeLayer(circleMarker);
+
+    }
+
+  });
+
+
+  // function to copy url to clip board
+  $(document).on('click', '#btn_copy_sharedLink', function (){
+
+
+
+
+    let textToCopy  = $("#btn_sharedURL").text();
+    const $tempInput = $("<input>").val(textToCopy).appendTo("body").select();
+    document.execCommand("copy");
+    $tempInput.remove();
+
+
+
+  });
+
+
 
 });
 

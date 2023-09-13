@@ -60,7 +60,7 @@
 
 
 <div class="modal fade" tabindex="-1" id="mapModelopt">
-  <div class="modal-dialog ">
+  <div class="modal-dialog">
     <div class="modal-content ">
       <div class="modal-header p-2 mx-auto text-center">
 
@@ -69,48 +69,73 @@
           data-bs-dismiss="modal" aria-label="Close"></button>
         <h6 class="modal-title  mt-3 text-primary-emphasis">title</h6>
       </div>
+
+
       <div class="modal-body p-1">
-        <img src="#" class="rounded mx-auto d-block img-fluid" alt="Image preview not available.">
-      </div>
+        <div class="row  g-2">
+          <div class="col-9">
 
-      <div class="modal-footer border border-dark-subtle border-top">
-        <div class="hstack gap-1 mx-auto">
-          <div class=""> <button id="btn_locate" valuexy="" valueuiid="" class="btn btn-secondary btn-sm rounded"
-              style="font-size: 13px;"><span class="bi bi-geo-alt text-info"></span> Locate</button></div>
-          <div class=""> <button id="btn_overlay" value="" class="btn btn-secondary btn-sm rounded"
-              style="font-size: 13px;"><span class="bi bi-map text-info"></span> Overlay</button></div>
-          <div class=" "> <button id="btn_detail" value="" class="btn btn-secondary btn-sm rounded" style="font-size: 13px;"
-              ;><span class="bi bi-info-square text-info"></span> Detail</button></div>
+            <img src="#" class="rounded mx-auto d-block img-fluid" alt="Image preview not available.">
+          </div>
 
-
-          {% if user.is_authenticated %}
-          <div class=""> <button id="btn_download" value="" class="btn btn-secondary btn-sm rounded"
-              style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info"></span> Download</button></div>
-
-
-          {% else %}
-      <div id="btn_download_disable" class="d-inline-block" tabindex="0" data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading.">
-          <button   class="btn btn-secondary btn-sm disabled rounded"
-           
-              style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info"></span> Download</button>
-      </div>
-              
-              
-              
+          <div class="col-3 ">
+            <div class="vstack gap-4  mt-2">
+             
+              <div class="d-grid col-12 "> <button id="btn_locate" valuexy="" valueuiid="" class="btn btn-secondary btn-sm rounded"
+                  style="font-size: 13px;"><span class="bi bi-geo-alt text-info  float-start ps-2"></span> Locate</button></div>
+              <div class="d-grid col-12"> <button id="btn_overlay" value="" class="btn btn-secondary btn-sm rounded"
+                  style="font-size: 13px;"><span class="bi bi-map text-info float-start ps-2"></span> Overlay</button></div>
+              <div class="d-grid col-12 "> <button id="btn_detail" value="" class="btn btn-secondary btn-sm rounded"
+                  style="font-size: 13px;" ;><span class="bi bi-info-square text-info float-start ps-2"></span> Detail</button></div>
 
 
-          {% endif %}
+              {% if user.is_authenticated %}
+              <div class="d-grid col-12"> <button id="btn_download" value="" class="btn btn-secondary btn-sm rounded"
+                  style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> Download</button>
+              </div>
 
 
-          <div class=" "> <button id="btn_wms" value="" value2="" class="btn btn-secondary btn-sm rounded" style="font-size: 13px;"
-            ;><i class="bi bi-database text-info"></i> WMS</button></div>
+              {% else %}
+              <div class="d-grid col-12"  id="btn_download_disable" class="d-inline-block" tabindex="0" data-bs-toggle="tooltip"
+                data-bs-title="Authentication/login is required for downloading.">
+                <button class="btn btn-secondary btn-sm disabled rounded" style="font-size: 13px;"><span
+                    class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> Download</button>
+              </div>
 
 
-          <div class=""> <button id="btn_clear" value="" class="btn btn-secondary btn-sm"
-              style="font-size: 13px;"><span class="bi bi-trash3 text-info"></span> Clear</button></div>
+
+
+
+              {% endif %}
+
+
+              <div class=" d-grid col-12"> <button id="btn_wms" value="" value2="" class="btn btn-secondary btn-sm rounded"
+                  style="font-size: 13px;" ;><i class="bi bi-database text-info float-start ps-2"></i> WMS</button></div>
+
+
+
+              <div class="d-grid col-12"> <button id="btn_share" value="" value2=""  class="btn btn-secondary btn-sm"
+                  style="font-size: 13px;"><span class="bi bi-share-fill text-info float-start ps-2"></span> Share</button></div>
+
+              <div class="d-grid col-12"> <button id="btn_clear" value="" class="btn btn-secondary btn-sm"
+                  style="font-size: 13px;"><span class="bi bi-trash3 text-info float-start ps-2"></span> Clear</button></div>
+
+
+
+            </div>
+          </div>
         </div>
 
       </div>
+
+      <!-- <div class="modal-footer border border-dark-subtle border-top col">
+       
+
+      </div> -->
+
+
+
+
     </div>
   </div>
 </div>
@@ -122,6 +147,10 @@
 
 {% block page_js %}
 
+
+<script>
+  let isAuthenticated = {% if user.is_authenticated %}true{% else %}false{% endif %};
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 <script
