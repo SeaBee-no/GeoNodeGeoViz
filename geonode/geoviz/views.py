@@ -53,7 +53,7 @@ class get_dronelogbook_flight_project_info (APIView):
                     "payload_description": record["payload_description"],
                     "lat": record["placInfo"][0]["latitude"],
                     "lng": record["placInfo"][0]["longitude"],
-                    "uuid": str(uuid.uuid4()),
+                    "uuid": record["object_uuid"],
                     "json_org":"DLB",
                         
                 }
@@ -93,7 +93,7 @@ class get_droneFlight_geonode_info (APIView):
                          for item in record["links"]
                          if item.get('name') == 'PNG'
                      ],
-                    "uuid": str(uuid.uuid4()),
+                    "uuid": record["object_uuid"],
                     "json_org":"GN",
                    
                 }

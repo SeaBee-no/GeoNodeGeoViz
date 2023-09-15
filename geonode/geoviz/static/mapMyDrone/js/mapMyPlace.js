@@ -12,7 +12,7 @@ var markersAll = null;
 var circleMarker = null;
 var GN_Overlay_layer = null;
 var droneDataTable = null;
-
+var dataTB = null;
 
 $(document).ready(function () {
 
@@ -365,12 +365,14 @@ $(document).ready(function () {
 
 
   // data table funvtion
-  let dataTB = null;
+
   const updateDataTable = (dataSet) => {
 
+    // let dataSet = dataSetval.map(function(item) {
+    //   return [item[0], item[1],  item[6]];
+    // });
+
     if (dataTB != null) {
-
-
       $("#droneList").dataTable().fnDestroy();
     }
 
@@ -378,13 +380,16 @@ $(document).ready(function () {
     dataTB = new DataTable('#droneList', {
 
       columns: [
-        { title: 'Name' },
-        { title: 'Info' }
+        { data: 0, title: "Name"},
+        { data: 1, title: "Info"},
+        { data: 6, title: "uuid" },
+     
 
       ],
       data: dataSet,
       bDestroy: true,
       pageLength: 18,
+      select: true,
       columnDefs: [
         {
           target: [0],
@@ -392,6 +397,17 @@ $(document).ready(function () {
           className: "uppertext"
           //   searchable: false
         },
+        
+
+      ],
+      columnDefs: [
+        {
+          target: [2],
+          visible: false,
+          //className: "uppertext"
+             searchable: true
+        },
+        
 
       ],
       info: true, // Hide the information about entries
@@ -399,11 +415,11 @@ $(document).ready(function () {
         [18, 25, 50, -1],
         [18, 25, 50, 'All']
       ],
-      stripeClasses: ['stripe1', 'stripe2'],
+      // stripeClasses: ['stripe1', 'stripe2'],
       select: {
-        style: 'os',
-        className: 'focusedRow',
-        selector: 'td:last-child a'
+        style: 'single',
+       className: 'table-info',
+       // selector: 'td:last-child a'
       }
 
 
@@ -414,7 +430,7 @@ $(document).ready(function () {
 
 
     // cick on table first row col only
-    dataTB.on('click', 'tbody td:first-child', function () {
+    dataTB.on('dblclick', 'tbody td:first-child', function () {
       let data = dataTB.row($(this).closest('tr')).data();
 
       //alert('You clicked on ' + data[0] + "'s row");
@@ -432,6 +448,18 @@ $(document).ready(function () {
       modelparaSetting(data);
 
     });
+
+
+    
+
+    // cick on table second row col only
+    // dataTB.on('click', 'tbody tr', function () {
+    //   $("#droneList tbody tr").removeClass('row_selected');        
+    //   $(this).addClass('row_selected');
+
+    // });
+
+
 
 
 
@@ -870,6 +898,37 @@ $(document).ready(function () {
 
 
   });
+
+
+// clcik the marker and select the rwo
+markersAll.on('click', function (ev) {
+
+  let uuid = ev.layer.options.uuid;
+   
+// get the index number
+  let indexID = dataTB
+  .column(2)
+  .data()
+  .filter(function (value) {
+      return value === uuid;
+  })
+  .map(function (filteredValue) {
+      return dataTB.column(2).data().indexOf(filteredValue);
+  })[0];
+
+//select the row
+  dataTB.rows().deselect();
+  dataTB.row(`:eq(${indexID})`).select();
+
+  // find the page 
+  let pageLength = dataTB.page.len();
+  let pageNumber = Math.floor(indexID / pageLength);
+  dataTB.page(pageNumber).draw('page');
+
+  });
+
+
+
 
 
 

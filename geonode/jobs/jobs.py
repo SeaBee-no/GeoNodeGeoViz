@@ -4,7 +4,7 @@ from pathlib import Path
 from django.conf import settings as conf_settings
 import base64
 from shapely.geometry import Polygon
-
+import uuid
 
 
 jsonPath=""
@@ -54,6 +54,7 @@ def schedule_api():
                         el['placInfo'] = place.json()['data']
                     else:
                         el['placInfo'] = None
+                el['object_uuid'] = str(uuid.uuid4())
             
             
             projects = projects + pro_data_obj
@@ -111,6 +112,7 @@ def schedule_geonodeLayers_api():
                 # loop through the bbx of a mission and add a centroid
                 for el in  json_obj['resources']:
                     el["bbx_xy"] =  bounding_box_to_centroid(el['ll_bbox_polygon']['coordinates'][0])
+                    el['object_uuid'] = str(uuid.uuid4())
 
                 jsondata = jsondata + json_obj['resources']
                 
@@ -125,7 +127,7 @@ def schedule_geonodeLayers_api():
         with open( Path.joinpath(jsonPath / 'geonodeLayers.json') ,'w+') as f:
             json.dump(jsondata, f)
 
-        print('Geonode raster layers list fetched',flush=True)
+        print('Geonode raster layers list fetched >>',flush=True)
 
     except Exception as e:
         print (e)
