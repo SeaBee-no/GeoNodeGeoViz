@@ -13,6 +13,10 @@ var circleMarker = null;
 var GN_Overlay_layer = null;
 var droneDataTable = null;
 var dataTB = null;
+var drawnItems = null;
+var editableLayers = null
+var selectedItemgrouoLayer = null;
+var  btnRemoveEdit =null;
 
 $(document).ready(function () {
 
@@ -51,6 +55,11 @@ $(document).ready(function () {
 
     });
 
+
+
+
+
+
   let baseMaps = {
 
     OSM: L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -88,6 +97,7 @@ $(document).ready(function () {
 
   overlayMaps = {
     "<img class='pb-1' width='20px' src='../static/mapMyDrone/img/seabeeLogo.png' alt='...'> Drone flight": markersAll,
+
   };
 
 
@@ -130,6 +140,12 @@ $(document).ready(function () {
   // chnage the attibution
   map.attributionControl.setPrefix('©SeaBee')
 
+  //initlize the draw edit layer
+  editableLayers = new L.FeatureGroup();
+  mapLayers = map.addLayer(editableLayers);
+
+  // initilze the selected marker layer 
+  selectedItemgrouoLayer = L.layerGroup().addTo(map);
 
   // add the layer contro
   layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
@@ -148,7 +164,132 @@ $(document).ready(function () {
 
 
 
+  // Initialise the FeatureGroup to store editable layers
 
+  // Initialise the draw control and pass it the FeatureGroup of editable layers
+  var drawPluginOptions = {
+    position: 'topright',
+    draw: {
+      polyline: false,
+      circlemarker: false,
+      polygon: {
+        allowIntersection: false, // Restricts shapes to simple polygons
+        drawError: {
+          color: '#800000', // Color the shape will turn when intersects
+          message: '<strong>Polygon draw does not allow intersections!<strong>' // Message that will show when intersect
+        },
+        shapeOptions: {
+          color: '#00B9FF'
+        }
+      },
+      circle: false, // Turns off this drawing tool
+      rectangle: {
+        shapeOptions: {
+          color: '#00B9FF'
+        }
+      },
+      marker: false,
+    },
+    edit: {
+      featureGroup: editableLayers, //REQUIRED!!
+      remove: false,
+      edit: false,
+    }
+  };
+
+
+  // Initialise the draw control and pass it the FeatureGroup of editable layers
+  var drawControl = new L.Control.Draw(drawPluginOptions);
+  map.addControl(drawControl);
+
+
+
+  map.on('draw:created', function (e) {
+    var type = e.layerType,
+      layer = e.layer;
+
+    if (type === 'marker') {
+      layer.bindPopup('A popup!');
+    }
+
+    editableLayers.addLayer(layer);
+
+
+    let drawnGeometry = layer.toGeoJSON();
+    let drawnFeature = L.geoJSON(drawnGeometry);
+
+
+    //desect previus row in the table
+    dataTB.rows().deselect();
+
+
+    // Iterate through the list of markers
+    markersAll.eachLayer(function (marker) {
+      // Check if the marker's LatLng is inside the drawn geometry
+      if (marker.getLatLng && drawnFeature.getBounds().contains(marker.getLatLng())) {
+
+
+        let tempmarker = L.circleMarker(marker.getLatLng(), {
+          radius: 40,            // Radius of the circle marker
+          color: '#2288AA',         // Border color
+          fillColor: '#00FFFF', // Fill color
+          fillOpacity: 0.2,// Fill opacity
+          className: 'blinking',
+        });
+
+        // select the points on the map
+        tempmarker.addTo(selectedItemgrouoLayer);
+
+        // selecet the rows on table
+
+        // get the index number
+        let indexID = dataTB
+          .column(2)
+          .data()
+          .filter(function (value) {
+            return value === marker.options.uuid;
+          })
+          .map(function (filteredValue) {
+            return dataTB.column(2).data().indexOf(filteredValue);
+          })[0];
+
+        //select the row
+        dataTB.row(`:eq(${indexID})`).select();
+
+
+
+      }
+    });
+
+    editableLayers.clearLayers();
+
+
+
+
+
+  });
+
+
+  map.on('draw:drawstart', function (e) {
+
+    // click on the btn using js to clear all skitches
+    btnRemoveEdit.button.click();
+
+  });
+
+
+
+  // clear the layer content of edit layer and selected icone on map
+   btnRemoveEdit = L.easyButton('<i class="bi bi-eraser" style="font-size:16px" ></i>',
+    (btn, map) => {
+
+      editableLayers.clearLayers();
+      selectedItemgrouoLayer.clearLayers();
+      dataTB.rows().deselect();
+      if (circleMarker) {
+        map.removeLayer(circleMarker);
+      }
+    }, "Draw a polygon to select the drone flight site").addTo(map).setPosition('topright');
 
 
 
@@ -247,7 +388,11 @@ $(document).ready(function () {
           maxHeight: 500
         }
 
-      );
+      ).on('click', (ev) => {
+
+        locateDroneonMap(([ev.latlng.lat, ev.latlng.lng]).toString(), false);
+
+      });
       // add marker to map
       markersAll.addLayer(markerDLB);
 
@@ -314,7 +459,11 @@ $(document).ready(function () {
 
 
 
-      );
+      ).on('click', (ev) => {
+
+        locateDroneonMap(([ev.latlng.lat, ev.latlng.lng]).toString(), false);
+
+      });
       markersAll.addLayer(markerGN);
 
       // droneDataTable add data
@@ -380,10 +529,10 @@ $(document).ready(function () {
     dataTB = new DataTable('#droneList', {
 
       columns: [
-        { data: 0, title: "Name"},
-        { data: 1, title: "Info"},
+        { data: 0, title: "Name" },
+        { data: 1, title: "Info" },
         { data: 6, title: "uuid" },
-     
+
 
       ],
       data: dataSet,
@@ -397,7 +546,7 @@ $(document).ready(function () {
           className: "uppertext"
           //   searchable: false
         },
-        
+
 
       ],
       columnDefs: [
@@ -405,9 +554,9 @@ $(document).ready(function () {
           target: [2],
           visible: false,
           //className: "uppertext"
-             searchable: true
+          searchable: true
         },
-        
+
 
       ],
       info: true, // Hide the information about entries
@@ -417,9 +566,9 @@ $(document).ready(function () {
       ],
       // stripeClasses: ['stripe1', 'stripe2'],
       select: {
-        style: 'single',
-       className: 'table-info',
-       // selector: 'td:last-child a'
+        style: 'multi',
+        className: 'table-info',
+        // selector: 'td:last-child a'
       }
 
 
@@ -434,7 +583,7 @@ $(document).ready(function () {
       let data = dataTB.row($(this).closest('tr')).data();
 
       //alert('You clicked on ' + data[0] + "'s row");
-      locateDroneonMap(([data[2], data[3]]).toString());
+      locateDroneonMap(([data[2], data[3]]).toString(), true);
 
     });
 
@@ -450,7 +599,7 @@ $(document).ready(function () {
     });
 
 
-    
+
 
     // cick on table second row col only
     // dataTB.on('click', 'tbody tr', function () {
@@ -567,7 +716,7 @@ $(document).ready(function () {
 
   $("#btn_locate").on("click", function () {
 
-    locateDroneonMap($(this).attr("valuexy"));
+    locateDroneonMap($(this).attr("valuexy"), true);
   });
 
   $("#btn_overlay").on("click", function () {
@@ -586,17 +735,22 @@ $(document).ready(function () {
 
   });
 
-  const locateDroneonMap = (data) => {
+  const locateDroneonMap = (data, fly) => {
 
     let xy = data.split(",");
-    map.flyTo([xy[0], xy[1]], 19);
+
+    if (fly) {
+
+      map.flyTo([xy[0], xy[1]], 19);
+    }
+
 
     if (circleMarker) {
       map.removeLayer(circleMarker);
 
     }
 
-    sleep(2000).then(() => {
+    sleep(fly ? 2000 : 100).then(() => {
 
       circleMarker = L.circleMarker([xy[0], xy[1]], {
         radius: 40,            // Radius of the circle marker
@@ -648,7 +802,7 @@ $(document).ready(function () {
 
 
 
-  map.on('zoomend', function () {
+  map.on('moveend', function () {
 
     // update the list basd on map extent
     let visibleBounds = map.getBounds();
@@ -679,7 +833,14 @@ $(document).ready(function () {
 
 
 
+  map.on('click', function () {
+    // clear selection
+    if (circleMarker) {
+      map.removeLayer(circleMarker);
 
+    }
+
+  });
 
 
 
@@ -861,7 +1022,7 @@ $(document).ready(function () {
 
 
 
- }
+    }
 
 
 
@@ -885,12 +1046,12 @@ $(document).ready(function () {
 
 
   // function to copy url to clip board
-  $(document).on('click', '#btn_copy_sharedLink', function (){
+  $(document).on('click', '#btn_copy_sharedLink', function () {
 
 
 
 
-    let textToCopy  = $("#btn_sharedURL").text();
+    let textToCopy = $("#btn_sharedURL").text();
     const $tempInput = $("<input>").val(textToCopy).appendTo("body").select();
     document.execCommand("copy");
     $tempInput.remove();
@@ -900,35 +1061,42 @@ $(document).ready(function () {
   });
 
 
-// clcik the marker and select the rwo
-markersAll.on('click', function (ev) {
+  // clcik the marker and select the rwo
+  markersAll.on('click', function (ev) {
 
-  let uuid = ev.layer.options.uuid;
-   
-// get the index number
-  let indexID = dataTB
-  .column(2)
-  .data()
-  .filter(function (value) {
-      return value === uuid;
-  })
-  .map(function (filteredValue) {
-      return dataTB.column(2).data().indexOf(filteredValue);
-  })[0];
+    let uuid = ev.layer.options.uuid;
 
-//select the row
-  dataTB.rows().deselect();
-  dataTB.row(`:eq(${indexID})`).select();
 
-  // find the page 
-  let pageLength = dataTB.page.len();
-  let pageNumber = Math.floor(indexID / pageLength);
-  dataTB.page(pageNumber).draw('page');
+    //desect previus row
+    dataTB.rows().deselect();
+
+
+    // get the index number
+    let indexID = dataTB
+      .column(2)
+      .data()
+      .filter(function (value) {
+        return value === uuid;
+      })
+      .map(function (filteredValue) {
+        return dataTB.column(2).data().indexOf(filteredValue);
+      })[0];
+
+    //select the row
+    dataTB.row(`:eq(${indexID})`).select();
+
+    // find the page 
+    let pageLength = dataTB.page.len();
+    let pageNumber = Math.floor(indexID / pageLength);
+    dataTB.page(pageNumber).draw('page');
 
   });
 
 
+  const selectRowofTable = () => {
 
+
+  }
 
 
 
