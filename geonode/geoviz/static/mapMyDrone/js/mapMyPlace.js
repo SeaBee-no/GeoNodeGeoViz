@@ -213,7 +213,7 @@ $(document).ready(function () {
       layer.bindPopup('A popup!');
     }
 
-    editableLayers.addLayer(layer);
+    editableLayers.addLayer(layer).bringToBack();
 
 
     let drawnGeometry = layer.toGeoJSON();
@@ -262,8 +262,7 @@ $(document).ready(function () {
       }
     });
 
-    editableLayers.clearLayers();
-
+   
 // lock the table update 
     dynamicTableUpdateFlag = false;
 
@@ -284,6 +283,7 @@ $(document).ready(function () {
   btnRemoveEdit = L.easyButton('<i class="bi bi-eraser" style="font-size:16px" ></i>',
     (btn, map) => {
 
+   
       editableLayers.clearLayers();
       selectedItemgrouoLayer.clearLayers();
       dataTB.rows().deselect();
@@ -296,6 +296,20 @@ $(document).ready(function () {
     dynamicTableUpdateFlag = true;
 
     }, "Clear the drawning from the map").addTo(map).setPosition('topright');
+
+
+
+    // ecape key to  clear all edit
+
+    $(document).keydown(function(event) {
+      if (event.key === "Escape" || event.key === "Esc" || event.keyCode === 27) {
+        // The Escape key was pressed
+        // You can perform your desired action here
+        btnRemoveEdit.button.click();
+      }
+    });
+    
+
 
 
 
