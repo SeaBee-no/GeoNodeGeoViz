@@ -16,7 +16,8 @@ var dataTB = null;
 var drawnItems = null;
 var editableLayers = null
 var selectedItemgrouoLayer = null;
-var  btnRemoveEdit =null;
+var btnRemoveEdit = null;
+var dynamicTableUpdateFlag = true;
 
 $(document).ready(function () {
 
@@ -263,8 +264,8 @@ $(document).ready(function () {
 
     editableLayers.clearLayers();
 
-
-
+// lock the table update 
+    dynamicTableUpdateFlag = false;
 
 
   });
@@ -280,7 +281,7 @@ $(document).ready(function () {
 
 
   // clear the layer content of edit layer and selected icone on map
-   btnRemoveEdit = L.easyButton('<i class="bi bi-eraser" style="font-size:16px" ></i>',
+  btnRemoveEdit = L.easyButton('<i class="bi bi-eraser" style="font-size:16px" ></i>',
     (btn, map) => {
 
       editableLayers.clearLayers();
@@ -289,7 +290,12 @@ $(document).ready(function () {
       if (circleMarker) {
         map.removeLayer(circleMarker);
       }
-    }, "Draw a polygon to select the drone flight site").addTo(map).setPosition('topright');
+
+
+      // unlock the table update 
+    dynamicTableUpdateFlag = true;
+
+    }, "Clear the drawning from the map").addTo(map).setPosition('topright');
 
 
 
@@ -392,6 +398,10 @@ $(document).ready(function () {
 
         locateDroneonMap(([ev.latlng.lat, ev.latlng.lng]).toString(), false);
 
+
+        // lock the table update 
+           dynamicTableUpdateFlag = false;
+
       });
       // add marker to map
       markersAll.addLayer(markerDLB);
@@ -462,6 +472,10 @@ $(document).ready(function () {
       ).on('click', (ev) => {
 
         locateDroneonMap(([ev.latlng.lat, ev.latlng.lng]).toString(), false);
+
+
+            // lock the table update 
+            dynamicTableUpdateFlag = false;
 
       });
       markersAll.addLayer(markerGN);
@@ -809,25 +823,29 @@ $(document).ready(function () {
     let markerInMap = [];
     let droneDataTableUpdated = null;
 
-    markersAll.eachLayer(
-      function (ma) {
-        if (visibleBounds.contains(ma.getLatLng())) {
+    if (dynamicTableUpdateFlag) {
+      markersAll.eachLayer(
+        function (ma) {
+          if (visibleBounds.contains(ma.getLatLng())) {
 
-          markerInMap.push(ma.options.uuid);
+            markerInMap.push(ma.options.uuid);
 
-        }
+          }
+        });
+
+
+      droneDataTableUpdated = droneDataTable.filter(val => {
+
+        return markerInMap.includes(val[6]);
       });
 
 
-    droneDataTableUpdated = droneDataTable.filter(val => {
+      //console.log(droneDataTableUpdated);
 
-      return markerInMap.includes(val[6]);
-    });
+      updateDataTable(droneDataTableUpdated);
 
+    }
 
-    //console.log(droneDataTableUpdated);
-
-    updateDataTable(droneDataTableUpdated);
 
   });
 
