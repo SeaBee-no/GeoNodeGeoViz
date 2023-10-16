@@ -7,9 +7,11 @@ from django.contrib.auth.decorators import login_required
 import json, requests, os, base64
 import uuid
 from minio import Minio
+from rest_framework import serializers
 # Create your views here.
 from pathlib import Path
 from datetime import  timedelta
+from .models import *
 
 
 jsonPath=""
@@ -202,6 +204,26 @@ class get_download_url_by_bucket(APIView):
                 file_url = minioClient.presigned_get_object(bucket.lower(), fileWithPath, expires=timedelta(hours=1))
 
                 return Response(file_url)
+                
+            except Exception as e:
+                print(e, flush=True)
+                return Response('something went wrong')
+            
+
+
+class SeabeeOtterMissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = seabee_otter_mission
+        fields = '__all__'
+
+
+
+class get_mission_ottre_list(APIView):
+        def get(self, request ):
+            try:
+               query = seabee_otter_mission.objects.all()
+               serializer = SeabeeOtterMissionSerializer(query, many=True)
+               return Response(serializer.data)
                 
             except Exception as e:
                 print(e, flush=True)

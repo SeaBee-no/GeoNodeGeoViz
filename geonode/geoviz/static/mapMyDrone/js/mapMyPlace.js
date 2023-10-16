@@ -18,6 +18,7 @@ var editableLayers = null
 var selectedItemgrouoLayer = null;
 var btnRemoveEdit = null;
 var dynamicTableUpdateFlag = true;
+var  otterLayer =null;
 
 $(document).ready(function () {
 
@@ -57,7 +58,8 @@ $(document).ready(function () {
     });
 
 
-
+ // otter layer
+otterLayer = L.layerGroup();
 
 
 
@@ -97,7 +99,8 @@ $(document).ready(function () {
   }
 
   overlayMaps = {
-    "<img class='pb-1' width='20px' src='../static/mapMyDrone/img/seabeeLogo.png' alt='...'> Drone flight": markersAll,
+    "<img class='pb-2' width='30px' src='../static/mapMyDrone/img/seabeeLogo.png' alt='...'>  Drone flight": markersAll,
+    "<img class='pb-2' width='40px' src='../static/mapMyDrone/img/otter_drone.png' alt='...'>Otter mision": otterLayer,
 
   };
 
@@ -114,7 +117,7 @@ $(document).ready(function () {
 
 
 
-  // caustom icone
+  // caustom drone map icone
   let DroneIcon = L.icon({
     iconUrl: '/static/mapMyDrone/img/seabeeLogo.png',
     iconSize: [50, 37],
@@ -124,6 +127,18 @@ $(document).ready(function () {
     //shadowSize: [68, 95],
     // shadowAnchor: [22, 94]
   });
+
+
+    // caustom drone map icone
+    let OtterIcon = L.icon({
+      iconUrl: '/static/mapMyDrone/img/otter_drone.png',
+      iconSize: [50, 37],
+      iconAnchor: [25, 22],
+      popupAnchor: [0, -20],
+      // shadowUrl: 'my-icon-shadow.png',
+      //shadowSize: [68, 95],
+      // shadowAnchor: [22, 94]
+    });
 
 
   //drone data table array
@@ -315,18 +330,20 @@ $(document).ready(function () {
 
   const fetchDLB = fetch('/api/dronproject/projectinfo');
   const fetchGN = fetch('/api/droneViz/layerlist');
+  const fetchOtter = fetch('/api/droneViz/otterlist');
 
-  Promise.all([fetchDLB, fetchGN])
+  Promise.all([fetchDLB, fetchGN, fetchOtter])
     .then(responses => {
       // Responses array contains the resolved responses
-      const [responseDLB, responseGN] = responses;
-      return Promise.all([responseDLB.json(), responseGN.json()]);
+      const [responseDLB, responseGN, responseOtter] = responses;
+      return Promise.all([responseDLB.json(), responseGN.json(), responseOtter.json()]);
     })
     .then(data => {
       // Process the parsed JSON data from both responses
-      const [dataDLB, dataGN] = data;
+      const [dataDLB, dataGN, dataOtter] = data;
       markerFunctionForDLB(dataDLB);
       markerFunctionForGN(dataGN);
+      markerFunctionForOtter(dataOtter)
 
       // call the datatable
       updateDataTable(droneDataTable);
@@ -336,6 +353,91 @@ $(document).ready(function () {
       // Handle errors from fetch operations or parsing JSON
       console.error(error);
     });
+
+
+
+
+
+    // add otter icone to map
+    let markerOtter = null;
+    const markerFunctionForOtter = (dataOtter) =>{
+
+    dataOtter.forEach(el => {
+
+      // buils marker
+      //L.marker([el.latitude, el.logitude]).addTo(map);
+      markerOtter = L.marker(new L.LatLng(el.latitude, el.logitude),
+        {
+          title: el.location_name,
+          icon: OtterIcon,
+          uuid: el.mission_id,
+        });
+        markerOtter.bindPopup(
+        `
+   <h6 class="text-white">${el.location_name}</h6>   
+  <table class="table table-info table-striped-columns" style="font-size:14px">
+      <thead>
+    <tr class="table-dark">
+      <th scope="col">Name</th>
+      <th scope="col">Info</th>
+     
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+    <th scope="row">Place</th>
+      <td>${el.location_name}</td>
+    </tr>
+
+    <tr>
+    <th scope="Status">Date</th>
+    <td>${el.mission_date}</td> 
+    </tr>
+
+    <tr>
+    <th scope="row">Comments</th> 
+    <td>${el.comments == null?'-':el.comments }</td>
+    </tr>
+
+    </tbody>
+  </table>
+      
+ `
+        , {
+          maxWidth: 500,
+          maxHeight: 500
+        }
+
+      ).on('click', (ev) => {
+
+      //  locateDroneonMap(([ev.latlng.lat, ev.latlng.lng]).toString(), false);
+
+
+        // lock the table update 
+          // dynamicTableUpdateFlag = false;
+
+      });
+      // add marker to map
+      //markersAll.addLayer(markerDLB);
+
+      // droneDataTable add data
+      // droneDataTable.push([el.name,
+      //   `<i type="GLB"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`,
+      // el.lat,
+      // el.lng,
+      //   "#",
+      //   "#",
+      // el.uuid,
+      //   "#",
+      //   "DLB_layer"]);
+
+      otterLayer.addLayer(markerOtter);
+
+    });
+
+   
+    }
 
 
 
