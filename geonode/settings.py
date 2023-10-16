@@ -2355,10 +2355,15 @@ MINIO_POLICY_HOOKS: List[Tuple[str, dict]] = [
 
 
 
-#base local url devlopments
-GEONODE_DJANGO_URL = "http://localhost:8000"
+
 #base local url production
 #GEONODE_DJANGO_URL = "http://localhost:8001"
+
+if 'KUBERNETES_SERVICE_HOST' in os.environ:
+    GEONODE_DJANGO_URL  = "https://geonode.seabee.sigma2.no"
+else:
+    GEONODE_DJANGO_URL = "http://localhost"  #without devlopment container docker-compose up -d
+
 
 # django-recaptcha,
 #in production it shoud be disable
