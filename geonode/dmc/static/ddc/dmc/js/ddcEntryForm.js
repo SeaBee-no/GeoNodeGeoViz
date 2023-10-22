@@ -96,6 +96,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // gather all parameter for dronelogbook to update or create
   const gatherFormpara_dronlogbook = () => {
+
+
+    //let projectFolderName = $("#id_mision_name").val()+"_"+ $("#id_flight_datetime").val().replace(/[-: ]/g, '').slice(0, -2);
     let para = {
       drone_type: $('input[name="drone_type"]:checked').val(),
       flight_mission_guid: flightGUID,
@@ -385,12 +388,9 @@ document.addEventListener("DOMContentLoaded", function () {
             $("#id_cloud_cover").val(flight.weather_detail.CC);
             $("#id_humidity").val(flight.weather_detail.H);
             $("#id_air_temperature").val(flight.weather_detail.T);
-            $("#id_wind_speed").val(flight.weather_detail.W.split("(")[0]);
+            $("#id_wind_speed").val(flight.weather_detail.W == null?'':flight.weather_detail.W.split("(")[0]);
             $("#id_wind_direction").val(
-              
-              flight.weather_detail.W.length > 0 ? flight.weather_detail.W.split("(")[1].slice(0, -1) :''
-            
-            
+              flight.weather_detail.W.split("(").length < 1  ? flight.weather_detail.W.split("(")[1].slice(0, -1) :'' 
               );
             $("#id_sun_time").val(flight.sun_time);
 
@@ -762,6 +762,139 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 4000);
   };
 */
+
+// minio_client.copy_object(
+//   'dmc',
+//   'test/images1234.zip',
+//   CopySource('geoviz-upload-data','niva/2023/Olbergholmen,_LARVIK/raw_images/images123.zip')
+//    )
+
+$("#cloud_process_publish").on('click',()=>{
+  let timestem = new Date().toISOString().replace('T', ' ').replace(/\.\d{3}Z$/, '');
+  let zipimgUrl=decodeURIComponent($("#cloud_processing_img").attr("data-url"));
+  let configUrl=decodeURIComponent($("#cloud_processing_config").attr("data-url"));
+  
+  if(zipimgUrl.length > 0 && configUrl.length > 0){
+
+  let projectFolder= $("#id_mision_name").val()+"_"+timestem;
+
+  let src_bucket =   zipimgUrl.split("/")[3]
+  let src_object_img= zipimgUrl.split("?")[0].split("/").slice(4).join("/")
+
+  let dest_bucket =   'dmc'
+  let dest_object_img =  zipimgUrl.split("?")[0].split("/");
+  //dest_object_img = dest_object_img[dest_object_img.length -1]
+  dest_object_img = `${projectFolder}/images.zip`
+
+
+  
+
+  let src_object_configyaml= configUrl.split("?")[0].split("/").slice(4).join("/")
+
+  let dest_object_config =   configUrl.split("?")[0].split("/");
+  //dest_object_config = dest_object_config[dest_object_config.length -1]
+  dest_object_config = `${projectFolder}/config.seabee.yaml`
+
+
+//###################
+
+// push data to odm
+
+$("#cloud_img_spin").removeClass("d-none");
+  const url =  `${window.location.origin}/api/addtoodm/`;
+  const data = {
+    "src_bucket": src_bucket,
+    "src_object_img": src_object_img,
+    "dest_bucket": dest_bucket,
+    "dest_object_img": dest_object_img,
+    "src_object_configyaml": src_object_configyaml,
+    "dest_object_config": dest_object_config
+  };
+
+  fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": csrfToken
+    },
+    body: JSON.stringify(data)
+  })
+  .then(response => {
+
+      if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+
+      return response.json(); 
+   
+   
+    }).then(data => {
+
+      $.confirm({
+        title: '<span class="text-success"><b>Successful!</b></span>',
+        content:
+          '<span class="text-dark">The data has been successfully added to the processing chain. Depending on the volume of data uploaded, it may take some time before it starts appearing in the Geoode raster catalog section.</span>',
+        type: "green",
+        typeAnimated: true,
+        buttons: {
+          tryAgain: {
+            text: "Close",
+            btnClass: "btn-green",
+            action: function () {
+              $("#cloud_img_spin").addClass("d-none");
+            },
+          },
+        },
+      });
+   
+   
+   
+    })
+    .catch(error => {
+      console.error("An error occurred:", error);
+      $("#cloud_img_spin").addClass("d-none");
+   
+    });
+
+}
+else{
+  $("#cloud_img_spin").addClass("d-none");
+
+
+  $.confirm({
+    title: '<span class="text-success"><b> Require a value in a field!</b></span>',
+    content:
+      '<span class="text-dark">In order to publish on the Geonode platform, you must provide both the zip file and the configuration file.</span>',
+    type: "orange",
+    typeAnimated: true,
+    buttons: {
+      tryAgain: {
+        text: "Close",
+        btnClass: "btn-orange",
+        action: function () {},
+      },
+    },
+  });
+
+
+}
+//##############
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
   // ###################   window load finish ##########################
 });
 
@@ -899,9 +1032,12 @@ const del_upload_file = (dronePath) => {
 };
 
 const getupload_FormData = () => {
+
+  //let timetem = $("#id_flight_datetime").val().replace(/[-: ]/g, '').slice(0, -2);
   let formData = new FormData();
   formData.append("flight_mission_guid", flightGUID);
   formData.append("flight_mission_name", missionName.split("----")[1].replace(/\s/g, "_"));
+  //formData.append("flight_mission_name", projectFolderName.replace(/\s/g, "_"));
   formData.append(
     "mosaiced_image",
     $("#id_mosaiced_image")[0].files[0] != null
@@ -912,6 +1048,14 @@ const getupload_FormData = () => {
     "row_image",
     $("#id_row_image")[0].files[0] != null ? $("#id_row_image")[0].files[0] : ""
   );
+
+  formData.append(
+    "configyaml",
+    $("#id_configyaml")[0].files[0] != null
+      ? $("#id_configyaml")[0].files[0]
+      : ""
+  );
+
   formData.append(
     "ground_control_point",
     $("#id_ground_control_point")[0].files[0] != null

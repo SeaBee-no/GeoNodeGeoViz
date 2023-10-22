@@ -74,6 +74,12 @@ class ddc_upload(models.Model):
                                  storage=MinioBackend(
                                      bucket_name='geoviz-upload-data',
                                  ), upload_to=partial(get_upload_path, folder='raw_images'), null=True, blank=True)
+    
+    configyaml = models.FileField(verbose_name="Upload NodeODM config file as .yaml",
+                                          storage=MinioBackend(
+                                              bucket_name='geoviz-upload-data',
+                                          ), upload_to=partial(get_upload_path, folder=''), null=True, blank=True)
+
     ground_control_point = models.FileField(verbose_name="Upload ground control point as .csv",
                                             storage=MinioBackend(
                                                 bucket_name='geoviz-upload-data',

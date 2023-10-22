@@ -40,6 +40,7 @@ import urllib
 from requests.auth import HTTPBasicAuth
 
 from django.conf import settings
+from minio.commonconfig import CopySource
 
 geonode_url = settings.GEONODE_DJANGO_URL
 
@@ -429,3 +430,75 @@ class check_active_geonode_job(APIView):
             except Exception as e:
                 print(e, flush=True)
                 return Response('something wrong')
+            
+
+
+    
+
+class add_data_to_OdmTask(generics.GenericAPIView):
+        
+        def post(self, request):
+            try:
+                src_bucket= self.request.data.get('src_bucket')
+                src_object_img=  self.request.data.get('src_object_img')
+               
+                dest_bucket=  self.request.data.get('dest_bucket')
+                dest_object_img =  self.request.data.get('dest_object_img')
+
+                src_object_configyaml= self.request.data.get('src_object_configyaml')
+                dest_object_config = self.request.data.get('dest_object_config')
+               
+
+                minio_client = Minio(
+                           "storage.seabee.sigma2.no",
+                        access_key=os.getenv('MINIO_ACCESS_KEY'),
+                        secret_key=os.getenv('MINIO_SECRET_KEY'),
+                        )
+               
+
+
+                # add image odm processing folder
+                minio_client.copy_object(
+                    dest_bucket,
+                    dest_object_img,
+                    CopySource(src_bucket,src_object_img)
+                     )
+
+                minio_client.copy_object(
+                       dest_bucket,
+                        dest_object_config,
+                        CopySource(src_bucket,src_object_configyaml)
+                 )
+
+                
+                return Response({'status':'added'})
+                
+            except Exception as e:
+                print(e, flush=True)
+                return Response('something went wrong')
+            
+    
+# class find_data_by_name(generics.GenericAPIView):
+        
+#         def post(self, request):
+#             try:
+#                 src_bucket= self.request.data.get('src_bucket')
+#                 object_name=  self.request.data.get('object_name')
+               
+
+
+#                 minio_client = Minio(
+#                            "storage.seabee.sigma2.no",
+#                         access_key=os.getenv('MINIO_ACCESS_KEY'),
+#                         secret_key=os.getenv('MINIO_SECRET_KEY'),
+#                         )
+                
+#                 objects =  minio_client.statObject(src_bucket, object_name)
+      
+               
+#                 return Response({'status':'added'})
+                
+#             except Exception as e:
+#                 print(e, flush=True)
+#                 return Response('something went wrong')
+            

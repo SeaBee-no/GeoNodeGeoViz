@@ -1,0 +1,8 @@
+grouping: gronningen                  # General identifier linking this flight to related flights
+area: agder                           # Name of specific location
+datetime: '202305230830'              # 'yyyymmddHHMM' or 'yyyymmdd'. Note that quotes are required
+nfiles: 290                           # Total number of files in the 'images' folder
+organisation: NINA                    # Responsible organisation
+mosaic: true                          # Whether to mosaic the raw images using ODM (true or false)
+publish: true                         # Whether to publish the orthophoto to GeoNode (true or false)
+theme: Seabirds                       # SeaBee "theme" ('Seabirds', 'Mammals' or 'Habitat')

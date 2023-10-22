@@ -1,0 +1,9 @@
+grouping: delthis
+area: agder
+datetime: '202305230830'
+nfiles: 41
+organisation: NIVA
+creator_name: test_data
+mosaic: true
+publish: true
+theme: Habitat

@@ -359,18 +359,38 @@ border-radius: 0px;
                            
                             </div>
 
-
-                            <div class="form-group col-md-8 mb-0">
+                        <div class="col-md-10  pt-3 pb-5  border border-info " style="padding-right: 150px !important;">
+                       <h5 class="pb-2">Cloud processing <a title="For additional information, please refer to the documentation." target="_blank" href="https://seabee-no.github.io/documentation/data-upload.html#sec-config-file"><i class="fa fa-circle-info" style="font-size: 18px;"></i></a> </h5>
+                            <div class="col-md-5   float-left form-group">
                                 {{ form.row_image | as_crispy_field   }}
-                                <span>
+                                <span class="">
                                     <i class="fa fa-cloud-upload fa-xl UploadIcone text-info"></i>
-                                    <i class="fa fa-cloud-download fa-xl DownloadIcone text-success" data-url="" ></i>
+                                    <i class="fa fa-cloud-download fa-xl DownloadIcone text-success" data-url="" id="cloud_processing_img"></i>
                                     <i class="fa fa-trash fa-xl TrashIcone text-danger" model_field=""></i>
                                 </span>
                             </div>
 
+                            <div class="  col-md-5   float-right form-group ">
+                  
+                                {{ form.configyaml | as_crispy_field   }}
+                                <span class="">
+                                    <i class="fa fa-cloud-upload fa-xl UploadIcone text-info"></i>
+                                    <i class="fa fa-cloud-download fa-xl DownloadIcone text-success" data-url="" id="cloud_processing_config"></i>
+                                    <i class="fa fa-trash fa-xl TrashIcone text-danger" model_field=""></i>
+                
+                                </span>
+                           
+                            </div> 
+                        
+                           
+                            <button id="cloud_process_publish" type="button" class="btn btn-info ml-5 rounded-pill text-center mx-auto" style="margin-top: 150px !important;">
+                                <span id="cloud_img_spin" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span> Publish</button>
+                           
+                 
+                            
+                        </div>
 
-                            <div class="form-group col-md-8 mb-0">
+                            <div class="form-group col-md-8 mb-0 pt-2">
                                 {{ form.ground_control_point | as_crispy_field   }}
                             <span>
                                 <i class="fa fa-cloud-upload fa-xl UploadIcone text-info"></i>
@@ -449,6 +469,14 @@ border-radius: 0px;
 {% endblock %}
 
 {% block page_js %}
+
+<script>
+
+    const csrfToken = "{{ csrf_token }}"
+
+</script>
+
+
 <script src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js" type="text/javascript"></script>
 {% leaflet_js plugins="ALL" %}
 

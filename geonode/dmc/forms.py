@@ -194,6 +194,7 @@ class ddcForm(forms.Form):
     
     mosaiced_image = forms.FileField(required=False, label='Upload single mosaiced file')
     row_image = forms.FileField(required=False, label='Upload raw images a single .zip file')
+    configyaml = forms.FileField(required=False, label='Upload NodeODM config file as .yaml <a title="Download the sample configuration file, make modifications, and then attach it to the input field." target="_blank" href="/static/ddc/dmc/sampletemplate/config.seabee.yaml"><i class="fa fa-file-code"></i></a>')
     ground_control_point = forms.FileField(required=False, label='Upload ground control point as .csv')
     ground_truth_point = forms.FileField(required=False, label='Upload ground truth point as .csv')
     dronePath = forms.FileField(required=False, label='Upload drone path file as .kml')

@@ -21,6 +21,10 @@ path('api/uploadreg/<str:flight_mission_guid>/',  uploaddata_update.as_view(), n
 path('api/uploadregdel/<str:flight_mission_guid>/',  uploaddata_delete.as_view(), name='uploadregdel'),
 path('api/miniodownload/<str:fileWithPath>/', get_download_url.as_view(), name='miniodownload'),
 path('api/uploadregcheck/<str:guid>/', uploadData_recordcheck.as_view(), name='uploadcheck'),
+path('api/addtoodm/', add_data_to_OdmTask.as_view(), name='addToOdmTask'),
+#path('api/findobject/', find_data_by_name.as_view(), name='findobjectbyName'),
+
+
 
 path('api/geonodepublish/<str:filelocation>/', publish_to_geonode.as_view(), name='geonodepublish'),
 path('api/jobstatus/<int:jobid>/', check_active_geonode_job.as_view(), name='jobstatus'),
