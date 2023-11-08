@@ -2048,6 +2048,7 @@ THUMBNAIL_BACKGROUND = {
     # },
 }
 
+
 # define the urls after the settings are overridden
 if USE_GEOSERVER:
     LOCAL_GXP_PTYPE = 'gxp_wmscsource'
