@@ -52,8 +52,7 @@ $(document).ready(function () {
       spiderLegPolylineOptions: { weight: 1.5, color: '#00FFFF', opacity: 1 },
       spiderfyDistanceMultiplier: 2,
       animate: 'split',
-      maxClusterRadius: 35,
-
+      maxClusterRadius: 30,
 
     });
 
@@ -118,7 +117,7 @@ otterLayer = L.layerGroup();
 
 
   // caustom drone map icone
-  let DroneIcon = L.icon({
+ /* let DroneIcon = L.icon({
     iconUrl: '/static/mapMyDrone/img/seabeeLogo.png',
     iconSize: [50, 37],
     iconAnchor: [25, 22],
@@ -126,7 +125,17 @@ otterLayer = L.layerGroup();
     // shadowUrl: 'my-icon-shadow.png',
     //shadowSize: [68, 95],
     // shadowAnchor: [22, 94]
+  });*/
+
+
+  DroneIcon = L.divIcon({
+    className: 'leaflet-marker-icon',
+    html: '  <div class="leaflet-marker-icon marker-cluster marker-cluster-small leaflet-zoom-animated leaflet-interactive" tabindex="0" role="button" style=" width: 40px; height: 40px; z-index: 631; opacity: 1; outline-style: none;"><div><span>1</span></div></div>',
+    iconSize: [40, 40],
+    iconAnchor: [20, 20],
   });
+
+
 
 
     // caustom drone map icone
@@ -364,8 +373,9 @@ otterLayer = L.layerGroup();
 
     dataOtter.forEach(el => {
 
-      // buils marker
-      //L.marker([el.latitude, el.logitude]).addTo(map);
+      // buils and test marker
+     // L.marker([el.latitude, el.logitude]).addTo(map);
+
       markerOtter = L.marker(new L.LatLng(el.latitude, el.logitude),
         {
           title: el.location_name,
@@ -450,6 +460,10 @@ otterLayer = L.layerGroup();
 
     dataDLB.forEach(el => {
 
+       // buils and test marker
+      //L.marker([el.lat, el.lng]).addTo(map);
+      
+      
       // buils marker
       markerDLB = L.marker(new L.LatLng(el.lat, el.lng),
         {
@@ -540,6 +554,10 @@ otterLayer = L.layerGroup();
   let markerGN = null;
   let elxy = null;
   const markerFunctionForGN = (dataGN) => {
+
+
+  // buils and test marker
+     // L.marker([elxy.lat, elxy.log]).addTo(map);
 
     dataGN.forEach(el => {
       elxy = el["flightsxy"]

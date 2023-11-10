@@ -32,7 +32,7 @@ attrs_dict = {'class': 'required'}
 
 class AllauthReCaptchaSignupForm(forms.Form):
 
-    captcha = ReCaptchaField()
+  #  captcha = ReCaptchaField()
 
     def signup(self, request, user):
         """ Required, or else it thorws deprecation warnings """
