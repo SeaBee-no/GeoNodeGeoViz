@@ -62,9 +62,13 @@ sitemaps = {
 homepage = register_url_event()(TemplateView.as_view(template_name='index.html'))
 
 urlpatterns = [
-    url(r'^$',
+
+
+
+    url(r'^home/$',
         homepage,
         name='home'),
+
     url(r'^help/$',
         TemplateView.as_view(template_name='help.html'),
         name='help'),

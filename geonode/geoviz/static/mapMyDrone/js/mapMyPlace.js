@@ -337,20 +337,20 @@ otterLayer = L.layerGroup();
 
 
 
-  const fetchDLB = fetch('/api/dronproject/projectinfo');
+  //const fetchDLB = fetch('/api/dronproject/projectinfo');
   const fetchGN = fetch('/api/droneViz/layerlist');
   const fetchOtter = fetch('/api/droneViz/otterlist');
 
-  Promise.all([fetchDLB, fetchGN, fetchOtter])
+  Promise.all([/*fetchDLB,*/ fetchGN, fetchOtter])
     .then(responses => {
       // Responses array contains the resolved responses
-      const [responseDLB, responseGN, responseOtter] = responses;
-      return Promise.all([responseDLB.json(), responseGN.json(), responseOtter.json()]);
+      const [/*responseDLB,*/ responseGN, responseOtter] = responses;
+      return Promise.all([/*responseDLB.json(),*/ responseGN.json(), responseOtter.json()]);
     })
     .then(data => {
       // Process the parsed JSON data from both responses
-      const [dataDLB, dataGN, dataOtter] = data;
-      markerFunctionForDLB(dataDLB);
+      const [/*dataDLB,*/ dataGN, dataOtter] = data;
+     // markerFunctionForDLB(dataDLB);
       markerFunctionForGN(dataGN);
       markerFunctionForOtter(dataOtter)
 
@@ -454,6 +454,7 @@ otterLayer = L.layerGroup();
 
 
   // add the markers from DLB fetch
+  /*
   let markerDLB = null;
 
   const markerFunctionForDLB = (dataDLB) => {
@@ -549,7 +550,7 @@ otterLayer = L.layerGroup();
 
     });
   }
-
+*/
   // add GN layer bbx xy 
   let markerGN = null;
   let elxy = null;
