@@ -97,6 +97,7 @@ class get_droneFlight_geonode_info (APIView):
                      ],
                     "uuid": record["object_uuid"],
                     "json_org":"GN",
+                    "Theme":record["Theme"],
                    
                 }
                 for record in obj

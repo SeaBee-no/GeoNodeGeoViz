@@ -5,7 +5,7 @@ from django.conf import settings as conf_settings
 import base64
 from shapely.geometry import Polygon
 import uuid
-
+from bs4 import BeautifulSoup
 
 jsonPath=""
 #inside geonode enviroment 
@@ -113,6 +113,14 @@ def schedule_geonodeLayers_api():
                 for el in  json_obj['resources']:
                     el["bbx_xy"] =  bounding_box_to_centroid(el['ll_bbox_polygon']['coordinates'][0])
                     el['object_uuid'] = str(uuid.uuid4())
+                    if len(el['abstract']) > 0 and (el['abstract']).count('Theme') > 0:
+                             soup = BeautifulSoup(el['abstract'], 'html.parser')
+                             theme_row = soup.find('th', string='Theme').find_next('td')
+                             theme_value = theme_row.text.strip()
+                             el["Theme"] = theme_value
+                    else:
+                        el["Theme"] = '' 
+
 
                 jsondata = jsondata + json_obj['resources']
                 
