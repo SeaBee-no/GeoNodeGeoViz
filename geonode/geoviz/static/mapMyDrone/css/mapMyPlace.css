@@ -112,3 +112,6 @@ div.dataTables_wrapper div.dataTables_info {
   }
 
 
+  .dataTables_wrapper {
+    height: 100%;
+}

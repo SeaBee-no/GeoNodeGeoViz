@@ -98,9 +98,11 @@ class get_droneFlight_geonode_info (APIView):
                     "uuid": record["object_uuid"],
                     "json_org":"GN",
                     "Theme":record["Theme"],
+                    "thumbnail_url_compress":record["thumbnail_url"]
                    
                 }
                 for record in obj
+                if record["subtype"] == "raster"
           
             ]
 

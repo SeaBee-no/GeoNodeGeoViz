@@ -289,6 +289,7 @@ otterLayer = L.layerGroup();
    
 // lock the table update 
     dynamicTableUpdateFlag = false;
+    $(btnRemoveEdit.button).addClass('bg-info text-white ');
 
 
   });
@@ -318,6 +319,7 @@ otterLayer = L.layerGroup();
 
       // unlock the table update 
     dynamicTableUpdateFlag = true;
+    $(btnRemoveEdit.button).removeClass('bg-info text-white ');
 
     }, "Clear the drawning from the map").addTo(map).setPosition('topright');
 
@@ -333,7 +335,7 @@ otterLayer = L.layerGroup();
       }
     });
     
-
+   
 
 
 
@@ -546,7 +548,9 @@ otterLayer = L.layerGroup();
         "#",
       el.uuid,
         "#",
-        "DLB_layer"]);
+        "DLB_layer"],
+         "#",
+        );
 
     });
   }
@@ -611,6 +615,15 @@ otterLayer = L.layerGroup();
 
             // lock the table update 
             dynamicTableUpdateFlag = false;
+            $(btnRemoveEdit.button).addClass('bg-info text-white ');
+
+            setTimeout(() => {
+            let selecetdRow = dataTB.row('.table-info');
+            let positionRow = $(selecetdRow.node()).position().top - $(dataTB.table().node()).parent().position().top;
+                        // Scroll to the selected row
+            $(dataTB.table().node()).parent().scrollTop(positionRow);},1000); 
+
+
 
       });
       markersAll.addLayer(markerGN);
@@ -623,7 +636,8 @@ otterLayer = L.layerGroup();
       el.detail_url,
       el.uuid,
       el.abstract_table,
-        "GN_layer"]);
+        "GN_layer",
+        el.thumbnail_url_compress,]);
 
 
     });
@@ -678,7 +692,32 @@ otterLayer = L.layerGroup();
     dataTB = new DataTable('#droneList', {
 
       columns: [
-        { data: 0, title: "Name" },
+        { data: 0, 
+          title: "Name",
+          render: (data, type, row)=> {
+            let title = (data.replace(/_/g, ' '))
+           
+
+            return `
+
+        <div class="card-user-list">
+            <div class="row g-0">
+                <div class="col-2 text-center align-self-center">
+                      <img style="width: 75px; height:75px; object-fit:cover" class="rounded-circle ratio ratio-1x1 p-0 m-0" 
+                src="${row[9]}" alt="seabee">
+                </div>
+                <div class="col-10">
+                    <div class="card-body">
+                        <h6 class="card-title m-0">${title}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            `; // 
+          } 
+        },
         { data: 1, title: "Info" },
         { data: 6, title: "uuid" },
 
@@ -686,8 +725,10 @@ otterLayer = L.layerGroup();
       ],
       data: dataSet,
       bDestroy: true,
-      pageLength: 18,
+      pageLength: 25,
+      paging: true,
       select: true,
+      scrollY: '80vh',
       columnDefs: [
         {
           target: [0],
@@ -725,8 +766,6 @@ otterLayer = L.layerGroup();
 
 
 
-
-
     // cick on table first row col only
     dataTB.on('dblclick', 'tbody td:first-child', function () {
       let data = dataTB.row($(this).closest('tr')).data();
@@ -746,6 +785,19 @@ otterLayer = L.layerGroup();
       modelparaSetting(data);
 
     });
+
+
+    dataTB.on('click', 'tbody tr', function () {
+   
+
+      // disable the dynamic update of table 
+      dynamicTableUpdateFlag = false;
+      $(btnRemoveEdit.button).addClass('bg-info text-white ');
+
+    });
+
+
+    
 
 
 
@@ -982,7 +1034,28 @@ otterLayer = L.layerGroup();
     }
 
 
+           // enable the dynamic update of table 
+           dynamicTableUpdateFlag = true;
+           $(btnRemoveEdit.button).removeClass('bg-info text-white ');
+
+
   });
+
+  // map on zoom out
+  let previousZoomLevel = map.getZoom();
+
+map.on('zoomend', function() {
+    let currentZoomLevel = map.getZoom();
+
+    if (currentZoomLevel < previousZoomLevel) {
+         // enable the dynamic update of table 
+      dynamicTableUpdateFlag = true;
+      $(btnRemoveEdit.button).removeClass('bg-info text-white ');
+    }
+
+    previousZoomLevel = currentZoomLevel;
+});
+
 
 
 
