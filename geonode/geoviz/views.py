@@ -14,6 +14,7 @@ from datetime import  timedelta
 from .models import *
 
 
+
 jsonPath=""
 #inside geonode enviroment 
 jsonPath_test=Path.joinpath(conf_settings.BASE_DIR, 'geonode' ,'dmc','tempfolder')
@@ -97,8 +98,9 @@ class get_droneFlight_geonode_info (APIView):
                      ],
                     "uuid": record["object_uuid"],
                     "json_org":"GN",
-                    "Theme":record["Theme"],
-                    "thumbnail_url_compress":record["thumbnail_url"]
+                    "theme":record["Theme"],
+                    "thumbnail_url_compress":record["thumbnail_url"],
+                    "flight_date":record["flight_date"],
                    
                 }
                 for record in obj
@@ -231,3 +233,6 @@ class get_mission_ottre_list(APIView):
             except Exception as e:
                 print(e, flush=True)
                 return Response('something went wrong')
+            
+
+

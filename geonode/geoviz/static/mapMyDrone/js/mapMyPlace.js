@@ -316,6 +316,11 @@ otterLayer = L.layerGroup();
         map.removeLayer(circleMarker);
       }
 
+      //remove the overlay layer
+      if (map.hasLayer(GN_Overlay_layer)) {
+        map.removeLayer(GN_Overlay_layer);
+      }
+
 
       // unlock the table update 
     dynamicTableUpdateFlag = true;
@@ -550,6 +555,8 @@ otterLayer = L.layerGroup();
         "#",
         "DLB_layer"],
          "#",
+         "#",
+          "#",
         );
 
     });
@@ -629,7 +636,9 @@ otterLayer = L.layerGroup();
       markersAll.addLayer(markerGN);
 
       // droneDataTable add data
-      droneDataTable.push([el.Name, `<i type="GN"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`,
+      droneDataTable.push([
+      el.Name, 
+      `<i type="GN"  class="bi bi-info-square-fill biStyle text-primary opacity-75"></i>`,
       elxy.lat,
       elxy.log,
       el.thumbnail_url,
@@ -637,7 +646,9 @@ otterLayer = L.layerGroup();
       el.uuid,
       el.abstract_table,
         "GN_layer",
-        el.thumbnail_url_compress,]);
+        el.thumbnail_url_compress,
+      el.flight_date,
+    el.theme,]);
 
 
     });
@@ -695,20 +706,28 @@ otterLayer = L.layerGroup();
         { data: 0, 
           title: "Name",
           render: (data, type, row)=> {
-            let title = (data.replace(/_/g, ' '))
+           
            
 
-            return `
+            return  `
+
 
         <div class="card-user-list">
             <div class="row g-0">
-                <div class="col-2 text-center align-self-center">
-                      <img style="width: 75px; height:75px; object-fit:cover" class="rounded-circle ratio ratio-1x1 p-0 m-0" 
-                src="${row[9]}" alt="seabee">
+                <div class="col-2 text-center align-self-center">    
+                  <img loading="lazy" style="width: 75px; height:75px; object-fit:cover" 
+                  class="  rounded-circle ratio ratio-1x1 p-0 m-0" 
+                  src="${ row[9] }" alt="seabee">
                 </div>
                 <div class="col-10">
                     <div class="card-body">
-                        <h6 class="card-title m-0">${title}</h6>
+                        <h6 class="card-title m-0 text-info-emphasis">${toTitleCase(data)}</h6>
+                        <div class="hstack gap-2 ps-4 pt-2">
+                          <div class="p-2 text-dark fst-italic">Flight date: <span class="text-warning-emphasis" >${ formatDate(row[10]) }</span></div>
+                          <div class="p-2 fst-italic">Theme: ${ themeColorbadges(row[11]) }  </div>
+                     
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -725,7 +744,7 @@ otterLayer = L.layerGroup();
       ],
       data: dataSet,
       bDestroy: true,
-      pageLength: 25,
+      pageLength: 35,
       paging: true,
       select: true,
       scrollY: '80vh',
@@ -820,9 +839,10 @@ otterLayer = L.layerGroup();
 
 
 
+
   // model parameter 
   const modelparaSetting = (data) => {
-    $("#mapModelopt .modal-title").text(data[0]);
+    $("#mapModelopt .modal-title").text(toTitleCase(data[0]));
     $("#mapModelopt .img-fluid").attr("src", data[4].length > 0 ? data[4][0] : '#');
 
     // store info at valaue
@@ -1268,6 +1288,8 @@ map.on('zoomend', function() {
 
     }
 
+  
+
   });
 
 
@@ -1325,7 +1347,53 @@ map.on('zoomend', function() {
   }
 
 
+  $("#mapModelopt").draggable({
+    handle: ".modal-dialog"
+});
 
 });
 
 
+// string to title case
+const toTitleCase = (str)=> {
+
+  return str.replace(/_/g, ' ')
+  .toLowerCase().split(' ')
+  .map(word => word.charAt(0)
+  .toUpperCase() + word.slice(1)).join(' ');
+}
+
+
+
+const formatDate = (dateStr) => {
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+  let date = new Date(dateStr);
+
+  let day = date.getDate();
+  let month = months[date.getMonth()];
+  let year = date.getFullYear();
+
+  // Pad the day with a leading zero if necessary
+  day = day < 10 ? '0' + day : day;
+
+  return `${day}${month}${year}`;
+}
+
+
+const themeColorbadges  = (themeVal) => {
+
+let theme = themeVal.toLowerCase();
+
+switch (theme) {
+  case "seabirds":
+    return `<span class="badge rounded-pill bg-info-subtle  text-success-emphasis">${toTitleCase(theme)}</span>`;
+    break;
+  case "habitat":
+    return `<span class="badge rounded-pill text-bg-success" style="--bs-bg-opacity: .8;">${toTitleCase(theme)}</span>`;
+    break;
+  default:
+    return `<span class="badge rounded-pill text-bg-dark" style="--bs-bg-opacity: .6;">Other</span>`;
+}
+
+}
