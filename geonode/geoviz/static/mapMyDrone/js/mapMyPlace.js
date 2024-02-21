@@ -19,6 +19,9 @@ var selectedItemgrouoLayer = null;
 var btnRemoveEdit = null;
 var dynamicTableUpdateFlag = true;
 var  otterLayer =null;
+var  updateDataTable = null;
+var markerFunctionForGN = null;
+var  dataGNmain = null;
 
 $(document).ready(function () {
 
@@ -228,7 +231,7 @@ otterLayer = L.layerGroup();
   map.addControl(drawControl);
 
 
-
+// event fire when map drow created
   map.on('draw:created', function (e) {
     var type = e.layerType,
       layer = e.layer;
@@ -292,7 +295,22 @@ otterLayer = L.layerGroup();
     $(btnRemoveEdit.button).addClass('bg-info text-white ');
 
 
+    // move the selected rows to the top of the table
+    // let  selectedRows = dataTB.rows('.table-info').data().toArray();
+    // let  nonSelectedRows = dataTB.rows(':not(.table-info)').data().toArray();
+    // let  newData = selectedRows.concat(nonSelectedRows);
+    // dataTB.clear().rows.add(newData).draw();
+
+
+
+
+
   });
+
+
+
+
+
 
 
   map.on('draw:drawstart', function (e) {
@@ -344,25 +362,29 @@ otterLayer = L.layerGroup();
 
 
 
-  //const fetchDLB = fetch('/api/dronproject/projectinfo');
+
   const fetchGN = fetch('/api/droneViz/layerlist');
   const fetchOtter = fetch('/api/droneViz/otterlist');
 
-  Promise.all([/*fetchDLB,*/ fetchGN, fetchOtter])
+
+
+  Promise.all([fetchGN, fetchOtter])
     .then(responses => {
       // Responses array contains the resolved responses
-      const [/*responseDLB,*/ responseGN, responseOtter] = responses;
-      return Promise.all([/*responseDLB.json(),*/ responseGN.json(), responseOtter.json()]);
+      const [ responseGN, responseOtter] = responses;
+      return Promise.all([ responseGN.json(), responseOtter.json()]);
     })
     .then(data => {
       // Process the parsed JSON data from both responses
-      const [/*dataDLB,*/ dataGN, dataOtter] = data;
-     // markerFunctionForDLB(dataDLB);
+      const [ dataGN, dataOtter] = data;
+
+      dataGNmain = [...dataGN];
+
       markerFunctionForGN(dataGN);
       markerFunctionForOtter(dataOtter)
 
       // call the datatable
-      updateDataTable(droneDataTable);
+      //updateDataTable(droneDataTable);
 
     })
     .catch(error => {
@@ -370,6 +392,8 @@ otterLayer = L.layerGroup();
       console.error(error);
     });
 
+
+  
 
 
 
@@ -380,8 +404,7 @@ otterLayer = L.layerGroup();
 
     dataOtter.forEach(el => {
 
-      // buils and test marker
-     // L.marker([el.latitude, el.logitude]).addTo(map);
+     
 
       markerOtter = L.marker(new L.LatLng(el.latitude, el.logitude),
         {
@@ -428,26 +451,10 @@ otterLayer = L.layerGroup();
 
       ).on('click', (ev) => {
 
-      //  locateDroneonMap(([ev.latlng.lat, ev.latlng.lng]).toString(), false);
-
-
-        // lock the table update 
-          // dynamicTableUpdateFlag = false;
+   
 
       });
-      // add marker to map
-      //markersAll.addLayer(markerDLB);
-
-      // droneDataTable add data
-      // droneDataTable.push([el.name,
-      //   `<i type="GLB"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`,
-      // el.lat,
-      // el.lng,
-      //   "#",
-      //   "#",
-      // el.uuid,
-      //   "#",
-      //   "DLB_layer"]);
+    
 
       otterLayer.addLayer(markerOtter);
 
@@ -460,113 +467,17 @@ otterLayer = L.layerGroup();
 
 
 
-  // add the markers from DLB fetch
-  /*
-  let markerDLB = null;
-
-  const markerFunctionForDLB = (dataDLB) => {
-
-    dataDLB.forEach(el => {
-
-       // buils and test marker
-      //L.marker([el.lat, el.lng]).addTo(map);
-      
-      
-      // buils marker
-      markerDLB = L.marker(new L.LatLng(el.lat, el.lng),
-        {
-          title: el.name,
-          icon: DroneIcon,
-          uuid: el.uuid,
-        });
-      markerDLB.bindPopup(
-        `
-   <h6 class="text-white">${el.name}</h6>   
-  <table class="table table-info table-striped-columns" style="font-size:14px">
-      <thead>
-    <tr class="table-dark">
-      <th scope="col">Name</th>
-      <th scope="col">Info</th>
-     
-    </tr>
-  </thead>
-  <tbody>
-
-    <tr>
-    <th scope="row">Place</th>
-      <td>${el.place_name}</td>
-    </tr>
-
-    <tr>
-    <th scope="Status">Status</th>
-    <td>${el.complete_status}</td> 
-    </tr>
-
-    <tr>
-    <th scope="row">Flight date</th> 
-    <td>${el.flight_date}</td>
-    </tr>
-
- 
-    <tr>
-    <th scope="row">Altitude</th>
-    <td>${el.max_altitude} m</td>
-    </tr>
-
-    <tr>
-    <th scope="row">Pilot</th>
-    <td>${el.personnel}</td>
-    </tr>
-
-    <tr>
-    <th scope="row">Remark</th>
-    <td>${el.payload_description}</td>
-    </tr>
-
-    </tbody>
-  </table>
-      
- `
-        , {
-          maxWidth: 500,
-          maxHeight: 500
-        }
-
-      ).on('click', (ev) => {
-
-        locateDroneonMap(([ev.latlng.lat, ev.latlng.lng]).toString(), false);
-
-
-        // lock the table update 
-           dynamicTableUpdateFlag = false;
-
-      });
-      // add marker to map
-      markersAll.addLayer(markerDLB);
-
-      // droneDataTable add data
-      droneDataTable.push([el.name,
-        `<i type="GLB"  class="bi bi-info-circle-fill biStyle text-primary opacity-75"></i>`,
-      el.lat,
-      el.lng,
-        "#",
-        "#",
-      el.uuid,
-        "#",
-        "DLB_layer"],
-         "#",
-         "#",
-          "#",
-        );
-
-    });
-  }
-*/
+  
   // add GN layer bbx xy 
+
+  markerFunctionForGN = (dataGN) => {
+
+
   let markerGN = null;
   let elxy = null;
-  const markerFunctionForGN = (dataGN) => {
+  droneDataTable = []
 
+  markersAll.clearLayers();
 
   // buils and test marker
      // L.marker([elxy.lat, elxy.log]).addTo(map);
@@ -633,6 +544,8 @@ otterLayer = L.layerGroup();
 
 
       });
+
+
       markersAll.addLayer(markerGN);
 
       // droneDataTable add data
@@ -651,7 +564,12 @@ otterLayer = L.layerGroup();
     el.theme,]);
 
 
+ 
+
+
     });
+
+   updateDataTable(droneDataTable);
   }
 
 
@@ -689,11 +607,14 @@ otterLayer = L.layerGroup();
 
   // data table funvtion
 
-  const updateDataTable = (dataSet) => {
+  updateDataTable = (dataSet) => {
 
-    // let dataSet = dataSetval.map(function(item) {
-    //   return [item[0], item[1],  item[6]];
-    // });
+    // add a fale colume for the hidden boolean to sort the table
+    // dataSet = dataSet.map(function(item) {
+    //   item.push('fasle');
+    //   return item;
+    //  });
+
 
     if (dataTB != null) {
       $("#droneList").dataTable().fnDestroy();
@@ -738,8 +659,16 @@ otterLayer = L.layerGroup();
           } 
         },
         { data: 1, title: "Info" },
-        { data: 6, title: "uuid" },
-
+        { data: 6, title: "uuid",
+        visible: false,
+        searchable: false
+      },
+        { data: null, 
+          title: "hidden" ,
+          visible: false,
+          searchable: false,
+          defaultContent: 'true', 
+        },
 
       ],
       data: dataSet,
@@ -747,7 +676,7 @@ otterLayer = L.layerGroup();
       pageLength: 35,
       paging: true,
       select: true,
-      scrollY: '80vh',
+      scrollY: '77vh',
       columnDefs: [
         {
           target: [0],
@@ -758,16 +687,7 @@ otterLayer = L.layerGroup();
 
 
       ],
-      columnDefs: [
-        {
-          target: [2],
-          visible: false,
-          //className: "uppertext"
-          searchable: true
-        },
-
-
-      ],
+   
       info: true, // Hide the information about entries
       lengthMenu: [
         [18, 25, 50, -1],
@@ -815,8 +735,18 @@ otterLayer = L.layerGroup();
 
     });
 
+///// to be start from here
 
-    
+  dataTB.on('select', function (e, dt, type, indexes) {
+      if (type === 'row') {
+          indexes.forEach(function(index) {
+              let currentValue = dataTB.cell(index, 3).data();
+              let newValue = (currentValue === 'true') ? 'false' : 'true';
+              dataTB.cell(index, 3).data(newValue).draw();
+              console.log(newValue);
+          });
+      }
+  });
 
 
 
@@ -1351,7 +1281,74 @@ map.on('zoomend', function() {
     handle: ".modal-dialog"
 });
 
+
+// theme selection value
+$('#divTheme input[name="btnradioTheme"]').on('change', function() {
+ 
+
+  filterTableMap(this.id);
+
 });
+
+
+
+
+
+
+
+
+
+
+});
+
+
+// function to filter the table and map
+const filterTableMap = (str) => {
+
+  let orginalData = [...dataGNmain];
+  let tabData = null;
+
+
+if (str == "inputSeabirs"){
+  
+  tabData = orginalData.filter((el) => {
+    return el['theme'] == "Seabirds";
+  });
+
+  markerFunctionForGN(tabData);
+
+}
+
+else if (str == "inputHabitat"){
+  
+
+  tabData = orginalData.filter((el) => {
+    return el['theme'] == "Habitat";
+  });
+
+  markerFunctionForGN(tabData);
+
+
+}
+else if (str == "inputOther"){
+
+  tabData = orginalData.filter((el) => {
+    return el['theme'].length < 1;
+  });
+
+  markerFunctionForGN(tabData);
+
+
+}
+
+else {
+
+  markerFunctionForGN(orginalData);
+}
+
+
+}
+
 
 
 // string to title case
