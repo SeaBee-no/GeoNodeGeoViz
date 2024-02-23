@@ -10,8 +10,10 @@
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw-src.css"/>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw-src.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css" />
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.css"
   integrity="sha512-mQ77VzAakzdpWdgfL/lM1ksNy89uFgibRQANsNneSTMD/bj0Y/8+94XMwYhnbzx8eki2hrbPpDm0vD0CiT2lcg=="
@@ -20,6 +22,8 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/MarkerCluster.Default.css"
   integrity="sha512-6ZCLMiYwTeli2rVh3XAPxy3YoR5fVxGdH/pz+KMCzRY2M65Emgkw00Yqmhh8qLGeYQ3LbVZGdmOX9KUjSKr0TA=="
   crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<link rel="stylesheet" href="https://unpkg.com/@icon/icofont/icofont.css">
 
 
 <link href="{% static 'mapMyDrone/css/mapMyPlace.css' %}" rel="stylesheet" />
@@ -83,24 +87,28 @@
 
           <div class="col-3 ">
             <div class="vstack gap-4  mt-2">
-             
-              <div class="d-grid col-12 "> <button id="btn_locate" valuexy="" valueuiid="" class="btn btn-secondary btn-sm rounded"
-                  style="font-size: 13px;"><span class="bi bi-geo-alt text-info  float-start ps-2"></span> Locate</button></div>
+
+              <div class="d-grid col-12 "> <button id="btn_locate" valuexy="" valueuiid=""
+                  class="btn btn-secondary btn-sm rounded" style="font-size: 13px;"><span
+                    class="bi bi-geo-alt text-info  float-start ps-2"></span> Locate</button></div>
               <div class="d-grid col-12"> <button id="btn_overlay" value="" class="btn btn-secondary btn-sm rounded"
-                  style="font-size: 13px;"><span class="bi bi-map text-info float-start ps-2"></span> Overlay</button></div>
+                  style="font-size: 13px;"><span class="bi bi-map text-info float-start ps-2"></span> Overlay</button>
+              </div>
               <div class="d-grid col-12 "> <button id="btn_detail" value="" class="btn btn-secondary btn-sm rounded"
-                  style="font-size: 13px;" ;><span class="bi bi-info-square text-info float-start ps-2"></span> Detail</button></div>
+                  style="font-size: 13px;" ;><span class="bi bi-info-square text-info float-start ps-2"></span>
+                  Detail</button></div>
 
 
               {% if user.is_authenticated %}
               <div class="d-grid col-12"> <button id="btn_download" value="" class="btn btn-secondary btn-sm rounded"
-                  style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> Download</button>
+                  style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info float-start ps-2"></span>
+                  Download</button>
               </div>
 
 
               {% else %}
-              <div class="d-grid col-12"  id="btn_download_disable" class="d-inline-block" tabindex="0" data-bs-toggle="tooltip"
-                data-bs-title="Authentication/login is required for downloading.">
+              <div class="d-grid col-12" id="btn_download_disable" class="d-inline-block" tabindex="0"
+                data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading.">
                 <button class="btn btn-secondary btn-sm disabled rounded" style="font-size: 13px;"><span
                     class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> Download</button>
               </div>
@@ -112,16 +120,19 @@
               {% endif %}
 
 
-              <div class=" d-grid col-12"> <button id="btn_wms" value="" value2="" class="btn btn-secondary btn-sm rounded"
-                  style="font-size: 13px;" ;><i class="bi bi-database text-info float-start ps-2"></i> WMS</button></div>
+              <div class=" d-grid col-12"> <button id="btn_wms" value="" value2=""
+                  class="btn btn-secondary btn-sm rounded" style="font-size: 13px;" ;><i
+                    class="bi bi-database text-info float-start ps-2"></i> WMS</button></div>
 
 
 
-              <div class="d-grid col-12"> <button id="btn_share" value="" value2=""  class="btn btn-secondary btn-sm"
-                  style="font-size: 13px;"><span class="bi bi-share-fill text-info float-start ps-2"></span> Share</button></div>
+              <div class="d-grid col-12"> <button id="btn_share" value="" value2="" class="btn btn-secondary btn-sm"
+                  style="font-size: 13px;"><span class="bi bi-share-fill text-info float-start ps-2"></span>
+                  Share</button></div>
 
               <div class="d-grid col-12"> <button id="btn_clear" value="" class="btn btn-secondary btn-sm"
-                  style="font-size: 13px;"><span class="bi bi-trash3 text-info float-start ps-2"></span> Clear</button></div>
+                  style="font-size: 13px;"><span class="bi bi-trash3 text-info float-start ps-2"></span> Clear</button>
+              </div>
 
 
 
@@ -143,7 +154,7 @@
   </div>
 </div>
 
-
+{% include 'mapMyDrone/user_cradit.html' %}
 
 {% endblock content %}
 
@@ -152,20 +163,23 @@
 
 
 <script>
-  let isAuthenticated = {% if user.is_authenticated %}true{% else %}false{% endif %};
+  let isAuthenticated = {% if user.is_authenticated %}true{% else %} false{% endif %};
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"
+  integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q=="
+  crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script
   src="https://cdn.datatables.net/v/bs5/dt-1.13.6/af-2.6.0/cr-1.7.0/date-1.5.1/fc-4.3.0/fh-3.4.0/kt-2.10.0/r-2.5.0/rg-1.4.0/rr-1.4.1/sc-2.2.0/sb-1.5.0/sp-2.2.0/sl-1.7.0/sr-1.3.0/datatables.min.js"></script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
   integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-minimap/3.6.1/Control.MiniMap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.5.3/leaflet.markercluster.js"
   integrity="sha512-OFs3W4DIZ5ZkrDhBFtsCP6JXtMEDGmhl0QPlmWYBJay40TT1n3gt2Xuw8Pf/iezgW9CdabjkNChRqozl/YADmg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <script src="{% static 'mapMyDrone/js/mapMyPlace.js' %}"></script>
 {% endblock %}

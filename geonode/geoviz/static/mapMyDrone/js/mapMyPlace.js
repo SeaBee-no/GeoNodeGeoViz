@@ -22,8 +22,14 @@ var  otterLayer =null;
 var  updateDataTable = null;
 var markerFunctionForGN = null;
 var  dataGNmain = null;
+var  updateMapStateInfo = null; 
+var updatePolarChart = null;
+
 
 $(document).ready(function () {
+
+
+
 
 
   //change the left panel btn icone
@@ -166,7 +172,7 @@ otterLayer = L.layerGroup();
 
 
   // chnage the attibution
-  map.attributionControl.setPrefix('©SeaBee')
+  map.attributionControl.setPrefix('<button id="creditBtn" style="font-size:12px" type="button" class="btn btn-link link-underline link-underline-opacity-0 p-0 m-0">©SeaBee</button>')
 
   //initlize the draw edit layer
   editableLayers = new L.FeatureGroup();
@@ -177,6 +183,14 @@ otterLayer = L.layerGroup();
 
   // add the layer contro
   layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+
+
+
+  let miniMapLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png');
+  let miniMap = new L.Control.MiniMap(miniMapLayer, { toggleDisplay: true, position :'topleft' }).addTo(map);
+
+
 
 
   // reset map if window smap window size chnge
@@ -287,22 +301,16 @@ otterLayer = L.layerGroup();
 
 
       }
-    });
+
+      
+    }
+    
+    );
 
    
 // lock the table update 
     dynamicTableUpdateFlag = false;
     $(btnRemoveEdit.button).addClass('bg-info text-white ');
-
-
-    // move the selected rows to the top of the table
-    // let  selectedRows = dataTB.rows('.table-info').data().toArray();
-    // let  nonSelectedRows = dataTB.rows(':not(.table-info)').data().toArray();
-    // let  newData = selectedRows.concat(nonSelectedRows);
-    // dataTB.clear().rows.add(newData).draw();
-
-
-
 
 
   });
@@ -384,7 +392,8 @@ otterLayer = L.layerGroup();
       markerFunctionForOtter(dataOtter)
 
       // call the datatable
-      //updateDataTable(droneDataTable);
+      //updateDataTable(droneDataTable);u
+
 
     })
     .catch(error => {
@@ -393,7 +402,7 @@ otterLayer = L.layerGroup();
     });
 
 
-  
+    
 
 
 
@@ -561,7 +570,8 @@ otterLayer = L.layerGroup();
         "GN_layer",
         el.thumbnail_url_compress,
       el.flight_date,
-    el.theme,]);
+    el.theme,
+  el.area_sqkm]);
 
 
  
@@ -570,6 +580,8 @@ otterLayer = L.layerGroup();
     });
 
    updateDataTable(droneDataTable);
+   //  map stat on table
+   updateMapStateInfo (droneDataTable);
   }
 
 
@@ -626,6 +638,7 @@ otterLayer = L.layerGroup();
       columns: [
         { data: 0, 
           title: "Name",
+         // className: "Title",
           render: (data, type, row)=> {
            
            
@@ -642,7 +655,7 @@ otterLayer = L.layerGroup();
                 </div>
                 <div class="col-10">
                     <div class="card-body">
-                        <h6 class="card-title m-0 text-info-emphasis">${toTitleCase(data)}</h6>
+                        <h6 class="card-title m-0 text-info-emphasis">${toTitleCase(data).toUpperCase()}</h6>
                         <div class="hstack gap-2 ps-4 pt-2">
                           <div class="p-2 text-dark fst-italic">Flight date: <span class="text-warning-emphasis" >${ formatDate(row[10]) }</span></div>
                           <div class="p-2 fst-italic">Theme: ${ themeColorbadges(row[11]) }  </div>
@@ -663,31 +676,15 @@ otterLayer = L.layerGroup();
         visible: false,
         searchable: false
       },
-        { data: null, 
-          title: "hidden" ,
-          visible: false,
-          searchable: false,
-          defaultContent: 'true', 
-        },
+        
 
       ],
       data: dataSet,
       bDestroy: true,
       pageLength: 35,
-      paging: true,
+     paging: true,
       select: true,
       scrollY: '77vh',
-      columnDefs: [
-        {
-          target: [0],
-          //visible: false,
-          className: "uppertext"
-          //   searchable: false
-        },
-
-
-      ],
-   
       info: true, // Hide the information about entries
       lengthMenu: [
         [18, 25, 50, -1],
@@ -737,16 +734,20 @@ otterLayer = L.layerGroup();
 
 ///// to be start from here
 
-  dataTB.on('select', function (e, dt, type, indexes) {
-      if (type === 'row') {
-          indexes.forEach(function(index) {
-              let currentValue = dataTB.cell(index, 3).data();
-              let newValue = (currentValue === 'true') ? 'false' : 'true';
-              dataTB.cell(index, 3).data(newValue).draw();
-              console.log(newValue);
-          });
-      }
-  });
+// dataTB.on('select', function (e, dt, type, indexes) {
+//   if (type === 'row') {
+//       indexes.forEach(function(index) {
+//           let hiddenColumnIndex = 3; // Index of the "hidden" column
+//           let cellNode = dataTB.cell(index, hiddenColumnIndex).node();
+//           let currentValue = $(cellNode).text(); // Use jQuery to get the cell's text content
+//           let newValue = (currentValue === 'true') ? 'false' : 'true';
+//           dataTB.cell(index, hiddenColumnIndex).data(newValue).draw(false);
+//           $(cellNode).text(newValue);
+
+//           console.log(newValue);
+//       });
+//   }
+// });
 
 
 
@@ -823,6 +824,7 @@ otterLayer = L.layerGroup();
 
     // show the data point model
     mapModel_Obj.show();
+       
 
 
   }
@@ -830,7 +832,7 @@ otterLayer = L.layerGroup();
 
 
 
-  // dragable property
+  // dragable property for data info  model
   const mapModel_Obj = new bootstrap.Modal('#mapModelopt', {
     backdrop: false,
     keyboard: false,
@@ -840,26 +842,24 @@ otterLayer = L.layerGroup();
   });
 
 
-  // script to make model draggable, as bs5 does not have it this feature
-  // const container = document.getElementById("mapModelopt");
-  // function onMouseDrag({ movementX, movementY }) {
-  // 	let getContainerStyle = window.getComputedStyle(container);
-  // 	let leftValue = parseInt(getContainerStyle.left);
-  // 	let topValue = parseInt(getContainerStyle.top);
-  // 	container.style.left = `${leftValue + movementX}px`;
-  // 	container.style.top = `${topValue + movementY}px`;
-  // }
-  // container.addEventListener("mousedown", () => {
-  // 	container.addEventListener("mousemove", onMouseDrag);
-  // });
-  // document.addEventListener("mouseup", () => {
-  // 	container.removeEventListener("mousemove", onMouseDrag);
-  // });
+
+// open model on click on seabe cradit
+  $(document).on('click', '#creditBtn', function () {
+
+    craditModel_Obj.show();
+
+  });
 
 
 
+  // dragable property for credit model
+  const craditModel_Obj = new bootstrap.Modal('#userCraditModel', {
+    backdrop: false,
+    keyboard: false,
+    focus: false,
 
 
+  });
 
 
   // locate the drone on click
@@ -989,10 +989,183 @@ otterLayer = L.layerGroup();
            $(btnRemoveEdit.button).removeClass('bg-info text-white ');
 
 
+          // update table on move end
+          updateMapStateInfo(droneDataTableUpdated);
+          
+
+
+
+
   });
 
+
+
+updateMapStateInfo = (droneDataTableUpdated) => {
+
+  let themeTypeIndex =11; // it hold the theme attribute index
+
+  // hold the count of the theme
+  let themeTypeCounts = {
+      'Habitat': 0,
+      'Seabirds': 0,
+      '': 0
+  };
+
+  // hold the area of the theme
+  let themeTypeAreas = {
+    'Habitat': 0,
+    'Seabirds': 0,
+    '': 0
+};
+  
+  droneDataTableUpdated.forEach(item => {
+      let themeType = item[themeTypeIndex];
+      if (themeTypeCounts.hasOwnProperty(themeType)) {
+          themeTypeCounts[themeType]++; //comput the count
+          themeTypeAreas[themeType] += item[12]; // compute the area
+          
+      }
+      
+  });
+  
+
+
+// update the polar chart
+updatePolarChart(themeTypeAreas);
+
+// update the bar chart
+updateBarChart(themeTypeCounts)
+
+}
+
+
+
+
+// ###############  initialize the polar chart ##################
+
+// Assuming you have a canvas with id 'chart_areaStat'
+let ctxPolar = document.getElementById('chart_areaStat');
+
+// Initial data
+let dataPolar = {
+    labels: ['Habitat', 'Seabirds', 'Others'],
+    datasets: [{
+        data: [0, 0, 0], // initial data
+        backgroundColor: ['rgba(68, 156, 115, 0.80)', 'rgba(153, 232, 249, 0.80)', 'rgba(138, 140, 142, 0.80)']
+    }]
+};
+
+// Create the area chart
+let ChartPolar = new Chart(ctxPolar, {
+    type: 'polarArea',
+    data: dataPolar,
+    options: {
+        responsive: true,
+        maintainAspectRatio: true, // set to false to fill the container
+        plugins: {
+            legend: {
+                display: true,
+                position: 'bottom',
+                
+            },
+            title: {
+                display: true,
+                text: 'Area under difrent theme sqkm',
+                color: '#052C65',
+            },
+        },
+        scales: {
+            r: {
+                ticks: {
+                    beginAtZero: true
+                },
+                reverse: false
+            }
+        },
+        animation: {
+            animateRotate: false,
+            animateScale: true
+        }
+    }
+});
+
+// Function to update the chart
+updatePolarChart = (newData)=> {
+
+let newDataObj = Object.values(newData); // extract the values from the object
+ChartPolar.data.datasets[0].data = newDataObj; // update data
+ChartPolar.update(); // update the chart
+
+}
+
+// ###############   the polar chart end ##################
+
+
+
+// ################ initialize the bar chart ##################
+
+// Assuming you have a canvas with id 'chart_areaStat'
+let ctxCount = $('#chart_countStat');
+
+// Initial data
+let dataBar = {
+    labels: ['Habitat', 'Seabirds', 'Others'],
+    datasets: [{
+        data: [0, 0, 0], // initial data
+        backgroundColor: ['rgba(68, 156, 115, 0.80)', 'rgba(153, 232, 249, 0.80)', 'rgba(138, 140, 142, 0.80)']
+    }]
+};
+
+// Create the chart
+let ChartBar = new Chart(ctxCount, {
+    type: 'bar',
+    data: dataBar,
+    options: {
+        responsive: true,
+        indexAxis: 'y',
+        maintainAspectRatio: false, // set to false to fill the container
+        plugins: {
+            legend: {
+                display: false,
+             
+                
+            },
+            title: {
+                display: true,
+                text: 'Number of drone images under theme',
+                color: '#052C65',
+            },
+        },
+        scales: {
+            y: {
+                ticks: {
+                    beginAtZero: true
+                }
+            }
+        },
+        animation: {
+            animateRotate: false,
+            animateScale: true
+        }
+    }
+});
+
+// Function to update the chart
+updateBarChart = (newData)=> {
+
+let newDataObj = Object.values(newData); // extract the values from the object
+ChartBar.data.datasets[0].data = newDataObj; // update data
+ChartBar.update(); // update the chart
+
+}
+
+// ################   the bar chart end ##################
+
+
+
+
   // map on zoom out
-  let previousZoomLevel = map.getZoom();
+let previousZoomLevel = map.getZoom();
 
 map.on('zoomend', function() {
     let currentZoomLevel = map.getZoom();
@@ -1390,7 +1563,7 @@ switch (theme) {
     return `<span class="badge rounded-pill text-bg-success" style="--bs-bg-opacity: .8;">${toTitleCase(theme)}</span>`;
     break;
   default:
-    return `<span class="badge rounded-pill text-bg-dark" style="--bs-bg-opacity: .6;">Other</span>`;
+    return `<span class="badge rounded-pill text-bg-dark" style="--bs-bg-opacity: .5;">Other</span>`;
 }
 
 }

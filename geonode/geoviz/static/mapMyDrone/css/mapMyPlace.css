@@ -157,3 +157,21 @@ div.dataTables_wrapper div.dataTables_info {
   .dataTables_wrapper {
     height: 100%;
 }
+
+#navbarNav  label {
+    font-size: 1.2em;
+    color: #3B5A86;
+    
+}
+#navbarNav  .icofont {
+    font-size: 1.2em;
+    color: #3b5a86c8;
+   
+}
+
+#navbarNav  .dropdown-menu label {
+    font-size: 0.8em;
+    color: #3b5a86;
+
+   
+}

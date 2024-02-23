@@ -101,6 +101,7 @@ class get_droneFlight_geonode_info (APIView):
                     "theme":record["Theme"],
                     "thumbnail_url_compress":record["thumbnail_url"],
                     "flight_date":record["flight_date"],
+                    "area_sqkm":record["area_sqkm"],
                    
                 }
                 for record in obj
