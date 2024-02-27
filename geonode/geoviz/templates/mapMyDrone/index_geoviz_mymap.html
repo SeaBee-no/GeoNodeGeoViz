@@ -24,9 +24,10 @@
   crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 <link rel="stylesheet" href="https://unpkg.com/@icon/icofont/icofont.css">
-
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
 
 <link href="{% static 'mapMyDrone/css/mapMyPlace.css' %}" rel="stylesheet" />
+
 
 {% endblock page_css %}
 
@@ -42,7 +43,7 @@
     <div class="col-auto px-0 d-none d-md-block  vh-100 bg-body-tertiary  shadow-lg   bg-body-tertiary m-0 p-0">
 
       <div id="sidebar" class="collapse  show collapse-horizontal ">
-        <div id="sidebar-nav " style="width: 30vw;">
+        <div id="sidebar-nav" style="width: 30vw;">
 
 
           {% include 'mapMyDrone/geoviz_filterInfo.html' %}
@@ -181,5 +182,10 @@
   integrity="sha512-OFs3W4DIZ5ZkrDhBFtsCP6JXtMEDGmhl0QPlmWYBJay40TT1n3gt2Xuw8Pf/iezgW9CdabjkNChRqozl/YADmg=="
   crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+
+
+<script src="{% static 'mapMyDrone/js/stepIntro.js' %}"></script>
 <script src="{% static 'mapMyDrone/js/mapMyPlace.js' %}"></script>
 {% endblock %}

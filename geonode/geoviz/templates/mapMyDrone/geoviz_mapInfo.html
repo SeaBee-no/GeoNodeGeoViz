@@ -19,35 +19,36 @@
           class="bi bi-caret-left-fill bi-lg py-2 p-1"></i></a>
   
 
-          <nav class="navbar navbar-expand-lg 
+          <nav class="navbar navbar-expand-lg w-lg-50
           bg-white  bg-opacity-75 rounded-3
-          position-absolute top-0 end-0 mt-2" 
+          position-absolute top-0 end-0 mt-3 p-0" 
           style="z-index: 1000; margin-right: 150px !important;">
-            <div class="container-fluid">
+            <div class="container-fluid p-0 m-0">
            
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <div class="collapse navbar-collapse" id="navbarNav" style="z-index: 1000;">
-                <ul class="navbar-nav">
+             
+              <div class="collapse navbar-collapse " id="navbarNav" style="z-index: 1000;">
+                <ul class="navbar-nav p-2 m-0 w-100" style="--bs-nav-link-padding-y:0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/home"><i class="icofont icofont-home"></i> <label>Home</label></a>
+                    <a class="nav-link active" aria-current="page" href="https://seabee.no/" target="_blank"><i class="icofont icofont-home"></i> <label>Home</label></a>
                   </li>
                   <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" target="_blank">
                       <i class="icofont icofont-database"></i> <label>Data</label>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/catalogue/#/search/?f=dataset"><i class="icofont icofont-layers"></i> <label>Datasets</label></a></li>
-                      <li><a class="dropdown-item" href="/catalogue/#/search/filter/"><i class="icofont icofont-search-map"></i> <label>Advance search</label></a></li>
-                      <li><a class="dropdown-item" href="/ddc"><i class="icofont icofont-cloud-upload"></i> <label>Drone Data Collector</label></a></li>
+                      <li><a class="dropdown-item" href="/catalogue/#/search/?f=dataset" target="_blank"><i class="icofont icofont-layers"></i> <label>Datasets</label></a></li>
+                      <li><a class="dropdown-item" href="/catalogue/#/search/filter/" target="_blank"><i class="icofont icofont-search-map"></i> <label>Advance search</label></a></li>
+                      <li><a class="dropdown-item" href="/ddc" target="_blank"><i class="icofont icofont-cloud-upload" ></i> <label>Drone Data Collector</label></a></li>
                     </ul>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="/catalogue/#/search/?f=map"><i class="icofont icofont-ui-map"></i> <label>Maps</label></a>
+                    <a class="nav-link " aria-current="page" href="/catalogue/#/search/?f=map" target="_blank"><i class="icofont icofont-ui-map"></i> <label>Maps</label></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="/catalogue/#/search/?f=geostory"><i class="icofont icofont-bullhorn"></i> <label>GeoStories</label></a>
+                    <a class="nav-link " aria-current="page" href="/catalogue/#/search/?f=geostory" target="_blank"><i class="icofont icofont-bullhorn"></i> <label>GeoStories</label></a>
                   </li>
 
 
@@ -56,13 +57,58 @@
                       <i class="icofont icofont-question-circle"></i> <label>About</label>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="/about"><i class="icofont icofont-globe-alt"></i> <label>Geovisualization</label></a></li>
-                      <li><a class="dropdown-item" href="https://seabee.no/about-project/"><i class="icofont icofont-file-alt"></i> <label>About project</label></a></li>
-                      <li><a class="dropdown-item" href="https://seabee.no/about-project/#contact"><i class="icofont icofont-ui-contact-list"></i> <label>Contact us</label></a></li>
+                      <li><a class="dropdown-item" href="/about" target="_blank"><i class="icofont icofont-globe-alt"></i> <label>Geovisualization</label></a></li>
+                      <li><a class="dropdown-item" href="https://seabee.no/about-project/" target="_blank"><i class="icofont icofont-file-alt"></i> <label>About project</label></a></li>
+                      <li><a class="dropdown-item" href="https://seabee.no/about-project/#contact" target="_blank"><i class="icofont icofont-ui-contact-list"></i> <label>Contact us</label></a></li>
+                      <li><a id="li_tourIntro" class="dropdown-item"  target="_blank"><i class="icofont icofont-street-view"></i> <label>Intro- tour</label></a></li>
+                    
                     </ul>
                   </li>
 
+                  <li class="nav-item ms-lg-auto">
+                    
+                    <div class="hstack gap-1" id="div_user_authantication">
+                      
+                     
+                      {% if not user.is_authenticated %}
+                      <!-- The user is not authenticated. Put your code here. -->
+                     
+                      <div class="p-0 " > <a id="register" href="/account/signup/?next=/" target="" class="nav-link btn btn-default" >
+                        <i class="bi bi-person-fill-add fs-6 " ></i> Register
+                           
+                        </a>
+                      </div>
+                      <div class="p-0"> <a id="sign-in" href="/account/login/?next=/" target="" class="nav-link btn btn-default">
+                        <i class="bi bi-box-arrow-in-right fs-6"></i> Sign-in
+                           
+                        </a>
+                      </div>
+
+                      {% else %}
+                      <!-- The user is authenticated. -->
+
+                      <div class="p-0 "> <a id="register" href="/people/profile/admin/" target="_blank" class="nav-link btn btn-default text-success-emphasis">
+                        <i class="bi bi-person-circle fs-6"></i> Profile
+                           
+                        </a>
+                      </div>
+                      <div class="p-0"> <a id="sign-in" href="/account/logout/?next=/" target="" class="nav-link btn btn-default text-secondary">
+                        <i class="bi bi-box-arrow-left fs-6"></i> Sign-out
+                           
+                        </a>
+                      </div>
+
+
+                     {% endif %}
+
+
+                     
+                    </div>
+
+                  </li>
+              
                 </ul>
+           
               </div>
             </div>
           </nav>

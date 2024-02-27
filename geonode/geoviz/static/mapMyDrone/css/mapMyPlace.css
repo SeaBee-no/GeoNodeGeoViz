@@ -159,8 +159,9 @@ div.dataTables_wrapper div.dataTables_info {
 }
 
 #navbarNav  label {
-    font-size: 1.2em;
+    font-size: 1.3em;
     color: #3B5A86;
+    
     
 }
 #navbarNav  .icofont {
@@ -170,8 +171,23 @@ div.dataTables_wrapper div.dataTables_info {
 }
 
 #navbarNav  .dropdown-menu label {
-    font-size: 0.8em;
+    font-size: 0.9em;
     color: #3b5a86;
 
    
+}
+
+/* media query for small screen*/
+@media (min-width: 992px) {
+    .w-lg-50 {
+      width: 50% !important;
+    }
+    .ms-lg-auto {
+      margin-left: auto !important;
+    }
+  }
+
+
+.introjs-tooltip{
+    margin-top: 100px important;
 }

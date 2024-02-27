@@ -25,10 +25,21 @@ var  dataGNmain = null;
 var  updateMapStateInfo = null; 
 var updatePolarChart = null;
 
+// initilize the driverjs
+let driver = null
+let driverObj = null;
 
 $(document).ready(function () {
 
 
+  // initilize the driverjs
+  driver = window.driver.js.driver;
+  driverObj = driver({
+    showButtons: ['next', 'previous'],
+    showProgress: true,
+    steps : stepsIntro,
+  });
+  
 
 
 
@@ -1465,14 +1476,19 @@ $('#divTheme input[name="btnradioTheme"]').on('change', function() {
 
 
 
+});
 
 
+// tigger tour 
+$("#li_tourIntro").on("click", function () {
 
-
-
+ 
+  driverObj.drive();
 
 
 });
+
+
 
 
 // function to filter the table and map
