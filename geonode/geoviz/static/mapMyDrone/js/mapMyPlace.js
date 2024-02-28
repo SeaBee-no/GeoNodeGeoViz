@@ -33,11 +33,16 @@ $(document).ready(function () {
 
 
   // initilize the driverjs
-  driver = window.driver.js.driver;
-  driverObj = driver({
-    showButtons: ['next', 'previous'],
+ driver = window.driver.js.driver;
+  driverObj =  driver({
+   // showButtons: ['next', 'previous'],
     showProgress: true,
     steps : stepsIntro,
+    popoverClass: 'driverjs-theme',
+    overlayColor: '#000000',
+    nextBtnText: 'Next —›',
+    prevBtnText: '‹— Previous',
+    doneBtnText: '✕',
   });
   
 
@@ -510,6 +515,7 @@ otterLayer = L.layerGroup();
           icon: DroneIcon,
           uuid: el.uuid,
         });
+
       markerGN.bindPopup(
 
         `
@@ -1081,7 +1087,7 @@ let ChartPolar = new Chart(ctxPolar, {
             },
             title: {
                 display: true,
-                text: 'Area under difrent theme sqkm',
+                text: 'Area under different theme sqkm',
                 color: '#052C65',
             },
         },
@@ -1480,13 +1486,24 @@ $('#divTheme input[name="btnradioTheme"]').on('change', function() {
 
 
 // tigger tour 
-$("#li_tourIntro").on("click", function () {
+$("#li_tourIntro").on("click", function (e) {
+
+
+ driverObj.drive();
+
+// Start auto-advancing through the steps
+(async function() {
+  for (let item of stepsIntro) {
+    await sleep(3000);
+    driverObj.moveNext();
+  }
+})();
 
  
-  driverObj.drive();
 
 
 });
+
 
 
 
