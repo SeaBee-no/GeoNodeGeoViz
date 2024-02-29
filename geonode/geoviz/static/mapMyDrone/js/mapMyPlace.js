@@ -1494,7 +1494,7 @@ $("#li_tourIntro").on("click", function (e) {
 // Start auto-advancing through the steps
 (async function() {
   for (let item of stepsIntro) {
-    await sleep(3000);
+    await sleep(7000);
     driverObj.moveNext();
   }
 })();
