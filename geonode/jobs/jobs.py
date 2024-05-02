@@ -99,7 +99,7 @@ def bounding_box_to_centroid(coordinates):
 
         centroid = polygon.centroid
 
-        transformer = pyproj.Transformer.from_crs('epsg:4326', 'epsg:3857', always_xy=True).transform
+        transformer = pyproj.Transformer.from_crs('epsg:4326', 'epsg:3035', always_xy=True).transform
 
         poly_proj = transform(transformer, polygon)
         area = poly_proj.area / 1_000_000  # in km2
