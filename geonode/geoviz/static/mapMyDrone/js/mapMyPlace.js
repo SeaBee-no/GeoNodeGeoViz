@@ -1025,14 +1025,14 @@ updateMapStateInfo = (droneDataTableUpdated) => {
   let themeTypeCounts = {
       'Habitat': 0,
       'Seabirds': 0,
-      '': 0
+      'Mammals': 0
   };
 
   // hold the area of the theme
   let themeTypeAreas = {
     'Habitat': 0,
     'Seabirds': 0,
-    '': 0
+    'Mammals': 0
 };
   
   droneDataTableUpdated.forEach(item => {
@@ -1126,7 +1126,7 @@ let ctxCount = $('#chart_countStat');
 
 // Initial data
 let dataBar = {
-    labels: ['Habitat', 'Seabirds', 'Others'],
+    labels: ['Habitat', 'Seabirds', 'Mammals'],
     datasets: [{
         data: [0, 0, 0], // initial data
         backgroundColor: ['rgba(68, 156, 115, 0.80)', 'rgba(153, 232, 249, 0.80)', 'rgba(138, 140, 142, 0.80)']
@@ -1536,10 +1536,10 @@ else if (str == "inputHabitat"){
 
 
 }
-else if (str == "inputOther"){
+else if (str == "inputMammals"){
 
   tabData = orginalData.filter((el) => {
-    return el['theme'].length < 1;
+    return el['theme']== 'Mammals';
   });
 
   markerFunctionForGN(tabData);
