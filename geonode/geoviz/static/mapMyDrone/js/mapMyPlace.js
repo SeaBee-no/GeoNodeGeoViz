@@ -790,6 +790,7 @@ otterLayer = L.layerGroup();
 
   // model parameter 
   const modelparaSetting = (data) => {
+    $("#mapModelopt .modal-title").attr("value", data[0]);
     $("#mapModelopt .modal-title").text(toTitleCase(data[0]));
     $("#mapModelopt .img-fluid").attr("src", data[4].length > 0 ? data[4][0] : '#');
 
@@ -1065,7 +1066,7 @@ let ctxPolar = document.getElementById('chart_areaStat');
 
 // Initial data
 let dataPolar = {
-    labels: ['Habitat', 'Seabirds', 'Others'],
+    labels: ['Habitat', 'Seabirds', 'Mammals'],
     datasets: [{
         data: [0, 0, 0], // initial data
         backgroundColor: ['rgba(68, 156, 115, 0.80)', 'rgba(153, 232, 249, 0.80)', 'rgba(138, 140, 142, 0.80)']
@@ -1217,6 +1218,7 @@ map.on('zoomend', function() {
 
   $("#btn_download").on("click", function () {
 
+    let fileNames = $("#mapModelopt .modal-title").attr("value")+ ".tif";
     let container = document.createElement("div");
     container.innerHTML = this.value;
     container = container.querySelectorAll("td");
@@ -1226,7 +1228,7 @@ map.on('zoomend', function() {
       let bucket = container.split("/")[0]
 
       let flipath = container.split("/").slice(1).join("/");
-      flipath = flipath + "/orthophoto/" + container.split("/").pop() + ".tif"
+      flipath = flipath + "/orthophoto/" + fileNames;
 
       console.log(flipath);
 
@@ -1596,7 +1598,7 @@ switch (theme) {
     return `<span class="badge rounded-pill text-bg-success" style="--bs-bg-opacity: .8;">${toTitleCase(theme)}</span>`;
     break;
   default:
-    return `<span class="badge rounded-pill text-bg-dark" style="--bs-bg-opacity: .5;">Other</span>`;
+    return `<span class="badge rounded-pill text-bg-dark" style="--bs-bg-opacity: .5;">${toTitleCase(theme)}</span>`;
 }
 
 }
