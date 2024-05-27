@@ -129,8 +129,6 @@ def schedule_geonodeLayers_api():
                     "Authorization": f"Basic {encoded_credentials}"
                     } 
         
-    
-       
         while nextPage:
             url = f"https://geonode.seabee.sigma2.no/api/v2/resources/?filterdataset=raster&page={page}"
             response = requests.get(url, headers=headers)
@@ -160,7 +158,10 @@ def schedule_geonodeLayers_api():
                         dateMatch = matchDate.group()
                         el["flight_date"] = dateMatch 
                     else:
-                        el["flight_date"] = ''  
+                        el["flight_date"] = ''
+
+                    #check ml layer avalability
+                    el["ml_result"] =knowMlLayer(el['title'],el["Theme"], headers)  
 
 
                 jsondata = jsondata + json_obj['resources']
@@ -180,3 +181,24 @@ def schedule_geonodeLayers_api():
 
     except Exception as e:
         print (e)
+
+def knowMlLayer(title, theme, headersInfo):
+        ml_type_mapping = {
+            'Seabirds': 'detections',
+            'Mammals': 'detections',
+            'Habitat': 'classifications'
+        }
+
+        ml_type = ml_type_mapping.get(theme)
+
+        if ml_type:
+            url = f"https://geonode.seabee.sigma2.no/api/v2/resources/?filterdataset=vector&search={title}_{ml_type}&search_fields=title"
+            response = requests.get(url, headers=headersInfo)
+
+            if response.status_code == 200:
+                if response.json()['total'] > 0:
+                    return True
+            else:
+                print(f"Error fetching layer: Status code {response.status_code}")
+
+        return False

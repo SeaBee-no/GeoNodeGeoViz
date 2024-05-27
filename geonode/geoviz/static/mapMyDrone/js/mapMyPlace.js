@@ -124,7 +124,7 @@ otterLayer = L.layerGroup();
 
   overlayMaps = {
     "<img class='pb-2' width='30px' src='../static/mapMyDrone/img/seabeeLogo.png' alt='...'>  Drone flight": markersAll,
-    "<img class='pb-2' width='40px' src='../static/mapMyDrone/img/otter_drone.png' alt='...'>Otter mision": otterLayer,
+    "<img class='pb-2' width='40px' src='../static/mapMyDrone/img/otter_drone.png' alt='...'>Otter mission": otterLayer,
 
   };
 
