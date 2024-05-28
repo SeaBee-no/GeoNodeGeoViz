@@ -588,7 +588,9 @@ otterLayer = L.layerGroup();
         el.thumbnail_url_compress,
       el.flight_date,
     el.theme,
-  el.area_sqkm]);
+  el.area_sqkm,
+  el.ml_result]
+);
 
 
  
@@ -675,7 +677,7 @@ otterLayer = L.layerGroup();
                         <h6 class="card-title m-0 text-info-emphasis">${toTitleCase(data).toUpperCase()}</h6>
                         <div class="hstack gap-2 ps-4 pt-2">
                           <div class="p-2 text-dark fst-italic">Flight date: <span class="text-warning-emphasis" >${ formatDate(row[10]) }</span></div>
-                          <div class="p-2 fst-italic">Theme: ${ themeColorbadges(row[11]) }  </div>
+                          <div class="p-2 fst-italic">Theme: ${ themeColorbadges(row[11],row[13]) }  </div>
                      
                         </div>
 
@@ -794,7 +796,16 @@ otterLayer = L.layerGroup();
     $("#mapModelopt .modal-title").text(toTitleCase(data[0]));
     $("#mapModelopt .img-fluid").attr("src", data[4].length > 0 ? data[4][0] : '#');
 
-    // store info at valaue
+   
+
+// hid the ml switch if no ml result
+    if (data[13] == false){
+      $("#mlAddBlock").addClass("d-none");
+    }
+    else{
+      $("#mlAddBlock").removeClass("d-none");
+    }
+
 
     // overlap image
     $("#btn_overlay").val(data[0]);
@@ -1586,19 +1597,26 @@ const formatDate = (dateStr) => {
 }
 
 
-const themeColorbadges  = (themeVal) => {
+const themeColorbadges = (themeVal, ml_yn) => {
+  let theme = themeVal.toLowerCase();
+  let badgeHTML;
 
-let theme = themeVal.toLowerCase();
+  switch (theme) {
+    case "seabirds":
+      badgeHTML = `<span class="badge rounded-pill bg-info-subtle text-success-emphasis">${toTitleCase(theme)}</span>`;
+      break;
+    case "habitat":
+      badgeHTML = `<span class="badge rounded-pill text-bg-success" style="--bs-bg-opacity: .8;">${toTitleCase(theme)}</span>`;
+      break;
+    case "mammals":
+    default:
+      badgeHTML = `<span class="badge rounded-pill text-bg-dark" style="--bs-bg-opacity: .5;">${toTitleCase(theme)}</span>`;
+      break;
+  }
 
-switch (theme) {
-  case "seabirds":
-    return `<span class="badge rounded-pill bg-info-subtle  text-success-emphasis">${toTitleCase(theme)}</span>`;
-    break;
-  case "habitat":
-    return `<span class="badge rounded-pill text-bg-success" style="--bs-bg-opacity: .8;">${toTitleCase(theme)}</span>`;
-    break;
-  default:
-    return `<span class="badge rounded-pill text-bg-dark" style="--bs-bg-opacity: .5;">${toTitleCase(theme)}</span>`;
-}
+  if (ml_yn) {
+    badgeHTML += ` <span class="badge rounded-pill text-bg-warning text-primary-emphasis">ML</span>`;
+  }
 
+  return badgeHTML;
 }
