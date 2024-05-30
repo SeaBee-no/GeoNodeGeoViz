@@ -11,6 +11,7 @@ var map = null;
 var markersAll = null;
 var circleMarker = null;
 var GN_Overlay_layer = null;
+var GN_Overlay_ml_layer = null;
 var droneDataTable = null;
 var dataTB = null;
 var drawnItems = null;
@@ -131,6 +132,16 @@ otterLayer = L.layerGroup();
 
 
   GN_Overlay_layer = L.tileLayer.wms("https://geonode.seabee.sigma2.no/geoserver/ows?service=WMS", {
+    layers: '',
+    format: 'image/png',
+    transparent: true,
+    attribution: "seabee",
+    access_token: '',
+    maxZoom: 30,
+  });
+
+
+  GN_Overlay_ml_layer = L.tileLayer.wms("https://geonode.seabee.sigma2.no/geoserver/ows?service=WMS", {
     layers: '',
     format: 'image/png',
     transparent: true,
@@ -807,8 +818,11 @@ otterLayer = L.layerGroup();
     }
 
 
-    // overlap image
+    // overlap image name
     $("#btn_overlay").val(data[0]);
+
+    //store the theme
+    $("#switchMlResults").val(data[11]); 
 
     //store latlon
     $("#btn_locate").attr("valuexy", [data[2], data[3]]);
@@ -848,6 +862,15 @@ otterLayer = L.layerGroup();
       $('#btn_wms').prop('disabled', true);
       $('#btn_share').prop('disabled', true);
     }
+
+
+  // restore the ml switch
+  $('#switchMlResults').prop('checked', false);
+  if (map.hasLayer(GN_Overlay_ml_layer)) {
+    map.removeLayer(GN_Overlay_ml_layer);
+  }
+
+
 
 
 
@@ -905,6 +928,40 @@ otterLayer = L.layerGroup();
 
 
   });
+
+  let ml_type_mapping = {
+    'Seabirds': 'detections',
+    'Mammals': 'detections',
+    'Habitat': 'classifications'
+  }
+
+  $("#switchMlResults").on("change", function () {
+
+    if(this.checked) {
+    
+      if (map.hasLayer(GN_Overlay_ml_layer)) {
+        map.removeLayer(GN_Overlay_ml_layer);
+      }
+      let theme = $(this).val();
+      let val = $("#btn_overlay").val();
+      val = val +"_" + ml_type_mapping[theme];
+
+  
+      GN_Overlay_ml_layer.wmsParams.layers = `geonode:${val}`;
+      map.addLayer(GN_Overlay_ml_layer);
+      GN_Overlay_ml_layer.redraw();
+      GN_Overlay_ml_layer.bringToFront();
+ 
+  } else {
+    if (map.hasLayer(GN_Overlay_ml_layer)) {
+      map.removeLayer(GN_Overlay_ml_layer);
+    }
+  }
+
+
+  });
+
+
 
 
   $("#btn_detail").on("click", function () {
@@ -1046,6 +1103,9 @@ updateMapStateInfo = (droneDataTableUpdated) => {
     'Seabirds': 0,
     'Mammals': 0
 };
+
+
+if (Array.isArray(droneDataTableUpdated)) {
   
   droneDataTableUpdated.forEach(item => {
       let themeType = item[themeTypeIndex];
@@ -1056,7 +1116,7 @@ updateMapStateInfo = (droneDataTableUpdated) => {
       }
       
   });
-  
+}
 
 
 // update the polar chart
