@@ -80,7 +80,7 @@
 
 
       <div class="modal-body p-1" >
-        <div class="row  g-2">
+        <div class="row  g-2 align-items-center">
           <div class="col-9">
 
             <img src="#" class="rounded mx-auto d-block img-fluid" alt="Image preview not available.">
@@ -104,6 +104,7 @@
                 <div class="form-check form-switch">
                 <input style="width: 50px; height: 20px;" class="form-check-input" type="checkbox" role="switch" id="switchMlResults">
                 <label  style="font-size: 13px;" class="form-check-label align-middle" for="switchMlResults">ML</label>
+    
               </div>
             </div>
             </div>
@@ -116,19 +117,23 @@
               {% if user.is_authenticated %}
               <div class="d-grid col-12"> <button id="btn_download" value="" class="btn btn-secondary btn-sm rounded"
                   style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info float-start ps-2"></span>
-                  Download</button>
+                  Raster</button>
               </div>
 
 
               {% else %}
-              <div class="d-grid col-12" id="btn_download_disable" class="d-inline-block" tabindex="0"
-                data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading.">
+              <div class="d-grid col-12 d-inline-block downloadDisable" tabindex="0"
+                data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading GeoTIFF.">
                 <button class="btn btn-secondary btn-sm disabled rounded" style="font-size: 13px;"><span
-                    class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> Download</button>
+                    class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> Raster</button>
               </div>
 
+              <div class="d-grid col-12 d-inline-block downloadDisable " tabindex="0"
+              data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading ML results.">
+              <button class="btn btn-secondary btn-sm disabled rounded" style="font-size: 13px;"><span
+                  class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> ML Layer</button>
 
-
+                </div>
 
 
               {% endif %}
@@ -197,6 +202,7 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.js.iife.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
 
 
 <script src="{% static 'mapMyDrone/js/stepIntro.js' %}"></script>

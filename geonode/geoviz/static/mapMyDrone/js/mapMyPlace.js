@@ -29,6 +29,7 @@ var updatePolarChart = null;
 // initilize the driverjs
 let driver = null
 let driverObj = null;
+let get_ml_feature = null;
 
 $(document).ready(function () {
 
@@ -138,6 +139,7 @@ otterLayer = L.layerGroup();
     attribution: "seabee",
     access_token: '',
     maxZoom: 30,
+    
   });
 
 
@@ -148,6 +150,8 @@ otterLayer = L.layerGroup();
     attribution: "seabee",
     access_token: '',
     maxZoom: 30,
+    zIndex: 999,
+   crs: L.CRS.EPSG4326
   });
 
 
@@ -373,6 +377,14 @@ otterLayer = L.layerGroup();
       if (map.hasLayer(GN_Overlay_layer)) {
         map.removeLayer(GN_Overlay_layer);
       }
+
+
+  // restore the ml switch
+  $('#switchMlResults').prop('checked', false);
+  if (map.hasLayer(GN_Overlay_ml_layer)) {
+    map.removeLayer(GN_Overlay_ml_layer);
+  }
+
 
 
       // unlock the table update 
@@ -946,11 +958,15 @@ otterLayer = L.layerGroup();
       let val = $("#btn_overlay").val();
       val = val +"_" + ml_type_mapping[theme];
 
+     
+
   
       GN_Overlay_ml_layer.wmsParams.layers = `geonode:${val}`;
       map.addLayer(GN_Overlay_ml_layer);
       GN_Overlay_ml_layer.redraw();
       GN_Overlay_ml_layer.bringToFront();
+      // active clear btn
+      $(btnRemoveEdit.button).addClass('bg-info text-white ');
  
   } else {
     if (map.hasLayer(GN_Overlay_ml_layer)) {
@@ -1271,18 +1287,66 @@ map.on('zoomend', function() {
 
 
 
-  map.on('click', function () {
+  map.on('click', function (event) {
     // clear selection
     if (circleMarker) {
       map.removeLayer(circleMarker);
 
     }
+    get_ml_feature(event);
 
   });
 
 
+// Assuming 'map' is your L.Map instance
+map.on('mouseover', function() {
+  this.getContainer().style.cursor = 'pointer';
+});
+
+map.on('mouseout', function() {
+  this.getContainer().style.cursor = '';
+});
 
 
+
+// get the feature opn click on map layer
+get_ml_feature = (e) => {
+
+  let layerName = GN_Overlay_ml_layer.wmsParams.layers.split(":")[1];
+  
+
+
+  // Assuming 'layer' is your L.TileLayer.WMS instance
+  let bbox = map.getBounds().toBBoxString();
+  let size = map.getSize();
+  let width = size.x;
+  let height = size.y;
+
+  // Calculate the x and y pixel values
+  let point = map.latLngToContainerPoint(e.latlng);
+  let x = point.x;
+  let y = point.y;
+
+  
+
+
+
+// Define fetchUrl with the URL of your GeoJSON data
+let fetchUrl = `/api/droneViz/mlresult/getfeature?layerName=${layerName}&x=${x}&y=${y}&width=${width}&height=${height}&bbox=${bbox}`;
+fetch(fetchUrl)
+  .then(response => response.json())
+  .then(data => {
+    // Create a new GeoJSON layer
+   // let geoJsonLayer = L.geoJSON(data);
+
+    // Add the layer to the feature group
+   // GN_Overlay_ml_layer.addLayer(geoJsonLayer);
+   console.log(data);
+  })
+  .catch(error => console.error('Error:', error));
+
+
+}
 
 
 
@@ -1383,8 +1447,8 @@ map.on('zoomend', function() {
   if (!isAuthenticated) {
 
 
-    const tooltip = new bootstrap.Tooltip('#btn_download_disable', {
-      boundary: document.body // or document.querySelector('#boundary')
+    $('.downloadDisable').tooltip({
+      boundary: 'body'
     });
 
   }
