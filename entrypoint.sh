@@ -52,6 +52,7 @@ else
 
     invoke migrations
     invoke prepare
+    invoke updateadmin
 
     if [ ${FORCE_REINIT} = "true" ]  || [ ${FORCE_REINIT} = "True" ] || [ ! -e "/mnt/volumes/statics/geonode_init.lock" ]; then
         invoke updategeoip
