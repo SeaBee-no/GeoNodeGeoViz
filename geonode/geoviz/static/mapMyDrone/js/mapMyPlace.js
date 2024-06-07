@@ -466,8 +466,8 @@ otterLayer = L.layerGroup();
   <table class="table table-info table-striped-columns" style="font-size:14px">
       <thead>
     <tr class="table-dark">
-      <th scope="col">Name</th>
-      <th scope="col">Info</th>
+      <th scope="col">NAME</th>
+      <th scope="col">INFO</th>
      
     </tr>
   </thead>
@@ -1293,7 +1293,18 @@ map.on('zoomend', function() {
       map.removeLayer(circleMarker);
 
     }
-    get_ml_feature(event);
+    
+    if(GN_Overlay_ml_layer.wmsParams.layers.length > 0){
+    
+     let layerName = GN_Overlay_ml_layer.wmsParams.layers.split(":")[1];
+    
+    if (layerName.includes('_detections') || layerName.includes('_classifications')) {
+      
+      get_ml_feature(event);
+   
+    }
+  }
+    
 
   });
 
@@ -1315,7 +1326,6 @@ get_ml_feature = (e) => {
   let layerName = GN_Overlay_ml_layer.wmsParams.layers.split(":")[1];
   
 
-
   // Assuming 'layer' is your L.TileLayer.WMS instance
   let bbox = map.getBounds().toBBoxString();
   let size = map.getSize();
@@ -1327,8 +1337,6 @@ get_ml_feature = (e) => {
   let x = point.x;
   let y = point.y;
 
-  
-
 
 
 // Define fetchUrl with the URL of your GeoJSON data
@@ -1336,12 +1344,42 @@ let fetchUrl = `/api/droneViz/mlresult/getfeature?layerName=${layerName}&x=${x}&
 fetch(fetchUrl)
   .then(response => response.json())
   .then(data => {
-    // Create a new GeoJSON layer
-   // let geoJsonLayer = L.geoJSON(data);
-
-    // Add the layer to the feature group
-   // GN_Overlay_ml_layer.addLayer(geoJsonLayer);
+  
    console.log(data);
+
+// show the popup window
+if (data.features.length > 0){  // check if feature is available
+  let feature = data.features[0];
+  let properties = feature.properties;
+  let popupContent = 
+  `
+  <h6 class="text-white">${toTitleCase(layerName).toUpperCase()}</h6>   
+   <table class="table table-info table-striped-columns" style="font-size:14px">
+  <thead>
+   <tr class="table-dark">
+     <th scope="col">NAME</th>
+     <th scope="col">INFO</th>
+   </tr>
+ </thead>
+ <tbody>
+${
+  Object.keys(properties).map(
+    key => {
+    return `<tr><th scope="row">${toTitleCase(key).toUpperCase()}</th> <td>${properties[key]}</td></tr>`
+}
+).join('')}
+   </tbody>
+ </table>    
+`
+
+  let popup = L.popup()
+  .setLatLng(e.latlng)
+  .setContent(popupContent)
+  .openOn(map);
+
+}
+
+
   })
   .catch(error => console.error('Error:', error));
 
