@@ -238,3 +238,34 @@ class get_mission_ottre_list(APIView):
             
 
 
+class get_ml_results_getfeature(APIView):
+    def get(self, request, format=None):
+        
+        layerName = self.request.query_params.get('layerName')
+        x = int(round(float(self.request.query_params.get('x'))))
+        y = int(round(float(self.request.query_params.get('y'))))
+        width = self.request.query_params.get('width')
+        height = self.request.query_params.get('height')
+        bbox = self.request.query_params.get('bbox')
+
+          # Split the bbox string into individual values
+        bbox_values = bbox.split(',')
+
+         # Convert each value to a float and then back to a string
+        box_values = [str(float(value)) for value in bbox_values]
+
+        # Join the values back into a string
+        bbox = ','.join(box_values)
+        
+        try:
+            url =f'https://geonode.seabee.sigma2.no/geoserver/geonode/wms?SERVICE=WMS&VERSION=1.1.1&' \
+                f'REQUEST=GetFeatureInfo&' \
+                f'QUERY_LAYERS=geonode%3A{layerName}&LAYERS=geonode%3A{layerName}&' \
+                f'INFO_FORMAT=application%2Fjson&' \
+                f'X={x}&Y={y}&SRS=EPSG%3A4326&WIDTH={width}&HEIGHT={height}&BBOX={bbox}'
+        
+            response = requests.get(url)
+            return Response(response.json())
+        except Exception as e:
+            print(e, flush=True)
+            return Response('something went wrong')
