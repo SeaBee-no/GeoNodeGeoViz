@@ -25,6 +25,7 @@ var markerFunctionForGN = null;
 var  dataGNmain = null;
 var  updateMapStateInfo = null; 
 var updatePolarChart = null;
+var return_ml_classfication_label = null;
 
 // initilize the driverjs
 let driver = null
@@ -894,13 +895,15 @@ otterLayer = L.layerGroup();
   }
 
 
-
+  $("#mapModelopt").draggable({
+    handle: ".modal-dialog"
+});
 
   // dragable property for data info  model
   const mapModel_Obj = new bootstrap.Modal('#mapModelopt', {
     backdrop: false,
-    keyboard: false,
-    focus: false,
+    keyboard: true,
+    show: false,
 
 
   });
@@ -1298,7 +1301,7 @@ map.on('zoomend', function() {
     
      let layerName = GN_Overlay_ml_layer.wmsParams.layers.split(":")[1];
     
-    if (layerName.includes('_detections') || layerName.includes('_classifications')) {
+    if (((layerName.includes('_detections') || layerName.includes('_classifications')) && $('#switchMlResults').prop('checked'))) {
       
       get_ml_feature(event);
    
@@ -1345,7 +1348,7 @@ fetch(fetchUrl)
   .then(response => response.json())
   .then(data => {
   
-   console.log(data);
+   //console.log(data);
 
 // show the popup window
 if (data.features.length > 0){  // check if feature is available
@@ -1362,12 +1365,13 @@ if (data.features.length > 0){  // check if feature is available
    </tr>
  </thead>
  <tbody>
-${
-  Object.keys(properties).map(
-    key => {
-    return `<tr><th scope="row">${toTitleCase(key).toUpperCase()}</th> <td>${properties[key]}</td></tr>`
+ ${
+  layerName.includes('_detections') ?
+  Object.keys(properties).map(key => {
+    return `<tr><th scope="row">${toTitleCase(key).toUpperCase()}</th> <td>${properties[key]}</td></tr>`;
+  }).join('') : layerName.includes('_classifications') ? `<tr><th scope="row">Class</th> <td class='grayScaleLable'></td></tr>`:'NA'
 }
-).join('')}
+
    </tbody>
  </table>    
 `
@@ -1377,12 +1381,43 @@ ${
   .setContent(popupContent)
   .openOn(map);
 
+  
+if (layerName.includes('_classifications') && properties.GRAY_INDEX > 0) {
+  return_ml_classfication_label(properties.GRAY_INDEX,layerName);
+}
+
+
 }
 
 
   })
   .catch(error => console.error('Error:', error));
 
+
+}
+
+
+
+return_ml_classfication_label =(prop_obj,layerName) => {
+
+// Sample GET request using the Fetch API
+fetch(`api/droneViz/layerstyle/label?layerName=${layerName}&grayid=${prop_obj}`)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok ' + response.statusText);
+    }
+    return response.json(); // Parse JSON response into JavaScript object
+  })
+  .then(data => {
+    console.log("legend>>>>"+data); // Handle the data from the response
+    $(".grayScaleLable").text(data);
+  })
+  .catch(error => {
+    console.error('There has been a problem with your fetch operation:', error);
+  });
+
+
+ 
 
 }
 
@@ -1642,9 +1677,7 @@ ${
   }
 
 
-  $("#mapModelopt").draggable({
-    handle: ".modal-dialog"
-});
+
 
 
 // theme selection value

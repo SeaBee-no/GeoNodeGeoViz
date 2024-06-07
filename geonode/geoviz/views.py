@@ -12,7 +12,8 @@ from rest_framework import serializers
 from pathlib import Path
 from datetime import  timedelta
 from .models import *
-
+from geoserver.catalog import Catalog
+from xml.dom.minidom import  parseString
 
 
 jsonPath=""
@@ -262,10 +263,55 @@ class get_ml_results_getfeature(APIView):
                 f'REQUEST=GetFeatureInfo&' \
                 f'QUERY_LAYERS=geonode%3A{layerName}&LAYERS=geonode%3A{layerName}&' \
                 f'INFO_FORMAT=application%2Fjson&' \
-                f'X={x}&Y={y}&SRS=EPSG%3A4326&WIDTH={width}&HEIGHT={height}&BBOX={bbox}'
+                f'X={x}&Y={y}&SRS=EPSG%3A4326&WIDTH={width}&HEIGHT={height}&BBOX={bbox}&'  \
+                f'BUFFER=60'
         
             response = requests.get(url)
             return Response(response.json())
+        except Exception as e:
+            print(e, flush=True)
+            return Response('something went wrong')
+
+
+class get_layer_style_label(APIView):
+
+    def get(self, request, format=None):
+        geoserver_url = "https://geonode.seabee.sigma2.no/geoserver/rest"
+        username = "admin"
+        password = os.environ['GEOSERVER_PASSWORD']
+
+        # Layer details
+        layerName = self.request.query_params.get('layerName')
+        grayid = self.request.query_params.get('grayid')
+        
+        cat = Catalog(service_url=geoserver_url, username=username, password=password)
+    
+        try:
+            layer = cat.get_layer(f"{layerName}")
+            if layer:
+                    # Get the default style
+                style = layer.default_style
+                if style:
+                        # Fetch the style object
+                    style_content = style.sld_body
+                    dom = parseString(style_content)
+                        
+                        # Find all ColorMapEntry elements
+                    entries = dom.getElementsByTagName('sld:ColorMapEntry')
+                    label = None
+                        
+                    # Search for the ColorMapEntry with the matching quantity
+                    for entry in entries:
+                        if entry.getAttribute('quantity') == str(grayid):
+                            label = entry.getAttribute('label')
+                            return Response(label)
+                        
+
+                else:
+                    return Response(f"Style not found for layer '{layerName}'.")
+            else:
+                return Response(f"Layer '{layerName}' not found.")
+
         except Exception as e:
             print(e, flush=True)
             return Response('something went wrong')
