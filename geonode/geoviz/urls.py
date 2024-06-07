@@ -12,4 +12,5 @@ urlpatterns = [
     path('api/droneViz/layerlist/<str:dataset_id>/', get_droneFlight_geonodeLayer_info_byid.as_view(), name='get_geonode_layer_lsyer_byID_GN'),
     path('api/droneViz/minio/<str:bucket>/<path:fileWithPath>', get_download_url_by_bucket.as_view(), name='get_download_url_by_bucket_minio'),
     path('api/droneViz/mlresult/getfeature', get_ml_results_getfeature.as_view(), name='ml_results'),
+    path('api/droneViz/layerstyle/label', get_layer_style_label.as_view(), name='ml_sld_label'),
 ]
