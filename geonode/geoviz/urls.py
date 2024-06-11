@@ -13,4 +13,5 @@ urlpatterns = [
     path('api/droneViz/minio/<str:bucket>/<path:fileWithPath>', get_download_url_by_bucket.as_view(), name='get_download_url_by_bucket_minio'),
     path('api/droneViz/mlresult/getfeature', get_ml_results_getfeature.as_view(), name='ml_results'),
     path('api/droneViz/layerstyle/label', get_layer_style_label.as_view(), name='ml_sld_label'),
+    path('api/droneViz/geoserver/layerid/<str:layername>', get_layer_id_geoserver.as_view(), name='getLayerId'),
 ]

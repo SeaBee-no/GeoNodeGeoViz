@@ -315,3 +315,23 @@ class get_layer_style_label(APIView):
         except Exception as e:
             print(e, flush=True)
             return Response('something went wrong')
+
+
+class get_layer_id_geoserver(APIView):
+        def get(self, request, format=None, layername=None):
+
+            geoserver_url = "https://geonode.seabee.sigma2.no/geoserver/rest"
+            username = "admin"
+            password = os.environ['GEOSERVER_PASSWORD']
+
+            cat = Catalog(service_url=geoserver_url, username=username, password=password)
+
+            try:
+                layer = cat.get_layer(f"{layername}")
+                if layer:
+                    bbox = layer.resource.latlon_bbox
+                return Response(bbox)
+
+            except Exception as e:
+                print(e, flush=True)
+                return Response('something went wrong')

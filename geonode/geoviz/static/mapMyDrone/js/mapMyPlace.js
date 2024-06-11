@@ -32,6 +32,8 @@ let driver = null
 let driverObj = null;
 let get_ml_feature = null;
 
+let buldMlDownloadLink = null;
+
 $(document).ready(function () {
 
 
@@ -822,12 +824,14 @@ otterLayer = L.layerGroup();
 
    
 
-// hid the ml switch if no ml result
+// hide the ml switch if no ml result
     if (data[13] == false){
       $("#mlAddBlock").addClass("d-none");
+      $('#btn_ml_download').addClass("d-none");
     }
     else{
       $("#mlAddBlock").removeClass("d-none");
+      $('#btn_ml_download').removeClass("d-none");
     }
 
 
@@ -930,8 +934,6 @@ otterLayer = L.layerGroup();
 
 
   // locate the drone on click
-
-
   $("#btn_locate").on("click", function () {
 
     locateDroneonMap($(this).attr("valuexy"), true);
@@ -1521,7 +1523,9 @@ fetch(`api/droneViz/layerstyle/label?layerName=${layerName}&grayid=${prop_obj}`)
 
 
     $('.downloadDisable').tooltip({
-      boundary: 'body'
+      boundary: 'body',
+      placement: 'top',
+      
     });
 
   }
@@ -1815,3 +1819,129 @@ const themeColorbadges = (themeVal, ml_yn) => {
 
   return badgeHTML;
 }
+
+
+
+// download the ml result based on type
+$('#btn_ml_download').on('click', ()=> {
+
+  let mlTyle = $("#switchMlResults").attr('value');
+
+  if (mlTyle == 'Seabirds') {
+
+    let  layerName = $("#mapModelopt .modal-title").attr("value") + '_detections';
+
+    $.confirm({
+      title: '<i class="bi bi-info-square"></i> Download details',
+      content: `<div class="overflow-hidden">
+    <p>Please click to download the desired format of ML results:  </p>
+
+          <div class="hstack gap-2 align-self-center justify-content-center">
+        
+            <button type="button" class="btn btn-secondary" value='geojson' onclick='buldMlDownloadLink("${layerName}","shape-zip","zip")' >Shapefile</button>
+          
+            <button type="button" class="btn btn-secondary" value='csv' onclick='buldMlDownloadLink("${layerName}","csv","csv")'>CSV</button>
+           
+          </div>
+
+  
+    </div>`,
+      type: 'green',
+      typeAnimated: true,
+      buttons: {
+        tryAgain: {
+          text: 'Close',
+          btnClass: 'btn-info',
+          action: function () {
+          }
+        },
+
+      }
+    });
+
+  }
+
+if (mlTyle == 'Habitat') {
+
+
+  let  layerName = $("#mapModelopt .modal-title").attr("value") + '_classifications';
+
+  $.confirm({
+    title: '<i class="bi bi-info-square"></i> Download details',
+    content: `<div class="overflow-hidden">
+  <p>Please click to download the desired format of ML results:  </p>
+
+        <div class="hstack gap-2 align-self-center justify-content-center">
+      
+          <button type="button" class="btn btn-secondary" value='geojson' onclick='buldMlDownloadLink("${layerName}","image/geotiff","tif")' >GeoTIFF</button>
+        
+          <button type="button" class="btn btn-secondary" value='csv' onclick='buldMlDownloadLink("${layerName}","application/pdf","pdf")'>PDF</button>
+         
+        </div>
+
+
+  </div>`,
+    type: 'green',
+    typeAnimated: true,
+    buttons: {
+      tryAgain: {
+        text: 'Close',
+        btnClass: 'btn-info',
+        action: function () {
+        }
+      },
+
+    }
+  });
+
+
+}
+
+  
+
+
+
+});
+
+// buld the download link
+buldMlDownloadLink = (layerName,type,extension) => {
+
+  let url = '';
+
+    if(layerName.includes('_detections')){
+      url = `https://geonode.seabee.sigma2.no/geoserver/geonode/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=geonode:${layerName}&outputFormat=${type}`;
+   
+  let a = document.createElement('a');
+  a.href = url;
+  a.download = `${layerName}.${extension}`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+
+    }
+
+if(layerName.includes('_classifications')){
+
+// Fetch the coverage description
+fetch(`/api/droneViz/geoserver/layerid/${layerName}`)
+  .then(response => response.json())
+    .then(bbox => {
+
+      let bboxCoords = bbox.slice(0, 4);
+      bboxCoords = [bbox[0], bbox[2], bbox[1], bbox[3]];
+      // Now you can use the bounding box in your GetCoverage request
+      let url =`https://geonode.seabee.sigma2.no/geoserver/geonode/wms?service=WMS&version=1.1.0&request=GetMap&layers=geonode:${layerName}&bbox=${bboxCoords.join(',')}&width=1920&height=1080&srs=EPSG:4326&format=${type}`;
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = `${layerName}.${extension}`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+  });
+
+
+ }
+
+}
+
+//(((layerName.includes('_detections') || layerName.includes('_classifications')) 
