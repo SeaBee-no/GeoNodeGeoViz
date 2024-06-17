@@ -7,8 +7,7 @@ const stepsIntro = [
     popover: {
       title: "Map area",
       description:
-      `This the right half of the page where the map is displayed.
-       It disaply seabee drone mission locations. The number in the circle indicates the number of mission  at that location.`,
+      `This is the right half of the page where the map is displayed. It displays seabee drone mission locations. The number in the circle indicates the number of missions at that location.`,
    
       align: "center",
     },
@@ -20,7 +19,7 @@ const stepsIntro = [
     popover: {
       title: "Layer filter pannel",
       description:
-      `This is the left half of the page where the layer filter pannel is displayed.`,
+      `This is the left half of the page where the layer filter panel is displayed.`,
        align: "center",
     },
   },
@@ -31,7 +30,7 @@ const stepsIntro = [
     popover: {
       title: "Collape/Expand the pannel",
       description:
-        "click to collape or expand the left pannel.",
+        "Click to collapse or expand the left panel.",
    
         align: "center",
     },
@@ -54,7 +53,7 @@ const stepsIntro = [
     popover: {
       title: "Images to display",
       description:
-        "Dropdown to define the number of images to display per page.",
+        "Dropdown to define the number of images/mission to display per view.",
    
        
     },
@@ -115,7 +114,7 @@ const stepsIntro = [
     popover: {
       title: "Map menu",
       description:
-      "Main menu to acess project home page, Data, Maps and Geostory and other important links.",
+      "Main menu to access project home page, Data, Maps and Geostory and other important links.",
    
         align: "center",
     },
@@ -125,7 +124,7 @@ const stepsIntro = [
     popover: {
       title: "User authantication",
       description:
-        "It works the same in vanilla JavaScript as well as frameworks.",
+        "User authanication to access the mission date.",
    
         align: "center",
     },
@@ -137,7 +136,7 @@ const stepsIntro = [
     popover: {
       title: "Switch basemap",
       description:
-        "Its list of basemaps. Click to switch the basemap.",
+        "It's a list of basemaps. Click to switch the basemap.",
    
         
     },
@@ -158,7 +157,7 @@ const stepsIntro = [
     popover: {
       title: "Draw tools",
       description:
-        "Its a shortcut to clear all selection and hilighted  items on the map.",
+        "It's a shortcut to clear all selection and highlighted items on the map.",
    
         
     },
@@ -168,7 +167,7 @@ const stepsIntro = [
     popover: {
       title: "Location map",
       description:
-        "Its overview/location map of the main map.",
+        "It's an overview/location map of the main map.",
    
         
     },
@@ -179,7 +178,7 @@ const stepsIntro = [
     popover: {
       title: "Count chart",
       description:
-        "Dynamic chart to display the number of mission by theme.",
+        "Dynamic chart to display the number of missions by theme.",
    
         
     },
@@ -189,7 +188,7 @@ const stepsIntro = [
     popover: {
       title: "Area chart",
       description:
-        "Dynamic chart to display the area of mission by theme.",
+        "Dynamic chart to display the area of missions by theme.",
    
         
     },
@@ -199,7 +198,7 @@ const stepsIntro = [
     popover: {
       title: "Attribution",
       description:
-        "Its a acknowledgement of the data sources and list of partners in the project.",
+        "It's an acknowledgment of the data sources and list of partners in the project.",
    
     },
   },

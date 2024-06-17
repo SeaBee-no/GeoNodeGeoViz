@@ -13,6 +13,12 @@
     </div> -->
 
     <div id="mapD">
+
+      <div class="col-6 align-self-center position-absolute top-0 start-0 ms-5 d-block d-md-none" style="z-index: 1003 !important;">
+        <img width="160px" src="{% static 'mapstore/img/geonode-logo.svg' %}" class="img-fluid p-2 m-0 float-start"
+          alt="seabee">
+      </div> 
+
       <a href="#"
         class=" d-none d-md-block position-absolute top-50 start-0 translate-middle-y border rounded-3 p-1 text-decoration-none"
         id="panelBtn" data-bs-target="#sidebar" data-bs-toggle="collapse" style="z-index: 1000 !important;"><i
@@ -22,7 +28,7 @@
           <nav class="navbar navbar-expand-md w-md-50
           bg-white  bg-opacity-75 rounded-3
           position-absolute top-0 end-0 mt-3 p-0" 
-          style="z-index: 1000; margin-right: 140px !important;">
+          style="z-index: 1004; margin-right: 140px !important;">
             <div class="container-fluid p-0 m-0">
            
               <button class="navbar-toggler position-fixed top-0 end-0 mt-3" 
@@ -51,9 +57,12 @@
                     <a class="nav-link " aria-current="page" href="/catalogue/#/search/?f=map" target="_blank"><div class="hstack gap-1"><i class="icofont icofont-ui-map"></i> <label>Maps</label></div></a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="/catalogue/#/search/?f=geostory" target="_blank"><div class="hstack gap-1"><i class="icofont icofont-bullhorn"></i> <label>GeoStories</label></div></a>
+                    <a class="nav-link" aria-current="page" href="/catalogue/#/search/?f=geostory" target="_blank"><div class="hstack gap-1"><i class="icofont icofont-bullhorn"></i> <label>GeoStories</label></div></a>
                   </li>
 
+                  <li class="nav-item">
+                    <a id="li_tourIntro" class="nav-link" aria-current="page"  target="_blank"><div class="hstack gap-1"><i class="icofont icofont-street-view"></i> <label>Turtorial</label></div></a>
+                  </li>
 
                   <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -63,7 +72,7 @@
                       <li><a class="dropdown-item" href="/about" target="_blank"><i class="icofont icofont-globe-alt"></i> <label>Geovisualization</label></a></li>
                       <li><a class="dropdown-item" href="https://seabee.no/about-project/" target="_blank"><div class="hstack gap-1"><i class="icofont icofont-file-alt"></i> <label>About project</label></a></li>
                       <li><a class="dropdown-item" href="https://seabee.no/about-project/#contact" target="_blank"><i class="icofont icofont-ui-contact-list"></i> <label>Contact us</label></a></li>
-                      <li><a id="li_tourIntro" class="dropdown-item"  target="_blank"><i class="icofont icofont-street-view"></i> <label>Introduction</label></a></li>
+                     
                     
                     </ul>
                   </li>

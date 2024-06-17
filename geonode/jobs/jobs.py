@@ -118,6 +118,8 @@ def schedule_geonodeLayers_api():
         nextPage= True
         jsondata=[]
         json_obj= None
+        total_entries = 0
+        itemcount = 0
    
         credentials = f"{os.environ['GEONODE_USER_ID']}:{os.environ['GEONODE_PASSWORD']}".encode('utf-8')
 
@@ -134,6 +136,8 @@ def schedule_geonodeLayers_api():
             response = requests.get(url, headers=headers)
             if response.status_code == 200:
                 json_obj = response.json()
+                total_entries = json_obj['total']
+                itemcount += len(json_obj['resources'])
                 # loop through the bbx of a mission and add a centroid
                 for el in  json_obj['resources']:
                     
@@ -174,10 +178,12 @@ def schedule_geonodeLayers_api():
             else:
                 print(f"Error fetching page {page}: Status code {response.status_code}")
                 break
-        with open( Path.joinpath(jsonPath / 'geonodeLayers.json') ,'w+') as f:
-            json.dump(jsondata, f)
-
-        print('Geonode raster layers list fetched >>',flush=True)
+        if total_entries == itemcount and itemcount > 0:
+            with open( Path.joinpath(jsonPath / 'geonodeLayers.json') ,'w+') as f:
+                json.dump(jsondata, f)
+            print('Geonode raster layers list fetched >>',flush=True)
+        else:
+            print('Error in layers list fetched',flush=True)
 
     except Exception as e:
         print (e)

@@ -33,6 +33,9 @@ let driverObj = null;
 let get_ml_feature = null;
 
 let buldMlDownloadLink = null;
+let markerInMap = [];
+
+let updateTableMap = null;
 
 $(document).ready(function () {
 
@@ -100,13 +103,13 @@ otterLayer = L.layerGroup();
     }),
     Norgeskart: L.tileLayer("https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&zoom={z}&x={x}&y={y}"
       , {
-        attribution: '&copy;norgeskart',
+        attribution: '&copy;<a href="https://www.kartverket.no/">Kartverket</a>',
         maxZoom: 30,
         layers: ""
       }),
     'Norgeskart Gray': L.tileLayer("https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart_graatone&zoom={z}&x={x}&y={y}"
       , {
-        attribution: '&copy;norgeskart',
+        attribution: '&copy;<a href="https://www.kartverket.no/">Kartverket</a>',
         maxZoom: 30,
         layers: ""
       }),
@@ -914,23 +917,31 @@ otterLayer = L.layerGroup();
 
 
 
-// open model on click on seabe cradit
+// open model on click on seabe credit
   $(document).on('click', '#creditBtn', function () {
 
     craditModel_Obj.show();
 
   });
 
-
+  $("#userCraditModel").draggable({
+    handle: ".modal-dialog"
+});
 
   // dragable property for credit model
   const craditModel_Obj = new bootstrap.Modal('#userCraditModel', {
     backdrop: false,
-    keyboard: false,
-    focus: false,
+    keyboard: true,
+    show: false,
 
 
   });
+
+
+
+
+
+
 
 
   // locate the drone on click
@@ -1062,9 +1073,29 @@ otterLayer = L.layerGroup();
 
   map.on('moveend', function () {
 
+
+          
+    updateTableMap();
+
+
+
+  });
+
+
+  markersAll.on('add', function (a) {
+    console.log('clusteradd');
+  });
+
+
+
+
+
+  // update markets and dynamic update of table
+  updateTableMap = () => {
+
     // update the list basd on map extent
     let visibleBounds = map.getBounds();
-    let markerInMap = [];
+    markerInMap = [];
     let droneDataTableUpdated = null;
 
     if (dynamicTableUpdateFlag) {
@@ -1088,6 +1119,8 @@ otterLayer = L.layerGroup();
 
       updateDataTable(droneDataTableUpdated);
 
+    
+
     }
 
 
@@ -1097,13 +1130,14 @@ otterLayer = L.layerGroup();
 
 
           // update table on move end
-          updateMapStateInfo(droneDataTableUpdated);
+        
           
+          updateMapStateInfo(droneDataTableUpdated);
 
 
 
 
-  });
+  }
 
 
 
@@ -1141,10 +1175,13 @@ if (Array.isArray(droneDataTableUpdated)) {
 
 
 // update the polar chart
+
 updatePolarChart(themeTypeAreas);
 
 // update the bar chart
 updateBarChart(themeTypeCounts)
+
+
 
 }
 
@@ -1634,9 +1671,13 @@ fetch(`api/droneViz/layerstyle/label?layerName=${layerName}&grayid=${prop_obj}`)
 
 
     let textToCopy = $("#btn_sharedURL").text();
-    const $tempInput = $("<input>").val(textToCopy).appendTo("body").select();
-    document.execCommand("copy");
-    $tempInput.remove();
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        
+  $("#btn_copy_sharedLink").html('<i class="bi bi-clipboard-check text-success" ></i>');
+  
+      }, function(err) {
+        console.error('Could not copy text: ', err);
+    });
 
 
 
@@ -1687,8 +1728,11 @@ fetch(`api/droneViz/layerstyle/label?layerName=${layerName}&grayid=${prop_obj}`)
 // theme selection value
 $('#divTheme input[name="btnradioTheme"]').on('change', function() {
  
-
-  filterTableMap(this.id);
+  if (markerInMap.length > 0)
+   {
+       filterTableMap(this.id);
+    }
+ 
 
 });
 
@@ -1704,12 +1748,12 @@ $("#li_tourIntro").on("click", function (e) {
  driverObj.drive();
 
 // Start auto-advancing through the steps
-(async function() {
-  for (let item of stepsIntro) {
-    await sleep(7000);
-    driverObj.moveNext();
-  }
-})();
+// (async function() {
+//   for (let item of stepsIntro) {
+//     await sleep(7000);
+//     driverObj.moveNext();
+//   }
+// })();
 
  
 
@@ -1724,6 +1768,10 @@ $("#li_tourIntro").on("click", function (e) {
 const filterTableMap = (str) => {
 
   let orginalData = [...dataGNmain];
+  // orginalData = orginalData.filter((el) => {
+  //   return markerInMap.includes(el['uuid']);
+  // });
+
   let tabData = null;
 
 

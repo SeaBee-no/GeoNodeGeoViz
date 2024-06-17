@@ -19,6 +19,7 @@ background-color: white;
 
 #mapD{
     height: 100vh;
+   
 }
 
 
@@ -111,7 +112,7 @@ div.dataTables_wrapper div.dataTables_info {
 
 
 
-#mapModelopt  .modal-header:hover {
+#mapModelopt , #userCraditModel  .modal-header:hover {
 
     cursor: move !important;
 
@@ -273,3 +274,10 @@ div.dataTables_wrapper div.dataTables_info {
  
 }
 
+
+/*leaflet minimap css */
+@media screen and (max-width: 600px) {
+  .leaflet-control-minimap {
+    display: none;
+  }
+}
