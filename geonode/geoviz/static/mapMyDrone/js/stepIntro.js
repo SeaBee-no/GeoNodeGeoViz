@@ -7,7 +7,7 @@ const stepsIntro = [
     popover: {
       title: "Map area",
       description:
-      `This is the right half of the page where the map is displayed. It displays seabee drone mission locations. The number in the circle indicates the number of missions at that location.`,
+      `The right half of the page displays the map. It displays the SeaBee drone mission locations. The numbers in the colored circles indicate the number of missions at that location`,
    
       align: "center",
     },
@@ -19,7 +19,7 @@ const stepsIntro = [
     popover: {
       title: "Layer filter pannel",
       description:
-      `This is the left half of the page where the layer filter panel is displayed.`,
+      `The left half of the page displays the layer filter panel.`,
        align: "center",
     },
   },
@@ -53,7 +53,7 @@ const stepsIntro = [
     popover: {
       title: "Images to display",
       description:
-        "Dropdown to define the number of images/mission to display per view.",
+        "Dropdown to define the number of images to be displayed per page.",
    
        
     },
@@ -65,7 +65,7 @@ const stepsIntro = [
     popover: {
       title: "Search drone images",
       description:
-        "Search for drone images by typing mission name, location, theme, etc. in the search box.",
+        "Search box to select drone images by mission name, location, theme, etc.",
    
       
     },
@@ -77,7 +77,7 @@ const stepsIntro = [
     popover: {
       title: "List of drone images",
       description:
-        "List of drone images with mission name, location, theme, etc.",
+        "List of selected drone images, including mission name, location, theme, etc.",
    
         align: "center",
     },
@@ -90,7 +90,7 @@ const stepsIntro = [
     popover: {
       title: "Info card",
       description:
-        "Info card of the mission. Double click on the row to locate the mission on the map.",
+        "Double click on the row to locate the image on the map.",
    
         align: "center",
     },
@@ -102,7 +102,7 @@ const stepsIntro = [
     popover: {
       title: "More info",
       description:
-        "Click to get more information about the mission.",
+        "Click to get more information about the mission/image.",
    
         align: "center",
     },
@@ -114,7 +114,7 @@ const stepsIntro = [
     popover: {
       title: "Map menu",
       description:
-      "Main menu to access project home page, Data, Maps and Geostory and other important links.",
+      "Main menu to access the SeaBee home page, Data, Maps, Geostories, and other important links.",
    
         align: "center",
     },
@@ -124,7 +124,7 @@ const stepsIntro = [
     popover: {
       title: "User authantication",
       description:
-        "User authanication to access the mission date.",
+        "User authanication to access the SeaBee date.",
    
         align: "center",
     },
@@ -136,7 +136,7 @@ const stepsIntro = [
     popover: {
       title: "Switch basemap",
       description:
-        "It's a list of basemaps. Click to switch the basemap.",
+        "Click to switch between different basemaps",
    
         
     },
@@ -147,7 +147,7 @@ const stepsIntro = [
     popover: {
       title: "Draw tools",
       description:
-        "Draw tools to select the mission by drawing a rectangle or polygon.",
+        "Tool to select missions by drawing a rectangle or polygon.",
    
         
     },
@@ -155,9 +155,9 @@ const stepsIntro = [
   {
     element: ".easy-button-button",
     popover: {
-      title: "Draw tools",
+      title: "Clear selections",
       description:
-        "It's a shortcut to clear all selection and highlighted items on the map.",
+        "Shortcut to clear selections and highlighted items on the map.",
    
         
     },
@@ -167,7 +167,7 @@ const stepsIntro = [
     popover: {
       title: "Location map",
       description:
-        "It's an overview/location map of the main map.",
+        "Overview map of your displayed map section.",
    
         
     },
@@ -178,7 +178,7 @@ const stepsIntro = [
     popover: {
       title: "Count chart",
       description:
-        "Dynamic chart to display the number of missions by theme.",
+        "Dynamic chart displaying the number of missions by theme in your display.",
    
         
     },
@@ -188,7 +188,7 @@ const stepsIntro = [
     popover: {
       title: "Area chart",
       description:
-        "Dynamic chart to display the area of missions by theme.",
+        "Dynamic chart displaying the total area of missions by theme in your display.",
    
         
     },
@@ -198,7 +198,7 @@ const stepsIntro = [
     popover: {
       title: "Attribution",
       description:
-        "It's an acknowledgment of the data sources and list of partners in the project.",
+        "Acknowledgement of the data sources and list of SeaBee partners.",
    
     },
   },
