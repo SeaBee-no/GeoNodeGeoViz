@@ -26,6 +26,7 @@ var  dataGNmain = null;
 var  updateMapStateInfo = null; 
 var updatePolarChart = null;
 var return_ml_classfication_label = null;
+var inputCalander_obj= null;
 
 // initilize the driverjs
 let driver = null
@@ -685,7 +686,7 @@ otterLayer = L.layerGroup();
 
       columns: [
         { data: 0, 
-          title: "Name",
+          title: "Name <small class='text-warning' id='rangeCalHolder'>( Range : <label id='rangeCalRange'></label> )</small>",
          // className: "Title",
           render: (data, type, row)=> {
            
@@ -1728,11 +1729,45 @@ fetch(`api/droneViz/layerstyle/label?layerName=${layerName}&grayid=${prop_obj}`)
 // theme selection value
 $('#divTheme input[name="btnradioTheme"]').on('change', function() {
  
-  if (markerInMap.length > 0)
-   {
+  //if (markerInMap.length > 0){
        filterTableMap(this.id);
-    }
+   // }
+   if(this.id != "inputCalander"){
+    $('#rangeCalHolder').addClass('d-none');
+   
+  }
  
+
+});
+
+
+  // Initialize flatpickr
+   inputCalander_obj= flatpickr("#inputCalander", {
+    mode: "range",
+    dateFormat: "d M Y",
+     position: "auto right",
+     positionElement: document.getElementById('divTheme'),
+     onChange: function(selectedDates, dateStr, instance) {
+      if (selectedDates.length === 2) {
+          
+         
+          sleep(100).then(() => {
+            $('#rangeCalRange').text(dateStr);
+          });
+      
+
+          $('#rangeCalHolder').removeClass('d-none');
+          console.log(dateStr);
+        
+      }
+  },
+  onOpen: function(selectedDates, dateStr, instance) {
+    // Clear the previous selection when the calendar is opened
+    instance.clear();
+    $("#divTheme").find('input').prop('checked', false);
+
+}
+   
 
 });
 
@@ -1807,10 +1842,15 @@ else if (str == "inputMammals"){
 
 }
 
+
 else {
 
   markerFunctionForGN(orginalData);
 }
+
+
+
+
 
 
 }
