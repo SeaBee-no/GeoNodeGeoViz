@@ -8,6 +8,8 @@ class GeovizConfig(AppConfig):
     # # enbable this code in prodcution
     def ready(self):
         #run_once = os.environ.get('.\')
+        import geonode.geoviz.signals
+        
         run_once = os.environ.get('getGNayers_RUN_ONCE')
         if run_once is not None:
             return
