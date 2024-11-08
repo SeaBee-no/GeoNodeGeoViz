@@ -25,10 +25,12 @@ var updatePolarChart = null;
 var return_ml_classfication_label = null;
 var inputCalander_obj = null;
 var copyToClipboard = null;
+var update_graph_toc_on_drawCreated = null;
 // initilize the driverjs
 let driver = null;
 let driverObj = null;
 let get_ml_feature = null;
+
 
 let buldMlDownloadLink = null;
 let markerInMap = [];
@@ -314,18 +316,39 @@ $(document).ready(function () {
 
         //select the row
         dataTB.row(`:eq(${indexID})`).select();
+
+       
       }
     });
 
     // lock the table update
     dynamicTableUpdateFlag = false;
     $(btnRemoveEdit.button).addClass("bg-info text-white ");
+
+  
+ // update the graph toc
+ update_graph_toc_on_drawCreated(drawnFeature);
+
+
   });
 
   map.on("draw:drawstart", function (e) {
     // click on the btn using js to clear all skitches
     btnRemoveEdit.button.click();
   });
+
+
+update_graph_toc_on_drawCreated = (selectedBound) => {
+
+  dynamicTableUpdateFlag =true;
+  updateTableMap(selectedBound);
+
+ 
+
+}
+
+
+
 
   // clear the layer content of edit layer and selected icone on map
   btnRemoveEdit = L.easyButton(
@@ -920,9 +943,18 @@ $(document).ready(function () {
   });
 
   // update markets and dynamic update of table
-  updateTableMap = () => {
+  updateTableMap = (selectedBounded = null) => {
     // update the list basd on map extent
-    let visibleBounds = map.getBounds();
+    let visibleBounds = null
+
+   if(selectedBounded){
+    visibleBounds = selectedBounded.getBounds();
+   }
+   else{
+    visibleBounds = map.getBounds();
+   }
+
+   
     markerInMap = [];
     let droneDataTableUpdated = null;
 
@@ -944,6 +976,10 @@ $(document).ready(function () {
 
     // enable the dynamic update of table
     dynamicTableUpdateFlag = true;
+
+
+
+    
     $(btnRemoveEdit.button).removeClass("bg-info text-white ");
 
     // update table on move end
