@@ -537,6 +537,7 @@ $(document).ready(function () {
         el.theme,
         el.area_sqkm,
         el.ml_result,
+        el.spectrum,
       ]);
     });
 
@@ -614,7 +615,8 @@ $(document).ready(function () {
             )}</span></div>
                           <div class="p-2 fst-italic">Theme: ${themeColorbadges(
               row[11],
-              row[13]
+              row[13],
+              row[14],
             )}  </div>
                      
                         </div>
@@ -638,6 +640,13 @@ $(document).ready(function () {
       select: true,
       scrollY: "77vh",
       info: true, // Hide the information about entries
+      initComplete: function(settings, json) {
+        $(".tooltipClassPsudo").tooltip({
+          boundary: "body",
+          placement: "top",
+        });
+
+    },
       lengthMenu: [
         [18, 25, 50, -1],
         [18, 25, 50, "All"],
@@ -677,6 +686,17 @@ $(document).ready(function () {
       dynamicTableUpdateFlag = false;
       $(btnRemoveEdit.button).addClass("bg-info text-white ");
     });
+
+
+    dataTB.on('page',  function() {
+
+      sleep(1000).then(() => {
+      $(".tooltipClassPsudo").tooltip({
+        boundary: "body",
+        placement: "top",
+      });
+    });
+  });
 
     ///// to be start from here
 
@@ -1290,7 +1310,7 @@ $(document).ready(function () {
 
   //tool tip of the disable btn
   if (!isAuthenticated) {
-    $(".downloadDisable").tooltip({
+    $(".tooltipClassPsudo").tooltip({
       boundary: "body",
       placement: "top",
     });
@@ -1592,7 +1612,7 @@ const convertToDate_as_orginalData = (dateStr) => {
   return `${year}-${month}-${day}`;
 };
 
-const themeColorbadges = (themeVal, ml_yn) => {
+const themeColorbadges = (themeVal, ml_yn,spectral ) => {
   let theme = themeVal.toLowerCase();
   let badgeHTML;
 
@@ -1616,9 +1636,18 @@ const themeColorbadges = (themeVal, ml_yn) => {
   }
 
   if (ml_yn) {
-    badgeHTML += ` <span class="badge rounded-pill text-bg-warning text-primary-emphasis">ML</span>`;
+    badgeHTML += ` <span class="badge rounded-pill text-bg-warning text-primary-emphasis tooltipClassPsudo" data-bs-toggle="tooltip" data-bs-title="Machine learning outcomes" style="--bs-bg-opacity: .5;">ML</span>`;
   }
-
+  if (spectral == "RGB") {
+    badgeHTML += ` <span class="badge rounded-pill text-bg-info text-primary-emphasis tooltipClassPsudo" data-bs-toggle="tooltip" data-bs-title="Optical sensors from Red, Green, and Blue spectrum" style="--bs-bg-opacity: .5;">RGB</span>`;
+  }
+  if (spectral == "MSI") {
+    badgeHTML += ` <span class="badge rounded-pill text-bg-secondary text-dark tooltipClassPsudo" data-bs-toggle="tooltip" data-bs-title="Multi Spectral Instrument" style="--bs-bg-opacity: .5;">MSI</span>`;
+  }
+  if (spectral == "HSI") {
+    badgeHTML += ` <span class="badge rounded-pill text-bg-danger text-primary-emphasis tooltipClassPsudo" data-bs-toggle="tooltip" data-bs-title="Hyperspectral Imaging" style="--bs-bg-opacity: .5;">HSI</span>`;
+  }
+//console.log(spectral);
   return badgeHTML;
 };
 

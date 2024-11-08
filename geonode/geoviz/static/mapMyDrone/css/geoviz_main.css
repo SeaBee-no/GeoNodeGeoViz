@@ -281,3 +281,8 @@ div.dataTables_wrapper div.dataTables_info {
     display: none;
   }
 }
+
+
+.leaflet-marker-icon span {
+  color: #003d53 !important;
+}

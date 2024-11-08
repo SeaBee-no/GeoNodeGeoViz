@@ -104,6 +104,7 @@ class get_droneFlight_geonode_info (APIView):
                     "flight_date":record["flight_date"],
                     "area_sqkm":record["area_sqkm"],
                     "ml_result":record["ml_result"],
+                    "spectrum":record["Spectrum"],
                    
                 }
                 for record in obj

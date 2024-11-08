@@ -155,6 +155,19 @@ def schedule_geonodeLayers_api():
                              el["Theme"] = theme_value
                     else:
                         el["Theme"] = ''
+
+
+                    # capture the Spectrum from the abstract
+                    if len(el['abstract']) > 0 and (el['abstract']).count('Spectrum') > 0:
+                             soup = BeautifulSoup(el['abstract'], 'html.parser')
+                             spectrum_row = soup.find('th', string='Spectrum').find_next('td')
+                             spectrum_value = spectrum_row.text.strip()
+                             el["Spectrum"] = spectrum_value
+                    else:
+                        el["Spectrum"] = ''
+                    
+
+
                     
                     # capture the flight date from the abstract
                     matchDate = re.search(r'\d{4}-\d{2}-\d{2}', el['abstract'])
