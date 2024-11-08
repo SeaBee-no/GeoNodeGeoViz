@@ -26,7 +26,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@icon/icofont/icofont.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@1.0.1/dist/driver.css"/>
 
-<link href="{% static 'mapMyDrone/css/mapMyPlace.css' %}" rel="stylesheet" />
+<link href="{% static 'mapMyDrone/css/geoviz_main.css' %}" rel="stylesheet" />
 
 
 {% endblock page_css %}
@@ -126,13 +126,13 @@
             </div>
 
               {% else %}
-              <div class="d-grid col-12 d-inline-block downloadDisable" tabindex="0"
+              <div class="d-grid col-12 d-inline-block tooltipClassPsudo" tabindex="0"
                 data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading GeoTIFF.">
                 <button class="btn btn-secondary btn-sm disabled rounded" style="font-size: 13px;"><span
                     class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> Raster</button>
               </div>
 
-              <div class="d-grid col-12 d-inline-block downloadDisable " tabindex="0"
+              <div class="d-grid col-12 d-inline-block tooltipClassPsudo" tabindex="0"
               data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading ML results.">
               <button class="btn btn-secondary btn-sm disabled rounded" style="font-size: 13px;"><span
                   class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> ML Layer</button>
@@ -210,5 +210,5 @@
 
 
 <script src="{% static 'mapMyDrone/js/stepIntro.js' %}"></script>
-<script src="{% static 'mapMyDrone/js/mapMyPlace.js' %}"></script>
+<script src="{% static 'mapMyDrone/js/geoviz_main.js' %}"></script>
 {% endblock %}

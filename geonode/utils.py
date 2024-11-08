@@ -35,6 +35,7 @@ import requests
 import tempfile
 import traceback
 import subprocess
+import ipaddress
 
 from lxml import etree
 from osgeo import ogr
@@ -84,6 +85,7 @@ from urllib.parse import (
     urlparse,
     urlsplit,
     urlencode,
+    urlunparse,
     parse_qsl,
     ParseResult,
 )
@@ -1905,3 +1907,39 @@ def get_supported_datasets_file_types():
 
 def get_allowed_extensions():
     return list(itertools.chain.from_iterable([_type['ext'] for _type in get_supported_datasets_file_types()]))
+
+
+def remove_credentials_from_url(url):
+    # Parse the URL
+    parsed_url = urlparse(url)
+
+    # Remove the username and password from the parsed URL
+    parsed_url = parsed_url._replace(netloc=parsed_url.netloc.split("@")[-1])
+
+    # Reconstruct the URL without credentials
+    cleaned_url = urlunparse(parsed_url)
+
+    return cleaned_url
+
+
+def extract_ip_or_domain(url):
+
+    _url = remove_credentials_from_url(unquote(url))
+
+    ip_regex = re.compile("^(?:http\:\/\/|https\:\/\/)(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})")
+    domain_regex = re.compile("^(?:http\:\/\/|https\:\/\/)([a-zA-Z0-9.-]+)")
+
+    match = ip_regex.findall(_url)
+    if len(match):
+        ip_address = match[0]
+        try:
+            ipaddress.ip_address(ip_address)  # Validate the IP address
+            return ip_address
+        except ValueError:
+            pass
+
+    match = domain_regex.findall(_url)
+    if len(match):
+        return match[0]
+
+    return None
