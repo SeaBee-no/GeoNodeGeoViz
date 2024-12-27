@@ -620,34 +620,51 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
             return `
 
 
-        <div class="card-user-list">
-            <div class="row g-0">
-                <div class="col-2 text-center align-self-center">    
-                  <img loading="lazy" style="width: 75px; height:75px; object-fit:cover" 
-                  class="  rounded-circle ratio ratio-1x1 p-0 m-0" 
-                  src="${row[9]}" alt="seabee">
-                </div>
-                <div class="col-10">
-                    <div class="card-body">
-                        <h6 class="card-title m-0 text-info-emphasis">${toTitleCase(
-              data
-            ).toUpperCase()}</h6>
-                        <div class="hstack gap-2 ps-4 pt-2">
-                          <div class="p-2 text-dark fst-italic">Flight date: <span class="text-warning-emphasis" >${formatDate(
-              row[10]
-            )}</span></div>
-                          <div class="p-2 fst-italic">Theme: ${themeColorbadges(
-              row[11],
-              row[13],
-              row[14],
-            )}  </div>
-                     
-                        </div>
+<div class="card-user-list">
 
-                    </div>
-                </div>
-            </div>
+  <div class="row g-0">
+
+    <div class="col-12  align-self-center">
+       <div class="hstack gap-1">
+    
+    <img loading="lazy" style="width: 75px; height:75px; object-fit:cover"
+        class="  rounded-circle ratio ratio-1x1 p-0 m-0" src="${row[9]}" alt="seabee">
+    
+        <h6 class="card-title m-0 text-info-emphasis">${toTitleCase(
+          data
+          ).toUpperCase()}</h6>
+
+
+
+   </div>
+
+    
         </div>
+
+    <div class="col-12 ">
+      <div class="card-body">
+        <div class="hstack gap-2">
+          <div class="p-2 text-dark fst-italic">Flight date: <span class="text-warning-emphasis">${formatDate(
+              row[10]
+              )}</span>
+              </div>
+          <div class="p-2 fst-italic ms-auto">${themeColorbadges(
+            row[11],
+            row[13],
+            row[14],
+            )} 
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  
+  
+  </div>
+
+
+</div>
 
 
             `; //
@@ -708,6 +725,19 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
       // disable the dynamic update of table
       dynamicTableUpdateFlag = false;
       $(btnRemoveEdit.button).addClass("bg-info text-white ");
+    });
+
+
+
+      // Attach event listener for search end
+      dataTB.on('search.dt', function() {
+        sleep(100).then(() => {
+        $(".tooltipClassPsudo").tooltip({
+          boundary: "body",
+          placement: "top",
+        });
+      });
+       
     });
 
 
@@ -1664,11 +1694,17 @@ const themeColorbadges = (themeVal, ml_yn,spectral ) => {
       )}</span>`;
       break;
     case "mammals":
-    default:
       badgeHTML = `<span class="badge rounded-pill text-bg-dark" style="--bs-bg-opacity: .5;">${toTitleCase(
         theme
       )}</span>`;
       break;
+      
+    default:
+      badgeHTML = `<span class="badge rounded-pill bg-info-subtle text-success-emphasis">${toTitleCase(
+        theme
+      )}</span>`;
+      break;
+
   }
 
   if (ml_yn) {
@@ -1683,7 +1719,13 @@ const themeColorbadges = (themeVal, ml_yn,spectral ) => {
   if (spectral == "HSI") {
     badgeHTML += ` <span class="badge rounded-pill text-bg-danger text-primary-emphasis tooltipClassPsudo" data-bs-toggle="tooltip" data-bs-title="Hyperspectral Imaging" style="--bs-bg-opacity: .5;">HSI</span>`;
   }
-//console.log(spectral);
+
+
+  if (ml_yn  && theme == "habitat") {
+    badgeHTML += ` <span class="badge rounded-pill text-bg-danger text-primary-emphasis tooltipClassPsudo" data-bs-toggle="tooltip" data-bs-title="Image classification using AI" style="--bs-bg-opacity: .5;">IC</span>`;
+  }
+
+  //console.log(spectral);
   return badgeHTML;
 };
 
