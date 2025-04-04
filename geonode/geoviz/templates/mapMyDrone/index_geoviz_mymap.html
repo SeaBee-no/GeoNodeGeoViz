@@ -115,24 +115,37 @@
 
 
               {% if user.is_authenticated %}
-              <div class="d-grid col-12"> <button id="btn_download" value="" class="btn btn-secondary btn-sm rounded"
+              <div class="d-grid col-12" id="div_download"> <button id="btn_download" value="" class="btn btn-secondary btn-sm rounded"
                   style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info float-start ps-2"></span>
                   Raster</button>
               </div>
 
-              <div class="d-grid col-12"> <button id="btn_ml_download" value="" class="btn btn-secondary btn-sm rounded d-none"
+              <div class="d-grid col-12" id="div_hsi_download"> <button id="btn_hsi_download" value="" class="btn btn-secondary btn-sm rounded"
+                style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info float-start ps-2"></span>
+                HSI</button>
+            </div>
+
+              <div class="d-grid col-12" id="div_ml_download"> <button id="btn_ml_download" value="" class="btn btn-secondary btn-sm rounded d-none"
                 style="font-size: 13px;"><span class="bi bi-cloud-arrow-down text-info float-start ps-2"></span>
                 ML Layer</button>
             </div>
 
+
+
               {% else %}
-              <div class="d-grid col-12 d-inline-block tooltipClassPsudo" tabindex="0"
+              <div class="d-grid col-12 d-inline-block tooltipClassPsudo" 
                 data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading GeoTIFF.">
                 <button class="btn btn-secondary btn-sm disabled rounded" style="font-size: 13px;"><span
                     class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> Raster</button>
               </div>
 
-              <div class="d-grid col-12 d-inline-block tooltipClassPsudo" tabindex="0"
+              <div class="d-grid col-12 d-inline-block tooltipClassPsudo" 
+              data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading HSI data.">
+              <button class="btn btn-secondary btn-sm disabled rounded" style="font-size: 13px;"><span
+                  class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> HSI</button>
+            </div>
+
+              <div class="d-grid col-12 d-inline-block tooltipClassPsudo" 
               data-bs-toggle="tooltip" data-bs-title="Authentication/login is required for downloading ML results.">
               <button class="btn btn-secondary btn-sm disabled rounded" style="font-size: 13px;"><span
                   class="bi bi-cloud-arrow-down text-info float-start ps-2"></span> ML Layer</button>

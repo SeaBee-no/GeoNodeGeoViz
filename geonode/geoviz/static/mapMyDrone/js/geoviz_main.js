@@ -794,6 +794,16 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
       $("#btn_ml_download").removeClass("d-none");
     }
 
+    // hide the hsi btn if no hsi result
+    if (!data[14].includes("HSI")) {
+  
+      $("#div_hsi_download").addClass("d-none");
+    } else {
+
+      $("#div_hsi_download").removeClass("d-none");
+    }
+
+
     // overlap image name
     $("#btn_overlay").val(data[0]);
 
@@ -1311,6 +1321,8 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
       });
   };
 
+
+  //Download raster
   $("#btn_download").on("click", function () {
     let fileNames = $("#mapModelopt .modal-title").attr("value") + ".tif";
     let container = document.createElement("div");
@@ -1348,7 +1360,30 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
           document.body.appendChild(link);
 
           // Trigger a click on the link to start the download
-          link.click();
+          $.confirm({
+            title: '<i class="bi bi-exclamation-triangle"></i> Large File Size!',
+            content: "The file you are about to download is quite large and may take some time depending on your internet connection.",
+            type: "orange",
+            typeAnimated: true,
+            buttons: {
+              confirm: {
+                text: "OK",
+                btnClass: "btn-warning",
+                action: function () { 
+
+                  link.click();
+                },
+              },
+              cancel: {
+                text: "Cancel",
+                btnClass: "btn-primary",
+                action: function () { 
+                // no action..
+                 
+                },
+            },
+            },
+          });
 
           // Remove the link from the DOM
           document.body.removeChild(link);
@@ -1373,6 +1408,102 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
       });
     }
   });
+
+
+  //Download HSI zip data
+  $("#btn_hsi_download").on("click", function () {
+ 
+    let container = document.createElement("div");
+    container.innerHTML = $("#btn_download").attr('value');
+    container = container.querySelectorAll("td");
+
+    // check if the data is available only for massimal
+    if ((container.length > 0)  &&  ["massimal"].includes(container[0].innerText.split("/")[0])) {
+      container = container[0].innerText;
+      let bucket = container.split("/")[0];
+      
+
+      let flipath = container.split("/").slice(1).join("/");
+      let fileNames = flipath.split("/").pop()+".zip";
+      flipath = flipath + "/processed/" + fileNames;
+
+      console.log(flipath);
+
+      let url = `/api/droneViz/minio/${bucket}/${flipath}`;
+
+      // Make a GET request using the fetch API
+      fetch(url)
+        .then((response) => {
+          // Check if the response status is OK (200)
+          if (!response.ok) {
+            throw new Error("Network response was not ok");
+          }
+          // Parse the response as JSON
+          return response.json();
+        })
+        .then((data) => {
+          // Process the fetched data
+
+          // Create a download link
+          let link = document.createElement("a");
+          link.href = data; // Create a temporary URL for the Blob
+          link.download = container.split("/").pop() + ".zip";
+          document.body.appendChild(link);
+
+          // Trigger a click on the link to start the download
+      
+          $.confirm({
+            title: '<i class="bi bi-exclamation-triangle"></i> Large File Size!',
+            content: "The file you are about to download is quite large and may take some time depending on your internet connection.",
+            type: "orange",
+            typeAnimated: true,
+            buttons: {
+              confirm: {
+                text: "OK",
+                btnClass: "btn-warning",
+                action: function () { 
+
+                  link.click();
+                },
+              },
+              cancel: {
+                text: "Cancel",
+                btnClass: "btn-primary",
+                action: function () { 
+                // no action..
+                 
+                },
+            },
+            },
+          });
+
+
+
+          // Remove the link from the DOM
+          document.body.removeChild(link);
+        })
+        .catch((error) => {
+          // Handle errors
+          console.error("Fetch error:", error);
+        });
+    } else {
+      $.confirm({
+        title: '<i class="bi bi-exclamation-triangle"></i> Not Available!',
+        content: "The data you're searching for is currently unavailable.",
+        type: "orange",
+        typeAnimated: true,
+        buttons: {
+          tryAgain: {
+            text: "Close",
+            btnClass: "btn-info",
+            action: function () { },
+          },
+        },
+      });
+    }
+  });
+
+
 
   //tool tip of the disable btn
   if (!isAuthenticated) {
