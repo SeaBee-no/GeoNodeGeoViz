@@ -108,7 +108,7 @@ class get_droneFlight_geonode_info (APIView):
                    
                 }
                 for record in obj
-                if record["subtype"] == "raster"
+                if record["subtype"] == "raster" and record.get("bbx_xy")
           
             ]
 

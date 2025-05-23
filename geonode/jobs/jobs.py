@@ -138,8 +138,10 @@ def schedule_geonodeLayers_api():
                 json_obj = response.json()
                 total_entries = json_obj['total']
                 itemcount += len(json_obj['resources'])
+                # Filter resources with abstract length >= 30
+                filtered_resources = [el for el in json_obj['resources'] if len(el['abstract']) >= 30]
                 # loop through the bbx of a mission and add a centroid
-                for el in  json_obj['resources']:
+                for el in  filtered_resources:
                     
                     bbxy_arae = bounding_box_to_centroid(el['ll_bbox_polygon']['coordinates'][0])
                     el["bbx_xy"] =  bbxy_arae[0]   # centroid in 4623 epgs
