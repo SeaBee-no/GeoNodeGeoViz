@@ -80,9 +80,10 @@ $(document).ready(function () {
   otterLayer = L.layerGroup();
 
   let baseMaps = {
-    OSM: L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-      maxZoom: 22,
-      attribution: "&copy;OSM",
+    "ESRI WSM": L.tileLayer("https://server.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.jpg", {
+      maxZoom: 19,
+       attribution: '&copy;ESRI',
+      
     }),
     Norgeskart: L.tileLayer(
       "https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&zoom={z}&x={x}&y={y}",
@@ -195,7 +196,7 @@ $(document).ready(function () {
   map = L.map("mapD", {
     center: [63.19, 11.62],
     zoom: 6,
-    layers: [baseMaps["OSM"]],
+    layers: [baseMaps["ESRI WSM"]],
   }); // center position + zoom
 
   // chnage the attibution
@@ -214,7 +215,7 @@ $(document).ready(function () {
   layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
 
   let miniMapLayer = L.tileLayer(
-    "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    "https://server.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.jpg"
   );
   let miniMap = new L.Control.MiniMap(miniMapLayer, {
     toggleDisplay: true,
