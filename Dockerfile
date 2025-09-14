@@ -1,17 +1,15 @@
-FROM python:3.10.2-buster
+FROM python:3.10-slim-bullseye
 LABEL GeoNode development team
 
 RUN mkdir -p /usr/src/geonode
 
 # Enable postgresql-client-13
 RUN apt-get update -y && apt-get install curl wget unzip -y
-# RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
-# RUN echo "deb http://deb.debian.org/debian/ stable main contrib non-free" | tee /etc/apt/sources.list.d/debian.list
-# RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
-
-RUN echo "deb http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main" | tee /etc/apt/sources.list.d/pgdg.list
+RUN apt-get update -y && apt-get install -y gnupg wget
+RUN wget -qO- https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor > /usr/share/keyrings/pgdg.gpg
+RUN echo "deb [signed-by=/usr/share/keyrings/pgdg.gpg] http://apt.postgresql.org/pub/repos/apt bullseye-pgdg main" \
+    | tee /etc/apt/sources.list.d/pgdg.list
 RUN echo "deb http://deb.debian.org/debian stable main contrib non-free" | tee /etc/apt/sources.list.d/debian.list
-RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
     
 # To get GDAL 3.2.1 to fix this issue https://github.com/OSGeo/gdal/issues/1692
 # TODO: The following line should be removed if base image upgraded to Bullseye
