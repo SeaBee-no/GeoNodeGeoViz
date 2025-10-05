@@ -5,7 +5,7 @@ const sleep = (ms) => {
 // global variable
 var layerControl = null;
 var map = null;
-var markersAll = null;
+
 var circleMarker = null;
 var GN_Overlay_layer = null;
 var GN_Overlay_ml_layer = null;
@@ -16,7 +16,7 @@ var editableLayers = null;
 var selectedItemgrouoLayer = null;
 var btnRemoveEdit = null;
 var dynamicTableUpdateFlag = true;
-var otterLayer = null;
+
 var updateDataTable = null;
 var markerFunctionForGN = null;
 var dataGNmain = null;
@@ -79,6 +79,7 @@ $(document).ready(function () {
   // otter layer
   otterLayer = L.layerGroup();
 
+<<<<<<< HEAD
   let baseMaps = {
     "ESRI WSM": L.tileLayer("https://server.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.jpg", {
       maxZoom: 19,
@@ -134,6 +135,9 @@ $(document).ready(function () {
     "<img class='pb-2' width='40px' src='../static/mapMyDrone/img/otter_drone.png' alt='...'>Otter mission":
       otterLayer,
   };
+=======
+  
+>>>>>>> origin/dev
 
   GN_Overlay_layer = L.tileLayer.wms(
     "https://geonode.seabee.sigma2.no/geoserver/ows?service=WMS",
@@ -193,11 +197,86 @@ $(document).ready(function () {
   //drone data table array
   droneDataTable = [];
 
+
+const baseLayerObj = {
+  "ESRI WSM": baseMaps["ESRI WSM"],
+  "ArcGIS Grayscale": baseMaps["ArcGIS Grayscale"],
+  "ESRI Imagery": baseMaps["ESRI Imagery"],
+  "Google Satellite": baseMaps["Google Satellite"],
+};
+
+const overlayLayerObj = 
+{
+  "Seabee Missions": {
+    "Drone flight": markersAll,
+    "Otter mission": otterLayer
+  },
+
+  "Marine Basemap" : {
+    "NHM DTM TOPOBATHY": baseMaps["NHM_DTM_TOPOBATHY"],
+    "Marine bunnsedimenter<span class='marine-bunns' style='display:none'><br/><img class='ps-3' src='https://geo.ngu.no/gd_images/wms/marin/MarinBunnsedimenterWMS/bunnsedimenter_kornstoerrelse_w200px.png' loading='lazy'></span>": baseMaps["Marine bunnsedimenter"],
+    "Korall områder": baseMaps["korall_områder"],
+    "Naturtyper og biotoper<span class='naturtyper-bio' style='display:none'><br/><img class='ps-3' src='https://geo.ngu.no/mapserver/MarineGrunnkartWMS?language=nor&version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=Naturtyper&format=image/png&STYLE=default' loading='lazy'></span>": baseMaps["Naturtyper"],
+    "DEM25Norge<span class='dem25-legend' style='display:none'><br/><img class='ps-3' src='https://kart.niva.no/geoserver/no.niva.public/wms?service=WMS&request=GetLegendGraphic&version=1.3.0&layer=no.niva.public:DEM25Norge_marint_naturkart_uint16&format=image/png&transparent=true' loading='lazy'></span>": baseMaps["DEM25Norge_marint_naturkart_uint16"],
+    "Tempmean<span class='tempmean-legend' style='display:none'><br/><img class='ps-3' src='https://kart.niva.no/geoserver/no.niva.public/wms?service=WMS&request=GetLegendGraphic&version=1.3.0&layer=no.niva.public:tempmean_marint_naturkart_uint16&format=image/png&transparent=true' loading='lazy'></span>": baseMaps["tempmean_marint_naturkart_uint16"]
+
+
+  },
+  //  ########## marine base map Data vecter ############
+  "Coastal Habitat Layers": {
+    "BeachHelophyteVegetation": baseMaps["BeachHelophyteVegetation"],
+    "Saltmarsh": baseMaps["Saltmarsh_Marint_naturkart"],
+    "ShallowSoftSed": baseMaps["ShallowSoftSed_Marine_naturkart"]
+      },
+
+
+
+};
+
+const groupLayerOptions = {
+  collapsed: true,
+  exclusiveGroups: ["Base Maps"],   // only one base map at a time
+  groupCheckboxes: false
+};
+
+
+
   map = L.map("mapD", {
     center: [63.19, 11.62],
     zoom: 6,
     layers: [baseMaps["ESRI WSM"]],
   }); // center position + zoom
+
+
+  layerControl = L.control.groupedLayers(baseLayerObj, overlayLayerObj, groupLayerOptions).addTo(map);
+
+
+// legebd dispaly
+// Toggle legend span visibility based on layer state (no extra functions)
+const legendLookup = new Map([
+  [baseMaps["DEM25Norge_marint_naturkart_uint16"], ".dem25-legend"],
+  [baseMaps["tempmean_marint_naturkart_uint16"], ".tempmean-legend"],
+  [baseMaps["Marine bunnsedimenter"], ".marine-bunns"],
+  [baseMaps["Naturtyper"], ".naturtyper-bio"]
+]);
+
+// Ensure all hidden initially
+$(".dem25-legend, .tempmean-legend, .marine-bunns, .naturtyper-bio").hide();
+
+map.on("overlayadd", e => {
+  const sel = legendLookup.get(e.layer);
+  if (sel) $(sel).show();
+});
+
+map.on("overlayremove", e => {
+  const sel = legendLookup.get(e.layer);
+  if (sel) $(sel).hide();
+});
+
+
+
+
+
 
   // chnage the attibution
   map.attributionControl.setPrefix(
@@ -212,7 +291,8 @@ $(document).ready(function () {
   selectedItemgrouoLayer = L.layerGroup().addTo(map);
 
   // add the layer contro
-  layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+  //layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
 
   let miniMapLayer = L.tileLayer(
     "https://server.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.jpg"
