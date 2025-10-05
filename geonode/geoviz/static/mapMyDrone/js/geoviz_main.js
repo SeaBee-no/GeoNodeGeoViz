@@ -79,65 +79,7 @@ $(document).ready(function () {
   // otter layer
   otterLayer = L.layerGroup();
 
-<<<<<<< HEAD
-  let baseMaps = {
-    "ESRI WSM": L.tileLayer("https://server.arcgisonline.com/arcgis/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}.jpg", {
-      maxZoom: 19,
-       attribution: '&copy;ESRI',
-      
-    }),
-    Norgeskart: L.tileLayer(
-      "https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=topo4&zoom={z}&x={x}&y={y}",
-      {
-        attribution:
-          '&copy;<a href="https://www.kartverket.no/">Kartverket</a>',
-        maxZoom: 30,
-        layers: "",
-      }
-    ),
-    "Norgeskart Gray": L.tileLayer(
-      "https://opencache.statkart.no/gatekeeper/gk/gk.open_gmaps?layers=norges_grunnkart_graatone&zoom={z}&x={x}&y={y}",
-      {
-        attribution:
-          '&copy;<a href="https://www.kartverket.no/">Kartverket</a>',
-        maxZoom: 30,
-        layers: "",
-      }
-    ),
-    "ArcGIS Grayscale": L.tileLayer(
-      "https://cartodb-basemaps-{s}.global.ssl.fastly.net/dark_all/{z}/{x}/{y}.png",
-      {
-        maxZoom: 22,
-        attribution: "&copy;ESRI",
-      }
-    ),
-    "ESRI Imagery": L.tileLayer(
-      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-      {
-        maxZoom: 22,
-        attribution: "&copy;ESRI",
-      }
-    ),
-    "Google Satellite": L.tileLayer(
-      "https://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}",
-      {
-        maxZoom: 21,
-        layers: "NA",
-        subdomains: ["mt0", "mt1", "mt2", "mt3"],
-        attribution: "&copy;Google",
-      }
-    ),
-  };
-
-  overlayMaps = {
-    "<img class='pb-2' width='30px' src='../static/mapMyDrone/img/seabeeLogo.png' alt='...'>  Drone flight":
-      markersAll,
-    "<img class='pb-2' width='40px' src='../static/mapMyDrone/img/otter_drone.png' alt='...'>Otter mission":
-      otterLayer,
-  };
-=======
   
->>>>>>> origin/dev
 
   GN_Overlay_layer = L.tileLayer.wms(
     "https://geonode.seabee.sigma2.no/geoserver/ows?service=WMS",
