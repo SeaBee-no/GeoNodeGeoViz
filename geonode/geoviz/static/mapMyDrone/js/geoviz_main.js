@@ -193,8 +193,7 @@ const groupLayerOptions = {
   layerControl = L.control.groupedLayers(baseLayerObj, overlayLayerObj, groupLayerOptions).addTo(map);
 
 
-// legebd dispaly
-// Toggle legend span visibility based on layer state (no extra functions)
+// legebd dispaly Toggle legend span visibility based on layer state (no extra functions)
 const legendLookup = new Map([
   [baseMaps["DEM25Norge_marint_naturkart_uint16"], ".dem25-legend"],
   [baseMaps["tempmean_marint_naturkart_uint16"], ".tempmean-legend"],
