@@ -102,13 +102,13 @@ var baseMaps = {
   version: "1.3.0",
   attribution: "&copy; NIVA"
 }),
-"DEM25Norge_marint_naturkart_uint16": L.tileLayer.wms("https://kart.niva.no/geoserver/no.niva.public/wms?", {
-  layers: "no.niva.public:DEM25Norge_marint_naturkart_uint16",
-  format: "image/png",
-  transparent: true,
-  version: "1.3.0",
-  attribution: "&copy; NIVA"
-}),
+// "DEM25Norge_marint_naturkart_uint16": L.tileLayer.wms("https://kart.niva.no/geoserver/no.niva.public/wms?", {
+//   layers: "no.niva.public:DEM25Norge_marint_naturkart_uint16",
+//   format: "image/png",
+//   transparent: true,
+//   version: "1.3.0",
+//   attribution: "&copy; NIVA"
+// }),
 "tempmean_marint_naturkart_uint16": L.tileLayer.wms("https://kart.niva.no/geoserver/no.niva.public/wms?", {
   layers: "no.niva.public:tempmean_marint_naturkart_uint16",
   format: "image/png",

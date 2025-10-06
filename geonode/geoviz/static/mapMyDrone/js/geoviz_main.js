@@ -160,7 +160,7 @@ const overlayLayerObj =
     "Korall områder": baseMaps["korall_områder"],
     "Naturtyper og biotoper<span class='naturtyper-bio' style='display:none'><br/><img class='ps-3' src='https://geo.ngu.no/mapserver/MarineGrunnkartWMS?language=nor&version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=Naturtyper&format=image/png&STYLE=default' loading='lazy'></span>": baseMaps["Naturtyper"],
     "NIN grunntyper polygon<span class='nin-naturtyper-bio' style='display:none'><br/><img class='ps-3' src='https://kart.hi.no/mareano/magik/nin_grunntyper_polygon/wms?service=WMS&request=GetLegendGraphic&version=1.3.0&layer=nin_grunntyper_polygon&format=image/png&transparent=true' loading='lazy'></span>": baseMaps["nin_grunntyper_polygon"],
-    "DEM25Norge<span class='dem25-legend' style='display:none'><br/><img class='ps-3' src='https://kart.niva.no/geoserver/no.niva.public/wms?service=WMS&request=GetLegendGraphic&version=1.3.0&layer=no.niva.public:DEM25Norge_marint_naturkart_uint16&format=image/png&transparent=true' loading='lazy'></span>": baseMaps["DEM25Norge_marint_naturkart_uint16"],
+   // "DEM25Norge<span class='dem25-legend' style='display:none'><br/><img class='ps-3' src='https://kart.niva.no/geoserver/no.niva.public/wms?service=WMS&request=GetLegendGraphic&version=1.3.0&layer=no.niva.public:DEM25Norge_marint_naturkart_uint16&format=image/png&transparent=true' loading='lazy'></span>": baseMaps["DEM25Norge_marint_naturkart_uint16"],
     "Tempmean<span class='tempmean-legend' style='display:none'><br/><img class='ps-3' src='https://kart.niva.no/geoserver/no.niva.public/wms?service=WMS&request=GetLegendGraphic&version=1.3.0&layer=no.niva.public:tempmean_marint_naturkart_uint16&format=image/png&transparent=true' loading='lazy'></span>": baseMaps["tempmean_marint_naturkart_uint16"]
 
 
@@ -196,7 +196,7 @@ const groupLayerOptions = {
 
 // legebd dispaly Toggle legend span visibility based on layer state (no extra functions)
 const legendLookup = new Map([
-  [baseMaps["DEM25Norge_marint_naturkart_uint16"], ".dem25-legend"],
+ // [baseMaps["DEM25Norge_marint_naturkart_uint16"], ".dem25-legend"],
   [baseMaps["tempmean_marint_naturkart_uint16"], ".tempmean-legend"],
   [baseMaps["Marine bunnsedimenter"], ".marine-bunns"],
   [baseMaps["Naturtyper"], ".naturtyper-bio"],
