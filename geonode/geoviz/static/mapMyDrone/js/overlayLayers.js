@@ -116,6 +116,13 @@ var baseMaps = {
   version: "1.3.0",
   attribution: "&copy; NIVA"
 }),
+"nin_grunntyper_polygon": L.tileLayer.wms("https://kart.hi.no/mareano/magik/nin_grunntyper_polygon/wms", {
+  layers: "nin_grunntyper_polygon",
+  format: "image/png",
+  transparent: true,
+  version: "1.3.0",
+  attribution: "&copy; HI"
+}),
 
 
 
