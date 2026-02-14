@@ -38,9 +38,12 @@ from minio import Minio
 from datetime import  timedelta
 import urllib
 from requests.auth import HTTPBasicAuth
+import threading
 
 from django.conf import settings
 from minio.commonconfig import CopySource
+
+from geonode.jobs.jobs import schedule_geonodeLayers_api, get_job_status
 
 geonode_url = settings.GEONODE_DJANGO_URL
 
@@ -501,4 +504,52 @@ class add_data_to_OdmTask(generics.GenericAPIView):
 #             except Exception as e:
 #                 print(e, flush=True)
 #                 return Response('something went wrong')
+
+
+class TriggerGeonodeLayersSync(APIView):
+    """API view to trigger GeoNode layers sync manually."""
+    permission_classes = [IsAuthenticated]
+    
+    def post(self, request):
+        try:
+            # Run in background thread to avoid blocking
+            thread = threading.Thread(target=schedule_geonodeLayers_api)
+            thread.daemon = True
+            thread.start()
+            
+            return Response({
+                'status': 'started',
+                'message': 'GeoNode layers sync job started in background. Check server logs for progress.'
+            }, status=status.HTTP_202_ACCEPTED)
+            
+        except Exception as e:
+            print(f"Error starting GeoNode sync: {e}", flush=True)
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+    
+    def get(self, request):
+        """Info endpoint about the sync job."""
+        return Response({
+            'endpoint': 'GeoViz Layer Sync',
+            'method': 'POST to trigger sync',
+            'description': 'Fetches all raster layers from GeoNode API and saves to geonodeLayers.json'
+        })
+
+
+class GeonodeSyncStatus(APIView):
+    """API view to get the current sync job status."""
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        """Return current job status for polling."""
+        try:
+            job_status = get_job_status()
+            return Response(job_status)
+        except Exception as e:
+            return Response({
+                'status': 'error',
+                'message': str(e)
+            }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
             

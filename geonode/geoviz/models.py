@@ -28,3 +28,12 @@ class seabee_otter_mission(models.Model):
 
     class Meta:
         verbose_name_plural = "Seabee Otter mission"
+
+
+class GeoVizLayerSync(models.Model):
+    """Proxy model to show the GeoViz Layer Sync link in Geoviz admin section."""
+    class Meta:
+        managed = False  # No database table
+        verbose_name = "GeoViz Layer Sync"
+        verbose_name_plural = "GeoViz Layer Sync"
+        app_label = "geonode_geoviz"

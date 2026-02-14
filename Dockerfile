@@ -42,8 +42,10 @@ RUN apt-get install -y devscripts build-essential debhelper pkg-kde-tools sharut
 
 # Install pip packages
 RUN pip3 install uwsgi \
-    && pip install pip --upgrade \
-    && pip install pygdal==$(gdal-config --version).* flower==0.9.4
+    && pip install "numpy<1.24" wheel "setuptools<58" \
+    && pip install pygdal==$(gdal-config --version).* \
+    && pip install flower==0.9.4 \
+    && pip install -U setuptools
 
 # Activate "memcached"
 RUN apt-get install -y memcached

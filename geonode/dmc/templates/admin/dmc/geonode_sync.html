@@ -1,0 +1,245 @@
+{% extends "admin/base_site.html" %}
+{% load i18n %}
+
+{% block title %}GeoViz Layer Sync{% endblock %}
+
+{% block breadcrumbs %}
+<div class="breadcrumbs">
+    <a href="{% url 'admin:index' %}">{% trans 'Home' %}</a>
+    &rsaquo; GeoViz Layer Sync
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Update History -->
+<div style="margin: 20px 0; padding: 15px 20px; background: #f5f5f5; border-radius: 8px; border: 1px solid #ddd;">
+    <h3 style="margin-top: 0;">Update History</h3>
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+            <td style="padding: 6px 12px; font-weight: bold; width: 200px;">Last Auto Update:</td>
+            <td style="padding: 6px 12px;" id="last-scheduled">-</td>
+            <td style="padding: 6px 12px; color: #666; font-size: 12px;">APScheduler (every 6 hours)</td>
+        </tr>
+        <tr>
+            <td style="padding: 6px 12px; font-weight: bold;">Last Manual Update:</td>
+            <td style="padding: 6px 12px;" id="last-manual">-</td>
+            <td style="padding: 6px 12px; color: #666; font-size: 12px;">Triggered from admin</td>
+        </tr>
+        <tr style="border-top: 2px solid #ccc;">
+            <td style="padding: 8px 12px; font-weight: bold;">Last Updated:</td>
+            <td style="padding: 8px 12px;" id="last-updated-summary" colspan="2">-</td>
+        </tr>
+    </table>
+</div>
+
+<!-- Live Progress -->
+<div id="progress-section" style="margin: 20px 0; padding: 15px 20px; background: #e8f4fd; border-radius: 8px; border: 1px solid #b8daff; display: none;">
+    <h3 style="margin-top: 0;">Live Progress</h3>
+    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 10px;">
+        <div style="flex-grow: 1; background: #ddd; border-radius: 10px; height: 24px; overflow: hidden;">
+            <div id="progress-bar" style="height: 100%; background: linear-gradient(90deg, #417690, #5ba3c9); border-radius: 10px; transition: width 0.5s ease; width: 0%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px; font-weight: bold;">
+                0%
+            </div>
+        </div>
+    </div>
+    <div style="display: flex; gap: 20px; font-size: 14px;">
+        <span><strong>Step:</strong> <span id="progress-step">-</span></span>
+        <span><strong>Fetched:</strong> <span id="progress-fetched">0</span></span>
+        <span><strong>Processed:</strong> <span id="progress-processed">0</span></span>
+        <span><strong>ML Checked:</strong> <span id="progress-ml">0</span></span>
+    </div>
+    <p id="progress-message" style="margin-top: 8px; color: #555; font-size: 13px;">Waiting...</p>
+</div>
+
+<!-- Action -->
+<div style="margin: 20px 0; padding: 20px; background: #f8f9fa; border-radius: 8px; border: 1px solid #dee2e6;">
+    <h3 style="margin-top: 0;">Sync GeoViz Raster Layers</h3>
+    <p>
+        Fetches all raster layers from GeoNode API, processes metadata, checks ML layers,
+        and saves to <code>geonodeLayers.json</code>.
+    </p>
+    
+    <form method="post" id="sync-form" style="margin-top: 15px;">
+        {% csrf_token %}
+        <button type="submit" id="sync-btn" style="
+            padding: 12px 30px !important;
+            font-size: 15px !important;
+            background-color: #417690 !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 4px !important;
+            cursor: pointer;
+            display: inline-block;
+            min-width: 260px;
+            text-align: center;
+            line-height: 1.4 !important;
+            height: auto !important;
+            overflow: visible !important;
+            box-sizing: content-box !important;
+        ">
+            Run GeoViz Layer Sync Now
+        </button>
+    </form>
+</div>
+
+{% if messages %}
+<ul class="messagelist">
+    {% for message in messages %}
+    <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<p>
+    <a href="{% url 'admin:index' %}">&larr; Back to Admin</a>
+</p>
+
+<script>
+(function() {
+    const STATUS_URL = '{% url "admin:geonode_sync_status" %}';
+    let polling = false;
+    let pollInterval = null;
+    let lastKnownGoodData = null;  // Cache to prevent regression to NEVER RUN
+
+    function formatDateTime(isoStr) {
+        if (!isoStr) return '-';
+        const d = new Date(isoStr);
+        return d.toLocaleString('en-GB', {
+            year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit', second: '2-digit'
+        });
+    }
+
+    function statusBadge(status) {
+        const colors = {
+            'success': '#28a745',
+            'failed': '#dc3545',
+            'running': '#ffc107',
+            'never_run': '#6c757d'
+        };
+        const labels = {
+            'success': 'SUCCESS',
+            'failed': 'FAILED',
+            'running': 'RUNNING',
+            'never_run': 'NEVER RUN'
+        };
+        const color = colors[status] || '#6c757d';
+        const label = labels[status] || status.toUpperCase();
+        return '<span style="background:' + color + '; color:white; padding:3px 10px; border-radius:4px; font-size:12px; font-weight:bold;">' + label + '</span>';
+    }
+
+    function updateUI(data) {
+        // Prevent regression: if we had a real status before, don't go back to never_run
+        if (data.status === 'never_run' && lastKnownGoodData && lastKnownGoodData.status !== 'never_run') {
+            // Transient read error on server side, keep showing last known good data
+            data = lastKnownGoodData;
+        } else if (data.status !== 'never_run') {
+            lastKnownGoodData = data;
+        }
+
+        // Update History - derive from trigger+finished_at if dedicated fields are missing
+        var lastScheduled = data.last_scheduled_at;
+        var lastManual = data.last_manual_at;
+        if (!lastScheduled && data.trigger === 'scheduled' && data.finished_at) {
+            lastScheduled = data.finished_at;
+        }
+        if (!lastManual && data.trigger !== 'scheduled' && data.finished_at) {
+            lastManual = data.finished_at;
+        }
+        document.getElementById('last-scheduled').textContent = formatDateTime(lastScheduled);
+        document.getElementById('last-manual').textContent = formatDateTime(lastManual);
+
+        // Summary label: last updated by whom
+        if (data.status !== 'never_run' && data.finished_at) {
+            var updatedBy = data.trigger === 'scheduled' ? 'Auto (APScheduler)' : 'Manual (Admin)';
+            var statusIcon = data.status === 'success' ? '✅' : (data.status === 'failed' ? '❌' : '⏳');
+            document.getElementById('last-updated-summary').innerHTML = 
+                statusIcon + ' <strong>' + formatDateTime(data.finished_at) + '</strong> — by ' + updatedBy;
+        } else {
+            document.getElementById('last-updated-summary').textContent = '-';
+        }
+
+        // Live progress
+        const progressSection = document.getElementById('progress-section');
+        const syncBtn = document.getElementById('sync-btn');
+
+        if (data.status === 'running') {
+            progressSection.style.display = 'block';
+            syncBtn.disabled = true;
+            syncBtn.style.opacity = '0.5';
+            syncBtn.textContent = 'Sync In Progress...';
+
+            const pct = data.progress || 0;
+            const bar = document.getElementById('progress-bar');
+            bar.style.width = pct + '%';
+            bar.textContent = pct + '%';
+
+            document.getElementById('progress-step').textContent = data.step || '-';
+            document.getElementById('progress-fetched').textContent = data.fetched || 0;
+            document.getElementById('progress-processed').textContent = data.processed || 0;
+            document.getElementById('progress-ml').textContent = data.ml_checked || 0;
+            document.getElementById('progress-message').textContent = data.message || '';
+
+            if (!polling) {
+                polling = true;
+                pollInterval = setInterval(fetchStatus, 2000);
+            }
+        } else {
+            syncBtn.disabled = false;
+            syncBtn.style.opacity = '1';
+            syncBtn.textContent = 'Run GeoViz Layer Sync Now';
+
+            if (polling) {
+                polling = false;
+                clearInterval(pollInterval);
+            }
+
+            // Keep progress visible briefly after completion
+            if (data.status === 'success' || data.status === 'failed') {
+                progressSection.style.display = 'block';
+                const pct = data.progress || 0;
+                const bar = document.getElementById('progress-bar');
+                bar.style.width = pct + '%';
+                bar.textContent = pct + '%';
+                if (data.status === 'success') {
+                    bar.style.background = 'linear-gradient(90deg, #28a745, #5cb85c)';
+                } else {
+                    bar.style.background = 'linear-gradient(90deg, #dc3545, #e74c3c)';
+                }
+                document.getElementById('progress-step').textContent = data.step || '-';
+                document.getElementById('progress-fetched').textContent = data.fetched || 0;
+                document.getElementById('progress-processed').textContent = data.processed || 0;
+                document.getElementById('progress-ml').textContent = data.ml_checked || 0;
+                document.getElementById('progress-message').textContent = data.message || '';
+            } else {
+                progressSection.style.display = 'none';
+            }
+        }
+    }
+
+    function fetchStatus() {
+        fetch(STATUS_URL, { credentials: 'same-origin' })
+            .then(function(resp) { return resp.json(); })
+            .then(updateUI)
+            .catch(function(err) { console.error('Status poll error:', err); });
+    }
+
+    // Initial load
+    fetchStatus();
+
+    // Start polling if job is running on page load
+    document.getElementById('sync-form').addEventListener('submit', function() {
+        // Start polling after form submit
+        setTimeout(function() {
+            polling = true;
+            pollInterval = setInterval(fetchStatus, 2000);
+            document.getElementById('progress-section').style.display = 'block';
+            document.getElementById('sync-btn').disabled = true;
+            document.getElementById('sync-btn').style.opacity = '0.5';
+            document.getElementById('sync-btn').textContent = 'Sync In Progress...';
+        }, 500);
+    });
+})();
+</script>
+{% endblock %}

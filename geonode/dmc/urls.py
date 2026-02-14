@@ -29,4 +29,8 @@ path('api/addtoodm/', add_data_to_OdmTask.as_view(), name='addToOdmTask'),
 path('api/geonodepublish/<str:filelocation>/', publish_to_geonode.as_view(), name='geonodepublish'),
 path('api/jobstatus/<int:jobid>/', check_active_geonode_job.as_view(), name='jobstatus'),
 
+# Manual trigger for GeoNode layers sync
+path('api/sync-geonode-layers/', TriggerGeonodeLayersSync.as_view(), name='sync_geonode_layers'),
+path('api/sync-geonode-layers/status/', GeonodeSyncStatus.as_view(), name='sync_geonode_layers_status'),
+
 ]
