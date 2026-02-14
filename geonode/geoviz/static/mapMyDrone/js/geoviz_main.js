@@ -406,6 +406,34 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
     .addTo(map)
     .setPosition("topright");
 
+  // Toggle button to hide/show charts, mini-map, navbar, layer control, zoom, draw tools
+  let overlaysVisible = true;
+  L.easyButton(
+    '<i class="bi bi-eye" style="font-size:16px"></i>',
+    (btn, map) => {
+      overlaysVisible = !overlaysVisible;
+      const toggleEls = [
+        document.getElementById('chartCountContainer'),
+        document.getElementById('chartAreaContainer'),
+        document.querySelector('.leaflet-control-minimap'),
+        document.querySelector('#mapD > nav'),
+        document.querySelector('.leaflet-control-layers'),
+        document.querySelector('.leaflet-control-zoom'),
+        document.querySelector('.leaflet-draw'),
+        btnRemoveEdit.getContainer()
+      ];
+      toggleEls.forEach(el => {
+        if (el) el.style.setProperty('display', overlaysVisible ? '' : 'none', 'important');
+      });
+      btn.button.innerHTML = overlaysVisible
+        ? '<i class="bi bi-eye" style="font-size:16px"></i>'
+        : '<i class="bi bi-eye-slash" style="font-size:16px"></i>';
+    },
+    'Toggle overlays'
+  )
+    .addTo(map)
+    .setPosition("topright");
+
   // ecape key to  clear all edit
 
   $(document).keydown(function (event) {
@@ -427,7 +455,14 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
     })
     .then((data) => {
       // Process the parsed JSON data from both responses
-      const [dataGN, dataOtter] = data;
+      const [rawGN, dataOtter] = data;
+
+      // Unwrap layerlist response: {data: [...], last_updated: "..."}
+      const dataGN = rawGN.data || rawGN;
+      if (rawGN.last_updated) {
+        const d = new Date(rawGN.last_updated);
+        window._listUpdatedFormatted = d.toLocaleString('en-GB', {year:'numeric', month:'short', day:'numeric', hour:'2-digit', minute:'2-digit'});
+      }
 
       dataGNmain = [...dataGN];
 
@@ -634,12 +669,17 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
       $("#droneList").dataTable().fnDestroy();
     }
 
+    // Calculate table height dynamically based on table position
+    var tableEl = document.getElementById('droneList');
+    var tableTop = tableEl ? tableEl.getBoundingClientRect().top : 150;
+    var dynScrollY = (window.innerHeight - tableTop - 40) + 'px';
+
     dataTB = new DataTable("#droneList", {
       columns: [
         {
           data: 0,
           title:
-            "Name <small class='text-warning d-none' id='rangeCalHolder'>( Range : <label id='rangeCalRange'></label> )</small>",
+            "Name <small style='font-size:0.6em; color:white; font-weight:normal; font-style:italic;' id='listUpdatedAt'></small> <small class='text-warning d-none' id='rangeCalHolder'>( Range : <label id='rangeCalRange'></label> )</small>",
           // className: "Title",
           render: (data, type, row) => {
             return `
@@ -703,14 +743,34 @@ update_graph_toc_on_drawCreated = (selectedBound) => {
       pageLength: 35,
       paging: true,
       select: true,
-      scrollY: "77vh",
+      scrollY: dynScrollY,
       info: true, // Hide the information about entries
       initComplete: function(settings, json) {
         $(".tooltipClassPsudo").tooltip({
           boundary: "body",
           placement: "top",
         });
-
+        if (window._listUpdatedFormatted) {
+          var el = document.getElementById('listUpdatedAt');
+          if (el) el.textContent = '(List updated: ' + window._listUpdatedFormatted + ')';
+        }
+        // Fit scroll body to exactly fill the visible viewport
+        function fitScrollBody() {
+          var sb = document.querySelector('#droneList_wrapper .dataTables_scrollBody');
+          if (!sb) return;
+          var sbTop = sb.getBoundingClientRect().top;
+          var infoEl = document.querySelector('#droneList_wrapper .dataTables_info');
+          var pageEl = document.querySelector('#droneList_wrapper .dataTables_paginate');
+          var bottomH = Math.max(
+            infoEl ? infoEl.offsetHeight : 0,
+            pageEl ? pageEl.offsetHeight : 0
+          );
+          var h = window.innerHeight - sbTop - bottomH;
+          if (h > 100) sb.style.setProperty('max-height', h + 'px', 'important');
+        }
+        setTimeout(fitScrollBody, 200);
+        setTimeout(fitScrollBody, 600);
+        window.addEventListener('resize', fitScrollBody);
     },
       lengthMenu: [
         [18, 25, 50, -1],

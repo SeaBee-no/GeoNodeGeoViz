@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 import json, requests, os, base64
 import uuid
+from datetime import datetime
 from minio import Minio
 from rest_framework import serializers
 # Create your views here.
@@ -81,7 +82,10 @@ class get_droneFlight_geonode_info (APIView):
             
             #print("path to json >>>>>"+ str(jsonPath) ,flush=True)
             obj = None
-            with open(jsonPath / 'geonodeLayers.json','r') as f:
+            json_file = jsonPath / 'geonodeLayers.json'
+            file_mtime = os.path.getmtime(json_file)
+            last_updated = datetime.fromtimestamp(file_mtime).isoformat()
+            with open(json_file,'r') as f:
                 obj = json.load(f)
             # add coustom attribute to tag the json origin   "jsonorg"
             flightInfo = [
@@ -114,7 +118,7 @@ class get_droneFlight_geonode_info (APIView):
 
           
             #return Response(obj.json()['data'])
-            return Response(flightInfo)
+            return Response({'data': flightInfo, 'last_updated': last_updated})
 
         except Exception as e:
             return Response('NA')

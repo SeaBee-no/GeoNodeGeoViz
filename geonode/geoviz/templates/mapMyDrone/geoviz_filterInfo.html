@@ -3,7 +3,7 @@
 
 
 
-<div class=" overflow-hidden  p-1 w-100 " style="height: 100vh;" id="intro_filter">
+<div class="d-flex flex-column pt-1 px-1 pb-0 w-100 bg-body-tertiary" style="height: 100%;" id="intro_filter">
 
   <div class="card rounded-0 p-0 m-0 mb-2">
     <div class="card-body p-0 m-0 " id="titleCard">
@@ -58,9 +58,10 @@
     </div>
   </div>
 
+  <div class="flex-grow-1 overflow-hidden d-flex flex-column" style="min-height: 0;">
+    <table id="droneList" class="table dataTableStyle table-hover table-striped"></table>
+  </div>
 
-
-  <table id="droneList" class="table dataTableStyle table-hover table-striped"></table>
 </div>
 <!-- <div class=" overflow-y-scroll overflow-x-hidden pt-3 ps-1" style="height: 25vh;">
 
