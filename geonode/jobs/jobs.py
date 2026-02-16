@@ -437,14 +437,13 @@ def schedule_geonodeLayers_api(trigger='scheduled'):
                         })
         
         # Step 5: Save results
-        if total_entries == len(all_resources):
+        diff = abs(total_entries - len(all_resources))
+        finished_time = datetime.now().isoformat()
+        if diff == 0:
             with open(Path.joinpath(jsonPath / 'geonodeLayers.json'), 'w+') as f:
                 json.dump(all_resources, f)
-        
             print(f'Total entries saved: {len(all_resources)}')
             print('Geonode raster layers list fetched >>', flush=True)
-            
-            finished_time = datetime.now().isoformat()
             update_job_status({
                 'status': 'success',
                 'step': 'Completed',
@@ -461,10 +460,30 @@ def schedule_geonodeLayers_api(trigger='scheduled'):
                 'last_scheduled_at': finished_time if trigger == 'scheduled' else last_scheduled_at,
                 'last_manual_at': finished_time if trigger == 'manual' else last_manual_at
             })
+        elif diff == 1:
+            with open(Path.joinpath(jsonPath / 'geonodeLayers.json'), 'w+') as f:
+                json.dump(all_resources, f)
+            print(f'Warning: Total entries mismatch by 1 (expected {total_entries}, got {len(all_resources)})', flush=True)
+            print('Geonode raster layers list fetched >>', flush=True)
+            update_job_status({
+                'status': 'success',
+                'step': 'Completed',
+                'message': f'Warning: Total entries mismatch by 1 (expected {total_entries}, got {len(all_resources)}). Successfully synced {len(all_resources)} resources ({processed_count} processed, {ml_checked_count} ML checked).',
+                'progress': 100,
+                'started_at': start_time,
+                'finished_at': finished_time,
+                'total_entries': total_entries,
+                'fetched': len(all_resources),
+                'processed': processed_count,
+                'ml_checked': ml_checked_count,
+                'error': f'Total entries mismatch by 1 (expected {total_entries}, got {len(all_resources)})',
+                'trigger': trigger,
+                'last_scheduled_at': finished_time if trigger == 'scheduled' else last_scheduled_at,
+                'last_manual_at': finished_time if trigger == 'manual' else last_manual_at
+            })
         else:
             msg = f'Total entries mismatch (expected {total_entries}, got {len(all_resources)})'
             print(f'Error: {msg}', flush=True)
-            finished_time = datetime.now().isoformat()
             update_job_status({
                 'status': 'failed',
                 'step': 'Saving results',
